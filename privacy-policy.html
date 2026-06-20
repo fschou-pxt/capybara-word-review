@@ -9,7 +9,7 @@
       font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
       max-width: 720px;
       margin: 0 auto;
-      padding: 40px 24px 80px;
+      padding: 24px 24px 80px;
       color: #2d2d2d;
       line-height: 1.7;
       background: #fffdf9;
@@ -19,82 +19,684 @@
     .meta { color: #888; font-size: 0.9rem; margin-bottom: 2rem; }
     a { color: #c07030; }
     hr { border: none; border-top: 1px solid #e8ddd0; margin: 2rem 0; }
+    #langbar {
+      display: flex; flex-wrap: wrap; gap: 6px;
+      padding: 12px 0 20px; border-bottom: 1px solid #e8ddd0; margin-bottom: 8px;
+    }
+    #langbar button {
+      font: inherit; font-size: 0.85rem; cursor: pointer;
+      border: 1px solid #e0d3c2; background: #fff; color: #5a3820;
+      border-radius: 999px; padding: 4px 12px;
+    }
+    #langbar button.active { background: #2E8B7A; color: #fff; border-color: #2E8B7A; }
+    body[dir="rtl"] { text-align: right; }
   </style>
 </head>
 <body>
 
+<nav id="langbar"></nav>
+<main id="content"></main>
+
+<script>
+// ── Link constants (shared across languages) ───────────────────────────────
+var L = {
+  gemini: 'https://ai.google.dev/gemini-api/terms',
+  gcloud: 'https://cloud.google.com/terms',
+  apple: 'https://www.apple.com/legal/internet-services/itunes/dev/stdeula/',
+  supabase: 'https://supabase.com/privacy',
+  email: 'ribo.neo.stat@gmail.com'
+};
+
+// ── Per-language content. Each entry: {label, dir, html} ────────────────────
+var POLICIES = {
+"en": { label: "English", html: `
 <h1>Privacy Policy</h1>
 <p class="meta">Word Review · Capybara Around The World<br>Effective date: June 16, 2026</p>
-
 <p>Word Review is a vocabulary learning app that helps you capture and review words and phrases you encounter in daily life. Your privacy matters to us. This policy explains what data we collect, how we use it, and what choices you have.</p>
-
 <hr>
-
 <h2>1. What data we collect</h2>
-
-<p><strong>Vocabulary content you add.</strong> Words, phrases, notes, and images you enter into the app are stored locally on your device. They are only sent to our servers when you explicitly request AI-powered enrichment (examples, pronunciation tips, translations).</p>
-
-<p><strong>App preferences and settings.</strong> Your language preferences, theme selection, review streak, and app settings are stored locally on your device using standard iOS storage (NSUserDefaults / Keychain). They never leave your device.</p>
-
-<p><strong>In-app purchase status.</strong> If you subscribe or make a purchase, Apple processes the transaction. We receive only a confirmation of entitlement status — no payment details, card numbers, or billing information are ever sent to us.</p>
-
-<p><strong>We do not collect</strong> your name, email address, location, contacts, browsing history, or any device identifiers for tracking purposes.</p>
-
+<p><strong>Vocabulary content you add.</strong> Words, phrases, notes, and images you enter are stored locally on your device. They are only sent to our servers when you explicitly request AI-powered enrichment (examples, pronunciation tips, translations).</p>
+<p><strong>App preferences and settings.</strong> Your language preferences, theme, review streak, and settings are stored locally using standard iOS storage (NSUserDefaults / Keychain). They never leave your device.</p>
+<p><strong>In-app purchase status.</strong> If you subscribe or purchase, Apple processes the transaction. We receive only confirmation of entitlement status — no payment details, card numbers, or billing information.</p>
+<p><strong>We do not collect</strong> your name, email, location, contacts, browsing history, or any device identifiers for tracking.</p>
 <hr>
-
 <h2>2. How we use your data</h2>
-
-<p>When you request AI enrichment for a vocabulary item, the word or phrase is sent to our secure backend (a Supabase Edge Function). This is used solely to generate example sentences, pronunciation notes, and contextual tips in your chosen language. We do not store your vocabulary on our servers, log the content of AI requests beyond what is needed for error diagnosis, or use your vocabulary to train any model.</p>
-
-<p>We do not sell, rent, or share your data with advertisers or third-party data brokers.</p>
-
+<p>When you request AI enrichment, the word or phrase is sent to our secure backend (a Supabase Edge Function) solely to generate example sentences, pronunciation notes, and contextual tips in your chosen language. We do not store your vocabulary on our servers, log request content beyond what is needed for error diagnosis, or use your vocabulary to train any model.</p>
+<p>We do not sell, rent, or share your data with advertisers or data brokers.</p>
 <hr>
-
 <h2>3. Third-party services</h2>
-
-<p><strong>Google Gemini API</strong> — Used to generate vocabulary enrichment (examples, tips). Requests are proxied through our backend; your data is subject to <a href="https://ai.google.dev/gemini-api/terms" target="_blank">Google's API Terms of Service</a>.</p>
-
-<p><strong>Google Cloud Text-to-Speech</strong> — Used to pronounce vocabulary items aloud. Audio is cached locally on your device after the first request. Subject to <a href="https://cloud.google.com/terms" target="_blank">Google Cloud Terms of Service</a>.</p>
-
-<p><strong>Apple In-App Purchase / StoreKit</strong> — Handles all payment processing. We never see your payment details. Subject to <a href="https://www.apple.com/legal/internet-services/itunes/dev/stdeula/" target="_blank">Apple's standard EULA</a>.</p>
-
-<p><strong>Supabase</strong> — Hosts our backend proxy for AI requests. Requests are not logged or stored beyond transient processing. Subject to <a href="https://supabase.com/privacy" target="_blank">Supabase's Privacy Policy</a>.</p>
-
+<p><strong>Google Gemini API</strong> — Generates vocabulary enrichment. Requests are proxied through our backend; subject to <a href="${L.gemini}" target="_blank">Google's API Terms</a>.</p>
+<p><strong>Google Cloud Text-to-Speech</strong> — Pronounces vocabulary aloud; audio is cached locally after the first request. Subject to <a href="${L.gcloud}" target="_blank">Google Cloud Terms</a>.</p>
+<p><strong>Apple In-App Purchase / StoreKit</strong> — Handles all payment processing. We never see your payment details. Subject to <a href="${L.apple}" target="_blank">Apple's standard EULA</a>.</p>
+<p><strong>Supabase</strong> — Hosts our backend proxy. Requests are not logged or stored beyond transient processing. Subject to <a href="${L.supabase}" target="_blank">Supabase's Privacy Policy</a>.</p>
 <hr>
-
 <h2>4. Data storage and security</h2>
-
-<p>All vocabulary, settings, and review history are stored locally on your device. Sensitive data such as your own API keys (if you use the Bring Your Own Key feature) are stored in the iOS Keychain, which is encrypted by the operating system.</p>
-
-<p>We do not operate user accounts or a database of your personal vocabulary. If you delete the app, all locally stored data is permanently removed from your device.</p>
-
+<p>All vocabulary, settings, and review history are stored locally on your device. Sensitive data such as your own API keys (Bring Your Own Key) are stored in the iOS Keychain, encrypted by the operating system.</p>
+<p>We do not operate user accounts or a database of your personal vocabulary. Deleting the app permanently removes all locally stored data.</p>
 <hr>
-
 <h2>5. Children's privacy</h2>
-
-<p>Word Review is not directed at children under the age of 13. We do not knowingly collect personal information from children. If you believe a child has provided us with personal information, please contact us so we can delete it.</p>
-
+<p>Word Review is not directed at children under 13. We do not knowingly collect personal information from children. If you believe a child has provided us with personal information, please contact us so we can delete it.</p>
 <hr>
-
 <h2>6. Your rights and choices</h2>
-
-<p><strong>Delete your data.</strong> You can delete individual vocabulary items or entire language profiles from within the app at any time. Deleting the app removes all local data permanently.</p>
-
-<p><strong>Export your data.</strong> The app includes a full export feature (JSON and CSV) so you can take your vocabulary with you at any time.</p>
-
-<p><strong>Opt out of AI features.</strong> All AI enrichment features are opt-in and require an active internet connection. You can use the app entirely offline for review without any data leaving your device.</p>
-
+<p><strong>Delete your data.</strong> You can delete individual items or entire language profiles in the app at any time. Deleting the app removes all local data permanently.</p>
+<p><strong>Export your data.</strong> The app includes a full export feature (JSON and CSV).</p>
+<p><strong>Opt out of AI features.</strong> All AI enrichment is opt-in and requires internet. You can use the app entirely offline for review with no data leaving your device.</p>
 <hr>
-
 <h2>7. Changes to this policy</h2>
-
-<p>We may update this privacy policy from time to time. If we make material changes, we will update the effective date above. Continued use of the app after changes are posted constitutes acceptance of the updated policy.</p>
-
+<p>We may update this policy from time to time. If we make material changes, we will update the effective date above. Continued use after changes are posted constitutes acceptance.</p>
 <hr>
-
 <h2>8. Contact</h2>
+<p>Questions? Reach us at <a href="mailto:${L.email}">${L.email}</a></p>
+`},
 
-<p>Questions or concerns? Reach us at: <a href="mailto:ribo.neo.stat@gmail.com">ribo.neo.stat@gmail.com</a></p>
+"zh-Hans": { label: "简体中文", html: `
+<h1>隐私政策</h1>
+<p class="meta">Word Review · Capybara Around The World<br>生效日期：2026 年 6 月 16 日</p>
+<p>Word Review 是一款词汇学习应用，帮助你记录并复习日常生活中遇到的单词和短语。我们重视你的隐私。本政策说明我们收集哪些数据、如何使用，以及你拥有哪些选择。</p>
+<hr>
+<h2>1. 我们收集的数据</h2>
+<p><strong>你添加的词汇内容。</strong>你输入的单词、短语、备注和图片都保存在你的设备本地。只有当你主动请求 AI 增强（例句、发音提示、翻译）时，才会发送到我们的服务器。</p>
+<p><strong>应用偏好与设置。</strong>你的语言偏好、主题、复习连胜和设置都通过标准 iOS 存储（NSUserDefaults / 钥匙串）保存在本地，绝不会离开你的设备。</p>
+<p><strong>应用内购买状态。</strong>如果你订阅或购买，由 Apple 处理交易。我们只收到权益状态的确认——不会收到任何支付详情、卡号或账单信息。</p>
+<p><strong>我们不会收集</strong>你的姓名、邮箱、位置、通讯录、浏览记录，或任何用于追踪的设备标识符。</p>
+<hr>
+<h2>2. 我们如何使用你的数据</h2>
+<p>当你请求 AI 增强时，该单词或短语会发送到我们的安全后端（Supabase Edge Function），仅用于以你选择的语言生成例句、发音说明和情境提示。我们不会在服务器上保存你的词汇，不会超出错误诊断所需地记录请求内容，也不会用你的词汇训练任何模型。</p>
+<p>我们不会向广告商或数据经纪商出售、出租或共享你的数据。</p>
+<hr>
+<h2>3. 第三方服务</h2>
+<p><strong>Google Gemini API</strong> — 生成词汇增强。请求通过我们的后端代理；适用 <a href="${L.gemini}" target="_blank">Google API 条款</a>。</p>
+<p><strong>Google Cloud 文字转语音</strong> — 朗读词汇；首次请求后音频缓存在本地。适用 <a href="${L.gcloud}" target="_blank">Google Cloud 条款</a>。</p>
+<p><strong>Apple 应用内购买 / StoreKit</strong> — 处理所有支付。我们绝不会看到你的支付详情。适用 <a href="${L.apple}" target="_blank">Apple 标准 EULA</a>。</p>
+<p><strong>Supabase</strong> — 托管我们的后端代理。请求不会被记录或保存（仅临时处理）。适用 <a href="${L.supabase}" target="_blank">Supabase 隐私政策</a>。</p>
+<hr>
+<h2>4. 数据存储与安全</h2>
+<p>所有词汇、设置和复习历史都保存在你的设备本地。敏感数据（如你自带的 API 密钥）保存在 iOS 钥匙串中，由操作系统加密。</p>
+<p>我们不运营用户账户，也不保存你个人词汇的数据库。删除应用会永久移除所有本地数据。</p>
+<hr>
+<h2>5. 儿童隐私</h2>
+<p>Word Review 不面向 13 岁以下儿童。我们不会有意收集儿童的个人信息。如果你认为某位儿童向我们提供了个人信息，请联系我们以便删除。</p>
+<hr>
+<h2>6. 你的权利与选择</h2>
+<p><strong>删除你的数据。</strong>你可以随时在应用中删除单个条目或整个语言档案。删除应用会永久移除所有本地数据。</p>
+<p><strong>导出你的数据。</strong>应用提供完整的导出功能（JSON 和 CSV）。</p>
+<p><strong>选择不使用 AI 功能。</strong>所有 AI 增强均为可选并需要联网。你可以完全离线使用应用进行复习，不会有任何数据离开你的设备。</p>
+<hr>
+<h2>7. 本政策的变更</h2>
+<p>我们可能会不时更新本政策。如有重大变更，我们会更新上方的生效日期。变更发布后继续使用即表示接受。</p>
+<hr>
+<h2>8. 联系我们</h2>
+<p>有疑问？请联系 <a href="mailto:${L.email}">${L.email}</a></p>
+`},
+
+"zh-Hant": { label: "繁體中文", html: `
+<h1>隱私政策</h1>
+<p class="meta">Word Review · Capybara Around The World<br>生效日期：2026 年 6 月 16 日</p>
+<p>Word Review 是一款詞彙學習應用程式，幫助你記錄並複習日常生活中遇到的單字和片語。我們重視你的隱私。本政策說明我們收集哪些資料、如何使用，以及你擁有哪些選擇。</p>
+<hr>
+<h2>1. 我們收集的資料</h2>
+<p><strong>你新增的詞彙內容。</strong>你輸入的單字、片語、筆記和圖片都儲存在你的裝置本機。只有當你主動要求 AI 增強（例句、發音提示、翻譯）時，才會傳送到我們的伺服器。</p>
+<p><strong>應用程式偏好與設定。</strong>你的語言偏好、主題、複習連勝和設定都透過標準 iOS 儲存（NSUserDefaults / 鑰匙圈）儲存在本機，絕不會離開你的裝置。</p>
+<p><strong>應用程式內購買狀態。</strong>如果你訂閱或購買，由 Apple 處理交易。我們只收到權益狀態的確認——不會收到任何付款詳情、卡號或帳單資訊。</p>
+<p><strong>我們不會收集</strong>你的姓名、電子郵件、位置、通訊錄、瀏覽紀錄，或任何用於追蹤的裝置識別碼。</p>
+<hr>
+<h2>2. 我們如何使用你的資料</h2>
+<p>當你要求 AI 增強時，該單字或片語會傳送到我們的安全後端（Supabase Edge Function），僅用於以你選擇的語言產生例句、發音說明和情境提示。我們不會在伺服器上儲存你的詞彙，不會超出錯誤診斷所需地記錄請求內容，也不會用你的詞彙訓練任何模型。</p>
+<p>我們不會向廣告商或資料仲介出售、出租或分享你的資料。</p>
+<hr>
+<h2>3. 第三方服務</h2>
+<p><strong>Google Gemini API</strong> — 產生詞彙增強。請求透過我們的後端代理；適用 <a href="${L.gemini}" target="_blank">Google API 條款</a>。</p>
+<p><strong>Google Cloud 文字轉語音</strong> — 朗讀詞彙；首次請求後音訊快取在本機。適用 <a href="${L.gcloud}" target="_blank">Google Cloud 條款</a>。</p>
+<p><strong>Apple 應用程式內購買 / StoreKit</strong> — 處理所有付款。我們絕不會看到你的付款詳情。適用 <a href="${L.apple}" target="_blank">Apple 標準 EULA</a>。</p>
+<p><strong>Supabase</strong> — 託管我們的後端代理。請求不會被記錄或儲存（僅暫時處理）。適用 <a href="${L.supabase}" target="_blank">Supabase 隱私政策</a>。</p>
+<hr>
+<h2>4. 資料儲存與安全</h2>
+<p>所有詞彙、設定和複習紀錄都儲存在你的裝置本機。敏感資料（如你自備的 API 金鑰）儲存在 iOS 鑰匙圈中，由作業系統加密。</p>
+<p>我們不營運使用者帳戶，也不儲存你個人詞彙的資料庫。刪除應用程式會永久移除所有本機資料。</p>
+<hr>
+<h2>5. 兒童隱私</h2>
+<p>Word Review 不以 13 歲以下兒童為對象。我們不會故意收集兒童的個人資訊。如果你認為某位兒童向我們提供了個人資訊，請聯絡我們以便刪除。</p>
+<hr>
+<h2>6. 你的權利與選擇</h2>
+<p><strong>刪除你的資料。</strong>你可以隨時在應用程式中刪除單個項目或整個語言檔案。刪除應用程式會永久移除所有本機資料。</p>
+<p><strong>匯出你的資料。</strong>應用程式提供完整的匯出功能（JSON 和 CSV）。</p>
+<p><strong>選擇不使用 AI 功能。</strong>所有 AI 增強均為選用並需要網路。你可以完全離線使用應用程式進行複習，不會有任何資料離開你的裝置。</p>
+<hr>
+<h2>7. 本政策的變更</h2>
+<p>我們可能會不時更新本政策。如有重大變更，我們會更新上方的生效日期。變更發布後繼續使用即表示接受。</p>
+<hr>
+<h2>8. 聯絡我們</h2>
+<p>有疑問？請聯絡 <a href="mailto:${L.email}">${L.email}</a></p>
+`},
+
+"ja": { label: "日本語", html: `
+<h1>プライバシーポリシー</h1>
+<p class="meta">Word Review · Capybara Around The World<br>発効日：2026年6月16日</p>
+<p>Word Review は、日常で出会った単語やフレーズを記録して復習できる語彙学習アプリです。私たちはあなたのプライバシーを大切にします。本ポリシーでは、収集するデータ、その使い方、そしてあなたの選択肢について説明します。</p>
+<hr>
+<h2>1. 収集するデータ</h2>
+<p><strong>あなたが追加した語彙。</strong>入力した単語・フレーズ・メモ・画像は、あなたの端末内にローカル保存されます。AI による補強（例文・発音のヒント・翻訳）を明示的に要求したときだけ、サーバーへ送信されます。</p>
+<p><strong>アプリの設定。</strong>言語設定・テーマ・連続記録・各種設定は、標準の iOS ストレージ（NSUserDefaults / キーチェーン）でローカル保存され、端末から外に出ることはありません。</p>
+<p><strong>アプリ内課金の状態。</strong>購読・購入時は Apple が取引を処理します。私たちは権利の有無の確認だけを受け取り、支払い情報・カード番号・請求情報を受け取ることはありません。</p>
+<p><strong>収集しないもの：</strong>氏名・メールアドレス・位置情報・連絡先・閲覧履歴、追跡目的の端末識別子。</p>
+<hr>
+<h2>2. データの使い方</h2>
+<p>AI 補強を要求すると、その単語やフレーズは安全なバックエンド（Supabase Edge Function）へ送信され、選択した言語で例文・発音メモ・文脈ヒントを生成する目的のみに使われます。語彙をサーバーに保存することも、エラー診断に必要な範囲を超えて内容を記録することも、語彙をモデルの学習に使うこともありません。</p>
+<p>あなたのデータを広告主やデータ業者に販売・貸与・共有することはありません。</p>
+<hr>
+<h2>3. 第三者サービス</h2>
+<p><strong>Google Gemini API</strong> — 語彙補強の生成に使用。リクエストはバックエンド経由でプロキシされます。<a href="${L.gemini}" target="_blank">Google API 利用規約</a>が適用されます。</p>
+<p><strong>Google Cloud Text-to-Speech</strong> — 語彙の読み上げに使用。音声は初回リクエスト後に端末内へキャッシュされます。<a href="${L.gcloud}" target="_blank">Google Cloud 利用規約</a>が適用されます。</p>
+<p><strong>Apple アプリ内課金 / StoreKit</strong> — すべての決済を処理します。支払い情報を私たちが見ることはありません。<a href="${L.apple}" target="_blank">Apple 標準 EULA</a>が適用されます。</p>
+<p><strong>Supabase</strong> — バックエンドのプロキシをホスト。リクエストは一時的な処理を超えて記録・保存されません。<a href="${L.supabase}" target="_blank">Supabase プライバシーポリシー</a>が適用されます。</p>
+<hr>
+<h2>4. データの保存とセキュリティ</h2>
+<p>すべての語彙・設定・復習履歴は端末内にローカル保存されます。自分の API キー（Bring Your Own Key）などの機微なデータは、OS により暗号化される iOS キーチェーンに保存されます。</p>
+<p>私たちはユーザーアカウントを運用せず、あなたの個人語彙のデータベースも持ちません。アプリを削除すると、ローカルのデータはすべて完全に削除されます。</p>
+<hr>
+<h2>5. 子どものプライバシー</h2>
+<p>Word Review は 13 歳未満の子どもを対象としていません。子どもの個人情報を故意に収集することはありません。子どもが個人情報を提供したと思われる場合は、削除できるようご連絡ください。</p>
+<hr>
+<h2>6. あなたの権利と選択</h2>
+<p><strong>データの削除。</strong>個々の項目や言語プロフィール全体を、アプリ内でいつでも削除できます。アプリを削除すると、ローカルデータはすべて完全に削除されます。</p>
+<p><strong>データの書き出し。</strong>アプリには完全なエクスポート機能（JSON・CSV）があります。</p>
+<p><strong>AI 機能を使わない選択。</strong>すべての AI 補強はオプトインで、インターネットが必要です。完全オフラインで復習に使え、その場合データが端末から出ることはありません。</p>
+<hr>
+<h2>7. 本ポリシーの変更</h2>
+<p>本ポリシーは随時更新することがあります。重要な変更を行う場合は、上記の発効日を更新します。変更の掲載後も使用を続けた場合は、同意したものとみなされます。</p>
+<hr>
+<h2>8. お問い合わせ</h2>
+<p>ご質問は <a href="mailto:${L.email}">${L.email}</a> まで。</p>
+`},
+
+"ko": { label: "한국어", html: `
+<h1>개인정보 처리방침</h1>
+<p class="meta">Word Review · Capybara Around The World<br>시행일: 2026년 6월 16일</p>
+<p>Word Review는 일상에서 만나는 단어와 표현을 기록하고 복습하도록 돕는 어휘 학습 앱입니다. 우리는 당신의 개인정보를 소중히 여깁니다. 본 방침은 어떤 데이터를 수집하고 어떻게 사용하는지, 그리고 당신에게 어떤 선택권이 있는지 설명합니다.</p>
+<hr>
+<h2>1. 수집하는 데이터</h2>
+<p><strong>당신이 추가한 어휘.</strong>입력한 단어, 표현, 메모, 이미지는 기기에 로컬로 저장됩니다. AI 보강(예문, 발음 팁, 번역)을 직접 요청할 때만 서버로 전송됩니다.</p>
+<p><strong>앱 환경설정.</strong>언어 설정, 테마, 복습 연속 기록, 설정은 표준 iOS 저장소(NSUserDefaults / 키체인)에 로컬로 저장되며 기기를 떠나지 않습니다.</p>
+<p><strong>인앱 구매 상태.</strong>구독 또는 구매 시 Apple이 거래를 처리합니다. 우리는 권한 상태 확인만 받으며 결제 정보, 카드 번호, 청구 정보는 받지 않습니다.</p>
+<p><strong>수집하지 않는 것:</strong>이름, 이메일, 위치, 연락처, 검색 기록 또는 추적용 기기 식별자.</p>
+<hr>
+<h2>2. 데이터 사용 방법</h2>
+<p>AI 보강을 요청하면 해당 단어나 표현이 보안 백엔드(Supabase Edge Function)로 전송되어, 선택한 언어로 예문, 발음 메모, 맥락 팁을 생성하는 데에만 사용됩니다. 우리는 어휘를 서버에 저장하지 않으며, 오류 진단에 필요한 범위를 넘어 요청 내용을 기록하지 않고, 어휘를 어떤 모델 학습에도 사용하지 않습니다.</p>
+<p>우리는 당신의 데이터를 광고주나 데이터 브로커에게 판매, 대여 또는 공유하지 않습니다.</p>
+<hr>
+<h2>3. 제3자 서비스</h2>
+<p><strong>Google Gemini API</strong> — 어휘 보강 생성. 요청은 백엔드를 통해 프록시됩니다. <a href="${L.gemini}" target="_blank">Google API 약관</a> 적용.</p>
+<p><strong>Google Cloud Text-to-Speech</strong> — 어휘 발음. 음성은 첫 요청 후 기기에 캐시됩니다. <a href="${L.gcloud}" target="_blank">Google Cloud 약관</a> 적용.</p>
+<p><strong>Apple 인앱 구매 / StoreKit</strong> — 모든 결제를 처리합니다. 우리는 결제 정보를 볼 수 없습니다. <a href="${L.apple}" target="_blank">Apple 표준 EULA</a> 적용.</p>
+<p><strong>Supabase</strong> — 백엔드 프록시 호스팅. 요청은 일시적 처리 외에 기록·저장되지 않습니다. <a href="${L.supabase}" target="_blank">Supabase 개인정보 처리방침</a> 적용.</p>
+<hr>
+<h2>4. 데이터 저장 및 보안</h2>
+<p>모든 어휘, 설정, 복습 기록은 기기에 로컬로 저장됩니다. 본인 API 키(Bring Your Own Key) 같은 민감한 데이터는 운영체제가 암호화하는 iOS 키체인에 저장됩니다.</p>
+<p>우리는 사용자 계정이나 개인 어휘 데이터베이스를 운영하지 않습니다. 앱을 삭제하면 모든 로컬 데이터가 영구적으로 제거됩니다.</p>
+<hr>
+<h2>5. 아동의 개인정보</h2>
+<p>Word Review는 만 13세 미만 아동을 대상으로 하지 않습니다. 우리는 아동의 개인정보를 고의로 수집하지 않습니다. 아동이 개인정보를 제공했다고 생각되면 삭제할 수 있도록 연락해 주세요.</p>
+<hr>
+<h2>6. 당신의 권리와 선택</h2>
+<p><strong>데이터 삭제.</strong>앱에서 개별 항목이나 언어 프로필 전체를 언제든 삭제할 수 있습니다. 앱을 삭제하면 모든 로컬 데이터가 영구적으로 제거됩니다.</p>
+<p><strong>데이터 내보내기.</strong>앱에는 전체 내보내기 기능(JSON 및 CSV)이 있습니다.</p>
+<p><strong>AI 기능 사용 안 함.</strong>모든 AI 보강은 선택 사항이며 인터넷이 필요합니다. 완전히 오프라인으로 복습에 사용할 수 있으며, 이 경우 데이터가 기기를 떠나지 않습니다.</p>
+<hr>
+<h2>7. 방침 변경</h2>
+<p>본 방침은 수시로 업데이트될 수 있습니다. 중요한 변경이 있으면 위의 시행일을 갱신합니다. 변경 게시 후 계속 사용하면 동의한 것으로 간주됩니다.</p>
+<hr>
+<h2>8. 문의</h2>
+<p>궁금한 점은 <a href="mailto:${L.email}">${L.email}</a> 로 연락해 주세요.</p>
+`},
+
+"es": { label: "Español", html: `
+<h1>Política de privacidad</h1>
+<p class="meta">Word Review · Capybara Around The World<br>Fecha de entrada en vigor: 16 de junio de 2026</p>
+<p>Word Review es una app de aprendizaje de vocabulario que te ayuda a guardar y repasar palabras y frases que encuentras a diario. Tu privacidad nos importa. Esta política explica qué datos recopilamos, cómo los usamos y qué opciones tienes.</p>
+<hr>
+<h2>1. Qué datos recopilamos</h2>
+<p><strong>El vocabulario que añades.</strong> Las palabras, frases, notas e imágenes que introduces se guardan localmente en tu dispositivo. Solo se envían a nuestros servidores cuando solicitas explícitamente el enriquecimiento con IA (ejemplos, consejos de pronunciación, traducciones).</p>
+<p><strong>Preferencias y ajustes.</strong> Tus preferencias de idioma, tema, racha de repaso y ajustes se guardan localmente con el almacenamiento estándar de iOS (NSUserDefaults / Keychain). Nunca salen de tu dispositivo.</p>
+<p><strong>Estado de compras dentro de la app.</strong> Si te suscribes o compras, Apple procesa la transacción. Solo recibimos la confirmación del estado de tu acceso, sin datos de pago, números de tarjeta ni información de facturación.</p>
+<p><strong>No recopilamos</strong> tu nombre, correo, ubicación, contactos, historial de navegación ni identificadores del dispositivo para seguimiento.</p>
+<hr>
+<h2>2. Cómo usamos tus datos</h2>
+<p>Cuando solicitas enriquecimiento con IA, la palabra o frase se envía a nuestro backend seguro (una Supabase Edge Function) únicamente para generar oraciones de ejemplo, notas de pronunciación y consejos contextuales en el idioma que elijas. No guardamos tu vocabulario en nuestros servidores, no registramos el contenido más allá de lo necesario para diagnosticar errores, ni usamos tu vocabulario para entrenar ningún modelo.</p>
+<p>No vendemos, alquilamos ni compartimos tus datos con anunciantes ni intermediarios de datos.</p>
+<hr>
+<h2>3. Servicios de terceros</h2>
+<p><strong>Google Gemini API</strong> — Genera el enriquecimiento. Las solicitudes pasan por nuestro backend; sujeto a los <a href="${L.gemini}" target="_blank">Términos de la API de Google</a>.</p>
+<p><strong>Google Cloud Text-to-Speech</strong> — Pronuncia el vocabulario; el audio se almacena localmente tras la primera solicitud. Sujeto a los <a href="${L.gcloud}" target="_blank">Términos de Google Cloud</a>.</p>
+<p><strong>Apple In-App Purchase / StoreKit</strong> — Gestiona todos los pagos. Nunca vemos tus datos de pago. Sujeto al <a href="${L.apple}" target="_blank">EULA estándar de Apple</a>.</p>
+<p><strong>Supabase</strong> — Aloja nuestro proxy de backend. Las solicitudes no se registran ni se almacenan más allá del procesamiento transitorio. Sujeto a la <a href="${L.supabase}" target="_blank">Política de privacidad de Supabase</a>.</p>
+<hr>
+<h2>4. Almacenamiento y seguridad de los datos</h2>
+<p>Todo el vocabulario, los ajustes y el historial de repaso se guardan localmente en tu dispositivo. Los datos sensibles, como tus propias claves de API (Trae tu propia clave), se guardan en el Keychain de iOS, cifrado por el sistema operativo.</p>
+<p>No operamos cuentas de usuario ni una base de datos de tu vocabulario personal. Eliminar la app borra de forma permanente todos los datos locales.</p>
+<hr>
+<h2>5. Privacidad de los menores</h2>
+<p>Word Review no está dirigida a menores de 13 años. No recopilamos a sabiendas información personal de menores. Si crees que un menor nos ha facilitado información personal, contáctanos para eliminarla.</p>
+<hr>
+<h2>6. Tus derechos y opciones</h2>
+<p><strong>Eliminar tus datos.</strong> Puedes eliminar elementos individuales o perfiles de idioma completos en la app en cualquier momento. Eliminar la app borra todos los datos locales de forma permanente.</p>
+<p><strong>Exportar tus datos.</strong> La app incluye una función de exportación completa (JSON y CSV).</p>
+<p><strong>Renunciar a las funciones de IA.</strong> Todo el enriquecimiento con IA es opcional y requiere internet. Puedes usar la app totalmente sin conexión para repasar, sin que ningún dato salga de tu dispositivo.</p>
+<hr>
+<h2>7. Cambios en esta política</h2>
+<p>Podemos actualizar esta política de vez en cuando. Si hacemos cambios importantes, actualizaremos la fecha de entrada en vigor anterior. El uso continuado tras la publicación de los cambios constituye su aceptación.</p>
+<hr>
+<h2>8. Contacto</h2>
+<p>¿Preguntas? Escríbenos a <a href="mailto:${L.email}">${L.email}</a></p>
+`},
+
+"fr": { label: "Français", html: `
+<h1>Politique de confidentialité</h1>
+<p class="meta">Word Review · Capybara Around The World<br>Date d'entrée en vigueur : 16 juin 2026</p>
+<p>Word Review est une application d'apprentissage du vocabulaire qui t'aide à noter et réviser les mots et expressions rencontrés au quotidien. Ta vie privée compte pour nous. Cette politique explique quelles données nous collectons, comment nous les utilisons et quels choix tu as.</p>
+<hr>
+<h2>1. Données que nous collectons</h2>
+<p><strong>Le vocabulaire que tu ajoutes.</strong> Les mots, expressions, notes et images que tu saisis sont stockés localement sur ton appareil. Ils ne sont envoyés à nos serveurs que lorsque tu demandes explicitement un enrichissement par IA (exemples, conseils de prononciation, traductions).</p>
+<p><strong>Préférences et réglages.</strong> Tes préférences de langue, ton thème, ta série de révision et tes réglages sont stockés localement via le stockage standard d'iOS (NSUserDefaults / Trousseau). Ils ne quittent jamais ton appareil.</p>
+<p><strong>Statut des achats intégrés.</strong> Si tu t'abonnes ou achètes, Apple traite la transaction. Nous recevons uniquement la confirmation de ton statut d'accès, sans détails de paiement, numéros de carte ni informations de facturation.</p>
+<p><strong>Nous ne collectons pas</strong> ton nom, e-mail, position, contacts, historique de navigation ni aucun identifiant d'appareil à des fins de suivi.</p>
+<hr>
+<h2>2. Comment nous utilisons tes données</h2>
+<p>Lorsque tu demandes un enrichissement par IA, le mot ou l'expression est envoyé à notre backend sécurisé (une Supabase Edge Function), uniquement pour générer des phrases d'exemple, des notes de prononciation et des conseils contextuels dans la langue choisie. Nous ne stockons pas ton vocabulaire sur nos serveurs, ne journalisons pas le contenu au-delà de ce qui est nécessaire au diagnostic d'erreurs, et n'utilisons pas ton vocabulaire pour entraîner un quelconque modèle.</p>
+<p>Nous ne vendons, ne louons ni ne partageons tes données avec des annonceurs ou des courtiers en données.</p>
+<hr>
+<h2>3. Services tiers</h2>
+<p><strong>API Google Gemini</strong> — Génère l'enrichissement. Les requêtes passent par notre backend ; soumises aux <a href="${L.gemini}" target="_blank">Conditions de l'API Google</a>.</p>
+<p><strong>Google Cloud Text-to-Speech</strong> — Prononce le vocabulaire ; l'audio est mis en cache localement après la première requête. Soumis aux <a href="${L.gcloud}" target="_blank">Conditions de Google Cloud</a>.</p>
+<p><strong>Achats intégrés Apple / StoreKit</strong> — Gère tous les paiements. Nous ne voyons jamais tes informations de paiement. Soumis au <a href="${L.apple}" target="_blank">CLUF standard d'Apple</a>.</p>
+<p><strong>Supabase</strong> — Héberge notre proxy backend. Les requêtes ne sont ni journalisées ni stockées au-delà d'un traitement transitoire. Soumis à la <a href="${L.supabase}" target="_blank">Politique de confidentialité de Supabase</a>.</p>
+<hr>
+<h2>4. Stockage et sécurité des données</h2>
+<p>Tout le vocabulaire, les réglages et l'historique de révision sont stockés localement sur ton appareil. Les données sensibles, comme tes propres clés d'API (Apporte ta clé), sont stockées dans le Trousseau iOS, chiffré par le système d'exploitation.</p>
+<p>Nous n'exploitons pas de comptes utilisateurs ni de base de données de ton vocabulaire personnel. Supprimer l'application efface définitivement toutes les données locales.</p>
+<hr>
+<h2>5. Vie privée des enfants</h2>
+<p>Word Review ne s'adresse pas aux enfants de moins de 13 ans. Nous ne collectons pas sciemment d'informations personnelles d'enfants. Si tu penses qu'un enfant nous a fourni des informations personnelles, contacte-nous pour que nous les supprimions.</p>
+<hr>
+<h2>6. Tes droits et tes choix</h2>
+<p><strong>Supprimer tes données.</strong> Tu peux supprimer des éléments individuels ou des profils de langue entiers dans l'app à tout moment. Supprimer l'app efface définitivement toutes les données locales.</p>
+<p><strong>Exporter tes données.</strong> L'app inclut une fonction d'exportation complète (JSON et CSV).</p>
+<p><strong>Refuser les fonctions d'IA.</strong> Tout l'enrichissement par IA est optionnel et nécessite internet. Tu peux utiliser l'app entièrement hors ligne pour réviser, sans qu'aucune donnée ne quitte ton appareil.</p>
+<hr>
+<h2>7. Modifications de cette politique</h2>
+<p>Nous pouvons mettre à jour cette politique de temps à autre. En cas de changements importants, nous mettrons à jour la date d'entrée en vigueur ci-dessus. La poursuite de l'utilisation après publication des changements vaut acceptation.</p>
+<hr>
+<h2>8. Contact</h2>
+<p>Des questions ? Écris-nous à <a href="mailto:${L.email}">${L.email}</a></p>
+`},
+
+"de": { label: "Deutsch", html: `
+<h1>Datenschutzrichtlinie</h1>
+<p class="meta">Word Review · Capybara Around The World<br>Gültig ab: 16. Juni 2026</p>
+<p>Word Review ist eine Vokabel-Lern-App, die dir hilft, Wörter und Wendungen aus dem Alltag festzuhalten und zu wiederholen. Deine Privatsphäre ist uns wichtig. Diese Richtlinie erklärt, welche Daten wir erheben, wie wir sie nutzen und welche Wahlmöglichkeiten du hast.</p>
+<hr>
+<h2>1. Welche Daten wir erheben</h2>
+<p><strong>Von dir hinzugefügte Vokabeln.</strong> Wörter, Wendungen, Notizen und Bilder, die du eingibst, werden lokal auf deinem Gerät gespeichert. Sie werden nur an unsere Server gesendet, wenn du ausdrücklich eine KI-Anreicherung (Beispiele, Aussprachetipps, Übersetzungen) anforderst.</p>
+<p><strong>Einstellungen.</strong> Deine Spracheinstellungen, das Design, deine Wiederholungsserie und Einstellungen werden lokal über den Standard-iOS-Speicher (NSUserDefaults / Schlüsselbund) gespeichert und verlassen dein Gerät nie.</p>
+<p><strong>Status von In-App-Käufen.</strong> Wenn du abonnierst oder kaufst, wickelt Apple die Transaktion ab. Wir erhalten nur die Bestätigung deines Berechtigungsstatus – keine Zahlungsdaten, Kartennummern oder Rechnungsinformationen.</p>
+<p><strong>Wir erheben nicht</strong> deinen Namen, deine E-Mail, deinen Standort, Kontakte, deinen Browserverlauf oder Gerätekennungen zu Tracking-Zwecken.</p>
+<hr>
+<h2>2. Wie wir deine Daten nutzen</h2>
+<p>Wenn du eine KI-Anreicherung anforderst, wird das Wort oder die Wendung an unser sicheres Backend (eine Supabase Edge Function) gesendet – ausschließlich, um Beispielsätze, Aussprachehinweise und kontextbezogene Tipps in deiner gewählten Sprache zu erstellen. Wir speichern deine Vokabeln nicht auf unseren Servern, protokollieren Inhalte nur im für die Fehlerdiagnose nötigen Umfang und nutzen deine Vokabeln nicht zum Training irgendeines Modells.</p>
+<p>Wir verkaufen, vermieten oder teilen deine Daten nicht mit Werbetreibenden oder Datenhändlern.</p>
+<hr>
+<h2>3. Drittanbieterdienste</h2>
+<p><strong>Google Gemini API</strong> — Erstellt die Anreicherung. Anfragen laufen über unser Backend; es gelten die <a href="${L.gemini}" target="_blank">Google-API-Bedingungen</a>.</p>
+<p><strong>Google Cloud Text-to-Speech</strong> — Spricht Vokabeln vor; Audio wird nach der ersten Anfrage lokal zwischengespeichert. Es gelten die <a href="${L.gcloud}" target="_blank">Google-Cloud-Bedingungen</a>.</p>
+<p><strong>Apple In-App-Kauf / StoreKit</strong> — Wickelt alle Zahlungen ab. Wir sehen deine Zahlungsdaten nie. Es gilt die <a href="${L.apple}" target="_blank">Standard-EULA von Apple</a>.</p>
+<p><strong>Supabase</strong> — Hostet unseren Backend-Proxy. Anfragen werden über die vorübergehende Verarbeitung hinaus nicht protokolliert oder gespeichert. Es gilt die <a href="${L.supabase}" target="_blank">Datenschutzrichtlinie von Supabase</a>.</p>
+<hr>
+<h2>4. Datenspeicherung und Sicherheit</h2>
+<p>Alle Vokabeln, Einstellungen und der Wiederholungsverlauf werden lokal auf deinem Gerät gespeichert. Sensible Daten wie deine eigenen API-Schlüssel (Bring Your Own Key) werden im iOS-Schlüsselbund gespeichert, der vom Betriebssystem verschlüsselt wird.</p>
+<p>Wir betreiben keine Benutzerkonten und keine Datenbank deiner persönlichen Vokabeln. Beim Löschen der App werden alle lokal gespeicherten Daten dauerhaft entfernt.</p>
+<hr>
+<h2>5. Datenschutz für Kinder</h2>
+<p>Word Review richtet sich nicht an Kinder unter 13 Jahren. Wir erheben nicht wissentlich personenbezogene Daten von Kindern. Wenn du glaubst, dass ein Kind uns personenbezogene Daten übermittelt hat, kontaktiere uns, damit wir sie löschen.</p>
+<hr>
+<h2>6. Deine Rechte und Wahlmöglichkeiten</h2>
+<p><strong>Daten löschen.</strong> Du kannst einzelne Einträge oder ganze Sprachprofile jederzeit in der App löschen. Beim Löschen der App werden alle lokalen Daten dauerhaft entfernt.</p>
+<p><strong>Daten exportieren.</strong> Die App bietet eine vollständige Exportfunktion (JSON und CSV).</p>
+<p><strong>KI-Funktionen ablehnen.</strong> Jede KI-Anreicherung ist optional und benötigt Internet. Du kannst die App vollständig offline zum Wiederholen nutzen, ohne dass Daten dein Gerät verlassen.</p>
+<hr>
+<h2>7. Änderungen dieser Richtlinie</h2>
+<p>Wir können diese Richtlinie von Zeit zu Zeit aktualisieren. Bei wesentlichen Änderungen aktualisieren wir das obige Gültigkeitsdatum. Die fortgesetzte Nutzung nach Veröffentlichung der Änderungen gilt als Zustimmung.</p>
+<hr>
+<h2>8. Kontakt</h2>
+<p>Fragen? Erreiche uns unter <a href="mailto:${L.email}">${L.email}</a></p>
+`},
+
+"it": { label: "Italiano", html: `
+<h1>Informativa sulla privacy</h1>
+<p class="meta">Word Review · Capybara Around The World<br>Data di entrata in vigore: 16 giugno 2026</p>
+<p>Word Review è un'app per imparare il lessico che ti aiuta a salvare e ripassare parole ed espressioni che incontri ogni giorno. La tua privacy è importante per noi. Questa informativa spiega quali dati raccogliamo, come li usiamo e quali scelte hai.</p>
+<hr>
+<h2>1. Quali dati raccogliamo</h2>
+<p><strong>Il lessico che aggiungi.</strong> Le parole, le frasi, le note e le immagini che inserisci sono salvate localmente sul tuo dispositivo. Vengono inviate ai nostri server solo quando richiedi esplicitamente l'arricchimento con IA (esempi, consigli di pronuncia, traduzioni).</p>
+<p><strong>Preferenze e impostazioni.</strong> Le tue preferenze di lingua, il tema, la serie di ripasso e le impostazioni sono salvate localmente con l'archiviazione standard di iOS (NSUserDefaults / Portachiavi). Non lasciano mai il tuo dispositivo.</p>
+<p><strong>Stato degli acquisti in-app.</strong> Se ti abboni o acquisti, è Apple a gestire la transazione. Riceviamo solo la conferma dello stato del tuo accesso, senza dati di pagamento, numeri di carta o informazioni di fatturazione.</p>
+<p><strong>Non raccogliamo</strong> il tuo nome, l'e-mail, la posizione, i contatti, la cronologia di navigazione né identificatori del dispositivo per il tracciamento.</p>
+<hr>
+<h2>2. Come usiamo i tuoi dati</h2>
+<p>Quando richiedi l'arricchimento con IA, la parola o la frase viene inviata al nostro backend sicuro (una Supabase Edge Function) al solo scopo di generare frasi di esempio, note di pronuncia e suggerimenti contestuali nella lingua scelta. Non conserviamo il tuo lessico sui nostri server, non registriamo il contenuto oltre quanto necessario alla diagnosi degli errori e non usiamo il tuo lessico per addestrare alcun modello.</p>
+<p>Non vendiamo, noleggiamo né condividiamo i tuoi dati con inserzionisti o intermediari di dati.</p>
+<hr>
+<h2>3. Servizi di terze parti</h2>
+<p><strong>Google Gemini API</strong> — Genera l'arricchimento. Le richieste passano dal nostro backend; soggette ai <a href="${L.gemini}" target="_blank">Termini dell'API di Google</a>.</p>
+<p><strong>Google Cloud Text-to-Speech</strong> — Pronuncia il lessico; l'audio viene memorizzato localmente dopo la prima richiesta. Soggetto ai <a href="${L.gcloud}" target="_blank">Termini di Google Cloud</a>.</p>
+<p><strong>Acquisti in-app Apple / StoreKit</strong> — Gestisce tutti i pagamenti. Non vediamo mai i tuoi dati di pagamento. Soggetto all'<a href="${L.apple}" target="_blank">EULA standard di Apple</a>.</p>
+<p><strong>Supabase</strong> — Ospita il nostro proxy di backend. Le richieste non vengono registrate o conservate oltre l'elaborazione transitoria. Soggetto all'<a href="${L.supabase}" target="_blank">Informativa sulla privacy di Supabase</a>.</p>
+<hr>
+<h2>4. Conservazione e sicurezza dei dati</h2>
+<p>Tutto il lessico, le impostazioni e la cronologia di ripasso sono salvati localmente sul tuo dispositivo. I dati sensibili, come le tue chiavi API (Porta la tua chiave), sono salvati nel Portachiavi iOS, cifrato dal sistema operativo.</p>
+<p>Non gestiamo account utente né un database del tuo lessico personale. Eliminando l'app, tutti i dati locali vengono rimossi in modo permanente.</p>
+<hr>
+<h2>5. Privacy dei minori</h2>
+<p>Word Review non è rivolta a minori di 13 anni. Non raccogliamo consapevolmente informazioni personali dai minori. Se ritieni che un minore ci abbia fornito informazioni personali, contattaci per eliminarle.</p>
+<hr>
+<h2>6. I tuoi diritti e le tue scelte</h2>
+<p><strong>Elimina i tuoi dati.</strong> Puoi eliminare singoli elementi o interi profili linguistici nell'app in qualsiasi momento. Eliminando l'app, tutti i dati locali vengono rimossi in modo permanente.</p>
+<p><strong>Esporta i tuoi dati.</strong> L'app include una funzione di esportazione completa (JSON e CSV).</p>
+<p><strong>Rinuncia alle funzioni IA.</strong> Ogni arricchimento con IA è facoltativo e richiede internet. Puoi usare l'app completamente offline per il ripasso, senza che alcun dato lasci il tuo dispositivo.</p>
+<hr>
+<h2>7. Modifiche a questa informativa</h2>
+<p>Potremmo aggiornare questa informativa di tanto in tanto. In caso di modifiche sostanziali, aggiorneremo la data di entrata in vigore qui sopra. L'uso continuato dopo la pubblicazione delle modifiche ne costituisce accettazione.</p>
+<hr>
+<h2>8. Contatti</h2>
+<p>Domande? Scrivici a <a href="mailto:${L.email}">${L.email}</a></p>
+`},
+
+"pt-BR": { label: "Português", html: `
+<h1>Política de Privacidade</h1>
+<p class="meta">Word Review · Capybara Around The World<br>Data de vigência: 16 de junho de 2026</p>
+<p>O Word Review é um app de aprendizado de vocabulário que ajuda você a guardar e revisar palavras e frases que encontra no dia a dia. Sua privacidade é importante para nós. Esta política explica quais dados coletamos, como os usamos e quais escolhas você tem.</p>
+<hr>
+<h2>1. Quais dados coletamos</h2>
+<p><strong>O vocabulário que você adiciona.</strong> As palavras, frases, notas e imagens que você insere ficam armazenadas localmente no seu dispositivo. Só são enviadas aos nossos servidores quando você solicita explicitamente o enriquecimento com IA (exemplos, dicas de pronúncia, traduções).</p>
+<p><strong>Preferências e ajustes.</strong> Suas preferências de idioma, tema, sequência de revisão e ajustes ficam armazenados localmente com o armazenamento padrão do iOS (NSUserDefaults / Keychain). Nunca saem do seu dispositivo.</p>
+<p><strong>Status de compras no app.</strong> Se você assinar ou comprar, a Apple processa a transação. Recebemos apenas a confirmação do status do seu acesso, sem dados de pagamento, números de cartão ou informações de cobrança.</p>
+<p><strong>Não coletamos</strong> seu nome, e-mail, localização, contatos, histórico de navegação nem identificadores do dispositivo para rastreamento.</p>
+<hr>
+<h2>2. Como usamos seus dados</h2>
+<p>Quando você solicita o enriquecimento com IA, a palavra ou frase é enviada ao nosso backend seguro (uma Supabase Edge Function) apenas para gerar frases de exemplo, notas de pronúncia e dicas contextuais no idioma escolhido. Não armazenamos seu vocabulário em nossos servidores, não registramos o conteúdo além do necessário para diagnóstico de erros, nem usamos seu vocabulário para treinar qualquer modelo.</p>
+<p>Não vendemos, alugamos nem compartilhamos seus dados com anunciantes ou corretores de dados.</p>
+<hr>
+<h2>3. Serviços de terceiros</h2>
+<p><strong>Google Gemini API</strong> — Gera o enriquecimento. As solicitações passam pelo nosso backend; sujeitas aos <a href="${L.gemini}" target="_blank">Termos da API do Google</a>.</p>
+<p><strong>Google Cloud Text-to-Speech</strong> — Pronuncia o vocabulário; o áudio é armazenado localmente após a primeira solicitação. Sujeito aos <a href="${L.gcloud}" target="_blank">Termos do Google Cloud</a>.</p>
+<p><strong>Compra no app da Apple / StoreKit</strong> — Processa todos os pagamentos. Nunca vemos seus dados de pagamento. Sujeito ao <a href="${L.apple}" target="_blank">EULA padrão da Apple</a>.</p>
+<p><strong>Supabase</strong> — Hospeda nosso proxy de backend. As solicitações não são registradas nem armazenadas além do processamento transitório. Sujeito à <a href="${L.supabase}" target="_blank">Política de Privacidade da Supabase</a>.</p>
+<hr>
+<h2>4. Armazenamento e segurança dos dados</h2>
+<p>Todo o vocabulário, ajustes e histórico de revisão ficam armazenados localmente no seu dispositivo. Dados sensíveis, como suas próprias chaves de API (Use sua própria chave), ficam no Keychain do iOS, criptografado pelo sistema operacional.</p>
+<p>Não operamos contas de usuário nem um banco de dados do seu vocabulário pessoal. Excluir o app remove permanentemente todos os dados locais.</p>
+<hr>
+<h2>5. Privacidade de crianças</h2>
+<p>O Word Review não é direcionado a crianças menores de 13 anos. Não coletamos intencionalmente informações pessoais de crianças. Se você acredita que uma criança nos forneceu informações pessoais, entre em contato para que possamos excluí-las.</p>
+<hr>
+<h2>6. Seus direitos e escolhas</h2>
+<p><strong>Excluir seus dados.</strong> Você pode excluir itens individuais ou perfis de idioma inteiros no app a qualquer momento. Excluir o app remove permanentemente todos os dados locais.</p>
+<p><strong>Exportar seus dados.</strong> O app inclui uma função de exportação completa (JSON e CSV).</p>
+<p><strong>Recusar os recursos de IA.</strong> Todo o enriquecimento com IA é opcional e requer internet. Você pode usar o app totalmente offline para revisão, sem que nenhum dado saia do seu dispositivo.</p>
+<hr>
+<h2>7. Alterações nesta política</h2>
+<p>Podemos atualizar esta política de tempos em tempos. Se fizermos alterações relevantes, atualizaremos a data de vigência acima. O uso contínuo após a publicação das alterações constitui aceitação.</p>
+<hr>
+<h2>8. Contato</h2>
+<p>Dúvidas? Fale com a gente em <a href="mailto:${L.email}">${L.email}</a></p>
+`},
+
+"ru": { label: "Русский", html: `
+<h1>Политика конфиденциальности</h1>
+<p class="meta">Word Review · Capybara Around The World<br>Дата вступления в силу: 16 июня 2026 г.</p>
+<p>Word Review — это приложение для изучения лексики, которое помогает сохранять и повторять слова и выражения, встречающиеся в повседневной жизни. Ваша конфиденциальность важна для нас. Эта политика объясняет, какие данные мы собираем, как их используем и какие у вас есть возможности выбора.</p>
+<hr>
+<h2>1. Какие данные мы собираем</h2>
+<p><strong>Лексика, которую вы добавляете.</strong> Слова, выражения, заметки и изображения, которые вы вводите, хранятся локально на вашем устройстве. Они отправляются на наши серверы только когда вы явно запрашиваете обработку ИИ (примеры, советы по произношению, переводы).</p>
+<p><strong>Настройки приложения.</strong> Ваши языковые предпочтения, тема, серия повторений и настройки хранятся локально с помощью стандартного хранилища iOS (NSUserDefaults / Связка ключей). Они никогда не покидают ваше устройство.</p>
+<p><strong>Статус покупок в приложении.</strong> При оформлении подписки или покупки транзакцию обрабатывает Apple. Мы получаем только подтверждение статуса доступа — без платёжных данных, номеров карт или сведений о выставлении счетов.</p>
+<p><strong>Мы не собираем</strong> ваше имя, электронную почту, местоположение, контакты, историю просмотров или идентификаторы устройства для отслеживания.</p>
+<hr>
+<h2>2. Как мы используем ваши данные</h2>
+<p>Когда вы запрашиваете обработку ИИ, слово или выражение отправляется на наш защищённый бэкенд (Supabase Edge Function) исключительно для создания примеров предложений, заметок о произношении и контекстных подсказок на выбранном вами языке. Мы не храним вашу лексику на серверах, не записываем содержимое запросов сверх необходимого для диагностики ошибок и не используем вашу лексику для обучения каких-либо моделей.</p>
+<p>Мы не продаём, не сдаём в аренду и не передаём ваши данные рекламодателям или брокерам данных.</p>
+<hr>
+<h2>3. Сторонние сервисы</h2>
+<p><strong>Google Gemini API</strong> — Создаёт обработку лексики. Запросы проходят через наш бэкенд; регулируются <a href="${L.gemini}" target="_blank">Условиями API Google</a>.</p>
+<p><strong>Google Cloud Text-to-Speech</strong> — Озвучивает лексику; аудио кэшируется локально после первого запроса. Регулируется <a href="${L.gcloud}" target="_blank">Условиями Google Cloud</a>.</p>
+<p><strong>Покупки в приложении Apple / StoreKit</strong> — Обрабатывают все платежи. Мы никогда не видим ваши платёжные данные. Регулируется <a href="${L.apple}" target="_blank">стандартным EULA Apple</a>.</p>
+<p><strong>Supabase</strong> — Размещает наш бэкенд-прокси. Запросы не журналируются и не хранятся сверх кратковременной обработки. Регулируется <a href="${L.supabase}" target="_blank">Политикой конфиденциальности Supabase</a>.</p>
+<hr>
+<h2>4. Хранение данных и безопасность</h2>
+<p>Вся лексика, настройки и история повторений хранятся локально на вашем устройстве. Конфиденциальные данные, такие как ваши собственные ключи API (свой ключ), хранятся в Связке ключей iOS, зашифрованной операционной системой.</p>
+<p>Мы не ведём учётные записи пользователей и не храним базу данных вашей личной лексики. Удаление приложения навсегда удаляет все локальные данные.</p>
+<hr>
+<h2>5. Конфиденциальность детей</h2>
+<p>Word Review не предназначен для детей младше 13 лет. Мы сознательно не собираем личную информацию детей. Если вы считаете, что ребёнок предоставил нам личную информацию, свяжитесь с нами, чтобы мы её удалили.</p>
+<hr>
+<h2>6. Ваши права и выбор</h2>
+<p><strong>Удаление данных.</strong> Вы можете в любое время удалить отдельные элементы или целые языковые профили в приложении. Удаление приложения навсегда удаляет все локальные данные.</p>
+<p><strong>Экспорт данных.</strong> В приложении есть полная функция экспорта (JSON и CSV).</p>
+<p><strong>Отказ от функций ИИ.</strong> Вся обработка ИИ является добровольной и требует интернета. Вы можете использовать приложение полностью офлайн для повторения, и при этом никакие данные не покидают ваше устройство.</p>
+<hr>
+<h2>7. Изменения этой политики</h2>
+<p>Мы можем время от времени обновлять эту политику. При существенных изменениях мы обновим дату вступления в силу выше. Продолжение использования после публикации изменений означает их принятие.</p>
+<hr>
+<h2>8. Контакты</h2>
+<p>Вопросы? Напишите нам: <a href="mailto:${L.email}">${L.email}</a></p>
+`},
+
+"nl": { label: "Nederlands", html: `
+<h1>Privacybeleid</h1>
+<p class="meta">Word Review · Capybara Around The World<br>Ingangsdatum: 16 juni 2026</p>
+<p>Word Review is een app om woordenschat te leren, waarmee je woorden en uitdrukkingen uit het dagelijks leven vastlegt en herhaalt. Jouw privacy is belangrijk voor ons. Dit beleid legt uit welke gegevens we verzamelen, hoe we ze gebruiken en welke keuzes je hebt.</p>
+<hr>
+<h2>1. Welke gegevens we verzamelen</h2>
+<p><strong>Woordenschat die je toevoegt.</strong> Woorden, uitdrukkingen, notities en afbeeldingen die je invoert, worden lokaal op je apparaat opgeslagen. Ze worden alleen naar onze servers gestuurd wanneer je uitdrukkelijk om AI-verrijking vraagt (voorbeelden, uitspraaktips, vertalingen).</p>
+<p><strong>Voorkeuren en instellingen.</strong> Je taalvoorkeuren, thema, herhalingsreeks en instellingen worden lokaal opgeslagen met de standaardopslag van iOS (NSUserDefaults / Sleutelhanger). Ze verlaten je apparaat nooit.</p>
+<p><strong>Status van in-app-aankopen.</strong> Als je een abonnement neemt of iets koopt, verwerkt Apple de transactie. Wij ontvangen alleen een bevestiging van je toegangsstatus — geen betaalgegevens, kaartnummers of factuurgegevens.</p>
+<p><strong>We verzamelen niet</strong> je naam, e-mail, locatie, contacten, browsegeschiedenis of apparaat-ID's voor tracking.</p>
+<hr>
+<h2>2. Hoe we je gegevens gebruiken</h2>
+<p>Wanneer je om AI-verrijking vraagt, wordt het woord of de uitdrukking naar onze beveiligde backend (een Supabase Edge Function) gestuurd, uitsluitend om voorbeeldzinnen, uitspraaknotities en contextuele tips in je gekozen taal te genereren. We slaan je woordenschat niet op onze servers op, loggen de inhoud niet verder dan nodig is voor foutdiagnose, en gebruiken je woordenschat niet om modellen te trainen.</p>
+<p>We verkopen, verhuren of delen je gegevens niet met adverteerders of datahandelaren.</p>
+<hr>
+<h2>3. Diensten van derden</h2>
+<p><strong>Google Gemini API</strong> — Genereert de verrijking. Verzoeken lopen via onze backend; onderworpen aan de <a href="${L.gemini}" target="_blank">API-voorwaarden van Google</a>.</p>
+<p><strong>Google Cloud Text-to-Speech</strong> — Spreekt woordenschat uit; audio wordt na het eerste verzoek lokaal gecachet. Onderworpen aan de <a href="${L.gcloud}" target="_blank">Google Cloud-voorwaarden</a>.</p>
+<p><strong>Apple in-app-aankoop / StoreKit</strong> — Verwerkt alle betalingen. Wij zien je betaalgegevens nooit. Onderworpen aan de <a href="${L.apple}" target="_blank">standaard-EULA van Apple</a>.</p>
+<p><strong>Supabase</strong> — Host onze backend-proxy. Verzoeken worden niet gelogd of opgeslagen buiten tijdelijke verwerking. Onderworpen aan het <a href="${L.supabase}" target="_blank">privacybeleid van Supabase</a>.</p>
+<hr>
+<h2>4. Gegevensopslag en beveiliging</h2>
+<p>Alle woordenschat, instellingen en herhalingsgeschiedenis worden lokaal op je apparaat opgeslagen. Gevoelige gegevens zoals je eigen API-sleutels (Bring Your Own Key) worden bewaard in de iOS-sleutelhanger, versleuteld door het besturingssysteem.</p>
+<p>We hebben geen gebruikersaccounts of een database van je persoonlijke woordenschat. Als je de app verwijdert, worden alle lokaal opgeslagen gegevens permanent verwijderd.</p>
+<hr>
+<h2>5. Privacy van kinderen</h2>
+<p>Word Review is niet gericht op kinderen jonger dan 13 jaar. We verzamelen niet bewust persoonlijke gegevens van kinderen. Als je denkt dat een kind ons persoonlijke gegevens heeft verstrekt, neem dan contact met ons op zodat we ze kunnen verwijderen.</p>
+<hr>
+<h2>6. Je rechten en keuzes</h2>
+<p><strong>Je gegevens verwijderen.</strong> Je kunt op elk moment afzonderlijke items of hele taalprofielen in de app verwijderen. Als je de app verwijdert, worden alle lokale gegevens permanent verwijderd.</p>
+<p><strong>Je gegevens exporteren.</strong> De app bevat een volledige exportfunctie (JSON en CSV).</p>
+<p><strong>AI-functies weigeren.</strong> Alle AI-verrijking is optioneel en vereist internet. Je kunt de app volledig offline gebruiken om te herhalen, zonder dat er gegevens je apparaat verlaten.</p>
+<hr>
+<h2>7. Wijzigingen in dit beleid</h2>
+<p>We kunnen dit beleid van tijd tot tijd bijwerken. Bij wezenlijke wijzigingen werken we de ingangsdatum hierboven bij. Voortgezet gebruik na publicatie van wijzigingen geldt als aanvaarding.</p>
+<hr>
+<h2>8. Contact</h2>
+<p>Vragen? Bereik ons op <a href="mailto:${L.email}">${L.email}</a></p>
+`},
+
+"pl": { label: "Polski", html: `
+<h1>Polityka prywatności</h1>
+<p class="meta">Word Review · Capybara Around The World<br>Data wejścia w życie: 16 czerwca 2026</p>
+<p>Word Review to aplikacja do nauki słownictwa, która pomaga zapisywać i powtarzać słowa oraz zwroty napotkane w codziennym życiu. Twoja prywatność jest dla nas ważna. Ta polityka wyjaśnia, jakie dane zbieramy, jak je wykorzystujemy i jakie masz możliwości wyboru.</p>
+<hr>
+<h2>1. Jakie dane zbieramy</h2>
+<p><strong>Słownictwo, które dodajesz.</strong> Słowa, zwroty, notatki i obrazy, które wprowadzasz, są przechowywane lokalnie na Twoim urządzeniu. Są wysyłane na nasze serwery tylko wtedy, gdy wyraźnie poprosisz o wzbogacenie przez AI (przykłady, wskazówki wymowy, tłumaczenia).</p>
+<p><strong>Preferencje i ustawienia.</strong> Twoje preferencje językowe, motyw, seria powtórek i ustawienia są przechowywane lokalnie za pomocą standardowego magazynu iOS (NSUserDefaults / Pęk kluczy). Nigdy nie opuszczają Twojego urządzenia.</p>
+<p><strong>Status zakupów w aplikacji.</strong> Jeśli wykupisz subskrypcję lub coś kupisz, transakcję obsługuje Apple. Otrzymujemy jedynie potwierdzenie statusu dostępu — bez danych płatności, numerów kart czy informacji rozliczeniowych.</p>
+<p><strong>Nie zbieramy</strong> Twojego imienia, e-maila, lokalizacji, kontaktów, historii przeglądania ani identyfikatorów urządzenia do śledzenia.</p>
+<hr>
+<h2>2. Jak wykorzystujemy Twoje dane</h2>
+<p>Gdy prosisz o wzbogacenie przez AI, słowo lub zwrot jest wysyłany do naszego bezpiecznego zaplecza (Supabase Edge Function) wyłącznie w celu wygenerowania przykładowych zdań, notatek o wymowie i wskazówek kontekstowych w wybranym języku. Nie przechowujemy Twojego słownictwa na serwerach, nie rejestrujemy treści ponad to, co potrzebne do diagnozy błędów, ani nie wykorzystujemy Twojego słownictwa do trenowania żadnego modelu.</p>
+<p>Nie sprzedajemy, nie wynajmujemy ani nie udostępniamy Twoich danych reklamodawcom ani brokerom danych.</p>
+<hr>
+<h2>3. Usługi stron trzecich</h2>
+<p><strong>Google Gemini API</strong> — Generuje wzbogacenie. Żądania przechodzą przez nasze zaplecze; podlegają <a href="${L.gemini}" target="_blank">Warunkom API Google</a>.</p>
+<p><strong>Google Cloud Text-to-Speech</strong> — Wymawia słownictwo; dźwięk jest buforowany lokalnie po pierwszym żądaniu. Podlega <a href="${L.gcloud}" target="_blank">Warunkom Google Cloud</a>.</p>
+<p><strong>Zakupy w aplikacji Apple / StoreKit</strong> — Obsługują wszystkie płatności. Nigdy nie widzimy Twoich danych płatności. Podlega <a href="${L.apple}" target="_blank">standardowej umowie EULA Apple</a>.</p>
+<p><strong>Supabase</strong> — Hostuje nasze zaplecze proxy. Żądania nie są rejestrowane ani przechowywane poza chwilowym przetwarzaniem. Podlega <a href="${L.supabase}" target="_blank">Polityce prywatności Supabase</a>.</p>
+<hr>
+<h2>4. Przechowywanie danych i bezpieczeństwo</h2>
+<p>Całe słownictwo, ustawienia i historia powtórek są przechowywane lokalnie na Twoim urządzeniu. Dane wrażliwe, takie jak Twoje własne klucze API (Bring Your Own Key), są przechowywane w Pęku kluczy iOS, szyfrowanym przez system operacyjny.</p>
+<p>Nie prowadzimy kont użytkowników ani bazy danych Twojego osobistego słownictwa. Usunięcie aplikacji trwale usuwa wszystkie dane lokalne.</p>
+<hr>
+<h2>5. Prywatność dzieci</h2>
+<p>Word Review nie jest skierowany do dzieci poniżej 13 roku życia. Nie zbieramy świadomie danych osobowych dzieci. Jeśli sądzisz, że dziecko przekazało nam dane osobowe, skontaktuj się z nami, abyśmy mogli je usunąć.</p>
+<hr>
+<h2>6. Twoje prawa i wybory</h2>
+<p><strong>Usuwanie danych.</strong> W każdej chwili możesz usunąć pojedyncze elementy lub całe profile językowe w aplikacji. Usunięcie aplikacji trwale usuwa wszystkie dane lokalne.</p>
+<p><strong>Eksport danych.</strong> Aplikacja zawiera pełną funkcję eksportu (JSON i CSV).</p>
+<p><strong>Rezygnacja z funkcji AI.</strong> Całe wzbogacenie przez AI jest opcjonalne i wymaga internetu. Możesz korzystać z aplikacji całkowicie offline do powtórek, bez żadnych danych opuszczających Twoje urządzenie.</p>
+<hr>
+<h2>7. Zmiany w tej polityce</h2>
+<p>Od czasu do czasu możemy aktualizować tę politykę. W przypadku istotnych zmian zaktualizujemy datę wejścia w życie powyżej. Dalsze korzystanie po opublikowaniu zmian oznacza ich akceptację.</p>
+<hr>
+<h2>8. Kontakt</h2>
+<p>Pytania? Napisz do nas: <a href="mailto:${L.email}">${L.email}</a></p>
+`},
+
+"tr": { label: "Türkçe", html: `
+<h1>Gizlilik Politikası</h1>
+<p class="meta">Word Review · Capybara Around The World<br>Yürürlük tarihi: 16 Haziran 2026</p>
+<p>Word Review, günlük hayatta karşılaştığın kelimeleri ve ifadeleri kaydedip tekrar etmene yardımcı olan bir kelime öğrenme uygulamasıdır. Gizliliğin bizim için önemli. Bu politika hangi verileri topladığımızı, nasıl kullandığımızı ve hangi seçeneklere sahip olduğunu açıklar.</p>
+<hr>
+<h2>1. Hangi verileri topluyoruz</h2>
+<p><strong>Eklediğin kelimeler.</strong> Girdiğin kelimeler, ifadeler, notlar ve görseller cihazında yerel olarak saklanır. Yalnızca açıkça yapay zekâ zenginleştirmesi (örnekler, telaffuz ipuçları, çeviriler) istediğinde sunucularımıza gönderilir.</p>
+<p><strong>Tercihler ve ayarlar.</strong> Dil tercihlerin, tema, tekrar serisi ve ayarların standart iOS depolaması (NSUserDefaults / Anahtar Zinciri) ile yerel olarak saklanır. Asla cihazından çıkmaz.</p>
+<p><strong>Uygulama içi satın alma durumu.</strong> Abone olursan veya satın alırsan işlemi Apple yürütür. Yalnızca erişim durumunun onayını alırız; ödeme bilgisi, kart numarası veya fatura bilgisi almayız.</p>
+<p><strong>Şunları toplamayız:</strong> adın, e-postan, konumun, kişilerin, tarama geçmişin veya takip amaçlı cihaz tanımlayıcıları.</p>
+<hr>
+<h2>2. Verilerini nasıl kullanıyoruz</h2>
+<p>Yapay zekâ zenginleştirmesi istediğinde kelime veya ifade, yalnızca seçtiğin dilde örnek cümleler, telaffuz notları ve bağlamsal ipuçları üretmek için güvenli arka ucumuza (bir Supabase Edge Function) gönderilir. Kelimelerini sunucularımızda saklamaz, içeriği hata teşhisi için gerekenin ötesinde kaydetmez ve kelimelerini herhangi bir modeli eğitmek için kullanmayız.</p>
+<p>Verilerini reklamverenlere veya veri komisyoncularına satmaz, kiralamaz veya paylaşmayız.</p>
+<hr>
+<h2>3. Üçüncü taraf hizmetleri</h2>
+<p><strong>Google Gemini API</strong> — Zenginleştirmeyi üretir. İstekler arka ucumuz üzerinden geçer; <a href="${L.gemini}" target="_blank">Google API Şartları</a>'na tabidir.</p>
+<p><strong>Google Cloud Text-to-Speech</strong> — Kelimeleri seslendirir; ses ilk istekten sonra cihazda yerel olarak önbelleğe alınır. <a href="${L.gcloud}" target="_blank">Google Cloud Şartları</a>'na tabidir.</p>
+<p><strong>Apple Uygulama İçi Satın Alma / StoreKit</strong> — Tüm ödemeleri yürütür. Ödeme bilgilerini asla görmeyiz. <a href="${L.apple}" target="_blank">Apple standart EULA</a>'sına tabidir.</p>
+<p><strong>Supabase</strong> — Arka uç proxy'mizi barındırır. İstekler geçici işlemenin ötesinde kaydedilmez veya saklanmaz. <a href="${L.supabase}" target="_blank">Supabase Gizlilik Politikası</a>'na tabidir.</p>
+<hr>
+<h2>4. Veri saklama ve güvenlik</h2>
+<p>Tüm kelimeler, ayarlar ve tekrar geçmişi cihazında yerel olarak saklanır. Kendi API anahtarların (Kendi Anahtarını Getir) gibi hassas veriler, işletim sistemi tarafından şifrelenen iOS Anahtar Zinciri'nde saklanır.</p>
+<p>Kullanıcı hesapları veya kişisel kelimelerinin bir veritabanını işletmeyiz. Uygulamayı silmek tüm yerel verileri kalıcı olarak kaldırır.</p>
+<hr>
+<h2>5. Çocukların gizliliği</h2>
+<p>Word Review 13 yaşından küçük çocuklara yönelik değildir. Çocuklardan bilerek kişisel bilgi toplamayız. Bir çocuğun bize kişisel bilgi verdiğini düşünüyorsan, silebilmemiz için bizimle iletişime geç.</p>
+<hr>
+<h2>6. Hakların ve seçeneklerin</h2>
+<p><strong>Verilerini sil.</strong> Uygulamada istediğin zaman tek tek öğeleri veya tüm dil profillerini silebilirsin. Uygulamayı silmek tüm yerel verileri kalıcı olarak kaldırır.</p>
+<p><strong>Verilerini dışa aktar.</strong> Uygulamada tam bir dışa aktarma özelliği (JSON ve CSV) bulunur.</p>
+<p><strong>Yapay zekâ özelliklerini reddet.</strong> Tüm yapay zekâ zenginleştirmesi isteğe bağlıdır ve internet gerektirir. Uygulamayı tekrar için tamamen çevrimdışı kullanabilirsin; bu durumda hiçbir veri cihazından çıkmaz.</p>
+<hr>
+<h2>7. Bu politikadaki değişiklikler</h2>
+<p>Bu politikayı zaman zaman güncelleyebiliriz. Önemli değişiklikler yaparsak yukarıdaki yürürlük tarihini güncelleriz. Değişiklikler yayımlandıktan sonra kullanımın sürmesi kabul anlamına gelir.</p>
+<hr>
+<h2>8. İletişim</h2>
+<p>Sorular mı var? Bize ulaş: <a href="mailto:${L.email}">${L.email}</a></p>
+`},
+
+"ar": { label: "العربية", dir: "rtl", html: `
+<h1>سياسة الخصوصية</h1>
+<p class="meta">Word Review · Capybara Around The World<br>تاريخ السريان: 16 يونيو 2026</p>
+<p>Word Review هو تطبيق لتعلّم المفردات يساعدك على حفظ ومراجعة الكلمات والعبارات التي تصادفها في حياتك اليومية. خصوصيتك تهمّنا. توضّح هذه السياسة البيانات التي نجمعها وكيفية استخدامها والخيارات المتاحة لك.</p>
+<hr>
+<h2>1. البيانات التي نجمعها</h2>
+<p><strong>المفردات التي تضيفها.</strong> تُخزَّن الكلمات والعبارات والملاحظات والصور التي تُدخلها محليًا على جهازك. ولا تُرسَل إلى خوادمنا إلا عندما تطلب صراحةً الإثراء بالذكاء الاصطناعي (أمثلة، نصائح نطق، ترجمات).</p>
+<p><strong>التفضيلات والإعدادات.</strong> تُخزَّن تفضيلات اللغة والمظهر وسلسلة المراجعة والإعدادات محليًا باستخدام تخزين iOS القياسي (NSUserDefaults / سلسلة المفاتيح). ولا تغادر جهازك أبدًا.</p>
+<p><strong>حالة الشراء داخل التطبيق.</strong> عند الاشتراك أو الشراء، تتولّى Apple معالجة المعاملة. ولا نتلقّى سوى تأكيد حالة وصولك — دون أي تفاصيل دفع أو أرقام بطاقات أو معلومات فوترة.</p>
+<p><strong>لا نجمع</strong> اسمك أو بريدك الإلكتروني أو موقعك أو جهات اتصالك أو سجل تصفّحك أو أي معرّفات للجهاز لأغراض التتبّع.</p>
+<hr>
+<h2>2. كيف نستخدم بياناتك</h2>
+<p>عندما تطلب الإثراء بالذكاء الاصطناعي، تُرسَل الكلمة أو العبارة إلى خادمنا الخلفي الآمن (Supabase Edge Function) لغرض واحد فقط هو إنشاء جُمل أمثلة وملاحظات نطق وتلميحات سياقية باللغة التي تختارها. ولا نخزّن مفرداتك على خوادمنا، ولا نسجّل محتوى الطلبات بما يتجاوز ما يلزم لتشخيص الأخطاء، ولا نستخدم مفرداتك لتدريب أي نموذج.</p>
+<p>لا نبيع بياناتك أو نؤجّرها أو نشاركها مع المعلنين أو وسطاء البيانات.</p>
+<hr>
+<h2>3. خدمات الطرف الثالث</h2>
+<p><strong>Google Gemini API</strong> — يُنشئ الإثراء. تمرّ الطلبات عبر خادمنا الخلفي؛ وتخضع <a href="${L.gemini}" target="_blank">لشروط واجهة برمجة تطبيقات Google</a>.</p>
+<p><strong>Google Cloud Text-to-Speech</strong> — ينطق المفردات؛ ويُخزَّن الصوت محليًا بعد الطلب الأول. ويخضع <a href="${L.gcloud}" target="_blank">لشروط Google Cloud</a>.</p>
+<p><strong>الشراء داخل تطبيق Apple / StoreKit</strong> — يعالج جميع المدفوعات. ولا نرى تفاصيل دفعك أبدًا. ويخضع <a href="${L.apple}" target="_blank">لاتفاقية ترخيص Apple القياسية</a>.</p>
+<p><strong>Supabase</strong> — يستضيف وكيل خادمنا الخلفي. ولا تُسجَّل الطلبات أو تُخزَّن بما يتجاوز المعالجة المؤقتة. ويخضع <a href="${L.supabase}" target="_blank">لسياسة خصوصية Supabase</a>.</p>
+<hr>
+<h2>4. تخزين البيانات والأمان</h2>
+<p>تُخزَّن جميع المفردات والإعدادات وسجل المراجعة محليًا على جهازك. أما البيانات الحساسة مثل مفاتيح واجهة برمجة التطبيقات الخاصة بك (أحضِر مفتاحك)، فتُخزَّن في سلسلة مفاتيح iOS المشفَّرة بواسطة نظام التشغيل.</p>
+<p>لا ندير حسابات مستخدمين ولا قاعدة بيانات لمفرداتك الشخصية. وحذف التطبيق يزيل جميع البيانات المحلية نهائيًا.</p>
+<hr>
+<h2>5. خصوصية الأطفال</h2>
+<p>Word Review غير موجّه للأطفال دون سن 13 عامًا. ولا نجمع عن قصد معلومات شخصية من الأطفال. وإذا كنت تعتقد أن طفلًا قد زوّدنا بمعلومات شخصية، فتواصل معنا لنحذفها.</p>
+<hr>
+<h2>6. حقوقك وخياراتك</h2>
+<p><strong>حذف بياناتك.</strong> يمكنك حذف عناصر فردية أو ملفات لغة كاملة داخل التطبيق في أي وقت. وحذف التطبيق يزيل جميع البيانات المحلية نهائيًا.</p>
+<p><strong>تصدير بياناتك.</strong> يتضمّن التطبيق ميزة تصدير كاملة (JSON و CSV).</p>
+<p><strong>إلغاء الاشتراك في ميزات الذكاء الاصطناعي.</strong> جميع ميزات الإثراء بالذكاء الاصطناعي اختيارية وتتطلّب اتصالًا بالإنترنت. ويمكنك استخدام التطبيق دون اتصال تمامًا للمراجعة، دون أن تغادر أي بيانات جهازك.</p>
+<hr>
+<h2>7. التغييرات على هذه السياسة</h2>
+<p>قد نحدّث هذه السياسة من وقت لآخر. وإذا أجرينا تغييرات جوهرية، فسنحدّث تاريخ السريان أعلاه. ويُعدّ استمرارك في الاستخدام بعد نشر التغييرات قبولًا بها.</p>
+<hr>
+<h2>8. التواصل</h2>
+<p>أسئلة؟ تواصل معنا عبر <a href="mailto:${L.email}">${L.email}</a></p>
+`}
+};
+
+// ── Map app language codes → available page languages ───────────────────────
+function resolveLang(code) {
+  if (!code) return 'en';
+  if (POLICIES[code]) return code;            // exact (e.g. zh-Hant, pt-BR)
+  if (code.indexOf('es') === 0) return 'es';  // es-419, es-ES
+  if (code.indexOf('pt') === 0) return 'pt-BR';
+  var base = code.split('-')[0];
+  if (POLICIES[base]) return base;            // ja, ko, fr, de, ...
+  return 'en';                                 // unsupported → English
+}
+
+function render(lang) {
+  var p = POLICIES[lang] || POLICIES['en'];
+  document.getElementById('content').innerHTML = p.html;
+  document.documentElement.lang = lang;
+  document.body.setAttribute('dir', p.dir === 'rtl' ? 'rtl' : 'ltr');
+  // highlight active button
+  var btns = document.querySelectorAll('#langbar button');
+  for (var i = 0; i < btns.length; i++) {
+    btns[i].classList.toggle('active', btns[i].getAttribute('data-l') === lang);
+  }
+  try { localStorage.setItem('wr_pp_lang', lang); } catch (e) {}
+}
+
+// Build language buttons
+(function () {
+  var bar = document.getElementById('langbar');
+  Object.keys(POLICIES).forEach(function (code) {
+    var b = document.createElement('button');
+    b.textContent = POLICIES[code].label;
+    b.setAttribute('data-l', code);
+    b.onclick = function () { render(code); };
+    bar.appendChild(b);
+  });
+  // Initial language: ?lang= param → saved choice → browser → English
+  var params = new URLSearchParams(window.location.search);
+  var initial = resolveLang(params.get('lang'));
+  if (!params.get('lang')) {
+    try {
+      var saved = localStorage.getItem('wr_pp_lang');
+      if (saved && POLICIES[saved]) initial = saved;
+      else initial = resolveLang((navigator.language || 'en'));
+    } catch (e) {}
+  }
+  render(initial);
+})();
+</script>
 
 </body>
 </html>
