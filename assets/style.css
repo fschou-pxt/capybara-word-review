@@ -130,16 +130,22 @@ section{padding:46px 0;}
 .phone img{width:100%; border-radius:26px; display:block;}
 .phone.tilt1{transform:rotate(-3deg);} .phone.tilt2{transform:rotate(3deg);}
 .phone.tilt3{transform:rotate(-3deg);} .phone.tilt4{transform:rotate(3deg);}
+/* landscape device frame (e.g. Capy Catch) */
+.phoneL{width:min(92%,540px); border-radius:24px; padding:10px; background:#3B2010; box-shadow:var(--shadow); margin:22px auto 0; transform:rotate(-1deg);}
+.phoneL img{width:100%; border-radius:16px; display:block;}
+/* iPad / tablet frame */
+.tablet{width:min(72%,300px); border-radius:26px; padding:12px; background:#3B2010; box-shadow:var(--shadow); margin:18px auto 0;}
+.tablet img{width:100%; border-radius:16px; display:block;}
 
 /* ---- pricing ---- */
 .plans{display:grid; grid-template-columns:repeat(auto-fit,minmax(220px,1fr)); gap:18px;}
-.plans.two{grid-template-columns:repeat(2,1fr); max-width:958px; margin:0 auto;}
+.plans.two{grid-template-columns:repeat(2,1fr); max-width:680px; gap:14px; margin:0 auto;}
 @media(max-width:540px){.plans.two{grid-template-columns:1fr;}}
-.plan{background:#fff; border-radius:24px; padding:24px; box-shadow:var(--shadow); text-align:center; border:3px solid #fff;}
+.plan{background:#fff; border-radius:20px; padding:16px 18px; box-shadow:var(--shadow); text-align:center; border:2px solid #fff;}
 .plan.hi{border-color:var(--teal); position:relative;}
-.plan h3{font-size:24px;} .plan .price{font-family:"Bubblegum Sans"; font-size:30px; color:var(--teal);}
-.plan ul{list-style:none; padding:0; margin:14px 0 0; text-align:left; color:var(--mid); font-size:14px;}
-.plan li{margin:7px 0; padding-left:24px; position:relative;}
+.plan h3{font-size:20px;} .plan .price{font-family:"Bubblegum Sans"; font-size:24px; color:var(--teal);}
+.plan ul{list-style:none; padding:0; margin:10px 0 0; text-align:left; color:var(--mid); font-size:13px;}
+.plan li{margin:5px 0; padding-left:22px; position:relative;}
 .plan li:before{content:"🌿"; position:absolute; left:0;}
 
 /* ---- framed square mascot image ---- */
