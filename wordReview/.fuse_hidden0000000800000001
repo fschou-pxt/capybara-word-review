@@ -101,17 +101,17 @@
       <p data-i18n="t3p">Tap to reveal, hear it, and rate how well you know it — tricky words come back more often.</p>
     </div>
     <div class="tut">
-      <div class="phone-vid"><video controls playsinline preload="none" poster="../assets/tutorials/tut-5.jpg?v=3"><source src="../assets/tutorials/tut-5.mp4?v=3" type="video/mp4" /></video></div>
+      <div class="phone-vid"><video controls playsinline preload="none" poster="../assets/tutorials/tut-5.jpg?v=2"><source src="../assets/tutorials/tut-5.mp4?v=2" type="video/mp4" /></video></div>
       <h4 data-i18n="t4t">4 · Add words from any app</h4>
       <p data-i18n="t4p">Select text in Safari — or anywhere — and share it straight into Word Review.</p>
     </div>
     <div class="tut">
-      <div class="phone-vid"><video controls playsinline preload="none" poster="../assets/tutorials/tut-1.jpg?v=3"><source src="../assets/tutorials/tut-1.mp4?v=3" type="video/mp4" /></video></div>
+      <div class="phone-vid"><video controls playsinline preload="none" poster="../assets/tutorials/tut-1.jpg?v=2"><source src="../assets/tutorials/tut-1.mp4?v=2" type="video/mp4" /></video></div>
       <h4 data-i18n="t5t">5 · Add a word from a photo</h4>
       <p data-i18n="t5p">Share a picture and Capy reads the word right off it.</p>
     </div>
     <div class="tut">
-      <div class="phone-vid"><video controls playsinline preload="none" poster="../assets/tutorials/tut-6.jpg?v=3"><source src="../assets/tutorials/tut-6.mp4?v=3" type="video/mp4" /></video></div>
+      <div class="phone-vid"><video controls playsinline preload="none" poster="../assets/tutorials/tut-6.jpg?v=2"><source src="../assets/tutorials/tut-6.mp4?v=2" type="video/mp4" /></video></div>
       <h4 data-i18n="t6t">6 · Grab many words from a screenshot</h4>
       <p data-i18n="t6p">Snap a screenshot of a page and add every word it finds in one go.</p>
     </div>
