@@ -134,7 +134,7 @@ section{padding:46px 0;}
 .phoneL{width:min(92%,540px); border-radius:24px; padding:6px; background:#3B2010; box-shadow:var(--shadow); margin:22px auto 0; transform:rotate(-1deg);}
 .phoneL img{width:100%; border-radius:16px; display:block;}
 /* iPad / tablet frame */
-.tablet{width:min(82%,380px); border-radius:26px; padding:12px; background:#3B2010; box-shadow:var(--shadow); margin:18px auto 0;}
+.tablet{width:min(72%,300px); border-radius:26px; padding:12px; background:#3B2010; box-shadow:var(--shadow); margin:18px auto 0;}
 .tablet img{width:100%; border-radius:16px; display:block;}
 
 /* ---- pricing ---- */
@@ -194,10 +194,3 @@ footer .small{opacity:.85; font-size:13px;}
 .tut.land .phone-vid{width:min(100%,470px);}
 .tut.land .phone-vid video{aspect-ratio:19.5/9;}
 @media(min-width:600px){ .tut.land{grid-column:span 2;} }
-
-/* Games: portraits on the left, landscape clips stacked on the right */
-.games-shots{display:flex; gap:30px; justify-content:center; align-items:center; flex-wrap:wrap; margin-top:28px;}
-.games-shots .shots{margin:0;}
-.lands{display:flex; flex-direction:column; gap:18px;}
-.lands .phoneL{margin:0; width:min(100%,430px); transform:rotate(-1deg);}
-.lands .phoneL:last-child{transform:rotate(1deg);}
