@@ -10,7 +10,7 @@
 <meta property="og:description" content="Capture by typing, voice, or photo. Review with Capy. 28 languages." />
 <meta property="og:image" content="../assets/app-logo.jpg" />
 <meta property="og:type" content="website" />
-<link rel="stylesheet" href="../assets/style.css?v=12" />
+<link rel="stylesheet" href="../assets/style.css?v=13" />
 </head>
 <body>
 
@@ -18,10 +18,10 @@
   <a class="brand" href="../" style="color:var(--brown)"><img src="../assets/app-logo.jpg" alt="Capy" /> Capybara Around The World</a>
   <div class="nav-right">
     <div class="nav-links">
-      <a href="#features">Features</a>
-      <a href="#tutorials">Tutorials</a>
-      <a href="#plans">Pricing</a>
-      <a href="../">All apps</a>
+      <a href="#features" data-i18n="nav_features">Features</a>
+      <a href="#tutorials" data-i18n="nav_tutorials">Tutorials</a>
+      <a href="#plans" data-i18n="nav_pricing">Pricing</a>
+      <a href="../" data-i18n="nav_allapps">All apps</a>
     </div>
     <div class="themes" title="Pick a theme">
       <button class="sw" data-theme="classic" title="Classic" style="background:#2E8B7A"></button>
@@ -31,15 +31,17 @@
   </div>
 </nav>
 
+<nav id="langbar" aria-label="Choose language"></nav>
+
 <header class="wrap">
   <div class="hero">
     <div>
-      <span class="ribbon">📱 On the App Store · iPhone &amp; iPad</span>
-      <h1>Capture words.<br>Play. Remember.</h1>
-      <p class="lead">See a word in the wild? Snap it, say it, or type it — Capy adds the meaning, examples, and pronunciation, then helps you review it so it actually sticks.</p>
+      <span class="ribbon" data-i18n="hero_ribbon">📱 On the App Store · iPhone &amp; iPad</span>
+      <h1 data-i18n="hero_h1">Capture words.<br>Play. Remember.</h1>
+      <p class="lead" data-i18n="hero_lead">See a word in the wild? Snap it, say it, or type it — Capy adds the meaning, examples, and pronunciation, then helps you review it so it actually sticks.</p>
       <div class="cta">
-        <a class="btn orange" href="https://apps.apple.com/app/id6780248529">Get it on the App Store 📲</a>
-        <a class="btn ghost" href="#features">See features</a>
+        <a class="btn orange" href="https://apps.apple.com/app/id6780248529" data-i18n="cta_get">Get it on the App Store 📲</a>
+        <a class="btn ghost" href="#features" data-i18n="cta_seefeatures">See features</a>
       </div>
     </div>
     <div class="hero-art">
@@ -52,22 +54,22 @@
 </header>
 
 <section id="features" class="wrap">
-  <h2 class="section-title">Tiny effort, real learning ✨</h2>
-  <p class="section-sub cute">Built for busy, curious humans (and the occasional capybara). 🌿</p>
+  <h2 class="section-title" data-i18n="feat_title">Tiny effort, real learning ✨</h2>
+  <p class="section-sub cute" data-i18n="feat_sub">Built for busy, curious humans (and the occasional capybara). 🌿</p>
   <div class="feat">
-    <div class="f"><span class="emoji">⌨️</span><h4>Capture any way</h4><p>Type it, speak it, or snap a photo — Capy reads it and fills in the rest.</p></div>
-    <div class="f"><span class="emoji">🔊</span><h4>Hear it right</h4><p>Natural pronunciation so you learn how words really sound.</p></div>
-    <div class="f"><span class="emoji">🧠</span><h4>Smart review</h4><p>Spaced repetition shows tricky words more often — remember more, study less.</p></div>
-    <div class="f"><span class="emoji">🌏</span><h4>28 languages</h4><p>Learn the language you want, in the language you already know.</p></div>
-    <div class="f"><span class="emoji">🔌</span><h4>Bring your own key</h4><p>Use our built-in helper, or connect your own AI key (Gemini, ChatGPT, Claude, Grok).</p></div>
-    <div class="f"><span class="emoji">🎮</span><h4>Play with Capy</h4><p>Turn your own words into cute mini-games and win oranges with Capy.</p></div>
+    <div class="f"><span class="emoji">⌨️</span><h4 data-i18n="f1t">Capture any way</h4><p data-i18n="f1p">Type it, speak it, or snap a photo — Capy reads it and fills in the rest.</p></div>
+    <div class="f"><span class="emoji">🔊</span><h4 data-i18n="f2t">Hear it right</h4><p data-i18n="f2p">Natural pronunciation so you learn how words really sound.</p></div>
+    <div class="f"><span class="emoji">🧠</span><h4 data-i18n="f3t">Smart review</h4><p data-i18n="f3p">Spaced repetition shows tricky words more often — remember more, study less.</p></div>
+    <div class="f"><span class="emoji">🌏</span><h4 data-i18n="f4t">28 languages</h4><p data-i18n="f4p">Learn the language you want, in the language you already know.</p></div>
+    <div class="f"><span class="emoji">🔌</span><h4 data-i18n="f5t">Bring your own key</h4><p data-i18n="f5p">Use our built-in helper, or connect your own AI key (Gemini, ChatGPT, Claude, Grok).</p></div>
+    <div class="f"><span class="emoji">🎮</span><h4 data-i18n="f6t">Play with Capy</h4><p data-i18n="f6p">Turn your own words into cute mini-games and win oranges with Capy.</p></div>
   </div>
 </section>
 
 <div class="divider"><span>👀</span></div>
 
 <section class="wrap" style="text-align:center">
-  <h2 class="section-title">A peek inside 👀</h2>
+  <h2 class="section-title" data-i18n="peek_title">A peek inside 👀</h2>
   <div class="shots">
     <div class="phone tilt1"><img src="../assets/screen-home.png" alt="Word Review home screen with Capy" /></div>
     <div class="phone tilt2"><img src="../assets/screen-review.png" alt="Reviewing a Japanese phrase with pronunciation" /></div>
@@ -79,53 +81,53 @@
 <div class="divider"><span>🎬</span></div>
 
 <section id="tutorials" class="wrap" style="text-align:center">
-  <h2 class="section-title">Tutorials 🎬</h2>
-  <p class="section-sub cute">Short clips showing Capy's little tricks — more on the way! 🌿</p>
+  <h2 class="section-title" data-i18n="tut_title">Tutorials 🎬</h2>
+  <p class="section-sub cute" data-i18n="tut_sub">Short clips showing Capy's little tricks — more on the way! 🌿</p>
   <div class="tut-grid">
     <div class="tut">
       <div class="phone-vid"><video controls playsinline preload="none" poster="../assets/tutorials/tut-2.jpg"><source src="../assets/tutorials/tut-2.mp4" type="video/mp4" /></video></div>
-      <h4>1 · Pick your languages</h4>
-      <p>Choose what you're learning and the language you already know — add as many pairs as you like.</p>
+      <h4 data-i18n="t1t">1 · Pick your languages</h4>
+      <p data-i18n="t1p">Choose what you're learning and the language you already know — add as many pairs as you like.</p>
     </div>
     <div class="tut">
       <div class="phone-vid"><video controls playsinline preload="none" poster="../assets/tutorials/tut-3.jpg"><source src="../assets/tutorials/tut-3.mp4" type="video/mp4" /></video></div>
-      <h4>2 · Add a word by typing</h4>
-      <p>Type any word and Capy adds the meaning, examples, pronunciation, and variations.</p>
+      <h4 data-i18n="t2t">2 · Add a word by typing</h4>
+      <p data-i18n="t2p">Type any word and Capy adds the meaning, examples, pronunciation, and variations.</p>
     </div>
     <div class="tut">
       <div class="phone-vid"><video controls playsinline preload="none" poster="../assets/tutorials/tut-4.jpg"><source src="../assets/tutorials/tut-4.mp4" type="video/mp4" /></video></div>
-      <h4>3 · Review with flashcards</h4>
-      <p>Tap to reveal, hear it, and rate how well you know it — tricky words come back more often.</p>
+      <h4 data-i18n="t3t">3 · Review with flashcards</h4>
+      <p data-i18n="t3p">Tap to reveal, hear it, and rate how well you know it — tricky words come back more often.</p>
     </div>
     <div class="tut">
       <div class="phone-vid"><video controls playsinline preload="none" poster="../assets/tutorials/tut-5.jpg"><source src="../assets/tutorials/tut-5.mp4" type="video/mp4" /></video></div>
-      <h4>4 · Add words from any app</h4>
-      <p>Select text in Safari — or anywhere — and share it straight into Word Review.</p>
+      <h4 data-i18n="t4t">4 · Add words from any app</h4>
+      <p data-i18n="t4p">Select text in Safari — or anywhere — and share it straight into Word Review.</p>
     </div>
     <div class="tut">
       <div class="phone-vid"><video controls playsinline preload="none" poster="../assets/tutorials/tut-1.jpg"><source src="../assets/tutorials/tut-1.mp4" type="video/mp4" /></video></div>
-      <h4>5 · Add a word from a photo</h4>
-      <p>Share a picture and Capy reads the word right off it.</p>
+      <h4 data-i18n="t5t">5 · Add a word from a photo</h4>
+      <p data-i18n="t5p">Share a picture and Capy reads the word right off it.</p>
     </div>
     <div class="tut">
       <div class="phone-vid"><video controls playsinline preload="none" poster="../assets/tutorials/tut-6.jpg"><source src="../assets/tutorials/tut-6.mp4" type="video/mp4" /></video></div>
-      <h4>6 · Grab many words from a screenshot</h4>
-      <p>Snap a screenshot of a page and add every word it finds in one go.</p>
+      <h4 data-i18n="t6t">6 · Grab many words from a screenshot</h4>
+      <p data-i18n="t6p">Snap a screenshot of a page and add every word it finds in one go.</p>
     </div>
     <div class="tut">
       <div class="phone-vid"><video controls playsinline preload="none" poster="../assets/tutorials/tut-7.jpg"><source src="../assets/tutorials/tut-7.mp4" type="video/mp4" /></video></div>
-      <h4>7 · Play: Capy Quiz</h4>
-      <p>Turn your saved words into a quiz and win oranges 🍊 with Capy.</p>
+      <h4 data-i18n="t7t">7 · Play: Capy Quiz</h4>
+      <p data-i18n="t7p">Turn your saved words into a quiz and win oranges 🍊 with Capy.</p>
     </div>
     <div class="tut">
       <div class="phone-vid"><video controls playsinline preload="none" poster="../assets/tutorials/tut-8.jpg"><source src="../assets/tutorials/tut-8.mp4" type="video/mp4" /></video></div>
-      <h4>8 · Play: Capy Match</h4>
-      <p>Race the clock matching words to their meanings.</p>
+      <h4 data-i18n="t8t">8 · Play: Capy Match</h4>
+      <p data-i18n="t8p">Race the clock matching words to their meanings.</p>
     </div>
     <div class="tut">
       <div class="phone-vid"><video controls playsinline preload="none" poster="../assets/tutorials/tut-9.jpg"><source src="../assets/tutorials/tut-9.mp4" type="video/mp4" /></video></div>
-      <h4>9 · Make it yours</h4>
-      <p>Themes, daily reminders, your own AI key, and tools to organize your word bank.</p>
+      <h4 data-i18n="t9t">9 · Make it yours</h4>
+      <p data-i18n="t9p">Themes, daily reminders, your own AI key, and tools to organize your word bank.</p>
     </div>
   </div>
 </section>
@@ -133,13 +135,13 @@
 <div class="divider"><span>🎮</span></div>
 
 <section id="games" class="wrap">
-  <h2 class="section-title">Play with Capy 🎮</h2>
-  <p class="section-sub cute">Mini-games made from your own saved words — win oranges 🍊 along the way!</p>
+  <h2 class="section-title" data-i18n="games_title">Play with Capy 🎮</h2>
+  <p class="section-sub cute" data-i18n="games_sub">Mini-games made from your own saved words — win oranges 🍊 along the way!</p>
   <div class="feat">
-    <div class="f"><span class="emoji">❓</span><h4>Capy Quiz</h4><p>Guess the word from a sentence or its meaning, with pronunciation and readings.</p></div>
-    <div class="f"><span class="emoji">🧩</span><h4>Capy Match</h4><p>Match words to their meanings and beat the clock across three levels.</p></div>
-    <div class="f"><span class="emoji">⚡</span><h4>Capy Catch</h4><p>Catch the falling words in Capy's cozy hot-spring before they splash in.</p></div>
-    <div class="f"><span class="emoji">👂</span><h4>Capy Listen</h4><p>Hear a word, then catch its meaning as it falls — train your ears!</p></div>
+    <div class="f"><span class="emoji">❓</span><h4 data-i18n="g1t">Capy Quiz</h4><p data-i18n="g1p">Guess the word from a sentence or its meaning, with pronunciation and readings.</p></div>
+    <div class="f"><span class="emoji">🧩</span><h4 data-i18n="g2t">Capy Match</h4><p data-i18n="g2p">Match words to their meanings and beat the clock across three levels.</p></div>
+    <div class="f"><span class="emoji">⚡</span><h4 data-i18n="g3t">Capy Catch</h4><p data-i18n="g3p">Catch the falling words in Capy's cozy hot-spring before they splash in.</p></div>
+    <div class="f"><span class="emoji">👂</span><h4 data-i18n="g4t">Capy Listen</h4><p data-i18n="g4p">Hear a word, then catch its meaning as it falls — train your ears!</p></div>
   </div>
   <div class="games-shots">
     <div class="shots">
@@ -156,59 +158,57 @@
 <div class="divider"><span>📱</span></div>
 
 <section class="wrap" style="text-align:center">
-  <h2 class="section-title">No iPhone? No problem 🎉</h2>
-  <p class="section-sub cute">Word Review works great on iPad, too — perfect for kids and classrooms who learn on a tablet.</p>
-  <div class="tablet"><img src="../assets/available-on-iPad.png" alt="Word Review running on an iPad" /></div>
-  <div class="ipad-vid">
-    <video controls playsinline preload="none" poster="../assets/tutorials/ipad-tour.jpg">
-      <source src="../assets/tutorials/ipad-tour.mp4" type="video/mp4" />
-    </video>
+  <h2 class="section-title" data-i18n="ipad_title">No iPhone? No problem 🎉</h2>
+  <p class="section-sub cute" data-i18n="ipad_sub">Word Review works great on iPad, too — perfect for kids and classrooms who learn on a tablet.</p>
+  <div class="ipad-duo">
+    <div class="tablet"><img src="../assets/available-on-iPad.png" alt="Word Review running on an iPad" /></div>
+    <div class="tablet"><video controls playsinline preload="none" poster="../assets/tutorials/ipad-tour.jpg"><source src="../assets/tutorials/ipad-tour.mp4" type="video/mp4" /></video></div>
   </div>
-  <p class="section-sub cute" style="margin-top:12px">A full tour of Word Review on iPad 🪺</p>
+  <p class="section-sub cute" style="margin-top:12px" data-i18n="ipad_cap">A full tour of Word Review on iPad 🪺</p>
 </section>
 
 <div class="divider"><span>🪙</span></div>
 
 <section id="plans" class="wrap">
-  <h2 class="section-title">Simple, friendly pricing 🪙</h2>
-  <p class="section-sub" style="font-family:'Bubblegum Sans',cursive; font-size:22px; color:var(--teal); transform:rotate(-1deg);">Start free. Upgrade only if you love it. 🌿</p>
+  <h2 class="section-title" data-i18n="price_title">Simple, friendly pricing 🪙</h2>
+  <p class="section-sub" style="font-family:'Bubblegum Sans',cursive; font-size:22px; color:var(--teal); transform:rotate(-1deg);" data-i18n="price_sub">Start free. Upgrade only if you love it. 🌿</p>
   <div class="plans two">
     <div class="plan">
-      <h3>Free</h3>
+      <h3 data-i18n="plan_free">Free</h3>
       <div class="price">$0</div>
       <ul>
-        <li>10 word/phrase enrichments each month</li>
-        <li>10 Capy prompts each month</li>
-        <li>Offline review, always free</li>
+        <li data-i18n="free_b1">10 word/phrase enrichments each month</li>
+        <li data-i18n="free_b2">10 Capy prompts each month</li>
+        <li data-i18n="free_b3">Offline review, always free</li>
       </ul>
     </div>
     <div class="plan hi">
-      <span class="ribbon" style="position:absolute; top:-14px; left:50%; transform:translateX(-50%) rotate(-2deg)">Most loved</span>
+      <span class="ribbon" style="position:absolute; top:-14px; left:50%; transform:translateX(-50%) rotate(-2deg)" data-i18n="mostloved">Most loved</span>
       <h3>Plus</h3>
-      <div class="price">$2.99<span style="font-size:15px; color:var(--mid)">/mo</span></div>
+      <div class="price">$2.99<span style="font-size:15px; color:var(--mid)" data-i18n="suffix_mo">/mo</span></div>
       <ul>
-        <li>~300–500 words, or 100–200 photos / month</li>
-        <li>Meaning, examples &amp; variations, auto-added</li>
-        <li>Photo word capture (OCR)</li>
-        <li>All 28 languages</li>
+        <li data-i18n="plus_b1">~300–500 words, or 100–200 photos / month</li>
+        <li data-i18n="plus_b2">Meaning, examples &amp; variations, auto-added</li>
+        <li data-i18n="plus_b3">Photo word capture (OCR)</li>
+        <li data-i18n="plus_b4">All 28 languages</li>
       </ul>
     </div>
     <div class="plan">
       <h3>Pro</h3>
-      <div class="price">$4.99<span style="font-size:15px; color:var(--mid)">/mo</span></div>
+      <div class="price">$4.99<span style="font-size:15px; color:var(--mid)" data-i18n="suffix_mo">/mo</span></div>
       <ul>
-        <li>~1,000–1,500 words, or 300–500 photos / month</li>
-        <li>Everything in Plus, lots more headroom</li>
-        <li>Best for power learners &amp; classrooms</li>
+        <li data-i18n="pro_b1">~1,000–1,500 words, or 300–500 photos / month</li>
+        <li data-i18n="pro_b2">Everything in Plus, lots more headroom</li>
+        <li data-i18n="pro_b3">Best for power learners &amp; classrooms</li>
       </ul>
     </div>
     <div class="plan">
-      <h3>Bring Your Own Key</h3>
-      <div class="price">$4.99<span style="font-size:15px; color:var(--mid)"> one-time</span></div>
+      <h3 data-i18n="plan_byo">Bring Your Own Key</h3>
+      <div class="price">$4.99<span style="font-size:15px; color:var(--mid)" data-i18n="suffix_once"> one-time</span></div>
       <ul>
-        <li>Use your own AI key (Gemini, ChatGPT, Claude, Grok)</li>
-        <li>No monthly fee</li>
-        <li>Pay only your own API usage</li>
+        <li data-i18n="byo_b1">Use your own AI key (Gemini, ChatGPT, Claude, Grok)</li>
+        <li data-i18n="byo_b2">No monthly fee</li>
+        <li data-i18n="byo_b3">Pay only your own API usage</li>
       </ul>
     </div>
   </div>
@@ -218,10 +218,10 @@
 
 <section class="wrap" style="text-align:center">
   <img class="capy-frame" src="../assets/mascot.png" alt="Capy" />
-  <h2 class="section-title">Ready to start your word journey?</h2>
+  <h2 class="section-title" data-i18n="cta2_title">Ready to start your word journey?</h2>
   <div class="cta" style="justify-content:center; display:flex; gap:14px; flex-wrap:wrap; margin-top:14px;">
-    <a class="btn orange" href="https://apps.apple.com/app/id6780248529">Get it on the App Store 📲</a>
-    <a class="btn ghost" href="../">More from Capy</a>
+    <a class="btn orange" href="https://apps.apple.com/app/id6780248529" data-i18n="cta_get">Get it on the App Store 📲</a>
+    <a class="btn ghost" href="../" data-i18n="cta_more">More from Capy</a>
   </div>
 </section>
 
@@ -229,13 +229,14 @@
   <div class="wrap">
     <div>
       <a href="../">Capybara Around The World</a>
-      <a href="https://fschou-pxt.github.io/capybara-word-review/privacy-policy.html">Privacy</a>
-      <a href="mailto:ribo.neo.stat@gmail.com">Support</a>
+      <a href="https://fschou-pxt.github.io/capybara-word-review/privacy-policy.html" data-i18n="foot_privacy">Privacy</a>
+      <a href="mailto:ribo.neo.stat@gmail.com" data-i18n="foot_support">Support</a>
     </div>
-    <div class="small">© 2026 Capybara Around The World · Made with 🌿 and naps</div>
+    <div class="small" data-i18n="foot_copy">© 2026 Capybara Around The World · Made with 🌿 and naps</div>
   </div>
 </footer>
 
+<script src="../assets/i18n.js"></script>
 <script src="../assets/theme.js"></script>
 </body>
 </html>

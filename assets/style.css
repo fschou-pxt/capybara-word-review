@@ -226,6 +226,14 @@ footer .small{opacity:.85; font-size:13px;}
 .tut-grid::-webkit-scrollbar-thumb{background:var(--brown-light); border-radius:8px;}
 .tut-grid::-webkit-scrollbar-track{background:transparent;}
 
-/* iPad showcase video (landscape) in the "No iPhone" section */
-.ipad-vid{width:min(94%,640px); margin:22px auto 0; border-radius:20px; padding:12px; background:#3B2010; box-shadow:var(--shadow);}
-.ipad-vid video{width:100%; border-radius:12px; display:block; background:#000; aspect-ratio:2388/1668;}
+/* iPad section: static screenshot + portrait tour video, side by side */
+.ipad-duo{display:flex; gap:26px; justify-content:center; align-items:flex-start; flex-wrap:wrap; margin-top:18px;}
+.ipad-duo .tablet{margin:0; width:min(86%,360px);}
+.tablet video{width:100%; border-radius:16px; display:block; background:#000;}
+
+/* Language switcher bar (mirrors privacy policy) */
+#langbar{display:flex; flex-wrap:wrap; gap:6px; justify-content:center; padding:10px 14px 0; max-width:1080px; margin:0 auto;}
+#langbar button{font-family:"Nunito",sans-serif; font-weight:800; font-size:13px; cursor:pointer; color:var(--teal); background:var(--card,#fff); border:1.5px solid var(--brown-light); border-radius:999px; padding:5px 12px; line-height:1;}
+#langbar button:hover{border-color:var(--teal);}
+#langbar button.active{background:var(--teal); color:#fff; border-color:var(--teal);}
+html[dir="rtl"] .lead, html[dir="rtl"] .section-sub, html[dir="rtl"] .tut p, html[dir="rtl"] .f p{text-align:right;}
