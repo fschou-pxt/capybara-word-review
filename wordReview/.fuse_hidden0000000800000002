@@ -111,7 +111,7 @@
       <p data-i18n="t5p">Share a picture and Capy reads the word right off it.</p>
     </div>
     <div class="tut">
-      <div class="phone-vid"><video controls playsinline preload="none" poster="../assets/tutorials/tut-6.jpg?v=4"><source src="../assets/tutorials/tut-6.mp4?v=4" type="video/mp4" /></video></div>
+      <div class="phone-vid"><video controls playsinline preload="none" poster="../assets/tutorials/tut-6.jpg?v=3"><source src="../assets/tutorials/tut-6.mp4?v=3" type="video/mp4" /></video></div>
       <h4 data-i18n="t6t">6 · Grab many words from a screenshot</h4>
       <p data-i18n="t6p">Snap a screenshot of a page and add every word it finds in one go.</p>
     </div>
