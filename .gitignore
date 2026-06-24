@@ -1,0 +1,5 @@
+# Stray app build output — does not belong in the website repo
+build/
+
+# macOS
+.DS_Store
