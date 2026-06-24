@@ -231,13 +231,13 @@
     <div>
       <a href="../">Capybara Around The World</a>
       <a href="https://capybaraaroundtheworld.com/privacy-policy.html" data-i18n="foot_privacy">Privacy</a>
-      <a href="/support.html" data-i18n="foot_support">Support</a>
+      <a href="mailto:ribo.neo.stat@gmail.com" data-i18n="foot_support">Support</a>
     </div>
-    <div class="small" data-i18n="foot_copy">© 2026 Capybara Around The World · Made with 🍊 and naps</div>
+    <div class="small" data-i18n="foot_copy">© 2026 Capybara Around The World · Made with 🌿 and naps</div>
   </div>
 </footer>
 
-<script src="../assets/i18n.js?v=3"></script>
+<script src="../assets/i18n.js?v=2"></script>
 <script src="../assets/theme.js"></script>
 </body>
 </html>

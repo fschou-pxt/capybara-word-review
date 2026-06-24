@@ -54,7 +54,7 @@
       pro_b1: "约 1,000–1,500 个词，或每月 300–500 张照片", pro_b2: "包含 Plus 全部功能，余量更充足", pro_b3: "最适合高强度学习者和课堂",
       plan_byo: "自带密钥", byo_b1: "使用你自己的 AI 密钥（Gemini、ChatGPT、Claude、Grok）", byo_b2: "无月费", byo_b3: "只付你自己的 API 用量",
       cta2_title: "准备好开启你的单词之旅了吗？", cta_more: "更多来自 Capy",
-      foot_privacy: "隐私", foot_support: "支持", foot_copy: "© 2026 Capybara Around The World · 用 🍊 与午睡精心制作"
+      foot_privacy: "隐私", foot_support: "支持", foot_copy: "© 2026 Capybara Around The World · 用 🌿 与午睡精心制作"
     },
     "zh-Hant": {
       nav_features: "功能", nav_tutorials: "教學", nav_pricing: "價格", nav_allapps: "全部應用程式",
@@ -94,7 +94,7 @@
       pro_b1: "約 1,000–1,500 個字，或每月 300–500 張照片", pro_b2: "包含 Plus 全部功能，餘量更充足", pro_b3: "最適合高強度學習者和課堂",
       plan_byo: "自帶金鑰", byo_b1: "使用你自己的 AI 金鑰（Gemini、ChatGPT、Claude、Grok）", byo_b2: "無月費", byo_b3: "只付你自己的 API 用量",
       cta2_title: "準備好開啟你的單字之旅了嗎？", cta_more: "更多來自 Capy",
-      foot_privacy: "隱私", foot_support: "支援", foot_copy: "© 2026 Capybara Around The World · 用 🍊 與午睡精心製作"
+      foot_privacy: "隱私", foot_support: "支援", foot_copy: "© 2026 Capybara Around The World · 用 🌿 與午睡精心製作"
     },
     "ja": {
       nav_features: "機能", nav_tutorials: "チュートリアル", nav_pricing: "料金", nav_allapps: "すべてのアプリ",
@@ -134,7 +134,7 @@
       pro_b1: "毎月 約1,000〜1,500語、または写真300〜500枚", pro_b2: "Plus のすべて＋たっぷりの余裕", pro_b3: "本気の学習者や教室に最適",
       plan_byo: "自分のキーを使う", byo_b1: "自分の AI キーを使用（Gemini・ChatGPT・Claude・Grok）", byo_b2: "月額料金なし", byo_b3: "自分の API 利用分だけ支払い",
       cta2_title: "言葉の旅を始めませんか？", cta_more: "Capy の他のアプリ",
-      foot_privacy: "プライバシー", foot_support: "サポート", foot_copy: "© 2026 Capybara Around The World · 🍊 とお昼寝で作りました"
+      foot_privacy: "プライバシー", foot_support: "サポート", foot_copy: "© 2026 Capybara Around The World · 🌿 とお昼寝で作りました"
     },
     "ko": {
       nav_features: "기능", nav_tutorials: "튜토리얼", nav_pricing: "요금", nav_allapps: "모든 앱",
@@ -174,7 +174,7 @@
       pro_b1: "매월 약 1,000–1,500단어 또는 사진 300–500장", pro_b2: "Plus의 모든 기능 + 훨씬 넉넉한 여유", pro_b3: "열정적인 학습자와 교실에 최적",
       plan_byo: "내 키 사용", byo_b1: "자신의 AI 키 사용(Gemini·ChatGPT·Claude·Grok)", byo_b2: "월 요금 없음", byo_b3: "자신의 API 사용량만 결제",
       cta2_title: "단어 여행을 시작할 준비가 되셨나요?", cta_more: "Capy의 다른 앱",
-      foot_privacy: "개인정보", foot_support: "지원", foot_copy: "© 2026 Capybara Around The World · 🍊 와 낮잠으로 만들었어요"
+      foot_privacy: "개인정보", foot_support: "지원", foot_copy: "© 2026 Capybara Around The World · 🌿 와 낮잠으로 만들었어요"
     },
     "es": {
       nav_features: "Funciones", nav_tutorials: "Tutoriales", nav_pricing: "Precios", nav_allapps: "Todas las apps",
@@ -214,7 +214,7 @@
       pro_b1: "~1.000–1.500 palabras o 300–500 fotos al mes", pro_b2: "Todo lo de Plus, con mucho más margen", pro_b3: "Ideal para estudiantes intensivos y aulas",
       plan_byo: "Usa tu propia clave", byo_b1: "Usa tu propia clave de IA (Gemini, ChatGPT, Claude, Grok)", byo_b2: "Sin cuota mensual", byo_b3: "Paga solo tu propio uso de la API",
       cta2_title: "¿List@ para empezar tu viaje con las palabras?", cta_more: "Más de Capy",
-      foot_privacy: "Privacidad", foot_support: "Soporte", foot_copy: "© 2026 Capybara Around The World · Hecho con 🍊 y siestas"
+      foot_privacy: "Privacidad", foot_support: "Soporte", foot_copy: "© 2026 Capybara Around The World · Hecho con 🌿 y siestas"
     },
     "fr": {
       nav_features: "Fonctions", nav_tutorials: "Tutoriels", nav_pricing: "Tarifs", nav_allapps: "Toutes les apps",
@@ -254,7 +254,7 @@
       pro_b1: "~1 000–1 500 mots, ou 300–500 photos / mois", pro_b2: "Tout Plus, avec bien plus de marge", pro_b3: "Idéal pour les apprenants intensifs et les classes",
       plan_byo: "Apporte ta propre clé", byo_b1: "Utilise ta propre clé IA (Gemini, ChatGPT, Claude, Grok)", byo_b2: "Pas d'abonnement mensuel", byo_b3: "Paie seulement ton propre usage de l'API",
       cta2_title: "Prêt à commencer ton voyage des mots ?", cta_more: "Plus de Capy",
-      foot_privacy: "Confidentialité", foot_support: "Assistance", foot_copy: "© 2026 Capybara Around The World · Fait avec 🍊 et des siestes"
+      foot_privacy: "Confidentialité", foot_support: "Assistance", foot_copy: "© 2026 Capybara Around The World · Fait avec 🌿 et des siestes"
     },
     "de": {
       nav_features: "Funktionen", nav_tutorials: "Tutorials", nav_pricing: "Preise", nav_allapps: "Alle Apps",
@@ -294,7 +294,7 @@
       pro_b1: "~1.000–1.500 Wörter oder 300–500 Fotos / Monat", pro_b2: "Alles aus Plus, mit viel mehr Spielraum", pro_b3: "Ideal für intensive Lernende und Klassen",
       plan_byo: "Eigenen Schlüssel nutzen", byo_b1: "Nutze deinen eigenen KI-Schlüssel (Gemini, ChatGPT, Claude, Grok)", byo_b2: "Keine monatliche Gebühr", byo_b3: "Zahle nur deine eigene API-Nutzung",
       cta2_title: "Bereit für deine Wörterreise?", cta_more: "Mehr von Capy",
-      foot_privacy: "Datenschutz", foot_support: "Support", foot_copy: "© 2026 Capybara Around The World · Mit 🍊 und Nickerchen gemacht"
+      foot_privacy: "Datenschutz", foot_support: "Support", foot_copy: "© 2026 Capybara Around The World · Mit 🌿 und Nickerchen gemacht"
     },
     "it": {
       nav_features: "Funzioni", nav_tutorials: "Tutorial", nav_pricing: "Prezzi", nav_allapps: "Tutte le app",
@@ -334,7 +334,7 @@
       pro_b1: "~1.000–1.500 parole, o 300–500 foto / mese", pro_b2: "Tutto Plus, con molto più margine", pro_b3: "Ideale per studenti intensivi e classi",
       plan_byo: "Usa la tua chiave", byo_b1: "Usa la tua chiave IA (Gemini, ChatGPT, Claude, Grok)", byo_b2: "Nessun canone mensile", byo_b3: "Paghi solo il tuo uso dell'API",
       cta2_title: "Pronto a iniziare il tuo viaggio tra le parole?", cta_more: "Altro da Capy",
-      foot_privacy: "Privacy", foot_support: "Supporto", foot_copy: "© 2026 Capybara Around The World · Fatto con 🍊 e pisolini"
+      foot_privacy: "Privacy", foot_support: "Supporto", foot_copy: "© 2026 Capybara Around The World · Fatto con 🌿 e pisolini"
     },
     "pt-BR": {
       nav_features: "Recursos", nav_tutorials: "Tutoriais", nav_pricing: "Preços", nav_allapps: "Todos os apps",
@@ -374,7 +374,7 @@
       pro_b1: "~1.000–1.500 palavras, ou 300–500 fotos / mês", pro_b2: "Tudo do Plus, com muito mais folga", pro_b3: "Ideal para estudantes intensivos e salas de aula",
       plan_byo: "Use sua própria chave", byo_b1: "Use sua própria chave de IA (Gemini, ChatGPT, Claude, Grok)", byo_b2: "Sem mensalidade", byo_b3: "Pague só o seu próprio uso da API",
       cta2_title: "Pronto para começar sua jornada das palavras?", cta_more: "Mais da Capy",
-      foot_privacy: "Privacidade", foot_support: "Suporte", foot_copy: "© 2026 Capybara Around The World · Feito com 🍊 e sonecas"
+      foot_privacy: "Privacidade", foot_support: "Suporte", foot_copy: "© 2026 Capybara Around The World · Feito com 🌿 e sonecas"
     },
     "ru": {
       nav_features: "Возможности", nav_tutorials: "Уроки", nav_pricing: "Цены", nav_allapps: "Все приложения",
@@ -414,7 +414,7 @@
       pro_b1: "~1 000–1 500 слов или 300–500 фото в месяц", pro_b2: "Всё из Plus, с большим запасом", pro_b3: "Лучше всего для активных учеников и классов",
       plan_byo: "Свой ключ", byo_b1: "Используй свой ключ ИИ (Gemini, ChatGPT, Claude, Grok)", byo_b2: "Без ежемесячной платы", byo_b3: "Платишь только за своё использование API",
       cta2_title: "Готов начать своё путешествие со словами?", cta_more: "Ещё от Capy",
-      foot_privacy: "Конфиденциальность", foot_support: "Поддержка", foot_copy: "© 2026 Capybara Around The World · Сделано с 🍊 и дрёмой"
+      foot_privacy: "Конфиденциальность", foot_support: "Поддержка", foot_copy: "© 2026 Capybara Around The World · Сделано с 🌿 и дрёмой"
     },
     "nl": {
       nav_features: "Functies", nav_tutorials: "Tutorials", nav_pricing: "Prijzen", nav_allapps: "Alle apps",
@@ -454,7 +454,7 @@
       pro_b1: "~1.000–1.500 woorden, of 300–500 foto's / maand", pro_b2: "Alles van Plus, met veel meer ruimte", pro_b3: "Ideaal voor intensieve leerders en klassen",
       plan_byo: "Gebruik je eigen sleutel", byo_b1: "Gebruik je eigen AI-sleutel (Gemini, ChatGPT, Claude, Grok)", byo_b2: "Geen maandelijkse kosten", byo_b3: "Betaal alleen je eigen API-gebruik",
       cta2_title: "Klaar om je woordreis te beginnen?", cta_more: "Meer van Capy",
-      foot_privacy: "Privacy", foot_support: "Ondersteuning", foot_copy: "© 2026 Capybara Around The World · Gemaakt met 🍊 en dutjes"
+      foot_privacy: "Privacy", foot_support: "Ondersteuning", foot_copy: "© 2026 Capybara Around The World · Gemaakt met 🌿 en dutjes"
     },
     "pl": {
       nav_features: "Funkcje", nav_tutorials: "Poradniki", nav_pricing: "Cennik", nav_allapps: "Wszystkie aplikacje",
@@ -494,7 +494,7 @@
       pro_b1: "~1000–1500 słów lub 300–500 zdjęć / miesiąc", pro_b2: "Wszystko z Plus, z dużo większym zapasem", pro_b3: "Najlepsze dla intensywnie uczących się i klas",
       plan_byo: "Użyj własnego klucza", byo_b1: "Użyj własnego klucza AI (Gemini, ChatGPT, Claude, Grok)", byo_b2: "Bez opłaty miesięcznej", byo_b3: "Płać tylko za własne użycie API",
       cta2_title: "Gotowy zacząć swoją podróż ze słowami?", cta_more: "Więcej od Capy",
-      foot_privacy: "Prywatność", foot_support: "Wsparcie", foot_copy: "© 2026 Capybara Around The World · Zrobione z 🍊 i drzemkami"
+      foot_privacy: "Prywatność", foot_support: "Wsparcie", foot_copy: "© 2026 Capybara Around The World · Zrobione z 🌿 i drzemkami"
     },
     "tr": {
       nav_features: "Özellikler", nav_tutorials: "Eğitimler", nav_pricing: "Fiyatlar", nav_allapps: "Tüm uygulamalar",
@@ -534,7 +534,7 @@
       pro_b1: "Ayda ~1.000–1.500 kelime ya da 300–500 fotoğraf", pro_b2: "Plus'taki her şey, çok daha fazla alanla", pro_b3: "Yoğun öğrenenler ve sınıflar için ideal",
       plan_byo: "Kendi anahtarını getir", byo_b1: "Kendi yapay zeka anahtarını kullan (Gemini, ChatGPT, Claude, Grok)", byo_b2: "Aylık ücret yok", byo_b3: "Yalnızca kendi API kullanımını öde",
       cta2_title: "Kelime yolculuğuna başlamaya hazır mısın?", cta_more: "Capy'den dahası",
-      foot_privacy: "Gizlilik", foot_support: "Destek", foot_copy: "© 2026 Capybara Around The World · 🍊 ve şekerlemelerle yapıldı"
+      foot_privacy: "Gizlilik", foot_support: "Destek", foot_copy: "© 2026 Capybara Around The World · 🌿 ve şekerlemelerle yapıldı"
     },
     "ar": {
       nav_features: "المزايا", nav_tutorials: "الدروس", nav_pricing: "الأسعار", nav_allapps: "كل التطبيقات",
@@ -574,7 +574,7 @@
       pro_b1: "~1000–1500 كلمة، أو 300–500 صورة / شهر", pro_b2: "كل ما في Plus، مع مساحة أكبر بكثير", pro_b3: "الأفضل للمتعلّمين النشطين والصفوف",
       plan_byo: "أحضر مفتاحك الخاص", byo_b1: "استخدم مفتاح الذكاء الاصطناعي الخاص بك (Gemini وChatGPT وClaude وGrok)", byo_b2: "بدون رسوم شهرية", byo_b3: "ادفع مقابل استخدامك الخاص لواجهة API فقط",
       cta2_title: "هل أنت مستعد لبدء رحلتك مع الكلمات؟", cta_more: "المزيد من Capy",
-      foot_privacy: "الخصوصية", foot_support: "الدعم", foot_copy: "© 2026 Capybara Around The World · صُنع بـ 🍊 وقيلولة"
+      foot_privacy: "الخصوصية", foot_support: "الدعم", foot_copy: "© 2026 Capybara Around The World · صُنع بـ 🌿 وقيلولة"
     }
   };
 
