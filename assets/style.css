@@ -201,3 +201,11 @@ footer .small{opacity:.85; font-size:13px;}
 .lands{display:flex; flex-direction:column; gap:18px;}
 .lands .phoneL{margin:0; width:min(100%,430px); transform:rotate(-1deg);}
 .lands .phoneL:last-child{transform:rotate(1deg);}
+
+/* Games layout fix: guarantee portraits + landscapes on one row (desktop) */
+.games-shots{flex-wrap:wrap; gap:28px; align-items:center;}
+@media(min-width:920px){ .games-shots{flex-wrap:nowrap;} }
+.games-shots .shots{gap:18px;}
+.games-shots .phone{width:200px;}
+.lands{gap:16px;}
+.lands .phoneL{width:400px; max-width:100%;}
