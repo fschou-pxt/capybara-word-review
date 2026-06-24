@@ -231,9 +231,7 @@ footer .small{opacity:.85; font-size:13px;}
 .ipad-duo .tablet{margin:0; width:min(86%,360px);}
 .tablet video{width:100%; border-radius:16px; display:block; background:#000;}
 
-/* Language switcher dropdown */
-#langbar{display:flex; justify-content:flex-end; padding:8px 22px 0; max-width:1080px; margin:0 auto;}
-#langbar select{font-family:"Nunito",sans-serif; font-weight:800; font-size:14px; cursor:pointer; color:var(--teal); background:#fff; border:1.5px solid var(--brown-light); border-radius:10px; padding:7px 30px 7px 12px;}
-#langbar select:hover{border-color:var(--teal);}
-html[dir="rtl"] #langbar{justify-content:flex-start;}
-html[dir="rtl"] .lead, html[dir="rtl"] .section-sub, html[dir="rtl"] .tut p, html[dir="rtl"] .f p{text-align:right;}
+/* Language switcher dropdown (in the header) */
+.langpick select{font-family:"Nunito",sans-serif; font-weight:800; font-size:13px; cursor:pointer; color:var(--teal); background:#fff; border:1.5px solid var(--brown-light); border-radius:10px; padding:6px 24px 6px 10px;}
+.langpick select:hover{border-color:var(--teal);}
+html[dir="rtl"] .lead, html[dir="rtl"] .section-sub, html[dir="rtl"] .story, html[dir="rtl"] .tut p, html[dir="rtl"] .f p, html[dir="rtl"] .card p{text-align:right;}

@@ -11,7 +11,7 @@
 <meta property="og:description" content="Learn the world, one word at a time — with Capy." />
 <meta property="og:image" content="assets/app-logo.jpg" />
 <meta property="og:type" content="website" />
-<link rel="stylesheet" href="assets/style.css?v=7" />
+<link rel="stylesheet" href="assets/style.css?v=14" />
 </head>
 <body>
 
@@ -19,10 +19,11 @@
   <div class="brand"><img src="assets/app-logo.jpg" alt="Capy" /> Capybara Around The World</div>
   <div class="nav-right">
     <div class="nav-links">
-      <a href="#apps">Apps</a>
-      <a href="#mission">Our Story</a>
+      <a href="#apps" data-i18n="h_nav_apps">Apps</a>
+      <a href="#mission" data-i18n="h_nav_story">Our Story</a>
       <a href="wordReview/">Word Review</a>
     </div>
+    <div id="langpick" class="langpick"></div>
     <div class="themes" title="Pick a theme">
       <button class="sw" data-theme="classic" title="Classic" style="background:#2E8B7A"></button>
       <button class="sw" data-theme="sakura" title="Sakura" style="background:#D63A77"></button>
@@ -34,12 +35,12 @@
 <header class="wrap">
   <div class="hero">
     <div>
-      <span class="ribbon">🌿 On the App Store</span>
-      <h1>Learn the world,<br>one word at a time</h1>
-      <p class="lead">Meet <b>Capy</b> — your gentle study buddy who turns boring little moments into tiny adventures. Calm, cute, and quietly powerful.</p>
+      <span class="ribbon" data-i18n="h_ribbon">🌿 On the App Store</span>
+      <h1 data-i18n="h_h1">Learn the world,<br>one word at a time</h1>
+      <p class="lead" data-i18n="h_lead">Meet <b>Capy</b> — your gentle study buddy who turns boring little moments into tiny adventures. Calm, cute, and quietly powerful.</p>
       <div class="cta">
-        <a class="btn orange" href="wordReview/">Meet Word Review ✨</a>
-        <a class="btn ghost" href="#mission">Our story</a>
+        <a class="btn orange" href="wordReview/" data-i18n="h_cta_meet">Meet Word Review ✨</a>
+        <a class="btn ghost" href="#mission" data-i18n="h_cta_story">Our story</a>
       </div>
     </div>
     <div class="hero-art">
@@ -50,34 +51,34 @@
 </header>
 
 <section id="apps" class="wrap">
-  <h2 class="section-title">Capy's little app world 🗺️</h2>
-  <p class="section-sub">One friendly capybara, many ways to learn. More adventures are on the way!</p>
+  <h2 class="section-title" data-i18n="h_apps_title">Capy's little app world 🗺️</h2>
+  <p class="section-sub" data-i18n="h_apps_sub">One friendly capybara, many ways to learn. More adventures are on the way!</p>
   <div class="cards">
     <a class="card featured" href="wordReview/" style="color:inherit">
       <img class="thumb" src="assets/app-logo.jpg" alt="Word Review" />
-      <span class="pill">iPhone · Free to start</span>
+      <span class="pill" data-i18n="h_wr_pill">iPhone · Free to start</span>
       <h3>Word Review</h3>
-      <p>Capture words & phrases you meet in real life, then review them with examples, pronunciation, and spaced repetition. 28 languages!</p>
-      <p style="margin-top:12px"><b style="color:var(--teal)">Explore →</b></p>
+      <p data-i18n="h_wr_desc">Capture words &amp; phrases you meet in real life, then review them with examples, pronunciation, and spaced repetition. 28 languages!</p>
+      <p style="margin-top:12px"><b style="color:var(--teal)" data-i18n="h_wr_explore">Explore →</b></p>
     </a>
     <div class="card soon">
       <div class="thumb" style="background:#EFE2CE"></div>
-      <span class="pill" style="border-color:#E3D2BB;color:#b6a489">Coming soon</span>
+      <span class="pill" style="border-color:#E3D2BB;color:#b6a489" data-i18n="h_soon">Coming soon</span>
       <h3>Play with Capy</h3>
-      <p>A cozy collection of cute, bite-sized games starring Capy — pure playful fun, just for the joy of it.</p>
+      <p data-i18n="h_play_desc">A cozy collection of cute, bite-sized games starring Capy — pure playful fun, just for the joy of it.</p>
     </div>
     <div class="card soon">
       <div class="thumb" style="background:#EFE2CE"></div>
-      <span class="pill" style="border-color:#E3D2BB;color:#b6a489">Coming soon</span>
-      <h3>More adventures</h3>
-      <p>Capy is packing his bags for the next journey. Stay tuned! 🧳</p>
+      <span class="pill" style="border-color:#E3D2BB;color:#b6a489" data-i18n="h_soon">Coming soon</span>
+      <h3 data-i18n="h_more_title">More adventures</h3>
+      <p data-i18n="h_more_desc">Capy is packing his bags for the next journey. Stay tuned! 🧳</p>
     </div>
   </div>
 </section>
 
 <section id="mission" class="wrap" style="text-align:center">
-  <h2 class="section-title">Why Capy? 💚</h2>
-  <p class="story">
+  <h2 class="section-title" data-i18n="h_why_title">Why Capy? 💚</h2>
+  <p class="story" data-i18n="h_story">
     Capybaras are the calmest, friendliest creatures around — and that's exactly how learning should feel.
     No stress, no streak-anxiety. Just little moments of curiosity, gently turned into things you remember.
     Our mission: <b>turn boring moments into learning, every encounter into discovery.</b>
@@ -89,13 +90,14 @@
   <div class="wrap">
     <div>
       <a href="wordReview/">Word Review</a>
-      <a href="https://fschou-pxt.github.io/capybara-word-review/privacy-policy.html">Privacy</a>
-      <a href="mailto:ribo.neo.stat@gmail.com">Support</a>
+      <a href="https://fschou-pxt.github.io/capybara-word-review/privacy-policy.html" data-i18n="foot_privacy">Privacy</a>
+      <a href="mailto:ribo.neo.stat@gmail.com" data-i18n="foot_support">Support</a>
     </div>
-    <div class="small">© 2026 Capybara Around The World · Made with 🌿 and naps</div>
+    <div class="small" data-i18n="foot_copy">© 2026 Capybara Around The World · Made with 🌿 and naps</div>
   </div>
 </footer>
 
+<script src="assets/i18n.js?v=2"></script>
 <script src="assets/theme.js"></script>
 </body>
 </html>
