@@ -20,16 +20,15 @@
     a { color: #c07030; }
     hr { border: none; border-top: 1px solid #e8ddd0; margin: 2rem 0; }
     #langbar {
-      display: flex; flex-wrap: wrap; gap: 6px;
-      padding: 12px 0 20px; border-bottom: 1px solid #e8ddd0; margin-bottom: 8px;
+      padding: 12px 0 16px; border-bottom: 1px solid #e8ddd0; margin-bottom: 8px;
+      text-align: right;
     }
-    #langbar button {
-      font: inherit; font-size: 0.85rem; cursor: pointer;
-      border: 1px solid #e0d3c2; background: #fff; color: #5a3820;
-      border-radius: 999px; padding: 4px 12px;
+    #langbar select {
+      font: inherit; font-size: 0.9rem; cursor: pointer; color: #5a3820;
+      background: #fff; border: 1px solid #e0d3c2; border-radius: 8px; padding: 6px 30px 6px 12px;
     }
-    #langbar button.active { background: #2E8B7A; color: #fff; border-color: #2E8B7A; }
     body[dir="rtl"] { text-align: right; }
+    body[dir="rtl"] #langbar { text-align: left; }
   </style>
 </head>
 <body>
@@ -681,30 +680,31 @@ function render(lang) {
   document.getElementById('content').innerHTML = p.html;
   document.documentElement.lang = lang;
   document.body.setAttribute('dir', p.dir === 'rtl' ? 'rtl' : 'ltr');
-  // highlight active button
-  var btns = document.querySelectorAll('#langbar button');
-  for (var i = 0; i < btns.length; i++) {
-    btns[i].classList.toggle('active', btns[i].getAttribute('data-l') === lang);
-  }
-  try { localStorage.setItem('wr_pp_lang', lang); } catch (e) {}
+  var sel = document.getElementById('langsel');
+  if (sel) sel.value = lang;
+  try { localStorage.setItem('wr_lang', lang); } catch (e) {}
 }
 
-// Build language buttons
+// Build language dropdown
 (function () {
   var bar = document.getElementById('langbar');
+  var sel = document.createElement('select');
+  sel.id = 'langsel';
+  sel.setAttribute('aria-label', 'Choose language');
   Object.keys(POLICIES).forEach(function (code) {
-    var b = document.createElement('button');
-    b.textContent = POLICIES[code].label;
-    b.setAttribute('data-l', code);
-    b.onclick = function () { render(code); };
-    bar.appendChild(b);
+    var o = document.createElement('option');
+    o.value = code;
+    o.textContent = POLICIES[code].label;
+    sel.appendChild(o);
   });
-  // Initial language: ?lang= param → saved choice → browser → English
+  sel.addEventListener('change', function () { render(sel.value); });
+  bar.appendChild(sel);
+  // Initial language: ?lang= param → shared saved choice → browser → English
   var params = new URLSearchParams(window.location.search);
   var initial = resolveLang(params.get('lang'));
   if (!params.get('lang')) {
     try {
-      var saved = localStorage.getItem('wr_pp_lang');
+      var saved = localStorage.getItem('wr_lang') || localStorage.getItem('wr_pp_lang');
       if (saved && POLICIES[saved]) initial = saved;
       else initial = resolveLang((navigator.language || 'en'));
     } catch (e) {}

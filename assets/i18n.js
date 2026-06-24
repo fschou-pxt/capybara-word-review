@@ -599,9 +599,13 @@
     });
     document.documentElement.lang = lang;
     document.documentElement.dir = RTL[lang] ? "rtl" : "ltr";
-    var btns = document.querySelectorAll("#langbar button");
-    btns.forEach(function (b) { b.classList.toggle("active", b.getAttribute("data-l") === lang); });
-    try { localStorage.setItem("wr_site_lang", lang); } catch (e) {}
+    var sel = document.getElementById("langsel");
+    if (sel) sel.value = lang;
+    // Carry the chosen language across to the privacy policy page.
+    document.querySelectorAll('a[href*="privacy-policy.html"]').forEach(function (a) {
+      a.href = a.href.split("?")[0].split("#")[0] + "?lang=" + encodeURIComponent(lang);
+    });
+    try { localStorage.setItem("wr_lang", lang); } catch (e) {}
   }
 
   function resolveLang(code) {
@@ -618,19 +622,30 @@
     captureDefaults();
     var bar = document.getElementById("langbar");
     if (!bar) return;
+    var sel = document.createElement("select");
+    sel.id = "langsel";
+    sel.setAttribute("aria-label", "Choose language");
     LANGS.forEach(function (pair) {
-      var b = document.createElement("button");
-      b.textContent = pair[1];
-      b.setAttribute("data-l", pair[0]);
-      b.addEventListener("click", function () { render(pair[0]); });
-      bar.appendChild(b);
+      var o = document.createElement("option");
+      o.value = pair[0];
+      o.textContent = pair[1];
+      sel.appendChild(o);
     });
+    sel.addEventListener("change", function () { render(sel.value); });
+    bar.appendChild(sel);
+    // Initial: ?lang= param → shared saved choice → browser → English
     var initial = "en";
-    try {
-      var saved = localStorage.getItem("wr_site_lang");
-      if (saved && (I18N[saved] || saved === "en")) initial = saved;
-      else initial = resolveLang(navigator.language || navigator.userLanguage);
-    } catch (e) { initial = resolveLang(navigator.language); }
+    var param = null;
+    try { param = new URLSearchParams(window.location.search).get("lang"); } catch (e) {}
+    if (param) {
+      initial = resolveLang(param);
+    } else {
+      try {
+        var saved = localStorage.getItem("wr_lang") || localStorage.getItem("wr_site_lang");
+        if (saved && (I18N[saved] || saved === "en")) initial = saved;
+        else initial = resolveLang(navigator.language || navigator.userLanguage);
+      } catch (e) { initial = resolveLang(navigator.language); }
+    }
     render(initial);
   }
 
