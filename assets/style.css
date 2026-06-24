@@ -209,3 +209,23 @@ footer .small{opacity:.85; font-size:13px;}
 .games-shots .phone{width:200px;}
 .lands{gap:16px;}
 .lands .phoneL{width:400px; max-width:100%;}
+
+/* Tutorials: horizontal scroll-snap strip, peeking the next card */
+.tut-grid{
+  display:flex; grid-template-columns:none;
+  gap:22px; overflow-x:auto;
+  scroll-snap-type:x mandatory;
+  -webkit-overflow-scrolling:touch;
+  padding:6px 2px 16px; scroll-padding-left:2px;
+  scrollbar-width:thin; scrollbar-color:var(--brown-light) transparent;
+}
+.tut{flex:0 0 auto; width:238px; scroll-snap-align:start;}
+.tut.land{width:min(470px,86vw);}
+.tut .phone-vid, .tut.land .phone-vid{width:100%; max-width:none;}
+.tut-grid::-webkit-scrollbar{height:8px;}
+.tut-grid::-webkit-scrollbar-thumb{background:var(--brown-light); border-radius:8px;}
+.tut-grid::-webkit-scrollbar-track{background:transparent;}
+
+/* iPad showcase video (landscape) in the "No iPhone" section */
+.ipad-vid{width:min(94%,640px); margin:22px auto 0; border-radius:20px; padding:12px; background:#3B2010; box-shadow:var(--shadow);}
+.ipad-vid video{width:100%; border-radius:12px; display:block; background:#000; aspect-ratio:2388/1668;}
