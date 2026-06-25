@@ -47,23 +47,70 @@
   <div class="support-card" style="text-align:center;">
     <h3 data-i18n="sup_email_h">Email us</h3>
     <p style="max-width:none; margin:0 0 18px; color:var(--mid); font-size:15px;" data-i18n="sup_email_p">The fastest way to reach us. We usually reply within a couple of days.</p>
-    <a class="btn orange" href="mailto:ribo.neo.stat@gmail.com?subject=Word%20Review%20support" data-i18n="sup_email_btn">Email support</a>
-    <p style="margin-top:14px; color:var(--mid); font-size:17px; font-weight:700;">ribo.neo.stat@gmail.com</p>
+    <a class="btn orange" href="mailto:support@capybaraaroundtheworld.com?subject=Word%20Review%20support" data-i18n="sup_email_btn">Email support</a>
+    <p style="margin-top:14px; color:var(--mid); font-size:17px; font-weight:700;">support@capybaraaroundtheworld.com</p>
   </div>
 
   <div class="support-card">
     <h3 data-i18n="sup_form_h">Or send a message</h3>
     <p style="max-width:none; margin:0 0 18px; color:var(--mid); font-size:15px;" data-i18n="sup_form_p">Prefer a form? Fill this in and it lands in our inbox.</p>
-    <form action="https://formsubmit.co/ribo.neo.stat@gmail.com" method="POST">
+    <form id="supportForm" action="https://formsubmit.co/ajax/support@capybaraaroundtheworld.com" method="POST">
       <input type="hidden" name="_subject" value="Word Review support message" />
-      <input type="hidden" name="_captcha" value="true" />
       <input type="hidden" name="_template" value="table" />
+      <!-- honeypot: bots fill this, humans don't -->
+      <input type="text" name="_honey" style="display:none" tabindex="-1" autocomplete="off" />
       <input type="text" class="field" name="name" placeholder="Your name" data-i18n-ph="sup_name_ph" required />
       <input type="email" class="field" name="email" placeholder="Your email (so we can reply)" data-i18n-ph="sup_email_ph" required />
       <textarea class="field" name="message" placeholder="How can we help?" data-i18n-ph="sup_msg_ph" required></textarea>
       <button class="btn teal" type="submit" style="background:var(--teal); box-shadow:0 6px 0 var(--teal-dark), var(--shadow); color:#fff;" data-i18n="sup_send_btn">Send message</button>
     </form>
+    <p id="supportFormMsg" style="display:none; margin:14px 0 0; padding:14px 16px; border-radius:12px; font-size:15px; line-height:1.5;"></p>
+    <!-- localized status strings (hidden; read by the submit script) -->
+    <span id="sup_t_sending" data-i18n="sup_sending" hidden>Sending…</span>
+    <span id="sup_t_ok" data-i18n="sup_ok" hidden>Thanks! Your message is on its way — we’ll reply by email.</span>
+    <span id="sup_t_err" data-i18n="sup_err" hidden>Something went wrong. Please email us directly at support@capybaraaroundtheworld.com.</span>
   </div>
+
+  <script>
+  (function () {
+    var form = document.getElementById('supportForm');
+    if (!form) return;
+    var msg = document.getElementById('supportFormMsg');
+    var btn = form.querySelector('button[type="submit"]');
+    function show(text, ok) {
+      msg.textContent = text;
+      msg.style.display = 'block';
+      msg.style.background = ok ? 'var(--green-bg, #e8f5e9)' : '#fde8e8';
+      msg.style.color = ok ? 'var(--teal, #2E8B7A)' : '#b3261e';
+    }
+    form.addEventListener('submit', function (e) {
+      e.preventDefault();
+      var t = function (id, fb) { var el = document.getElementById(id); return (el && el.textContent.trim()) || fb; };
+      var sending = t('sup_t_sending', 'Sending…');
+      var okText = t('sup_t_ok', 'Thanks! Your message is on its way — we’ll reply by email.');
+      var errText = t('sup_t_err', 'Something went wrong. Please email us directly at support@capybaraaroundtheworld.com.');
+      if (btn) { btn.disabled = true; btn.dataset.label = btn.textContent; btn.textContent = sending; }
+      fetch(form.action, {
+        method: 'POST',
+        headers: { 'Accept': 'application/json' },
+        body: new FormData(form)
+      }).then(function (r) { return r.json().catch(function () { return {}; }).then(function (d) { return { ok: r.ok, d: d }; }); })
+        .then(function (res) {
+          if (res.ok) {
+            form.style.display = 'none';
+            show(okText, true);
+          } else {
+            show(errText, false);
+            if (btn) { btn.disabled = false; btn.textContent = btn.dataset.label; }
+          }
+        })
+        .catch(function () {
+          show(errText, false);
+          if (btn) { btn.disabled = false; btn.textContent = btn.dataset.label; }
+        });
+    });
+  })();
+  </script>
 </section>
 
 <div class="divider"><span>💬</span></div>
@@ -100,12 +147,12 @@
       <a href="/">Capybara Around The World</a>
       <a href="/wordReview/">Word Review</a>
       <a href="/privacy-policy.html" data-i18n="foot_privacy">Privacy</a>
-      <a href="mailto:ribo.neo.stat@gmail.com">Email</a>
+      <a href="mailto:support@capybaraaroundtheworld.com">Email</a>
     </div>
     <div class="small" data-i18n="foot_copy">© 2026 Capybara Around The World · Made with 🍊 and naps</div>
   </div>
 </footer>
 
-<script src="assets/i18n.js?v=3"></script>
+<script src="assets/i18n.js?v=5"></script>
 </body>
 </html>
