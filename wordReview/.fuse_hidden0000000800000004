@@ -98,7 +98,7 @@
       <p data-i18n="t1p">Choose what you're learning and the language you already know — add as many pairs as you like.</p>
       <p style="color:var(--mid)" data-i18n="g_s1_tip">💡 Tip: tap the language pill at the top to switch between pairs anytime, or add a new one. You learn in a language you already know.</p>
     </div>
-    <div class="gs-media"><div class="phone-vid"><video controls playsinline preload="none" poster="../assets/tutorials/tut-2.jpg?v=12"><source src="../assets/tutorials/tut-2.mp4?v=12" type="video/mp4" /></video></div></div>
+    <div class="gs-media"><div class="phone-vid"><video controls playsinline preload="none" poster="../assets/tutorials/tut-2.jpg"><source src="../assets/tutorials/tut-2.mp4" type="video/mp4" /></video></div></div>
   </div>
 </section>
 
@@ -109,27 +109,27 @@
   <p class="section-sub cute" data-i18n="g_s2_lead">However you meet a word in real life, Capy can save it — and fill in the rest.</p>
   <div class="tut-grid">
     <div class="tut">
-      <div class="phone-vid"><video controls playsinline preload="none" poster="../assets/tutorials/tut-3.jpg?v=12"><source src="../assets/tutorials/tut-3.mp4?v=12" type="video/mp4" /></video></div>
+      <div class="phone-vid"><video controls playsinline preload="none" poster="../assets/tutorials/tut-3.jpg"><source src="../assets/tutorials/tut-3.mp4" type="video/mp4" /></video></div>
       <h4 data-i18n="t2t">Type it</h4>
       <p data-i18n="t2p">Type any word and Capy adds the meaning, examples, pronunciation, and variations.</p>
     </div>
     <div class="tut">
-      <div class="phone-vid"><video controls playsinline preload="none" poster="../assets/tutorials/tut-10.jpg?v=12"><source src="../assets/tutorials/tut-10.mp4?v=12" type="video/mp4" /></video></div>
+      <div class="phone-vid" style="display:flex;align-items:center;justify-content:center;background:linear-gradient(135deg,#fff3e0,#ffe3c7);font-size:64px;aspect-ratio:9/19.5;box-sizing:border-box">🎙️</div>
       <h4 data-i18n="g_voice_t">Say it</h4>
       <p data-i18n="g_voice_p">Tap the mic and speak — in the language you're learning or the one you already know. Capy figures out the word.</p>
     </div>
     <div class="tut">
-      <div class="phone-vid"><video controls playsinline preload="none" poster="../assets/tutorials/tut-1.jpg?v=12"><source src="../assets/tutorials/tut-1.mp4?v=12" type="video/mp4" /></video></div>
+      <div class="phone-vid"><video controls playsinline preload="none" poster="../assets/tutorials/tut-1.jpg"><source src="../assets/tutorials/tut-1.mp4" type="video/mp4" /></video></div>
       <h4 data-i18n="t5t">Snap a photo</h4>
       <p data-i18n="t5p">Share a picture and Capy reads the word right off it (OCR).</p>
     </div>
     <div class="tut">
-      <div class="phone-vid"><video controls playsinline preload="none" poster="../assets/tutorials/tut-5.jpg?v=12"><source src="../assets/tutorials/tut-5.mp4?v=12" type="video/mp4" /></video></div>
+      <div class="phone-vid"><video controls playsinline preload="none" poster="../assets/tutorials/tut-5.jpg"><source src="../assets/tutorials/tut-5.mp4" type="video/mp4" /></video></div>
       <h4 data-i18n="t4t">Share from any app</h4>
       <p data-i18n="t4p">Select text in Safari — or anywhere — and share it straight into Word Review.</p>
     </div>
     <div class="tut">
-      <div class="phone-vid"><video controls playsinline preload="none" poster="../assets/tutorials/tut-6.jpg?v=12"><source src="../assets/tutorials/tut-6.mp4?v=12" type="video/mp4" /></video></div>
+      <div class="phone-vid"><video controls playsinline preload="none" poster="../assets/tutorials/tut-6.jpg"><source src="../assets/tutorials/tut-6.mp4" type="video/mp4" /></video></div>
       <h4 data-i18n="t6t">Grab many from a screenshot</h4>
       <p data-i18n="t6p">Snap a screenshot of a page and add every word it finds in one go.</p>
     </div>
@@ -145,7 +145,7 @@
       <h3 data-i18n="g_dict_h">Turn Capy into a dictionary 📚</h3>
       <p data-i18n="g_dict_p">Pick the same language for both what you're learning and what you already know. Instead of translating, Capy gives you definitions, example sentences, and pronunciation — a full single-language dictionary for any of the 32 languages.</p>
     </div>
-    <div class="gs-media"><div class="phone-vid"><video controls playsinline preload="none" poster="../assets/tutorials/tut-11.jpg?v=12"><source src="../assets/tutorials/tut-11.mp4?v=12" type="video/mp4" /></video></div></div>
+    <img src="../assets/screen-pairs.png" alt="Choosing a language pair in Word Review" />
   </div>
 </section>
 
@@ -153,7 +153,7 @@
 
 <section id="review" class="wrap">
   <div class="guide-step rev">
-    <div class="gs-media"><div class="phone-vid"><video controls playsinline preload="none" poster="../assets/tutorials/tut-4.jpg?v=12"><source src="../assets/tutorials/tut-4.mp4?v=12" type="video/mp4" /></video></div></div>
+    <div class="gs-media"><div class="phone-vid"><video controls playsinline preload="none" poster="../assets/tutorials/tut-4.jpg"><source src="../assets/tutorials/tut-4.mp4" type="video/mp4" /></video></div></div>
     <div class="gs-body">
       <h3 data-i18n="g_s3_h">3 · Review &amp; remember</h3>
       <p data-i18n="g_s3_p">Tap a card to reveal the answer, hear it spoken, and rate how well you knew it — Capy brings tricky words back more often. Mark favorites, add your own tags, then filter or practice just one group.</p>
@@ -188,7 +188,7 @@
       <h3 data-i18n="g_s5_h">5 · Make it yours</h3>
       <p data-i18n="t9p">Themes, daily reminders, your own AI key, and tools to organize your word bank.</p>
     </div>
-    <div class="gs-media"><div class="phone-vid"><video controls playsinline preload="none" poster="../assets/tutorials/tut-9.jpg?v=12"><source src="../assets/tutorials/tut-9.mp4?v=12" type="video/mp4" /></video></div></div>
+    <div class="gs-media"><div class="phone-vid"><video controls playsinline preload="none" poster="../assets/tutorials/tut-9.jpg"><source src="../assets/tutorials/tut-9.mp4" type="video/mp4" /></video></div></div>
   </div>
 </section>
 

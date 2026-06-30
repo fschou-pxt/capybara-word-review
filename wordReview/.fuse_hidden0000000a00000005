@@ -87,47 +87,47 @@
   <p class="section-sub cute" data-i18n="tut_sub">Short clips showing Capy's little tricks — more on the way! 🌿</p>
   <div class="tut-grid">
     <div class="tut">
-      <div class="phone-vid"><video controls playsinline preload="none" poster="../assets/tutorials/tut-2.jpg?v=12"><source src="../assets/tutorials/tut-2.mp4?v=12" type="video/mp4" /></video></div>
+      <div class="phone-vid"><video controls playsinline preload="none" poster="../assets/tutorials/tut-2.jpg"><source src="../assets/tutorials/tut-2.mp4" type="video/mp4" /></video></div>
       <h4 data-i18n="t1t">1 · Pick your languages</h4>
       <p data-i18n="t1p">Choose what you're learning and the language you already know — add as many pairs as you like.</p>
     </div>
     <div class="tut">
-      <div class="phone-vid"><video controls playsinline preload="none" poster="../assets/tutorials/tut-3.jpg?v=12"><source src="../assets/tutorials/tut-3.mp4?v=12" type="video/mp4" /></video></div>
+      <div class="phone-vid"><video controls playsinline preload="none" poster="../assets/tutorials/tut-3.jpg"><source src="../assets/tutorials/tut-3.mp4" type="video/mp4" /></video></div>
       <h4 data-i18n="t2t">2 · Add a word by typing</h4>
       <p data-i18n="t2p">Type any word and Capy adds the meaning, examples, pronunciation, and variations.</p>
     </div>
     <div class="tut">
-      <div class="phone-vid"><video controls playsinline preload="none" poster="../assets/tutorials/tut-4.jpg?v=12"><source src="../assets/tutorials/tut-4.mp4?v=12" type="video/mp4" /></video></div>
+      <div class="phone-vid"><video controls playsinline preload="none" poster="../assets/tutorials/tut-4.jpg"><source src="../assets/tutorials/tut-4.mp4" type="video/mp4" /></video></div>
       <h4 data-i18n="t3t">3 · Review with flashcards</h4>
       <p data-i18n="t3p">Tap to reveal, hear it, and rate how well you know it — tricky words come back more often.</p>
     </div>
     <div class="tut">
-      <div class="phone-vid"><video controls playsinline preload="none" poster="../assets/tutorials/tut-5.jpg?v=12"><source src="../assets/tutorials/tut-5.mp4?v=12" type="video/mp4" /></video></div>
+      <div class="phone-vid"><video controls playsinline preload="none" poster="../assets/tutorials/tut-5.jpg?v=3"><source src="../assets/tutorials/tut-5.mp4?v=3" type="video/mp4" /></video></div>
       <h4 data-i18n="t4t">4 · Add words from any app</h4>
       <p data-i18n="t4p">Select text in Safari — or anywhere — and share it straight into Word Review.</p>
     </div>
     <div class="tut">
-      <div class="phone-vid"><video controls playsinline preload="none" poster="../assets/tutorials/tut-1.jpg?v=12"><source src="../assets/tutorials/tut-1.mp4?v=12" type="video/mp4" /></video></div>
+      <div class="phone-vid"><video controls playsinline preload="none" poster="../assets/tutorials/tut-1.jpg?v=3"><source src="../assets/tutorials/tut-1.mp4?v=3" type="video/mp4" /></video></div>
       <h4 data-i18n="t5t">5 · Add a word from a photo</h4>
       <p data-i18n="t5p">Share a picture and Capy reads the word right off it.</p>
     </div>
     <div class="tut">
-      <div class="phone-vid"><video controls playsinline preload="none" poster="../assets/tutorials/tut-6.jpg?v=12"><source src="../assets/tutorials/tut-6.mp4?v=12" type="video/mp4" /></video></div>
+      <div class="phone-vid"><video controls playsinline preload="none" poster="../assets/tutorials/tut-6.jpg?v=4"><source src="../assets/tutorials/tut-6.mp4?v=4" type="video/mp4" /></video></div>
       <h4 data-i18n="t6t">6 · Grab many words from a screenshot</h4>
       <p data-i18n="t6p">Snap a screenshot of a page and add every word it finds in one go.</p>
     </div>
     <div class="tut">
-      <div class="phone-vid"><video controls playsinline preload="none" poster="../assets/tutorials/tut-7.jpg?v=12"><source src="../assets/tutorials/tut-7.mp4?v=12" type="video/mp4" /></video></div>
+      <div class="phone-vid"><video controls playsinline preload="none" poster="../assets/tutorials/tut-7.jpg"><source src="../assets/tutorials/tut-7.mp4" type="video/mp4" /></video></div>
       <h4 data-i18n="t7t">7 · Play: Capy Quiz</h4>
       <p data-i18n="t7p">Turn your saved words into a quiz and win oranges 🍊 with Capy.</p>
     </div>
     <div class="tut">
-      <div class="phone-vid"><video controls playsinline preload="none" poster="../assets/tutorials/tut-8.jpg?v=12"><source src="../assets/tutorials/tut-8.mp4?v=12" type="video/mp4" /></video></div>
+      <div class="phone-vid"><video controls playsinline preload="none" poster="../assets/tutorials/tut-8.jpg"><source src="../assets/tutorials/tut-8.mp4" type="video/mp4" /></video></div>
       <h4 data-i18n="t8t">8 · Play: Capy Match</h4>
       <p data-i18n="t8p">Race the clock matching words to their meanings.</p>
     </div>
     <div class="tut">
-      <div class="phone-vid"><video controls playsinline preload="none" poster="../assets/tutorials/tut-9.jpg?v=12"><source src="../assets/tutorials/tut-9.mp4?v=12" type="video/mp4" /></video></div>
+      <div class="phone-vid"><video controls playsinline preload="none" poster="../assets/tutorials/tut-9.jpg"><source src="../assets/tutorials/tut-9.mp4" type="video/mp4" /></video></div>
       <h4 data-i18n="t9t">9 · Make it yours</h4>
       <p data-i18n="t9p">Themes, daily reminders, your own AI key, and tools to organize your word bank.</p>
     </div>
@@ -167,7 +167,7 @@
   <p class="section-sub cute" data-i18n="ipad_sub">Word Review works great on iPad, too — perfect for kids and classrooms who learn on a tablet.</p>
   <div class="ipad-duo">
     <div class="tablet"><img src="../assets/available-on-iPad.png" alt="Word Review running on an iPad" /></div>
-    <div class="tablet"><video controls playsinline preload="none" poster="../assets/tutorials/ipad-tour.jpg?v=12"><source src="../assets/tutorials/ipad-tour.mp4?v=12" type="video/mp4" /></video></div>
+    <div class="tablet"><video controls playsinline preload="none" poster="../assets/tutorials/ipad-tour.jpg"><source src="../assets/tutorials/ipad-tour.mp4" type="video/mp4" /></video></div>
   </div>
   <p class="section-sub cute" style="margin-top:12px" data-i18n="ipad_cap">A full tour of Word Review on iPad 🪺</p>
 </section>
