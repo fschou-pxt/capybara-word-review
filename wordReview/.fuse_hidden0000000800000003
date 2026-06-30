@@ -4,12 +4,12 @@
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>Word Review — capture words, play, remember | Capybara Around The World</title>
-<meta name="description" content="Capture words and phrases you meet in real life, then review them with examples, pronunciation, and spaced repetition. 32 languages. Starring Capy the capybara." />
+<meta name="description" content="Capture words and phrases you meet in real life, then review them with examples, pronunciation, and spaced repetition. 30 languages. Starring Capy the capybara." />
 <link rel="icon" href="/favicon.ico" sizes="any" />
 <link rel="icon" type="image/png" sizes="32x32" href="/assets/favicon-32.png" />
 <link rel="apple-touch-icon" href="/assets/apple-touch-icon.png" />
 <meta property="og:title" content="Word Review — learn the words you actually meet" />
-<meta property="og:description" content="Capture by typing, voice, or photo. Review with Capy. 32 languages." />
+<meta property="og:description" content="Capture by typing, voice, or photo. Review with Capy. 30 languages." />
 <meta property="og:image" content="../assets/app-logo.jpg" />
 <meta property="og:type" content="website" />
 <link rel="stylesheet" href="../assets/style.css?v=15" />
@@ -61,7 +61,7 @@
     <div class="f"><span class="emoji">⌨️</span><h4 data-i18n="f1t">Capture any way</h4><p data-i18n="f1p">Type it, speak it, or snap a photo — Capy reads it and fills in the rest.</p></div>
     <div class="f"><span class="emoji">🔊</span><h4 data-i18n="f2t">Hear it right</h4><p data-i18n="f2p">Natural pronunciation so you learn how words really sound.</p></div>
     <div class="f"><span class="emoji">🧠</span><h4 data-i18n="f3t">Smart review</h4><p data-i18n="f3p">Spaced repetition shows tricky words more often — remember more, study less.</p></div>
-    <div class="f"><span class="emoji">🌏</span><h4 data-i18n="f4t">32 languages</h4><p data-i18n="f4p">Learn the language you want, in the language you already know.</p></div>
+    <div class="f"><span class="emoji">🌏</span><h4 data-i18n="f4t">30 languages</h4><p data-i18n="f4p">Learn the language you want, in the language you already know.</p></div>
     <div class="f"><span class="emoji">🔌</span><h4 data-i18n="f5t">Bring your own key</h4><p data-i18n="f5p">Use our built-in helper, or connect your own AI key (Gemini, ChatGPT, Claude, Grok).</p></div>
     <div class="f"><span class="emoji">🎮</span><h4 data-i18n="f6t">Play with Capy</h4><p data-i18n="f6p">Turn your own words into cute mini-games and win oranges with Capy.</p></div>
   </div>
@@ -191,7 +191,7 @@
         <li data-i18n="plus_b1">~300–500 words, or 100–200 photos / month</li>
         <li data-i18n="plus_b2">Meaning, examples &amp; variations, auto-added</li>
         <li data-i18n="plus_b3">Photo word capture (OCR)</li>
-        <li data-i18n="plus_b4">All 32 languages</li>
+        <li data-i18n="plus_b4">All 30 languages</li>
       </ul>
     </div>
     <div class="plan">
@@ -243,7 +243,7 @@
   </div>
 </footer>
 
-<script src="../assets/i18n.js?v=9"></script>
+<script src="../assets/i18n.js?v=8"></script>
 <script src="../assets/theme.js"></script>
 <script src="../assets/music.js?v=1" data-src="../assets/audio/background-music.mp3"></script>
 </body>

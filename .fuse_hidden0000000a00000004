@@ -60,7 +60,7 @@
       <img class="thumb" src="assets/app-logo.jpg" alt="Word Review" />
       <span class="pill" data-i18n="h_wr_pill">iPhone · Free to start</span>
       <h3>Word Review</h3>
-      <p data-i18n="h_wr_desc">Capture words &amp; phrases you meet in real life, then review them with examples, pronunciation, and spaced repetition. 32 languages!</p>
+      <p data-i18n="h_wr_desc">Capture words &amp; phrases you meet in real life, then review them with examples, pronunciation, and spaced repetition. 30 languages!</p>
       <p style="margin-top:12px"><b style="color:var(--teal)" data-i18n="h_wr_explore">Explore →</b></p>
     </a>
     <div class="card soon">
@@ -105,7 +105,7 @@
   </div>
 </footer>
 
-<script src="assets/i18n.js?v=9"></script>
+<script src="assets/i18n.js?v=8"></script>
 <script src="assets/theme.js"></script>
 <script src="assets/music.js?v=1" data-src="assets/audio/background-music.mp3"></script>
 </body>
