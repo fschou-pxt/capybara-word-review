@@ -944,6 +944,182 @@
     else I18N[l] = I18N_SUP[l];
   });
 
+  // Guide page strings (wordReview/guide.html). English lives inline in that page.
+  var I18N_GUIDE = {
+    "zh-Hans": {
+      nav_guide: "指南", g_hero_h1: "如何使用 Word Review 📖",
+      g_hero_lead: "Capy 能做的一切——从你的第一个单词，到一些隐藏的小技巧。点按任意步骤直接跳转。🌿",
+      g_s1_h: "1 · 设置你的语言", g_s2_h: "2 · 随你所愿地记录单词", g_s3_h: "3 · 复习并记住", g_s4_h: "4 · 玩游戏，记得更牢", g_s5_h: "5 · 打造你的专属",
+      g_s1_tip: "💡 小提示：点按顶部的语言标签可随时切换语言组，或添加新的一组。用你已经会的语言去学。",
+      g_s2_lead: "无论你在生活中如何遇到一个词，Capy 都能帮你保存——并补全其余内容。",
+      g_voice_t: "说出来", g_voice_p: "点按麦克风说话——用你正在学的语言，或你已经会的语言。Capy 会听出这个词。",
+      g_dict_badge: "隐藏技巧", g_dict_h: "把 Capy 变成一本词典 📚",
+      g_dict_p: "把“正在学”和“已经会”设为同一种语言。Capy 不再翻译，而是给出释义、例句和发音——成为这 32 种语言中任意一种的单语词典。",
+      g_s3_p: "点按卡片揭示答案、听发音，并评估你的掌握程度——Capy 会让难词更常出现。标记收藏、添加你自己的标签，然后筛选或只练习某一组。",
+      tut_full_guide: "阅读完整指南 📖", g_cta_back: "← 返回 Word Review"
+    },
+    "zh-Hant": {
+      nav_guide: "指南", g_hero_h1: "如何使用 Word Review 📖",
+      g_hero_lead: "Capy 能做的一切——從你的第一個單字，到一些隱藏的小技巧。點按任一步驟直接跳轉。🌿",
+      g_s1_h: "1 · 設定你的語言", g_s2_h: "2 · 隨你所願地記錄單字", g_s3_h: "3 · 複習並記住", g_s4_h: "4 · 玩遊戲，記得更牢", g_s5_h: "5 · 打造你的專屬",
+      g_s1_tip: "💡 小提示：點按頂部的語言標籤可隨時切換語言組，或新增一組。用你已經會的語言去學。",
+      g_s2_lead: "無論你在生活中如何遇到一個字，Capy 都能幫你保存——並補全其餘內容。",
+      g_voice_t: "說出來", g_voice_p: "點按麥克風說話——用你正在學的語言，或你已經會的語言。Capy 會聽出這個字。",
+      g_dict_badge: "隱藏技巧", g_dict_h: "把 Capy 變成一本字典 📚",
+      g_dict_p: "把「正在學」和「已經會」設為同一種語言。Capy 不再翻譯，而是給出釋義、例句和發音——成為這 32 種語言中任一種的單語字典。",
+      g_s3_p: "點按卡片揭示答案、聽發音，並評估你的掌握程度——Capy 會讓難字更常出現。標記收藏、加入你自己的標籤，再篩選或只練習某一組。",
+      tut_full_guide: "閱讀完整指南 📖", g_cta_back: "← 返回 Word Review"
+    },
+    "ja": {
+      nav_guide: "ガイド", g_hero_h1: "Word Review の使い方 📖",
+      g_hero_lead: "最初の一語から、ちょっとした隠し技まで——Capy にできることのすべて。気になるステップをタップ。🌿",
+      g_s1_h: "1 · 言語を設定する", g_s2_h: "2 · 好きな方法で単語を記録", g_s3_h: "3 · 復習して覚える", g_s4_h: "4 · 遊んで定着させる", g_s5_h: "5 · 自分好みにする",
+      g_s1_tip: "💡 ヒント：上部の言語ピルをタップすると、いつでもペアを切り替えたり、新しく追加できます。すでに知っている言語で学べます。",
+      g_s2_lead: "日常でどんなふうに言葉に出会っても、Capy が保存して残りを補ってくれます。",
+      g_voice_t: "話す", g_voice_p: "マイクをタップして話すだけ——学習中の言語でも、すでに知っている言語でも。Capy がその単語を聞き取ります。",
+      g_dict_badge: "隠し技", g_dict_h: "Capy を辞書にする 📚",
+      g_dict_p: "「学ぶ言語」と「すでに知っている言語」を同じ言語に設定します。すると翻訳ではなく、定義・例文・発音が返ってきます——32言語どれでも使える単一言語の辞書になります。",
+      g_s3_p: "カードをタップして答えを表示し、発音を聞き、どれくらい分かったかを評価——Capy が苦手な単語をより頻繁に出します。お気に入りを付け、自分のタグを追加し、絞り込みや特定グループだけの練習も。",
+      tut_full_guide: "詳しいガイドを読む 📖", g_cta_back: "← Word Review に戻る"
+    },
+    "ko": {
+      nav_guide: "가이드", g_hero_h1: "Word Review 사용법 📖",
+      g_hero_lead: "첫 단어부터 숨은 작은 팁까지——Capy가 할 수 있는 모든 것. 원하는 단계를 눌러 바로 이동하세요. 🌿",
+      g_s1_h: "1 · 언어 설정하기", g_s2_h: "2 · 원하는 방식으로 단어 담기", g_s3_h: "3 · 복습하고 기억하기", g_s4_h: "4 · 놀면서 굳히기", g_s5_h: "5 · 나만의 설정",
+      g_s1_tip: "💡 팁: 상단의 언어 칩을 누르면 언제든 짝을 바꾸거나 새로 추가할 수 있어요. 이미 아는 언어로 배웁니다.",
+      g_s2_lead: "실생활에서 단어를 어떻게 만나든, Capy가 저장하고 나머지를 채워 줍니다.",
+      g_voice_t: "말하기", g_voice_p: "마이크를 누르고 말하세요——배우는 언어로든, 이미 아는 언어로든. Capy가 단어를 알아냅니다.",
+      g_dict_badge: "숨은 기능", g_dict_h: "Capy를 사전으로 바꾸기 📚",
+      g_dict_p: "‘배우는 언어’와 ‘이미 아는 언어’를 같은 언어로 고르세요. 번역 대신 정의·예문·발음을 줍니다——32개 언어 중 무엇이든 쓸 수 있는 단일 언어 사전이 됩니다.",
+      g_s3_p: "카드를 눌러 답을 보고, 발음을 듣고, 얼마나 알았는지 평가하세요——Capy가 어려운 단어를 더 자주 보여 줍니다. 즐겨찾기 표시, 나만의 태그 추가, 그리고 한 그룹만 필터링하거나 연습할 수도 있어요.",
+      tut_full_guide: "전체 가이드 보기 📖", g_cta_back: "← Word Review로 돌아가기"
+    },
+    "es": {
+      nav_guide: "Guía", g_hero_h1: "Cómo usar Word Review 📖",
+      g_hero_lead: "Todo lo que Capy puede hacer — desde tu primera palabra hasta algún truco escondido. Toca cualquier paso para empezar. 🌿",
+      g_s1_h: "1 · Configura tus idiomas", g_s2_h: "2 · Captura palabras a tu manera", g_s3_h: "3 · Repasa y recuerda", g_s4_h: "4 · Juega para que se quede", g_s5_h: "5 · Hazla tuya",
+      g_s1_tip: "💡 Consejo: toca la pastilla de idioma arriba para cambiar de par cuando quieras o añadir uno nuevo. Aprendes en un idioma que ya conoces.",
+      g_s2_lead: "Como sea que te encuentres una palabra en la vida real, Capy puede guardarla — y completar el resto.",
+      g_voice_t: "Dilo", g_voice_p: "Toca el micro y habla — en el idioma que aprendes o en el que ya conoces. Capy descubre la palabra.",
+      g_dict_badge: "TRUCO OCULTO", g_dict_h: "Convierte a Capy en un diccionario 📚",
+      g_dict_p: "Elige el mismo idioma para lo que aprendes y lo que ya conoces. En vez de traducir, Capy te da definiciones, frases de ejemplo y pronunciación — un diccionario monolingüe completo para cualquiera de los 32 idiomas.",
+      g_s3_p: "Toca una tarjeta para ver la respuesta, escúchala y valora cuánto la sabías — Capy hace volver las palabras difíciles más a menudo. Marca favoritas, añade tus etiquetas y filtra o practica solo un grupo.",
+      tut_full_guide: "Leer la guía completa 📖", g_cta_back: "← Volver a Word Review"
+    },
+    "fr": {
+      nav_guide: "Guide", g_hero_h1: "Comment utiliser Word Review 📖",
+      g_hero_lead: "Tout ce que Capy sait faire — de ton premier mot à quelques petites astuces cachées. Touche une étape pour y aller. 🌿",
+      g_s1_h: "1 · Choisis tes langues", g_s2_h: "2 · Capture les mots à ta façon", g_s3_h: "3 · Révise et retiens", g_s4_h: "4 · Joue pour bien retenir", g_s5_h: "5 · Personnalise",
+      g_s1_tip: "💡 Astuce : touche la pastille de langue en haut pour changer de paire à tout moment ou en ajouter une. Tu apprends dans une langue que tu connais déjà.",
+      g_s2_lead: "Quelle que soit la façon dont tu croises un mot dans la vraie vie, Capy peut l'enregistrer — et compléter le reste.",
+      g_voice_t: "Dis-le", g_voice_p: "Touche le micro et parle — dans la langue que tu apprends ou celle que tu connais déjà. Capy devine le mot.",
+      g_dict_badge: "ASTUCE CACHÉE", g_dict_h: "Transforme Capy en dictionnaire 📚",
+      g_dict_p: "Choisis la même langue pour ce que tu apprends et ce que tu connais déjà. Au lieu de traduire, Capy te donne définitions, exemples et prononciation — un vrai dictionnaire monolingue pour chacune des 32 langues.",
+      g_s3_p: "Touche une carte pour révéler la réponse, écoute-la et note ce que tu savais — Capy fait revenir les mots difficiles plus souvent. Mets des favoris, ajoute tes propres étiquettes, puis filtre ou révise un seul groupe.",
+      tut_full_guide: "Lire le guide complet 📖", g_cta_back: "← Retour à Word Review"
+    },
+    "de": {
+      nav_guide: "Anleitung", g_hero_h1: "So nutzt du Word Review 📖",
+      g_hero_lead: "Alles, was Capy kann — vom ersten Wort bis zu kleinen versteckten Tricks. Tippe auf einen Schritt, um loszulegen. 🌿",
+      g_s1_h: "1 · Sprachen einrichten", g_s2_h: "2 · Wörter nach deiner Art erfassen", g_s3_h: "3 · Wiederholen & merken", g_s4_h: "4 · Spielen, damit es sitzt", g_s5_h: "5 · Mach es zu deinem",
+      g_s1_tip: "💡 Tipp: Tippe oben auf die Sprach-Pille, um jederzeit zwischen Paaren zu wechseln oder ein neues hinzuzufügen. Du lernst in einer Sprache, die du schon kannst.",
+      g_s2_lead: "Egal, wie dir ein Wort im echten Leben begegnet — Capy speichert es und ergänzt den Rest.",
+      g_voice_t: "Sag es", g_voice_p: "Tippe aufs Mikro und sprich — in der Sprache, die du lernst, oder der, die du schon kannst. Capy erkennt das Wort.",
+      g_dict_badge: "VERSTECKTER TRICK", g_dict_h: "Mach Capy zum Wörterbuch 📚",
+      g_dict_p: "Wähle dieselbe Sprache für das, was du lernst, und das, was du schon kannst. Statt zu übersetzen, gibt dir Capy Definitionen, Beispielsätze und Aussprache — ein vollständiges einsprachiges Wörterbuch für jede der 32 Sprachen.",
+      g_s3_p: "Tippe auf eine Karte, um die Antwort zu sehen, sie zu hören und zu bewerten, wie gut du sie kanntest — Capy bringt schwierige Wörter öfter zurück. Markiere Favoriten, füge eigene Tags hinzu und filtere oder übe nur eine Gruppe.",
+      tut_full_guide: "Zur vollständigen Anleitung 📖", g_cta_back: "← Zurück zu Word Review"
+    },
+    "it": {
+      nav_guide: "Guida", g_hero_h1: "Come usare Word Review 📖",
+      g_hero_lead: "Tutto ciò che Capy sa fare — dalla tua prima parola a qualche piccolo trucco nascosto. Tocca un passaggio per iniziare. 🌿",
+      g_s1_h: "1 · Imposta le tue lingue", g_s2_h: "2 · Cattura le parole a modo tuo", g_s3_h: "3 · Ripassa e ricorda", g_s4_h: "4 · Gioca per fissarle", g_s5_h: "5 · Rendila tua",
+      g_s1_tip: "💡 Suggerimento: tocca la pillola della lingua in alto per cambiare coppia quando vuoi o aggiungerne una nuova. Impari in una lingua che già conosci.",
+      g_s2_lead: "Comunque tu incontri una parola nella vita reale, Capy può salvarla — e completare il resto.",
+      g_voice_t: "Dillo", g_voice_p: "Tocca il microfono e parla — nella lingua che stai imparando o in quella che già conosci. Capy capisce la parola.",
+      g_dict_badge: "TRUCCO NASCOSTO", g_dict_h: "Trasforma Capy in un dizionario 📚",
+      g_dict_p: "Scegli la stessa lingua sia per ciò che impari sia per ciò che già conosci. Invece di tradurre, Capy ti dà definizioni, frasi d'esempio e pronuncia — un dizionario monolingue completo per ognuna delle 32 lingue.",
+      g_s3_p: "Tocca una carta per rivelare la risposta, ascoltala e valuta quanto la sapevi — Capy fa tornare più spesso le parole difficili. Segna i preferiti, aggiungi i tuoi tag, poi filtra o esercitati su un solo gruppo.",
+      tut_full_guide: "Leggi la guida completa 📖", g_cta_back: "← Torna a Word Review"
+    },
+    "pt-BR": {
+      nav_guide: "Guia", g_hero_h1: "Como usar o Word Review 📖",
+      g_hero_lead: "Tudo o que a Capy faz — da sua primeira palavra a alguns truques escondidos. Toque em qualquer passo para começar. 🌿",
+      g_s1_h: "1 · Configure seus idiomas", g_s2_h: "2 · Capture palavras do seu jeito", g_s3_h: "3 · Revise e memorize", g_s4_h: "4 · Jogue para fixar", g_s5_h: "5 · Deixe do seu jeito",
+      g_s1_tip: "💡 Dica: toque na pílula de idioma no topo para trocar de par quando quiser ou adicionar um novo. Você aprende num idioma que já conhece.",
+      g_s2_lead: "Não importa como você encontre uma palavra na vida real, a Capy salva — e completa o resto.",
+      g_voice_t: "Fale", g_voice_p: "Toque no microfone e fale — no idioma que está aprendendo ou no que já conhece. A Capy descobre a palavra.",
+      g_dict_badge: "TRUQUE ESCONDIDO", g_dict_h: "Transforme a Capy num dicionário 📚",
+      g_dict_p: "Escolha o mesmo idioma para o que você aprende e o que já conhece. Em vez de traduzir, a Capy dá definições, frases de exemplo e pronúncia — um dicionário monolíngue completo para qualquer um dos 32 idiomas.",
+      g_s3_p: "Toque num cartão para revelar a resposta, ouça e avalie o quanto sabia — a Capy traz as palavras difíceis de volta com mais frequência. Marque favoritas, adicione suas próprias tags e filtre ou pratique só um grupo.",
+      tut_full_guide: "Ler o guia completo 📖", g_cta_back: "← Voltar ao Word Review"
+    },
+    "ru": {
+      nav_guide: "Руководство", g_hero_h1: "Как пользоваться Word Review 📖",
+      g_hero_lead: "Всё, что умеет Capy — от первого слова до маленьких скрытых хитростей. Нажмите любой шаг, чтобы перейти. 🌿",
+      g_s1_h: "1 · Настройте языки", g_s2_h: "2 · Сохраняйте слова как удобно", g_s3_h: "3 · Повторяйте и запоминайте", g_s4_h: "4 · Играйте, чтобы запомнить", g_s5_h: "5 · Сделайте своим",
+      g_s1_tip: "💡 Совет: нажмите на языковую плашку вверху, чтобы в любой момент сменить пару или добавить новую. Вы учитесь на языке, который уже знаете.",
+      g_s2_lead: "Как бы вы ни встретили слово в жизни, Capy сохранит его — и дополнит остальное.",
+      g_voice_t: "Произнесите", g_voice_p: "Нажмите микрофон и говорите — на изучаемом языке или на том, что уже знаете. Capy распознает слово.",
+      g_dict_badge: "СКРЫТЫЙ ТРЮК", g_dict_h: "Превратите Capy в словарь 📚",
+      g_dict_p: "Выберите один и тот же язык и для изучаемого, и для уже знакомого. Вместо перевода Capy даёт определения, примеры и произношение — полноценный одноязычный словарь для любого из 32 языков.",
+      g_s3_p: "Нажмите на карточку, чтобы увидеть ответ, послушать его и оценить, насколько знали — Capy чаще возвращает трудные слова. Отмечайте избранное, добавляйте свои теги, фильтруйте или тренируйте только одну группу.",
+      tut_full_guide: "Читать полное руководство 📖", g_cta_back: "← Назад к Word Review"
+    },
+    "nl": {
+      nav_guide: "Gids", g_hero_h1: "Word Review gebruiken 📖",
+      g_hero_lead: "Alles wat Capy kan — van je eerste woord tot een paar verborgen trucjes. Tik op een stap om te beginnen. 🌿",
+      g_s1_h: "1 · Stel je talen in", g_s2_h: "2 · Leg woorden vast op jouw manier", g_s3_h: "3 · Herhaal en onthoud", g_s4_h: "4 · Speel om het te laten beklijven", g_s5_h: "5 · Maak het van jou",
+      g_s1_tip: "💡 Tip: tik bovenaan op de taalpil om altijd te wisselen van paar of er een toe te voegen. Je leert in een taal die je al kent.",
+      g_s2_lead: "Hoe je een woord in het echt ook tegenkomt, Capy bewaart het — en vult de rest aan.",
+      g_voice_t: "Zeg het", g_voice_p: "Tik op de microfoon en spreek — in de taal die je leert of die je al kent. Capy herkent het woord.",
+      g_dict_badge: "VERBORGEN TRUC", g_dict_h: "Maak van Capy een woordenboek 📚",
+      g_dict_p: "Kies dezelfde taal voor wat je leert en wat je al kent. In plaats van vertalen geeft Capy definities, voorbeeldzinnen en uitspraak — een volledig eentalig woordenboek voor elk van de 32 talen.",
+      g_s3_p: "Tik op een kaart om het antwoord te zien, hoor het en beoordeel hoe goed je het wist — Capy laat lastige woorden vaker terugkomen. Markeer favorieten, voeg je eigen labels toe en filter of oefen maar één groep.",
+      tut_full_guide: "Lees de volledige gids 📖", g_cta_back: "← Terug naar Word Review"
+    },
+    "pl": {
+      nav_guide: "Przewodnik", g_hero_h1: "Jak używać Word Review 📖",
+      g_hero_lead: "Wszystko, co potrafi Capy — od pierwszego słowa po kilka ukrytych sztuczek. Dotknij dowolnego kroku, by zacząć. 🌿",
+      g_s1_h: "1 · Ustaw swoje języki", g_s2_h: "2 · Zapisuj słowa po swojemu", g_s3_h: "3 · Powtarzaj i zapamiętuj", g_s4_h: "4 · Graj, by zapamiętać", g_s5_h: "5 · Dostosuj do siebie",
+      g_s1_tip: "💡 Wskazówka: dotknij pigułki języka u góry, aby w każdej chwili zmienić parę lub dodać nową. Uczysz się w języku, który już znasz.",
+      g_s2_lead: "Jakkolwiek spotkasz słowo w realnym życiu, Capy je zapisze — i uzupełni resztę.",
+      g_voice_t: "Powiedz", g_voice_p: "Dotknij mikrofonu i mów — w języku, którego się uczysz, lub w tym, który już znasz. Capy rozpozna słowo.",
+      g_dict_badge: "UKRYTA SZTUCZKA", g_dict_h: "Zmień Capy w słownik 📚",
+      g_dict_p: "Wybierz ten sam język dla tego, czego się uczysz, i tego, co już znasz. Zamiast tłumaczyć, Capy podaje definicje, przykładowe zdania i wymowę — pełny słownik jednojęzyczny dla każdego z 32 języków.",
+      g_s3_p: "Dotknij karty, aby odsłonić odpowiedź, posłuchaj jej i oceń, jak dobrze ją znałeś — Capy częściej przywraca trudne słowa. Oznaczaj ulubione, dodawaj własne tagi, a potem filtruj lub ćwicz tylko jedną grupę.",
+      tut_full_guide: "Przeczytaj pełny przewodnik 📖", g_cta_back: "← Powrót do Word Review"
+    },
+    "tr": {
+      nav_guide: "Kılavuz", g_hero_h1: "Word Review nasıl kullanılır 📖",
+      g_hero_lead: "Capy'nin yapabildiği her şey — ilk kelimenden birkaç gizli ipucuna kadar. Başlamak için bir adıma dokun. 🌿",
+      g_s1_h: "1 · Dillerini ayarla", g_s2_h: "2 · Kelimeleri kendi yöntemine göre yakala", g_s3_h: "3 · Tekrarla ve hatırla", g_s4_h: "4 · Kalıcı olması için oyna", g_s5_h: "5 · Sana göre yap",
+      g_s1_tip: "💡 İpucu: üstteki dil rozetine dokunarak istediğin an çiftler arasında geçiş yap ya da yeni bir tane ekle. Zaten bildiğin bir dilde öğrenirsin.",
+      g_s2_lead: "Gerçek hayatta bir kelimeyle nasıl karşılaşırsan karşılaş, Capy onu kaydeder — ve gerisini tamamlar.",
+      g_voice_t: "Söyle", g_voice_p: "Mikrofona dokun ve konuş — öğrendiğin dilde ya da zaten bildiğin dilde. Capy kelimeyi anlar.",
+      g_dict_badge: "GİZLİ İPUCU", g_dict_h: "Capy'yi bir sözlüğe dönüştür 📚",
+      g_dict_p: "Öğrendiğin ve zaten bildiğin için aynı dili seç. Capy çeviri yapmak yerine tanımlar, örnek cümleler ve telaffuz verir — 32 dilin herhangi biri için tam bir tek dilli sözlük.",
+      g_s3_p: "Cevabı görmek için bir karta dokun, dinle ve ne kadar bildiğini değerlendir — Capy zor kelimeleri daha sık geri getirir. Favorileri işaretle, kendi etiketlerini ekle, sonra yalnızca bir grubu filtrele veya çalış.",
+      tut_full_guide: "Tüm kılavuzu oku 📖", g_cta_back: "← Word Review'e dön"
+    },
+    "ar": {
+      nav_guide: "الدليل", g_hero_h1: "كيفية استخدام Word Review 📖",
+      g_hero_lead: "كل ما يستطيع Capy فعله — من كلمتك الأولى إلى بعض الحيل الخفية. اضغط أي خطوة للانتقال إليها. 🌿",
+      g_s1_h: "1 · اضبط لغاتك", g_s2_h: "2 · التقط الكلمات بطريقتك", g_s3_h: "3 · راجع وتذكّر", g_s4_h: "4 · العب لترسيخها", g_s5_h: "5 · اجعلها لك",
+      g_s1_tip: "💡 نصيحة: اضغط على زر اللغة في الأعلى للتبديل بين الأزواج في أي وقت أو إضافة زوج جديد. تتعلّم بلغة تعرفها بالفعل.",
+      g_s2_lead: "مهما كانت طريقة لقائك بكلمة في الحياة الواقعية، يستطيع Capy حفظها — وإكمال الباقي.",
+      g_voice_t: "انطقها", g_voice_p: "اضغط على الميكروفون وتحدّث — باللغة التي تتعلّمها أو التي تعرفها بالفعل. سيتعرّف Capy على الكلمة.",
+      g_dict_badge: "حيلة خفية", g_dict_h: "حوّل Capy إلى قاموس 📚",
+      g_dict_p: "اختر اللغة نفسها لما تتعلّمه ولما تعرفه بالفعل. بدلًا من الترجمة، يمنحك Capy تعريفات وجملًا توضيحية ونطقًا — قاموسًا أحادي اللغة كاملًا لأي من اللغات الـ 32.",
+      g_s3_p: "اضغط على بطاقة لكشف الإجابة، واستمع إليها، وقيّم مدى معرفتك بها — يعيد Capy الكلمات الصعبة أكثر. علّم المفضّلة، وأضف وسومك الخاصة، ثم صفِّ أو تدرّب على مجموعة واحدة فقط.",
+      tut_full_guide: "اقرأ الدليل الكامل 📖", g_cta_back: "← العودة إلى Word Review"
+    }
+  };
+  Object.keys(I18N_GUIDE).forEach(function (l) {
+    if (I18N[l]) { for (var k in I18N_GUIDE[l]) I18N[l][k] = I18N_GUIDE[l][k]; }
+    else I18N[l] = I18N_GUIDE[l];
+  });
+
   var DEFAULTS = {}, ISHTML = {};
   function captureDefaults() {
     document.querySelectorAll("[data-i18n]").forEach(function (el) {

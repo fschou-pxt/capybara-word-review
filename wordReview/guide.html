@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>How to use Word Review — full guide | Capybara Around The World</title>
+<meta name="description" content="A friendly, step-by-step guide to everything Word Review can do: capture words four ways, turn Capy into a dictionary, review with flashcards, and play games. 32 languages." />
+<link rel="icon" href="/favicon.ico" sizes="any" />
+<link rel="icon" type="image/png" sizes="32x32" href="/assets/favicon-32.png" />
+<link rel="apple-touch-icon" href="/assets/apple-touch-icon.png" />
+<meta property="og:title" content="How to use Word Review — the full guide" />
+<meta property="og:description" content="Everything Capy can do, start to finish. Including the hidden dictionary trick." />
+<meta property="og:image" content="../assets/app-logo.jpg" />
+<meta property="og:type" content="website" />
+<link rel="stylesheet" href="../assets/style.css?v=15" />
+<style>
+  /* Mobile-first: everything stacks in a single centred column by default. */
+  section[id]{scroll-margin-top:84px}
+  .toc{display:flex;flex-wrap:wrap;gap:9px;justify-content:center;margin:20px auto 0;max-width:560px}
+  .toc a{display:inline-block;padding:10px 15px;border-radius:999px;background:#fff;
+    border:1px solid #e7dccb;color:var(--brown,#5b3a1a);text-decoration:none;font-weight:700;
+    font-size:14px;line-height:1.1;min-height:22px}
+  .toc a:active,.toc a:hover{border-color:var(--teal,#2E8B7A)}
+
+  .guide-step{display:flex;flex-direction:column;gap:18px;align-items:center;text-align:center;
+    margin:26px auto;max-width:920px}
+  .gs-body h3{font-size:22px;margin:0 0 8px;font-family:"Bubblegum Sans",cursive;color:var(--brown)}
+  .gs-body p{font-size:16px;line-height:1.6;margin:0 0 10px}
+  /* Phone-framed media — matches the .tut cards, with a locked aspect ratio so
+     lazy-loaded videos never collapse to zero height on mobile. */
+  .gs-media{width:min(100%,250px)}
+  .gs-media .phone-vid{width:100%;border-radius:26px;padding:8px;background:#3B2010;box-shadow:var(--shadow);box-sizing:border-box}
+  .gs-media .phone-vid video{width:100%;border-radius:20px;display:block;background:#000;aspect-ratio:9/19.5}
+
+  .dict-box{max-width:920px;margin:30px auto;padding:24px;border-radius:26px;
+    background:linear-gradient(135deg,#fff7ec,#ffeede);border:2px solid #f0c98a;
+    display:flex;flex-direction:column;gap:20px;align-items:center;text-align:center;box-sizing:border-box}
+  .dict-box .badge{display:inline-block;background:var(--teal,#2E8B7A);color:#fff;font-weight:800;
+    font-size:12px;letter-spacing:.05em;padding:5px 12px;border-radius:999px;margin-bottom:10px}
+  .dict-box h3{font-size:23px;margin:0 0 8px;font-family:"Bubblegum Sans",cursive;color:var(--brown)}
+  .dict-box p{font-size:16px;line-height:1.6;margin:0}
+  .dict-box img{width:min(100%,230px);border-radius:20px}
+
+  /* Tablet / desktop: place media beside the text. */
+  @media(min-width:760px){
+    .guide-step{flex-direction:row;text-align:left;gap:34px;justify-content:center}
+    .guide-step.rev{flex-direction:row-reverse}
+    .gs-body{flex:1}
+    .gs-body h3{font-size:25px}
+    .gs-body p{font-size:17px}
+    .dict-box{flex-direction:row;text-align:left;gap:28px;padding:28px 30px}
+    .dict-box>div{flex:1}
+    .dict-box h3{font-size:27px}
+    .dict-box p{font-size:17px}
+  }
+</style>
+</head>
+<body>
+
+<nav class="nav">
+  <a class="brand" href="../" style="color:var(--brown)"><img src="../assets/app-logo.jpg" alt="Capy" /> Capybara Around The World</a>
+  <div class="nav-right">
+    <div class="nav-links">
+      <a href="./" data-i18n="nav_features">Features</a>
+      <a href="./#tutorials" data-i18n="nav_tutorials">Tutorials</a>
+      <a href="./guide.html" data-i18n="nav_guide">Guide</a>
+      <a href="./#plans" data-i18n="nav_pricing">Pricing</a>
+    </div>
+    <div id="langpick" class="langpick"></div>
+    <div class="themes" title="Pick a theme">
+      <button class="sw" data-theme="classic" title="Classic" style="background:#2E8B7A"></button>
+      <button class="sw" data-theme="sakura" title="Sakura" style="background:#D63A77"></button>
+      <button class="sw" data-theme="ocean" title="Ocean" style="background:#1971C2"></button>
+    </div>
+  </div>
+</nav>
+
+<header class="wrap" style="text-align:center">
+  <span class="ribbon" data-i18n="hero_ribbon">📱 On the App Store · iPhone &amp; iPad</span>
+  <h1 data-i18n="g_hero_h1">How to use Word Review 📖</h1>
+  <p class="lead" style="max-width:680px;margin:10px auto 0" data-i18n="g_hero_lead">Everything Capy can do — from your very first word to a few little hidden tricks. Tap any step to jump in. 🌿</p>
+  <nav class="toc" aria-label="Guide sections">
+    <a href="#setup" data-i18n="g_s1_h">1 · Set up your languages</a>
+    <a href="#capture" data-i18n="g_s2_h">2 · Capture words your way</a>
+    <a href="#dictionary" data-i18n="g_dict_h">Turn Capy into a dictionary 📚</a>
+    <a href="#review" data-i18n="g_s3_h">3 · Review &amp; remember</a>
+    <a href="#play" data-i18n="g_s4_h">4 · Play to make it stick</a>
+    <a href="#custom" data-i18n="g_s5_h">5 · Make it yours</a>
+  </nav>
+</header>
+
+<div class="divider"><span>🗺️</span></div>
+
+<section id="setup" class="wrap">
+  <div class="guide-step">
+    <div class="gs-body">
+      <h3 data-i18n="g_s1_h">1 · Set up your languages</h3>
+      <p data-i18n="t1p">Choose what you're learning and the language you already know — add as many pairs as you like.</p>
+      <p style="color:var(--mid)" data-i18n="g_s1_tip">💡 Tip: tap the language pill at the top to switch between pairs anytime, or add a new one. You learn in a language you already know.</p>
+    </div>
+    <div class="gs-media"><div class="phone-vid"><video controls playsinline preload="none" poster="../assets/tutorials/tut-2.jpg"><source src="../assets/tutorials/tut-2.mp4" type="video/mp4" /></video></div></div>
+  </div>
+</section>
+
+<div class="divider"><span>✍️</span></div>
+
+<section id="capture" class="wrap" style="text-align:center">
+  <h2 class="section-title" data-i18n="g_s2_h">2 · Capture words your way</h2>
+  <p class="section-sub cute" data-i18n="g_s2_lead">However you meet a word in real life, Capy can save it — and fill in the rest.</p>
+  <div class="tut-grid">
+    <div class="tut">
+      <div class="phone-vid"><video controls playsinline preload="none" poster="../assets/tutorials/tut-3.jpg"><source src="../assets/tutorials/tut-3.mp4" type="video/mp4" /></video></div>
+      <h4 data-i18n="t2t">Type it</h4>
+      <p data-i18n="t2p">Type any word and Capy adds the meaning, examples, pronunciation, and variations.</p>
+    </div>
+    <div class="tut">
+      <div class="phone-vid" style="display:flex;align-items:center;justify-content:center;background:linear-gradient(135deg,#fff3e0,#ffe3c7);font-size:64px;aspect-ratio:9/19.5;box-sizing:border-box">🎙️</div>
+      <h4 data-i18n="g_voice_t">Say it</h4>
+      <p data-i18n="g_voice_p">Tap the mic and speak — in the language you're learning or the one you already know. Capy figures out the word.</p>
+    </div>
+    <div class="tut">
+      <div class="phone-vid"><video controls playsinline preload="none" poster="../assets/tutorials/tut-1.jpg"><source src="../assets/tutorials/tut-1.mp4" type="video/mp4" /></video></div>
+      <h4 data-i18n="t5t">Snap a photo</h4>
+      <p data-i18n="t5p">Share a picture and Capy reads the word right off it (OCR).</p>
+    </div>
+    <div class="tut">
+      <div class="phone-vid"><video controls playsinline preload="none" poster="../assets/tutorials/tut-5.jpg"><source src="../assets/tutorials/tut-5.mp4" type="video/mp4" /></video></div>
+      <h4 data-i18n="t4t">Share from any app</h4>
+      <p data-i18n="t4p">Select text in Safari — or anywhere — and share it straight into Word Review.</p>
+    </div>
+    <div class="tut">
+      <div class="phone-vid"><video controls playsinline preload="none" poster="../assets/tutorials/tut-6.jpg"><source src="../assets/tutorials/tut-6.mp4" type="video/mp4" /></video></div>
+      <h4 data-i18n="t6t">Grab many from a screenshot</h4>
+      <p data-i18n="t6p">Snap a screenshot of a page and add every word it finds in one go.</p>
+    </div>
+  </div>
+</section>
+
+<div class="divider"><span>📚</span></div>
+
+<section id="dictionary" class="wrap">
+  <div class="dict-box">
+    <div>
+      <span class="badge" data-i18n="g_dict_badge">HIDDEN TRICK</span>
+      <h3 data-i18n="g_dict_h">Turn Capy into a dictionary 📚</h3>
+      <p data-i18n="g_dict_p">Pick the same language for both what you're learning and what you already know. Instead of translating, Capy gives you definitions, example sentences, and pronunciation — a full single-language dictionary for any of the 32 languages.</p>
+    </div>
+    <img src="../assets/screen-pairs.png" alt="Choosing a language pair in Word Review" />
+  </div>
+</section>
+
+<div class="divider"><span>🧠</span></div>
+
+<section id="review" class="wrap">
+  <div class="guide-step rev">
+    <div class="gs-media"><div class="phone-vid"><video controls playsinline preload="none" poster="../assets/tutorials/tut-4.jpg"><source src="../assets/tutorials/tut-4.mp4" type="video/mp4" /></video></div></div>
+    <div class="gs-body">
+      <h3 data-i18n="g_s3_h">3 · Review &amp; remember</h3>
+      <p data-i18n="g_s3_p">Tap a card to reveal the answer, hear it spoken, and rate how well you knew it — Capy brings tricky words back more often. Mark favorites, add your own tags, then filter or practice just one group.</p>
+    </div>
+  </div>
+</section>
+
+<div class="divider"><span>🎮</span></div>
+
+<section id="play" class="wrap" style="text-align:center">
+  <h2 class="section-title" data-i18n="g_s4_h">4 · Play to make it stick</h2>
+  <p class="section-sub cute" data-i18n="games_sub">Mini-games made from your own saved words — win oranges 🍊 along the way!</p>
+  <div class="feat">
+    <div class="f"><span class="emoji">❓</span><h4 data-i18n="g1t">Capy Quiz</h4><p data-i18n="g1p">Guess the word from a sentence or its meaning, with pronunciation and readings.</p></div>
+    <div class="f"><span class="emoji">🧩</span><h4 data-i18n="g2t">Capy Match</h4><p data-i18n="g2p">Match words to their meanings and beat the clock across three levels.</p></div>
+    <div class="f"><span class="emoji">⚡</span><h4 data-i18n="g3t">Capy Catch</h4><p data-i18n="g3p">Catch the falling words in Capy's cozy hot-spring before they splash in.</p></div>
+    <div class="f"><span class="emoji">👂</span><h4 data-i18n="g4t">Capy Listen</h4><p data-i18n="g4p">Hear a word, then catch its meaning as it falls — train your ears!</p></div>
+  </div>
+  <div class="games-shots" style="margin-top:18px">
+    <div class="shots">
+      <div class="phone tilt1"><img src="../assets/screen-quiz.png" alt="Capy Quiz" /></div>
+      <div class="phone tilt2"><img src="../assets/screen-match.png" alt="Capy Match" /></div>
+    </div>
+  </div>
+</section>
+
+<div class="divider"><span>🎨</span></div>
+
+<section id="custom" class="wrap">
+  <div class="guide-step">
+    <div class="gs-body">
+      <h3 data-i18n="g_s5_h">5 · Make it yours</h3>
+      <p data-i18n="t9p">Themes, daily reminders, your own AI key, and tools to organize your word bank.</p>
+    </div>
+    <div class="gs-media"><div class="phone-vid"><video controls playsinline preload="none" poster="../assets/tutorials/tut-9.jpg"><source src="../assets/tutorials/tut-9.mp4" type="video/mp4" /></video></div></div>
+  </div>
+</section>
+
+<div class="divider"><span>🌿</span></div>
+
+<section class="wrap" style="text-align:center">
+  <img class="capy-frame" src="../assets/mascot.png" alt="Capy" />
+  <h2 class="section-title" data-i18n="cta2_title">Ready to start your word journey?</h2>
+  <div class="cta" style="justify-content:center; display:flex; gap:14px; flex-wrap:wrap; margin-top:14px;">
+    <a class="btn orange" href="https://apps.apple.com/app/id6780248529" data-i18n="cta_get">Get it on the App Store 📲</a>
+    <a class="btn ghost" href="./" data-i18n="g_cta_back">← Back to Word Review</a>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div>
+      <a href="../">Capybara Around The World</a>
+      <a href="https://capybaraaroundtheworld.com/privacy-policy.html" data-i18n="foot_privacy">Privacy</a>
+      <a href="/support.html" data-i18n="foot_support">Support</a>
+    </div>
+    <div class="small" data-i18n="foot_copy">© 2026 Capybara Around The World · Made with 🍊 and naps</div>
+  </div>
+</footer>
+
+<script src="../assets/i18n.js?v=10"></script>
+<script src="../assets/theme.js"></script>
+<script src="../assets/music.js?v=1" data-src="../assets/audio/background-music.mp3"></script>
+</body>
+</html>
