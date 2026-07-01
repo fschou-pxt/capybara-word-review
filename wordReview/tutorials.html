@@ -40,6 +40,9 @@
   .dict-box h3{font-size:23px;margin:0 0 8px;font-family:"Bubblegum Sans",cursive;color:var(--brown)}
   .dict-box p{font-size:16px;line-height:1.6;margin:0}
   .dict-box img{width:min(100%,230px);border-radius:20px}
+  /* Dictionary section: keep the phone video compact (~2/3 of its default size)
+     so the box isn't overly tall. flex:none overrides the row flex:1 below. */
+  .dict-box .gs-media{flex:none;width:min(100%,165px);margin:0 auto}
 
   /* Tablet / desktop: place media beside the text. */
   @media(min-width:760px){
