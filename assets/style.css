@@ -78,6 +78,10 @@ a{color:var(--orange-dark); text-decoration:none;}
 .btn.orange{background:var(--orange); box-shadow:0 6px 0 var(--orange-dark), var(--shadow);}
 .btn.orange:active{box-shadow:0 2px 0 var(--orange-dark);}
 .btn.ghost{background:#fff; color:var(--teal); box-shadow:0 6px 0 #e7d8c4, var(--shadow);}
+/* "Coming soon" state for Google Play (not published yet): muted, non-clickable */
+.btn.soon{background:#b9b0a4; color:#fff; box-shadow:0 6px 0 #9a917f, var(--shadow); cursor:default; opacity:.9;}
+.btn.soon:active{transform:none; box-shadow:0 6px 0 #9a917f, var(--shadow);}
+.btn .soon-tag{font-size:13px; opacity:.85; margin-left:2px;}
 
 /* ---- hero ---- */
 .hero{display:grid; grid-template-columns:1.1fr 1fr; gap:30px; align-items:center; padding:30px 0 50px;}
