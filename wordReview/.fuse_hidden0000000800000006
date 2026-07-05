@@ -43,6 +43,7 @@
       <div class="cta">
         <a class="btn orange" href="https://apps.apple.com/app/id6780248529" data-i18n="cta_get">Get it on the App Store 📲</a>
         <span class="btn soon" role="button" aria-disabled="true" data-i18n="cta_play_soon">Google Play — coming soon</span>
+        <a class="btn ghost" href="#features" data-i18n="cta_seefeatures">See features</a>
       </div>
     </div>
     <div class="hero-art">
