@@ -12,7 +12,7 @@
 <meta property="og:description" content="Everything Capy can do, start to finish. Including the hidden dictionary trick." />
 <meta property="og:image" content="../assets/app-logo.jpg" />
 <meta property="og:type" content="website" />
-<link rel="stylesheet" href="../assets/style.css?v=16" />
+<link rel="stylesheet" href="../assets/style.css?v=15" />
 <style>
   /* Mobile-first: everything stacks in a single centred column by default. */
   section[id]{scroll-margin-top:84px}
@@ -40,9 +40,6 @@
   .dict-box h3{font-size:23px;margin:0 0 8px;font-family:"Bubblegum Sans",cursive;color:var(--brown)}
   .dict-box p{font-size:16px;line-height:1.6;margin:0}
   .dict-box img{width:min(100%,230px);border-radius:20px}
-  /* Dictionary section: keep the phone video compact (~2/3 of its default size)
-     so the box isn't overly tall. flex:none overrides the row flex:1 below. */
-  .dict-box .gs-media{flex:none;width:min(100%,165px);margin:0 auto}
 
   /* Tablet / desktop: place media beside the text. */
   @media(min-width:760px){
@@ -65,7 +62,7 @@
   <div class="nav-right">
     <div class="nav-links">
       <a href="./" data-i18n="nav_features">Features</a>
-      <a href="./tutorials.html" data-i18n="nav_tutorials">Tutorials</a>
+      <a href="./guide.html" data-i18n="nav_tutorials">Tutorials</a>
       <a href="./#plans" data-i18n="nav_pricing">Pricing</a>
     </div>
     <div id="langpick" class="langpick"></div>
@@ -201,7 +198,6 @@
   <h2 class="section-title" data-i18n="cta2_title">Ready to start your word journey?</h2>
   <div class="cta" style="justify-content:center; display:flex; gap:14px; flex-wrap:wrap; margin-top:14px;">
     <a class="btn orange" href="https://apps.apple.com/app/id6780248529" data-i18n="cta_get">Get it on the App Store 📲</a>
-    <span class="btn soon" role="button" aria-disabled="true" data-i18n="cta_play_soon">Google Play — coming soon</span>
     <a class="btn ghost" href="./" data-i18n="g_cta_back">← Back to Word Review</a>
   </div>
 </section>

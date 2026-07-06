@@ -12,7 +12,7 @@
 <meta property="og:description" content="Everything Capy can do, start to finish. Including the hidden dictionary trick." />
 <meta property="og:image" content="../assets/app-logo.jpg" />
 <meta property="og:type" content="website" />
-<link rel="stylesheet" href="../assets/style.css?v=16" />
+<link rel="stylesheet" href="../assets/style.css?v=15" />
 <style>
   /* Mobile-first: everything stacks in a single centred column by default. */
   section[id]{scroll-margin-top:84px}
@@ -201,7 +201,6 @@
   <h2 class="section-title" data-i18n="cta2_title">Ready to start your word journey?</h2>
   <div class="cta" style="justify-content:center; display:flex; gap:14px; flex-wrap:wrap; margin-top:14px;">
     <a class="btn orange" href="https://apps.apple.com/app/id6780248529" data-i18n="cta_get">Get it on the App Store 📲</a>
-    <span class="btn soon" role="button" aria-disabled="true" data-i18n="cta_play_soon">Google Play — coming soon</span>
     <a class="btn ghost" href="./" data-i18n="g_cta_back">← Back to Word Review</a>
   </div>
 </section>
