@@ -17,6 +17,8 @@
 
   var I18N = {
     "zh-Hans": {
+      g_tr_badge: "新功能", g_tr_h: "翻译以理解 🌏",
+      g_tr_p: "遇到看不懂的整句话？先翻译理解，再点选值得学的词语，一键变成单词卡。打字、语音、拍照都能用，连中文、日文这类没有空格的语言也能正确切分成词。",
       nav_features: "功能", nav_tutorials: "教程", nav_pricing: "价格", nav_allapps: "全部应用",
       hero_ribbon: "📱 App Store 上架 · iPhone 和 iPad",
       hero_h1: "记录单词。<br>玩乐。记住。",
@@ -58,6 +60,8 @@
       foot_privacy: "隐私", foot_support: "支持", foot_copy: "© 2026 Capybara Around The World · 用 🍊 与午睡精心制作"
     },
     "zh-Hant": {
+      g_tr_badge: "新功能", g_tr_h: "翻譯以理解 🌏",
+      g_tr_p: "遇到看不懂的整句話？先翻譯理解，再點選值得學的詞語，一鍵變成單字卡。打字、語音、拍照都能用，連中文、日文這類沒有空格的語言也能正確斷詞。",
       nav_features: "功能", nav_tutorials: "教學", nav_pricing: "價格", nav_allapps: "全部應用程式",
       hero_ribbon: "📱 App Store 上架 · iPhone 與 iPad",
       hero_h1: "記錄單字。<br>玩樂。記住。",
@@ -99,6 +103,8 @@
       foot_privacy: "隱私", foot_support: "支援", foot_copy: "© 2026 Capybara Around The World · 用 🍊 與午睡精心製作"
     },
     "ja": {
+      g_tr_badge: "新機能", g_tr_h: "翻訳して理解する 🌏",
+      g_tr_p: "意味の分からない文に出会ったら、まず翻訳して理解。そのあと学びたい言葉をタップするだけで単語カードになります。入力・音声・写真のどれからでも使え、日本語や中国語のようにスペースのない言語もきちんと単語に分けます。",
       nav_features: "機能", nav_tutorials: "チュートリアル", nav_pricing: "料金", nav_allapps: "すべてのアプリ",
       hero_ribbon: "📱 App Store で配信中 · iPhone と iPad",
       hero_h1: "言葉を記録。<br>遊ぶ。覚える。",
@@ -140,6 +146,8 @@
       foot_privacy: "プライバシー", foot_support: "サポート", foot_copy: "© 2026 Capybara Around The World · 🍊 とお昼寝で作りました"
     },
     "ko": {
+      g_tr_badge: "새 기능", g_tr_h: "번역해서 이해하기 🌏",
+      g_tr_p: "이해되지 않는 문장을 만났나요? 먼저 번역해서 이해한 다음, 배우고 싶은 단어를 눌러 플래시카드로 만드세요. 입력·음성·사진 모두 지원하며, 중국어나 일본어처럼 띄어쓰기가 없는 언어도 단어 단위로 정확히 나눕니다.",
       nav_features: "기능", nav_tutorials: "튜토리얼", nav_pricing: "요금", nav_allapps: "모든 앱",
       hero_ribbon: "📱 App Store 출시 · iPhone과 iPad",
       hero_h1: "단어를 기록하고<br>놀고 기억하세요.",
@@ -181,6 +189,8 @@
       foot_privacy: "개인정보", foot_support: "지원", foot_copy: "© 2026 Capybara Around The World · 🍊 와 낮잠으로 만들었어요"
     },
     "es": {
+      g_tr_badge: "NUEVO", g_tr_h: "Traducir para entender 🌏",
+      g_tr_p: "¿Te encuentras con una frase entera que no entiendes? Tradúcela primero y luego toca las palabras que merece la pena aprender para convertirlas en tarjetas. Funciona escribiendo, hablando o con una foto.",
       nav_features: "Funciones", nav_tutorials: "Tutoriales", nav_pricing: "Precios", nav_allapps: "Todas las apps",
       hero_ribbon: "📱 En la App Store · iPhone y iPad",
       hero_h1: "Captura palabras.<br>Juega. Recuerda.",
@@ -222,6 +232,8 @@
       foot_privacy: "Privacidad", foot_support: "Soporte", foot_copy: "© 2026 Capybara Around The World · Hecho con 🍊 y siestas"
     },
     "fr": {
+      g_tr_badge: "NOUVEAU", g_tr_h: "Traduire pour comprendre 🌏",
+      g_tr_p: "Une phrase entière que vous ne comprenez pas ? Traduisez-la d\'abord, puis touchez les mots à retenir pour en faire des cartes. Cela fonctionne depuis la saisie, la voix ou une photo, et découpe même en vrais mots les langues sans espaces comme le chinois ou le japonais.",
       nav_features: "Fonctions", nav_tutorials: "Tutoriels", nav_pricing: "Tarifs", nav_allapps: "Toutes les apps",
       hero_ribbon: "📱 Sur l'App Store · iPhone et iPad",
       hero_h1: "Capture des mots.<br>Joue. Mémorise.",
@@ -263,6 +275,8 @@
       foot_privacy: "Confidentialité", foot_support: "Assistance", foot_copy: "© 2026 Capybara Around The World · Fait avec 🍊 et des siestes"
     },
     "de": {
+      g_tr_badge: "NEU", g_tr_h: "Zum Verstehen übersetzen 🌏",
+      g_tr_p: "Ein ganzer Satz, den du nicht verstehst? Übersetze ihn zuerst und tippe dann die Wörter an, die sich zu lernen lohnen, um Karten daraus zu machen. Das klappt über Tippen, Sprechen oder ein Foto.",
       nav_features: "Funktionen", nav_tutorials: "Tutorials", nav_pricing: "Preise", nav_allapps: "Alle Apps",
       hero_ribbon: "📱 Im App Store · iPhone und iPad",
       hero_h1: "Wörter festhalten.<br>Spielen. Merken.",
@@ -304,6 +318,8 @@
       foot_privacy: "Datenschutz", foot_support: "Support", foot_copy: "© 2026 Capybara Around The World · Mit 🍊 und Nickerchen gemacht"
     },
     "it": {
+      g_tr_badge: "NUOVO", g_tr_h: "Traduci per capire 🌏",
+      g_tr_p: "Ti imbatti in una frase intera che non capisci? Prima traducila, poi tocca le parole che vale la pena imparare per trasformarle in schede. Funziona scrivendo, parlando o da una foto.",
       nav_features: "Funzioni", nav_tutorials: "Tutorial", nav_pricing: "Prezzi", nav_allapps: "Tutte le app",
       hero_ribbon: "📱 Sull'App Store · iPhone e iPad",
       hero_h1: "Cattura le parole.<br>Gioca. Ricorda.",
@@ -345,6 +361,8 @@
       foot_privacy: "Privacy", foot_support: "Supporto", foot_copy: "© 2026 Capybara Around The World · Fatto con 🍊 e pisolini"
     },
     "pt-BR": {
+      g_tr_badge: "NOVO", g_tr_h: "Traduzir para entender 🌏",
+      g_tr_p: "Encontrou uma frase inteira que não entende? Traduza primeiro e depois toque nas palavras que valem a pena aprender para transformá-las em flashcards. Funciona digitando, falando ou por foto.",
       nav_features: "Recursos", nav_tutorials: "Tutoriais", nav_pricing: "Preços", nav_allapps: "Todos os apps",
       hero_ribbon: "📱 Na App Store · iPhone e iPad",
       hero_h1: "Capture palavras.<br>Jogue. Lembre.",
@@ -386,6 +404,8 @@
       foot_privacy: "Privacidade", foot_support: "Suporte", foot_copy: "© 2026 Capybara Around The World · Feito com 🍊 e sonecas"
     },
     "ru": {
+      g_tr_badge: "НОВОЕ", g_tr_h: "Перевести для понимания 🌏",
+      g_tr_p: "Встретилось непонятное предложение? Сначала переведите его, а затем коснитесь слов, которые стоит выучить, чтобы превратить их в карточки. Работает с текстом, голосом и фото.",
       nav_features: "Возможности", nav_tutorials: "Уроки", nav_pricing: "Цены", nav_allapps: "Все приложения",
       hero_ribbon: "📱 В App Store · iPhone и iPad",
       hero_h1: "Сохраняй слова.<br>Играй. Запоминай.",
@@ -427,6 +447,8 @@
       foot_privacy: "Конфиденциальность", foot_support: "Поддержка", foot_copy: "© 2026 Capybara Around The World · Сделано с 🍊 и дрёмой"
     },
     "nl": {
+      g_tr_badge: "NIEUW", g_tr_h: "Vertalen om te begrijpen 🌏",
+      g_tr_p: "Een hele zin die je niet begrijpt? Vertaal hem eerst en tik daarna op de woorden die het leren waard zijn om er kaarten van te maken. Het werkt via typen, spreken of een foto.",
       nav_features: "Functies", nav_tutorials: "Tutorials", nav_pricing: "Prijzen", nav_allapps: "Alle apps",
       hero_ribbon: "📱 In de App Store · iPhone en iPad",
       hero_h1: "Leg woorden vast.<br>Speel. Onthoud.",
@@ -468,6 +490,8 @@
       foot_privacy: "Privacy", foot_support: "Ondersteuning", foot_copy: "© 2026 Capybara Around The World · Gemaakt met 🍊 en dutjes"
     },
     "pl": {
+      g_tr_badge: "NOWOŚĆ", g_tr_h: "Przetłumacz, aby zrozumieć 🌏",
+      g_tr_p: "Trafiłeś na całe zdanie, którego nie rozumiesz? Najpierw je przetłumacz, a potem dotknij słów wartych nauki, by zamienić je w fiszki. Działa z pisania, mowy i zdjęcia.",
       nav_features: "Funkcje", nav_tutorials: "Poradniki", nav_pricing: "Cennik", nav_allapps: "Wszystkie aplikacje",
       hero_ribbon: "📱 W App Store · iPhone i iPad",
       hero_h1: "Zapisuj słowa.<br>Graj. Zapamiętuj.",
@@ -509,6 +533,8 @@
       foot_privacy: "Prywatność", foot_support: "Wsparcie", foot_copy: "© 2026 Capybara Around The World · Zrobione z 🍊 i drzemkami"
     },
     "tr": {
+      g_tr_badge: "YENİ", g_tr_h: "Anlamak için çevir 🌏",
+      g_tr_p: "Anlamadığın koca bir cümleyle mi karşılaştın? Önce çevir, sonra öğrenmeye değer kelimelere dokunup onları karta dönüştür. Yazarak, konuşarak ya da fotoğraftan çalışır.",
       nav_features: "Özellikler", nav_tutorials: "Eğitimler", nav_pricing: "Fiyatlar", nav_allapps: "Tüm uygulamalar",
       hero_ribbon: "📱 App Store'da · iPhone ve iPad",
       hero_h1: "Kelimeleri yakala.<br>Oyna. Hatırla.",
@@ -550,6 +576,8 @@
       foot_privacy: "Gizlilik", foot_support: "Destek", foot_copy: "© 2026 Capybara Around The World · 🍊 ve şekerlemelerle yapıldı"
     },
     "ar": {
+      g_tr_badge: "جديد", g_tr_h: "ترجم لتفهم 🌏",
+      g_tr_p: "صادفت جملة كاملة لا تفهمها؟ ترجمها أولاً، ثم اضغط على الكلمات التي تستحق التعلم لتحويلها إلى بطاقات. يعمل من الكتابة أو الصوت أو الصورة.",
       nav_features: "المزايا", nav_tutorials: "الدروس", nav_pricing: "الأسعار", nav_allapps: "كل التطبيقات",
       hero_ribbon: "📱 على App Store · iPhone و iPad",
       hero_h1: "التقط الكلمات.<br>العب. تذكّر.",
