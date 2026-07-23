@@ -216,9 +216,6 @@ footer .small{opacity:.85; font-size:13px;}
 .cta .store-badge{display:inline-flex; align-items:center; line-height:0; background:none; box-shadow:none; padding:0; border-radius:0;}
 .cta .store-badge:active{transform:none; box-shadow:none;}
 .store-badge img{height:48px; width:auto; display:block;}
-/* Google's web badge ships with built-in clear space; scale up slightly and trim
-   the transparent margin so it visually matches Apple's badge height. */
-.store-badge.play img{height:62px; margin:-7px 0;}
 
 /* Games layout fix: guarantee portraits + landscapes on one row (desktop) */
 .games-shots{flex-wrap:wrap; gap:28px; align-items:center;}
