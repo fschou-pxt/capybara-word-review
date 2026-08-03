@@ -629,7 +629,7 @@
       h_cta_meet: "认识 Word Review ✨", h_cta_story: "我们的故事",
       h_apps_title: "Capy 的小小应用世界 🗺️", h_apps_sub: "一只友善的水豚，多种学习方式。更多冒险即将到来！",
       h_wr_pill: "iPhone · 免费开始", h_wr_desc: "记录你在生活中遇到的单词和短语，再用例句、发音和间隔重复来复习。32 种语言！", h_wr_explore: "探索 →",
-      h_soon: "即将推出", h_play_desc: "一系列可爱的小游戏，由 Capy 主演——纯粹为了好玩。",
+      h_soon: "即将推出", h_pt_desc: "一起写一个故事——每人一支手机。Capy 负责讲述，而每个选择都是一次转折。", h_play_desc: "一系列可爱的小游戏，由 Capy 主演——纯粹为了好玩。",
       h_more_title: "更多冒险", h_more_desc: "Capy 正在收拾行囊，准备下一段旅程。敬请期待！🧳",
       h_why_title: "为什么是 Capy？💚",
       h_story: "水豚是最平静、最友善的生物——学习也该是这种感觉。没有压力，没有连胜焦虑。只有一个个好奇的小瞬间，被温柔地变成你记得住的东西。我们的使命：<b>把无聊的时刻变成学习，把每次相遇变成发现。</b>"
@@ -641,7 +641,7 @@
       h_cta_meet: "認識 Word Review ✨", h_cta_story: "我們的故事",
       h_apps_title: "Capy 的小小應用世界 🗺️", h_apps_sub: "一隻友善的水豚，多種學習方式。更多冒險即將到來！",
       h_wr_pill: "iPhone · 免費開始", h_wr_desc: "記錄你在生活中遇到的單字和片語，再用例句、發音和間隔重複來複習。32 種語言！", h_wr_explore: "探索 →",
-      h_soon: "即將推出", h_play_desc: "一系列可愛的小遊戲，由 Capy 主演——純粹為了好玩。",
+      h_soon: "即將推出", h_pt_desc: "一起寫一個故事——每人一支手機。Capy 負責敘述，而每個選擇都是一場轉折。", h_play_desc: "一系列可愛的小遊戲，由 Capy 主演——純粹為了好玩。",
       h_more_title: "更多冒險", h_more_desc: "Capy 正在收拾行囊，準備下一段旅程。敬請期待！🧳",
       h_why_title: "為什麼是 Capy？💚",
       h_story: "水豚是最平靜、最友善的生物——學習也該是這種感覺。沒有壓力，沒有連勝焦慮。只有一個個好奇的小瞬間，被溫柔地變成你記得住的東西。我們的使命：<b>把無聊的時刻變成學習，把每次相遇變成發現。</b>"
@@ -653,7 +653,7 @@
       h_cta_meet: "Word Review を見る ✨", h_cta_story: "私たちの物語",
       h_apps_title: "Capy の小さなアプリの世界 🗺️", h_apps_sub: "1匹のやさしいカピバラ、学び方はいろいろ。新しい冒険も続々！",
       h_wr_pill: "iPhone · 無料で開始", h_wr_desc: "日常で出会った言葉やフレーズを記録して、例文・発音・間隔反復で復習。32言語対応！", h_wr_explore: "見てみる →",
-      h_soon: "近日公開", h_play_desc: "Capy が主役の、かわいくて手軽なゲームの詰め合わせ——ただ楽しいだけ。",
+      h_soon: "近日公開", h_pt_desc: "みんなでひとつの物語を——端末はそれぞれ。語り手は Capy、そしてすべての選択がどんでん返しに。", h_play_desc: "Capy が主役の、かわいくて手軽なゲームの詰め合わせ——ただ楽しいだけ。",
       h_more_title: "もっと冒険", h_more_desc: "Capy は次の旅の支度中。お楽しみに！🧳",
       h_why_title: "なぜ Capy？💚",
       h_story: "カピバラはいちばん穏やかでフレンドリーな生き物——学びもそうあるべきです。プレッシャーも連続記録の不安もなし。好奇心の小さな瞬間を、そっと記憶に残るものに変えるだけ。私たちの使命：<b>退屈な瞬間を学びに、出会いのすべてを発見に。</b>"
@@ -665,7 +665,7 @@
       h_cta_meet: "Word Review 만나기 ✨", h_cta_story: "우리 이야기",
       h_apps_title: "Capy의 작은 앱 세계 🗺️", h_apps_sub: "다정한 카피바라 한 마리, 다양한 학습 방법. 더 많은 모험이 오는 중!",
       h_wr_pill: "iPhone · 무료로 시작", h_wr_desc: "일상에서 만난 단어와 표현을 기록하고 예문·발음·간격 반복으로 복습하세요. 32개 언어!", h_wr_explore: "둘러보기 →",
-      h_soon: "곧 출시", h_play_desc: "Capy가 주연인 아늑하고 가벼운 게임 모음 — 그저 즐거움을 위해.",
+      h_soon: "곧 출시", h_pt_desc: "함께 하나의 이야기를 — 화면은 각자. 이야기꾼은 Capy, 모든 선택이 반전이 됩니다.", h_play_desc: "Capy가 주연인 아늑하고 가벼운 게임 모음 — 그저 즐거움을 위해.",
       h_more_title: "더 많은 모험", h_more_desc: "Capy가 다음 여행을 위해 짐을 싸고 있어요. 기대해 주세요! 🧳",
       h_why_title: "왜 Capy일까요? 💚",
       h_story: "카피바라는 가장 차분하고 다정한 동물이에요 — 배움도 그래야 하죠. 스트레스도, 연속 기록에 대한 불안도 없이. 호기심의 작은 순간들을 부드럽게 기억에 남는 것으로 바꿀 뿐. 우리의 사명: <b>지루한 순간을 배움으로, 모든 만남을 발견으로.</b>"
@@ -677,7 +677,7 @@
       h_cta_meet: "Conoce Word Review ✨", h_cta_story: "Nuestra historia",
       h_apps_title: "El pequeño mundo de apps de Capy 🗺️", h_apps_sub: "Un capibara simpático, muchas formas de aprender. ¡Vienen más aventuras!",
       h_wr_pill: "iPhone · Gratis para empezar", h_wr_desc: "Captura palabras y frases que encuentras en la vida real y repásalas con ejemplos, pronunciación y repetición espaciada. ¡32 idiomas!", h_wr_explore: "Explorar →",
-      h_soon: "Próximamente", h_play_desc: "Una acogedora colección de juegos cortos y adorables con Capy: pura diversión, solo por gusto.",
+      h_soon: "Próximamente", h_pt_desc: "Escribid una historia juntos, cada uno en su móvil. Capy narra, y cada decisión es un giro inesperado.", h_play_desc: "Una acogedora colección de juegos cortos y adorables con Capy: pura diversión, solo por gusto.",
       h_more_title: "Más aventuras", h_more_desc: "Capy está haciendo las maletas para el próximo viaje. ¡Atento! 🧳",
       h_why_title: "¿Por qué Capy? 💚",
       h_story: "Los capibaras son las criaturas más tranquilas y amables que hay, y así debería sentirse aprender. Sin estrés, sin ansiedad por las rachas. Solo pequeños momentos de curiosidad, convertidos con cariño en cosas que recuerdas. Nuestra misión: <b>convertir los momentos aburridos en aprendizaje, cada encuentro en descubrimiento.</b>"
@@ -689,7 +689,7 @@
       h_cta_meet: "Découvrir Word Review ✨", h_cta_story: "Notre histoire",
       h_apps_title: "Le petit monde d'apps de Capy 🗺️", h_apps_sub: "Un capybara sympa, plein de façons d'apprendre. D'autres aventures arrivent !",
       h_wr_pill: "iPhone · Gratuit pour commencer", h_wr_desc: "Capture les mots et expressions croisés dans la vraie vie, puis révise-les avec des exemples, la prononciation et la répétition espacée. 32 langues !", h_wr_explore: "Explorer →",
-      h_soon: "Bientôt disponible", h_play_desc: "Une collection douillette de petits jeux mignons avec Capy — juste pour le plaisir.",
+      h_soon: "Bientôt disponible", h_pt_desc: "Écrivez une histoire ensemble, chacun sur son téléphone. Capy raconte, et chaque choix est un coup de théâtre.", h_play_desc: "Une collection douillette de petits jeux mignons avec Capy — juste pour le plaisir.",
       h_more_title: "D'autres aventures", h_more_desc: "Capy fait ses valises pour le prochain voyage. Reste à l'écoute ! 🧳",
       h_why_title: "Pourquoi Capy ? 💚",
       h_story: "Les capybaras sont les créatures les plus calmes et amicales qui soient — et c'est exactement ce que devrait être l'apprentissage. Pas de stress, pas d'angoisse des séries. Juste de petits moments de curiosité, doucement transformés en choses que tu retiens. Notre mission : <b>transformer les moments ennuyeux en apprentissage, chaque rencontre en découverte.</b>"
@@ -701,7 +701,7 @@
       h_cta_meet: "Word Review entdecken ✨", h_cta_story: "Unsere Geschichte",
       h_apps_title: "Capys kleine App-Welt 🗺️", h_apps_sub: "Ein freundliches Capybara, viele Wege zu lernen. Weitere Abenteuer sind unterwegs!",
       h_wr_pill: "iPhone · Kostenlos starten", h_wr_desc: "Halte Wörter und Sätze aus dem echten Leben fest und wiederhole sie mit Beispielen, Aussprache und verteiltem Wiederholen. 32 Sprachen!", h_wr_explore: "Entdecken →",
-      h_soon: "Demnächst", h_play_desc: "Eine gemütliche Sammlung niedlicher, kleiner Spiele mit Capy — einfach zum Spaß.",
+      h_soon: "Demnächst", h_pt_desc: "Schreibt gemeinsam eine Geschichte — jeder auf dem eigenen Handy. Capy erzählt, und jede Entscheidung ist eine Wendung.", h_play_desc: "Eine gemütliche Sammlung niedlicher, kleiner Spiele mit Capy — einfach zum Spaß.",
       h_more_title: "Mehr Abenteuer", h_more_desc: "Capy packt schon für die nächste Reise. Bleib dran! 🧳",
       h_why_title: "Warum Capy? 💚",
       h_story: "Capybaras sind die ruhigsten, freundlichsten Wesen überhaupt — und genau so sollte sich Lernen anfühlen. Kein Stress, keine Serien-Angst. Nur kleine Momente der Neugier, sanft in Dinge verwandelt, die du behältst. Unsere Mission: <b>langweilige Momente in Lernen verwandeln, jede Begegnung in Entdeckung.</b>"
@@ -713,7 +713,7 @@
       h_cta_meet: "Scopri Word Review ✨", h_cta_story: "La nostra storia",
       h_apps_title: "Il piccolo mondo di app di Capy 🗺️", h_apps_sub: "Un capibara simpatico, tanti modi per imparare. Altre avventure in arrivo!",
       h_wr_pill: "iPhone · Gratis per iniziare", h_wr_desc: "Cattura parole ed espressioni che incontri nella vita reale e ripassale con esempi, pronuncia e ripetizione dilazionata. 32 lingue!", h_wr_explore: "Esplora →",
-      h_soon: "Prossimamente", h_play_desc: "Una raccolta accogliente di giochi piccoli e carini con Capy — puro divertimento, solo per il piacere di farlo.",
+      h_soon: "Prossimamente", h_pt_desc: "Scrivete una storia insieme, ognuno sul proprio telefono. Capy racconta, e ogni scelta è un colpo di scena.", h_play_desc: "Una raccolta accogliente di giochi piccoli e carini con Capy — puro divertimento, solo per il piacere di farlo.",
       h_more_title: "Altre avventure", h_more_desc: "Capy sta preparando le valigie per il prossimo viaggio. Resta sintonizzato! 🧳",
       h_why_title: "Perché Capy? 💚",
       h_story: "I capibara sono le creature più calme e amichevoli che ci siano — ed è esattamente così che dovrebbe sentirsi l'apprendimento. Niente stress, niente ansia da serie. Solo piccoli momenti di curiosità, trasformati con dolcezza in cose che ricordi. La nostra missione: <b>trasformare i momenti noiosi in apprendimento, ogni incontro in scoperta.</b>"
@@ -725,7 +725,7 @@
       h_cta_meet: "Conheça o Word Review ✨", h_cta_story: "Nossa história",
       h_apps_title: "O pequeno mundo de apps da Capy 🗺️", h_apps_sub: "Uma capivara amigável, muitas formas de aprender. Mais aventuras a caminho!",
       h_wr_pill: "iPhone · Grátis para começar", h_wr_desc: "Capture palavras e frases que encontra na vida real e revise com exemplos, pronúncia e repetição espaçada. 32 idiomas!", h_wr_explore: "Explorar →",
-      h_soon: "Em breve", h_play_desc: "Uma coleção aconchegante de joguinhos fofos com a Capy — pura diversão, só pelo prazer.",
+      h_soon: "Em breve", h_pt_desc: "Escrevam uma história juntos, cada um no seu celular. Capy narra, e cada escolha é uma reviravolta.", h_play_desc: "Uma coleção aconchegante de joguinhos fofos com a Capy — pura diversão, só pelo prazer.",
       h_more_title: "Mais aventuras", h_more_desc: "A Capy está fazendo as malas para a próxima jornada. Fique de olho! 🧳",
       h_why_title: "Por que a Capy? 💚",
       h_story: "As capivaras são as criaturas mais calmas e amigáveis que existem — e é exatamente assim que aprender deveria ser. Sem estresse, sem ansiedade de sequência. Só pequenos momentos de curiosidade, gentilmente transformados em coisas que você lembra. Nossa missão: <b>transformar momentos chatinhos em aprendizado, cada encontro em descoberta.</b>"
@@ -737,7 +737,7 @@
       h_cta_meet: "Познакомиться с Word Review ✨", h_cta_story: "Наша история",
       h_apps_title: "Маленький мир приложений Capy 🗺️", h_apps_sub: "Одна дружелюбная капибара, много способов учиться. Новые приключения уже в пути!",
       h_wr_pill: "iPhone · Бесплатный старт", h_wr_desc: "Сохраняй слова и фразы из реальной жизни и повторяй их с примерами, произношением и интервальными повторениями. 32 языков!", h_wr_explore: "Узнать больше →",
-      h_soon: "Скоро", h_play_desc: "Уютная коллекция милых небольших игр с Capy — чистое удовольствие, просто для радости.",
+      h_soon: "Скоро", h_pt_desc: "Пишите историю вместе — каждый на своём телефоне. Capy рассказывает, и каждый выбор — это поворот сюжета.", h_play_desc: "Уютная коллекция милых небольших игр с Capy — чистое удовольствие, просто для радости.",
       h_more_title: "Больше приключений", h_more_desc: "Capy уже собирает чемоданы в следующее путешествие. Следи за новостями! 🧳",
       h_why_title: "Почему Capy? 💚",
       h_story: "Капибары — самые спокойные и дружелюбные существа, и именно такой должна быть учёба. Без стресса и тревоги из-за серий. Только маленькие моменты любопытства, бережно превращённые в то, что запоминается. Наша миссия: <b>превращать скучные моменты в учёбу, а каждую встречу — в открытие.</b>"
@@ -749,7 +749,7 @@
       h_cta_meet: "Ontdek Word Review ✨", h_cta_story: "Ons verhaal",
       h_apps_title: "Capy's kleine app-wereld 🗺️", h_apps_sub: "Eén vriendelijke capibara, veel manieren om te leren. Meer avonturen onderweg!",
       h_wr_pill: "iPhone · Gratis te starten", h_wr_desc: "Leg woorden en zinnen vast die je in het echt tegenkomt en herhaal ze met voorbeelden, uitspraak en gespreide herhaling. 32 talen!", h_wr_explore: "Ontdekken →",
-      h_soon: "Binnenkort", h_play_desc: "Een gezellige verzameling schattige, hapklare spelletjes met Capy — puur plezier, gewoon voor de lol.",
+      h_soon: "Binnenkort", h_pt_desc: "Schrijf samen een verhaal — ieder op zijn eigen telefoon. Capy vertelt, en elke keuze is een plotwending.", h_play_desc: "Een gezellige verzameling schattige, hapklare spelletjes met Capy — puur plezier, gewoon voor de lol.",
       h_more_title: "Meer avonturen", h_more_desc: "Capy pakt zijn koffers voor de volgende reis. Blijf kijken! 🧳",
       h_why_title: "Waarom Capy? 💚",
       h_story: "Capibara's zijn de rustigste, vriendelijkste dieren die er zijn — en zo zou leren moeten voelen. Geen stress, geen reeks-angst. Gewoon kleine momentjes van nieuwsgierigheid, zachtjes veranderd in dingen die je onthoudt. Onze missie: <b>saaie momenten veranderen in leren, elke ontmoeting in ontdekking.</b>"
@@ -761,7 +761,7 @@
       h_cta_meet: "Poznaj Word Review ✨", h_cta_story: "Nasza historia",
       h_apps_title: "Mały świat aplikacji Capy 🗺️", h_apps_sub: "Jedna sympatyczna kapibara, wiele sposobów nauki. Więcej przygód w drodze!",
       h_wr_pill: "iPhone · Start za darmo", h_wr_desc: "Zapisuj słowa i zwroty napotkane w prawdziwym życiu, a potem powtarzaj je z przykładami, wymową i powtórkami rozłożonymi w czasie. 32 języków!", h_wr_explore: "Odkrywaj →",
-      h_soon: "Wkrótce", h_play_desc: "Przytulna kolekcja uroczych, krótkich gier z Capy — czysta zabawa, dla samej radości.",
+      h_soon: "Wkrótce", h_pt_desc: "Piszcie historię razem — każdy na własnym telefonie. Capy opowiada, a każdy wybór to zwrot akcji.", h_play_desc: "Przytulna kolekcja uroczych, krótkich gier z Capy — czysta zabawa, dla samej radości.",
       h_more_title: "Więcej przygód", h_more_desc: "Capy pakuje walizki na kolejną podróż. Bądź czujny! 🧳",
       h_why_title: "Dlaczego Capy? 💚",
       h_story: "Kapibary to najspokojniejsze i najbardziej przyjazne stworzenia — i dokładnie tak powinna wyglądać nauka. Bez stresu, bez lęku o passę. Tylko małe chwile ciekawości, delikatnie zamieniane w rzeczy, które zapamiętasz. Nasza misja: <b>zamieniać nudne chwile w naukę, a każde spotkanie w odkrycie.</b>"
@@ -773,7 +773,7 @@
       h_cta_meet: "Word Review ile tanış ✨", h_cta_story: "Hikâyemiz",
       h_apps_title: "Capy'nin küçük uygulama dünyası 🗺️", h_apps_sub: "Bir sevimli kapibara, öğrenmenin pek çok yolu. Daha fazla macera yolda!",
       h_wr_pill: "iPhone · Ücretsiz başla", h_wr_desc: "Gerçek hayatta karşılaştığın kelime ve ifadeleri yakala, sonra örnekler, telaffuz ve aralıklı tekrarla gözden geçir. 32 dil!", h_wr_explore: "Keşfet →",
-      h_soon: "Yakında", h_play_desc: "Capy'nin başrolde olduğu sevimli, kısa oyunlardan oluşan sıcacık bir koleksiyon — sadece keyif için.",
+      h_soon: "Yakında", h_pt_desc: "Birlikte bir hikâye yazın — herkes kendi telefonunda. Capy anlatır ve her seçim bir olay örgüsü dönüşü.", h_play_desc: "Capy'nin başrolde olduğu sevimli, kısa oyunlardan oluşan sıcacık bir koleksiyon — sadece keyif için.",
       h_more_title: "Daha fazla macera", h_more_desc: "Capy bir sonraki yolculuk için çantasını topluyor. Takipte kal! 🧳",
       h_why_title: "Neden Capy? 💚",
       h_story: "Kapibaralar var olan en sakin, en arkadaş canlısı yaratıklardır — ve öğrenmek de tam olarak böyle hissettirmeli. Stres yok, seri kaygısı yok. Sadece küçük merak anları, nazikçe hatırlayacağın şeylere dönüşüyor. Misyonumuz: <b>sıkıcı anları öğrenmeye, her karşılaşmayı keşfe dönüştürmek.</b>"
@@ -785,7 +785,7 @@
       h_cta_meet: "تعرّف على Word Review ✨", h_cta_story: "قصتنا",
       h_apps_title: "عالم تطبيقات Capy الصغير 🗺️", h_apps_sub: "كابيبارا ودودة واحدة، وطرق كثيرة للتعلّم. المزيد من المغامرات في الطريق!",
       h_wr_pill: "iPhone · مجاني للبدء", h_wr_desc: "التقط الكلمات والعبارات التي تصادفها في الحياة الواقعية، ثم راجعها بالأمثلة والنطق والتكرار المتباعد. 32 لغة!", h_wr_explore: "استكشف →",
-      h_soon: "قريباً", h_play_desc: "مجموعة دافئة من الألعاب اللطيفة القصيرة من بطولة Capy — متعة خالصة، لمجرد المرح.",
+      h_soon: "قريباً", h_pt_desc: "اكتبوا قصة معًا — كلٌّ على هاتفه. Capy يروي، وكل اختيار هو منعطف في الحكاية.", h_play_desc: "مجموعة دافئة من الألعاب اللطيفة القصيرة من بطولة Capy — متعة خالصة، لمجرد المرح.",
       h_more_title: "مغامرات أكثر", h_more_desc: "Capy يحزم حقائبه للرحلة القادمة. ترقّب! 🧳",
       h_why_title: "لماذا Capy؟ 💚",
       h_story: "الكابيبارا من أهدأ المخلوقات وأكثرها ودّاً — وهكذا يجب أن يكون التعلّم. لا توتر ولا قلق بشأن السلاسل. مجرد لحظات صغيرة من الفضول، تتحوّل بلطف إلى أشياء تتذكّرها. مهمتنا: <b>تحويل اللحظات المملة إلى تعلّم، وكل لقاء إلى اكتشاف.</b>"
