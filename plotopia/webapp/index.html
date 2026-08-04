@@ -721,7 +721,10 @@
     </p>
   </footer>
 
-<script src="/i18n.js"></script>
+<!-- RELATIVE, not absolute. This app used to be the whole site, where /i18n.js
+     was correct; it now lives at /plotopia/webapp/, where the leading slash sent
+     the browser to the domain root and every label rendered as its own key. -->
+<script src="i18n.js"></script>
 <script>
 (function(){
   "use strict";
