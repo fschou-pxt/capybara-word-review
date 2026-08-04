@@ -1,0 +1,1672 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#faf6f0">
+<title>Capy&rsquo;s Plotopia</title>
+<!-- The head, the book and the ears. The full lockup has a wordmark and four
+     landmarks in it, none of which survive at 16 pixels. -->
+<link rel="icon" href="favicon.ico" sizes="any">
+<link rel="apple-touch-icon" href="app-icon.jpg">
+<meta name="apple-mobile-web-app-title" content="Capy&rsquo;s Plotopia">
+<style>
+  :root{
+    color-scheme: light;
+    --paper:#faf6f0; --paper2:#f2ece2; --card:#fffdfa;
+    --ink:#1f1a2e; --ink2:#4a4266; --muted:#8b8299;
+    --amber:#c8871a; --amber-soft:#f7e6c4;
+    --twist:#c3306a; --twist-soft:#fbe4ee;
+    --teal:#1d8a7c; --teal-soft:#dff2ee;
+    --line:#e3d9ca;
+  }
+  *{box-sizing:border-box;}
+  html,body{margin:0;}
+  body{background:var(--paper); color:var(--ink); font-family:Georgia,'Iowan Old Style',serif; -webkit-text-size-adjust:100%;}
+  .wrap{max-width:760px; margin:0 auto; padding:0 18px 60px;}
+
+  header{display:flex; align-items:center; justify-content:space-between; gap:10px;
+    padding:12px 0 11px; border-bottom:1px solid var(--line); margin-bottom:18px;
+    position:sticky; top:0; background:var(--paper); z-index:5;}
+  .brand{display:flex; align-items:center; gap:10px;}
+  .brandtext{display:flex; flex-direction:column; justify-content:center;}
+  .word{font-family:system-ui,sans-serif; font-weight:800; letter-spacing:-.02em; line-height:1.15;
+    font-size:clamp(16px, 4.2vw, 19px);}
+  .word .t{color:var(--twist);}
+  /* Script, not caps: capitals ruin a cursive face and hid the exclamation
+     mark entirely. `cursive` at the end is the generic that lets each platform
+     pick something — and CJK is handled below, because no system cursive face
+     carries those glyphs. */
+  .sub{font-family:"Snell Roundhand","Segoe Script","Bradley Hand",cursive;
+    /* Script faces have thin strokes by design, and at tagline size they
+       disappear against the paper. Bolder, darker and a little larger — Snell
+       Roundhand in particular only reads properly with weight on it. */
+    font-weight:700; font-style:italic; letter-spacing:0; text-transform:none;
+    color:var(--ink2);
+    margin-top:1px; line-height:1.25; font-size:clamp(15px, 3.6vw, 19px);
+    /* one line, always — German runs 31 characters against English's 24, and a
+       wrapped tagline doubles the header height */
+    white-space:nowrap; overflow:hidden; text-overflow:ellipsis;}
+  .meta{display:flex; align-items:center; gap:8px; font-family:system-ui,sans-serif; font-size:11px; color:var(--muted); flex-wrap:wrap; justify-content:flex-end;}
+  .badge{border:1px solid var(--line); background:var(--card); border-radius:999px; padding:4px 9px; color:var(--amber); font-weight:600;}
+  .code-badge{background:var(--ink); color:#fff; border-radius:999px; padding:4px 11px; font-weight:800; letter-spacing:.14em;}
+  button.ghost{background:none;border:1px solid var(--line);color:var(--muted);border-radius:8px;padding:5px 9px;cursor:pointer;font-family:system-ui,sans-serif;font-size:11px;}
+  .iconbtn{display:grid; place-items:center; width:30px; height:30px; border-radius:50%; cursor:pointer;
+    background:var(--card); border:1px solid var(--line); color:var(--muted); padding:0; transition:.14s;}
+  .iconbtn:hover{color:var(--teal); border-color:var(--teal);}
+  .leavebtn{display:inline-flex; align-items:center; gap:6px; background:var(--card); border:1px solid var(--line);
+    color:var(--ink2); border-radius:999px; padding:6px 13px 6px 11px; cursor:pointer;
+    font-family:system-ui,sans-serif; font-size:12px; font-weight:600; transition:.14s;}
+  .leavebtn:hover{border-color:var(--twist); color:var(--twist); background:var(--twist-soft);}
+  .leavebtn svg{opacity:.8;}
+
+  /* story details modal */
+  #infoModal, #keyPanel{position:fixed; inset:0; z-index:70; display:grid; place-items:center; padding:18px;}
+  #infoModal .back, #keyPanel .back .back{position:absolute; inset:0; background:rgba(31,26,46,.34); backdrop-filter:blur(2px);}
+  #infoModal .card, #keyPanel .card{position:relative; width:min(430px,100%); background:#fff; border:1px solid var(--line);
+    border-radius:16px; padding:20px; box-shadow:0 16px 44px rgba(31,26,46,.24); max-height:82vh; overflow:auto;}
+  #infoModal h3, #keyPanel h3{font-family:system-ui,sans-serif; font-size:16px; margin:0 0 14px;}
+  #infoModal .row, #keyPanel .row{display:flex; gap:12px; padding:9px 0; border-top:1px solid var(--paper2); font-size:14.5px; line-height:1.5;}
+  #infoModal .row:first-of-type, #keyPanel .row:first-of-type{border-top:none;}
+  #infoModal .k, #keyPanel .k{font-family:system-ui,sans-serif; font-size:11px; letter-spacing:.1em; text-transform:uppercase;
+    color:var(--muted); flex:0 0 108px; padding-top:3px;}
+  #infoModal .v, #keyPanel .v{flex:1;}
+  #infoModal .v b, #keyPanel .v b{font-weight:700;}
+
+  @media (max-width:560px){
+    /* keep the meta row on ONE line — wrapping is what made it ragged */
+    .meta{flex-wrap:nowrap; gap:6px;}
+    .leavebtn .lbl{display:none;}            /* icon says it well enough */
+    .leavebtn{padding:7px 9px;}
+    .code-badge{letter-spacing:.1em; padding:4px 9px;}
+    header{gap:8px;}
+    .brand{min-width:0;}                     /* let it shrink instead of pushing */
+    .brandtext{min-width:0;}
+    .word{white-space:nowrap;}
+  }
+  @media (max-width:430px){
+    /* tighten rather than hide: nowrap keeps it to one line, and the longer
+       translations need the extra room */
+    .sub{font-size:clamp(14px, 3.4vw, 16px);}
+  }
+
+  #siteFoot{margin:44px 0 8px; padding:18px 0 4px; border-top:2px dashed var(--line);
+    font-family:system-ui,sans-serif; font-size:12px; color:var(--muted); text-align:center;}
+  #siteFoot nav{display:flex; flex-wrap:wrap; gap:6px 10px; justify-content:center; align-items:center;}
+  #siteFoot a{color:var(--ink2); text-decoration:none; border-bottom:1px solid var(--line); padding-bottom:1px;}
+  #siteFoot a:hover{color:var(--twist); border-color:var(--twist);}
+  #siteFoot .sep{color:var(--line);}
+  #siteFoot .cprt{margin:10px 0 0; font-size:11.5px;}
+  /* the legal footer belongs to the home screen only — mid-story it is noise,
+     and it would sit behind the dock anyway */
+  body.playing #siteFoot{display:none;}
+  body.playing{padding-bottom:var(--dock-h, 140px);}
+
+  h1.hero{font-family:system-ui,sans-serif; font-weight:800; font-size:clamp(27px,7vw,34px); line-height:1.05; letter-spacing:-.03em; margin:14px 0 8px;}
+  h1.hero .t{color:var(--twist);}
+  .hero-sub{font-style:italic; font-size:16px; color:var(--ink2); margin:0 0 24px; line-height:1.5;}
+  .flabel{font-family:system-ui,sans-serif; font-size:13.5px; font-weight:700; margin:22px 0 4px; display:flex; align-items:baseline; gap:7px; flex-wrap:wrap;}
+  .flabel .hint{font-weight:400; font-size:12.5px; color:var(--muted); font-family:Georgia,serif; font-style:italic;}
+  .tiles{display:grid; grid-template-columns:repeat(auto-fit,minmax(140px,1fr)); gap:8px; margin-top:9px;}
+  .tile{background:var(--card); border:1px solid var(--line); border-radius:11px; padding:11px; cursor:pointer; text-align:left; font:inherit; transition:.14s;
+    display:flex; flex-direction:column; align-items:flex-start; justify-content:flex-start;}
+  .tile.on{border-color:var(--amber); background:var(--amber-soft);}
+  .tile-l{font-family:system-ui,sans-serif; font-weight:700; font-size:14px;}
+  .tile-h{font-style:italic; font-size:12.5px; color:var(--muted); margin-top:2px;}
+  .field{width:100%; background:var(--card); border:1px solid var(--line); border-radius:11px; padding:12px 14px; font-family:Georgia,serif; font-size:16px; line-height:1.55; color:var(--ink); outline:none; resize:vertical; margin-top:9px;}
+  .field:focus{border-color:var(--amber);}
+  .field::placeholder{color:#b3aabb;}
+  .btn{width:100%; border:none; border-radius:12px; padding:15px; font-family:system-ui,sans-serif; font-weight:800; font-size:16px; cursor:pointer;}
+  .btn-primary{background:var(--amber); color:#2b1c02;}
+  .btn-dark{background:var(--ink); color:#fff;}
+  .btn-outline{background:none; border:1px solid var(--line); color:var(--ink);}
+  .btn:disabled{opacity:.45;}
+  .stack{display:flex; flex-direction:column; gap:10px; margin-top:22px;}
+  .note{font-family:system-ui,sans-serif; font-size:11.5px; color:var(--muted); text-align:center; margin-top:12px; line-height:1.6;}
+
+  .codebox{background:var(--card); border:2px dashed var(--amber); border-radius:16px; padding:22px; text-align:center; margin:22px 0;}
+  .codebox .lbl{font-family:system-ui,sans-serif; font-size:12px; letter-spacing:.14em; text-transform:uppercase; color:var(--muted);}
+  .codebox .num{font-family:system-ui,sans-serif; font-weight:800; font-size:52px; letter-spacing:.16em; color:var(--ink); margin:6px 0 4px;}
+  .codebox .say{font-style:italic; color:var(--ink2); font-size:14.5px;}
+
+  .players{display:flex; gap:6px; flex-wrap:wrap; margin:0 0 16px;}
+  .chip{font-family:system-ui,sans-serif; font-size:12px; font-weight:600; padding:5px 11px; border-radius:999px; background:var(--paper2); color:var(--ink2); border:1px solid var(--line);}
+  .chip.turn{background:var(--teal); color:#fff; border-color:var(--teal);}
+  .chip.host::after{content:" ★"; color:var(--amber);}
+  .chip.turn.host::after{color:#ffe9b8;}
+  .chip.pick{cursor:pointer; background:#fff; border-color:var(--teal); color:var(--teal);}
+
+  .sel{font-family:system-ui,sans-serif; font-size:15px; -webkit-appearance:none; appearance:none;
+    background-image:linear-gradient(45deg,transparent 50%,var(--muted) 50%),linear-gradient(135deg,var(--muted) 50%,transparent 50%);
+    background-position:calc(100% - 18px) 20px, calc(100% - 13px) 20px; background-size:5px 5px,5px 5px; background-repeat:no-repeat;}
+  .teachrow{display:flex; align-items:center; gap:10px; margin-top:20px; padding:13px 14px; background:var(--card);
+    border:1px solid var(--line); border-radius:11px; cursor:pointer; font-family:system-ui,sans-serif; font-size:14px;}
+  .teachrow input{width:18px;height:18px;accent-color:var(--teal);}
+  .teachpanel{border-left:3px solid var(--teal); padding-left:14px; margin-top:16px;}
+  .objband{margin-top:12px;}
+  .objband h5{font-family:system-ui,sans-serif; font-size:10.5px; letter-spacing:.14em; text-transform:uppercase;
+    color:var(--muted); margin:0 0 7px; display:flex; align-items:center; gap:8px;}
+  .objchips{display:flex; flex-wrap:wrap; gap:7px;}
+  .objchip{font-family:system-ui,sans-serif; font-size:13px; font-weight:600; padding:8px 12px; border-radius:999px;
+    background:var(--card); border:1px solid var(--line); color:var(--ink2); cursor:pointer; transition:.13s;}
+  .objchip.on{background:var(--teal); border-color:var(--teal); color:#fff;}
+  .objchip.off{opacity:.35; cursor:not-allowed;}
+  .objband.locked h5::after{content:"locked — clear your picks to switch"; font-size:9.5px; letter-spacing:0;
+    text-transform:none; color:var(--muted); font-style:italic;}
+
+  .craftbox{margin:10px 0 0; display:flex; flex-direction:column; gap:6px;}
+  .craft{background:var(--teal-soft); border-left:3px solid var(--teal); border-radius:0 8px 8px 0;
+    padding:9px 12px; font-family:system-ui,sans-serif; font-size:12.5px; color:#12594f; line-height:1.5;}
+  .craft b{letter-spacing:.1em; text-transform:uppercase; font-size:10px; display:block; margin-bottom:3px; color:var(--teal);}
+
+  /* word lookup */
+  #lookBtn{position:absolute; z-index:60; transform:translate(-50%,-100%); background:var(--ink); color:#fff;
+    border:none; border-radius:9px; padding:11px 16px; font-family:system-ui,sans-serif; font-weight:700;
+    font-size:13px; cursor:pointer; box-shadow:0 4px 14px rgba(31,26,46,.28); white-space:nowrap;
+    -webkit-user-select:none; user-select:none; touch-action:manipulation;}
+  /* the arrow must never eat a press */
+  #lookBtn::after{content:""; position:absolute; left:50%; bottom:-5px; transform:translateX(-50%);
+    border-left:5px solid transparent; border-right:5px solid transparent; border-top:5px solid var(--ink);
+    pointer-events:none;}
+  /* Sits ON the dock rather than beside it. At 460px it covered the turn box
+     but not the menu circle, which read as a rendering fault rather than a
+     panel. Matching the dock's own width hides the whole bar, and the top is
+     inset so the dock's dashed edge still shows above it. Anything longer
+     scrolls inside instead of growing over the story. */
+  #lookCard{position:fixed; left:50%; bottom:12px; transform:translateX(-50%); z-index:50;
+    width:min(680px,calc(100vw - 24px)); background:#fff; border:1px solid var(--line); border-radius:14px;
+    padding:15px 16px; box-shadow:0 10px 34px rgba(31,26,46,.22);
+    /* The floor matters: when a story ends the dock is hidden and --dock-h
+       drops to ~14px, which would otherwise flatten the card to nothing. */
+    max-height:max(200px, calc(var(--dock-h, 140px) - 28px));
+    overflow-y:auto; overscroll-behavior:contain;}
+  /* Sticky, not absolute: in a scrolling card an absolute close button scrolls
+     out of reach exactly when the text is long enough to need it. */
+  #lookCard .lx{position:sticky; top:0; float:right; margin-left:10px;}
+  #lookCard .lt{font-family:system-ui,sans-serif; font-weight:800; font-size:17px; display:flex; align-items:baseline; gap:8px; flex-wrap:wrap;}
+  #lookCard .pos{font-family:Georgia,serif; font-style:italic; font-weight:400; font-size:13px; color:var(--muted);}
+  #lookCard .lm{font-size:15.5px; line-height:1.55; margin:7px 0 0;}
+  #lookCard .ls{font-family:system-ui,sans-serif; font-size:12.5px; color:var(--muted); margin-top:7px;}
+  .teachcard{background:#fff; border:1px solid #bfe0da; border-radius:14px; padding:16px; margin:0 0 24px;}
+  .teachcard h4{font-family:system-ui,sans-serif; font-size:11px; letter-spacing:.14em; text-transform:uppercase; color:var(--teal); margin:0 0 10px;}
+  .teachcard ul{margin:0 0 12px; padding-left:18px; font-size:15px; line-height:1.6;}
+  .teachcard .qs li{font-family:system-ui,sans-serif; font-size:14px; font-weight:600;}
+  .gradepill{font-family:system-ui,sans-serif; font-size:10px; color:var(--muted); border:1px solid var(--line);
+    border-radius:999px; padding:2px 8px; margin-left:8px; white-space:nowrap;}
+
+  .cast{font-family:system-ui,sans-serif; font-size:11.5px; color:var(--muted); margin:0 0 16px; line-height:1.6;}
+  .cast b{color:var(--ink2); font-weight:700;}
+
+  /* Each passage sits in a softly-coloured card. The skin is picked from the
+     passage's index, so it's varied but stable across re-renders. */
+  .pcard{border-radius:20px; padding:16px 18px 14px; margin:0 0 18px; border:2px solid;
+    animation:rise .45s ease both;}
+  .pcard .seg{margin:0;}
+  .pcard.s0{background:#f5f1fd; border-color:#cbbcee;}
+  .pcard.s1{background:#ecfaf4; border-color:#a9dcc6;}
+  .pcard.s2{background:#fdf2e9; border-color:#f0c39f;}
+  .pcard.s3{background:#fdf7e6; border-color:#ecd396;}
+  .pcard.s4{background:#f0f6fd; border-color:#b6cfea;}
+  .pcard.s1{border-style:dashed;}
+  .pcard.s3{border-style:dotted;}
+  .pcard.rev{background:var(--twist-soft); border-color:#e8a7c2; border-style:solid;}
+
+  .seg{font-size:18.5px; line-height:1.68; margin:0 0 20px; white-space:pre-wrap;}
+  @keyframes rise{from{opacity:0;transform:translateY(7px)}to{opacity:1;transform:translateY(0)}}
+  /* scripts: monospace signals "this is a script" at a glance */
+  .seg.script{font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace; font-size:14.5px;
+    line-height:1.62; white-space:normal;}
+  .seg.script .sp{height:9px;}
+  .seg.script .sl{font-weight:800; letter-spacing:.05em; color:var(--ink);
+    border-bottom:2px solid rgba(43,36,64,.18); padding-bottom:5px; margin-bottom:4px;}
+  .seg.script .act{margin:0;}
+  .seg.script .dir{font-style:italic; color:var(--muted);}
+  /* the speaker: coloured, indented, and tied to their lines by a rule */
+  .seg.script .cue{font-weight:800; letter-spacing:.09em; color:var(--twist);
+    margin:2px 0 3px; padding-left:2.4em;}
+  .seg.script .dlg{padding-left:2.4em; padding-right:1em; margin-left:.9em;
+    border-left:2px solid rgba(195,48,106,.25);}
+  @media (max-width:520px){
+    .seg.script{font-size:13.5px;}
+    .seg.script .cue{padding-left:1.2em;}
+    .seg.script .dlg{padding-left:1.2em; margin-left:.4em;}
+  }
+  .revtag{font-family:system-ui,sans-serif; font-weight:800; font-size:11px; letter-spacing:.16em; text-transform:uppercase; color:var(--twist); display:inline-block; margin-bottom:7px;}
+  .byline{font-family:system-ui,sans-serif; font-size:11px; color:var(--muted); margin:9px 0 0;}
+  .chapter{display:flex; align-items:center; gap:12px; font-family:system-ui,sans-serif; font-size:10.5px; letter-spacing:.2em; text-transform:uppercase; color:var(--amber); margin:4px 0 24px;}
+  .chapter::before,.chapter::after{content:"";flex:1;height:1px;background:var(--line);}
+
+  .knot{background:var(--card); border:1px solid var(--line); border-radius:14px; padding:16px; margin-bottom:14px; box-shadow:0 1px 3px rgba(31,26,46,.05);}
+  .ktype{font-family:system-ui,sans-serif; font-weight:800; font-size:10px; letter-spacing:.16em; text-transform:uppercase; color:var(--teal); margin-bottom:8px;}
+  .kq{font-family:system-ui,sans-serif; font-weight:700; font-size:17px; line-height:1.35; margin:0 0 13px;}
+  .kq.rev{color:var(--twist);}
+  .opts{display:flex; flex-direction:column; gap:8px;}
+  .opt{text-align:left; font-family:system-ui,sans-serif; font-weight:600; font-size:15px; color:var(--ink); background:var(--paper2); border:1px solid transparent; border-radius:10px; padding:13px; cursor:pointer; display:flex; gap:9px; align-items:flex-start;}
+  .opt:active{transform:scale(.99);}
+  .opt .d{color:var(--teal); flex-shrink:0;}
+  .wild{display:flex; gap:8px; margin-top:10px;}
+  .wild input{flex:1; background:var(--paper); border:1px solid var(--line); border-radius:10px; padding:12px 13px; font-family:Georgia,serif; font-size:16px; outline:none;}
+  .wild button{background:var(--amber); color:#2b1c02; border:none; border-radius:10px; padding:0 16px; cursor:pointer; font-family:system-ui,sans-serif; font-weight:800; font-size:13px;}
+
+  .waiting{background:var(--teal-soft); border:1px solid #bfe0da; border-radius:14px; padding:15px; font-family:system-ui,sans-serif; font-size:14px; color:var(--ink2); text-align:center;}
+  .hostbar{background:var(--card); border:1px solid var(--line); border-radius:14px; padding:14px; margin-bottom:14px;}
+  .hostbar .t{font-family:system-ui,sans-serif; font-weight:700; font-size:13px; margin-bottom:9px;}
+  .toggle{font-family:system-ui,sans-serif; font-size:12px; color:var(--muted); margin-top:10px; display:flex; align-items:center; gap:7px; cursor:pointer;}
+
+  .askcard{background:var(--teal-soft); border:1px solid #bfe0da; border-radius:14px; padding:16px; margin-top:20px;}
+  .askcard .who{font-family:system-ui,sans-serif; font-weight:800; font-size:11px; letter-spacing:.14em; text-transform:uppercase; color:var(--teal);}
+  .askintro{font-style:italic; font-size:14.5px; color:var(--ink2); margin:5px 0 12px;}
+  .q{margin-bottom:11px;}
+  .qt{font-family:system-ui,sans-serif; font-weight:600; font-size:14px; margin-bottom:6px;}
+  .qa{width:100%; background:#fff; border:1px solid #bfe0da; border-radius:9px; padding:11px 12px; font-family:Georgia,serif; font-size:16px; outline:none;}
+  .askrow{display:flex; gap:8px; margin-top:12px; flex-wrap:wrap;}
+  .askrow button{border:none; border-radius:10px; padding:12px 16px; cursor:pointer; font-family:system-ui,sans-serif; font-weight:800; font-size:14px;}
+  .btn-go{background:var(--teal); color:#fff; flex:1;}
+  .btn-skip{background:none; border:1px solid #bfe0da !important; color:var(--teal);}
+
+  .loading{display:flex; align-items:center; gap:10px; color:var(--muted); font-family:system-ui,sans-serif; font-size:13px; padding:4px 0 18px;}
+  .orb{width:9px;height:9px;border-radius:50%;background:var(--amber);animation:pulse 1s ease-in-out infinite;}
+  @keyframes pulse{0%,100%{opacity:.3;transform:scale(.8)}50%{opacity:1;transform:scale(1.15)}}
+  .err{color:var(--twist); font-family:system-ui,sans-serif; font-size:13px; display:flex; gap:12px; align-items:center; flex-wrap:wrap; padding:4px 0 16px; line-height:1.5;}
+  .err button{background:none;border:1px solid var(--twist);color:var(--twist);border-radius:8px;padding:6px 12px;cursor:pointer;font-size:12px;}
+  /* the docked turn bar + bottom sheet */
+  #dock{position:fixed; left:0; right:0; bottom:0; z-index:40; background:var(--paper);
+    border-top:2px dashed var(--line); box-shadow:0 -6px 18px rgba(31,26,46,.06);
+    padding:12px 0 max(12px, env(safe-area-inset-bottom));}
+  .dockinner{width:min(680px,100%); margin:0 auto; padding:0 18px;
+    display:flex; align-items:center; gap:12px;}
+  /* when it's your turn the knot has options and a text field, so let the dock
+     grow but never eat the story — scroll inside instead */
+  .dockmain{flex:1; min-width:0; max-height:56vh; overflow:auto;}
+  .dockmain > div:empty{display:none;}
+  .dockmain .hostbar{margin-bottom:10px; padding:12px 14px;}
+  /* .players' bottom margin used to separate the chips from the free-for-all
+     toggle. That toggle is gone, so it was just dead space under the last row. */
+  /* one line, scrolled sideways — with five players the wrapped rows made the
+     dock grow and pushed the story off the screen */
+  .dockmain .hostbar .players{margin-bottom:0; flex-wrap:nowrap; overflow-x:auto;
+    scrollbar-width:none; -webkit-overflow-scrolling:touch; padding-bottom:2px;}
+  .dockmain .hostbar .players::-webkit-scrollbar{display:none;}
+  .dockmain .hostbar .players .chip{flex:0 0 auto;}
+  .dockmain .hostbar .t{margin-bottom:8px;}
+  .dockmain > div:last-child .knot,
+  .dockmain > div:last-child .waiting{margin-bottom:0;}
+  #knotBox:not(:empty){margin-top:0;}
+  #fab{flex:0 0 auto; width:52px; height:52px; border-radius:50%;
+    display:grid; place-items:center; background:var(--amber); color:#2b1c02; cursor:pointer;
+    border:2.5px solid var(--outline); box-shadow:0 5px 0 var(--shade);
+    transition:transform .1s, box-shadow .1s;}
+  #fab:active{transform:translateY(5px); box-shadow:none;}
+  #sheet{position:fixed; inset:0; z-index:75; display:grid; place-items:end center; padding:0;}
+  #sheet .back{position:absolute; inset:0; background:rgba(31,26,46,.34); backdrop-filter:blur(2px);}
+  #sheet .card{position:relative; width:min(520px,100%); background:#fff; border:2.5px solid var(--outline);
+    border-radius:24px 24px 0 0; padding:20px 20px 26px; max-height:80vh; overflow:auto;
+    box-shadow:0 -6px 0 var(--shade);}
+  #sheet h3{font-family:system-ui,sans-serif; font-size:16px; margin:0 0 14px; padding-right:38px;}
+  .mitem{display:block; width:100%; text-align:left; background:var(--card); border:2px solid var(--outline);
+    border-radius:14px; padding:13px 15px; margin-bottom:10px; cursor:pointer; box-shadow:var(--pop-sm);
+    font-family:system-ui,sans-serif; color:var(--ink); transition:transform .1s, box-shadow .1s;}
+  .mitem:active{transform:translateY(4px); box-shadow:none;}
+  .mitem b{font-size:15px; display:block;}
+  .mitem span{font-size:12.5px; color:var(--muted);}
+  .mrow{display:flex; gap:8px; flex-wrap:wrap; margin:2px 0 14px;}
+  .mrow button{flex:1; min-width:84px; border:2px solid var(--outline); border-radius:12px; padding:11px 8px;
+    background:#fff; color:var(--ink); cursor:pointer; font-family:system-ui,sans-serif; font-weight:700;
+    font-size:14px; box-shadow:var(--pop-sm);}
+  .mrow button.on{background:var(--butter);}
+  .mrow button:active{transform:translateY(4px); box-shadow:none;}
+
+  /* Roster chips wrap rather than scroll: here the whole point is seeing
+     everyone at once, so nothing may sit off the edge. */
+  .whochip{display:inline-flex; align-items:center; gap:7px; background:#fff;
+    border:2px solid var(--outline); border-radius:999px; padding:9px 14px;
+    font-family:system-ui,sans-serif; font-weight:600; font-size:14px; box-shadow:var(--pop-sm);}
+  .whochip .dot{width:11px; height:11px; border-radius:50%; border:2px solid var(--outline);}
+  .whochip i{font-style:normal; font-size:11.5px; font-weight:600; color:var(--muted);}
+
+  #endBanner{background:var(--twist-soft); border:2.5px dashed var(--outline); border-radius:16px;
+    padding:11px 14px; margin:0 0 18px; text-align:center; font-family:system-ui,sans-serif;
+    font-weight:700; font-size:13.5px; color:var(--outline);}
+  .theend{text-align:center; font-family:system-ui,sans-serif; font-weight:800; letter-spacing:.24em;
+    text-transform:uppercase; font-size:13px; color:var(--twist); margin:6px 0 26px;}
+
+  .savedrow{display:flex; gap:10px; align-items:flex-start; justify-content:space-between; flex-wrap:wrap;
+    background:var(--card); border:2px solid var(--outline); border-radius:14px; padding:12px 14px;
+    margin-bottom:10px; box-shadow:var(--pop-sm);}
+  .savedmain{flex:1; min-width:180px; font-family:system-ui,sans-serif;}
+  .savedmain b{font-size:15px; letter-spacing:.1em;}
+  .savedmain span{font-size:11.5px; color:var(--muted);}
+  .savedsnip{font-family:Georgia,serif; font-size:13.5px; color:var(--ink2); margin-top:5px; line-height:1.45;
+    display:-webkit-box; -webkit-box-orient:vertical; -webkit-line-clamp:2; line-clamp:2;
+    overflow:hidden; text-overflow:ellipsis;}
+  .savedacts{display:flex; gap:6px; flex-wrap:wrap;}
+  .savedacts button{border:2px solid var(--outline); background:#fff; color:var(--ink); border-radius:999px;
+    padding:6px 11px; font-family:system-ui,sans-serif; font-size:11.5px; font-weight:700; cursor:pointer;
+    box-shadow:0 2px 0 var(--shade);}
+  .savedacts button:active{transform:translateY(2px); box-shadow:none;}
+
+  .toast{position:fixed; left:50%; bottom:88px; transform:translate(-50%,12px); z-index:90; opacity:0;
+    background:var(--ink); color:#fff; border:2px solid var(--outline); border-radius:999px;
+    padding:11px 20px; font-family:system-ui,sans-serif; font-weight:700; font-size:13.5px;
+    box-shadow:0 4px 0 var(--shade); transition:opacity .18s, transform .18s; pointer-events:none;}
+  .toast.go{opacity:1; transform:translate(-50%,0);}
+
+  /* collapsible home sections */
+  .fold{margin-top:22px;}
+  .fold > summary{display:flex; align-items:center; gap:8px; cursor:pointer; list-style:none;
+    padding:4px 0; user-select:none;}
+  .fold > summary::-webkit-details-marker{display:none;}
+  .fold > summary .flabel{margin:0;}
+  .foldcount{font-family:system-ui,sans-serif; font-size:11.5px; font-weight:700; color:var(--muted);
+    background:var(--paper2); border:1px solid var(--line); border-radius:999px; padding:1px 8px;}
+  .fold .chev{margin-left:auto; color:var(--muted); transition:transform .15s;}
+  .fold[open] .chev{transform:rotate(180deg);}
+  .foldhint{text-align:left !important; margin:-2px 0 10px !important;}
+
+  .linkbtn{display:block; margin:18px auto 0; background:none; border:none; cursor:pointer;
+    font-family:system-ui,sans-serif; font-size:12.5px; font-weight:700; color:var(--muted);
+    text-decoration:underline; text-underline-offset:3px;}
+  .keybox{font-family:ui-monospace,SFMono-Regular,Menlo,monospace; font-size:19px; font-weight:700;
+    letter-spacing:.06em; text-align:center; color:var(--ink); background:var(--card);
+    border:2px solid var(--outline); border-radius:14px; padding:14px 10px; margin:6px 0 10px;
+    box-shadow:var(--pop-sm); word-break:break-all;}
+
+  .hidden{display:none !important;}
+
+  /* Georgia has no CJK glyphs — fall back to proper system faces so Japanese,
+     Korean and Chinese render in a real typeface rather than whatever the
+     browser substitutes glyph by glyph. */
+  .cjk .seg, .cjk .kq, .cjk .opt, .cjk .craft, .cjk .teachcard, .cjk .waiting{
+    font-family:"Hiragino Mincho ProN","Yu Mincho","Noto Serif CJK TC","Noto Serif JP",
+      "Songti TC","PingFang TC","Apple SD Gothic Neo","Malgun Gothic",Georgia,serif;
+    line-height:1.85;
+  }
+  .cjk .seg.script{font-family:"Hiragino Sans","Noto Sans CJK TC","PingFang TC",
+    "Apple SD Gothic Neo",ui-monospace,monospace;}
+</style>
+
+<!-- ============================================================
+     Sticker skin — the "cute" layer.
+     Kept as an override block so the structural CSS above stays
+     readable and this can be toned down in one place.
+     ============================================================ -->
+<style>
+  :root{
+    --outline:#2b2440;
+    /* Warm taupe rather than black — a black offset reads as harsh drop-shadow
+       against the cream paper; this sits in the same family as the palette. */
+    --shade:#c4ad90;
+    /* straight down, no sideways offset — the whole app casts one light source */
+    --pop:0 7px 0 var(--shade);
+    --pop-sm:0 4px 0 var(--shade);
+    --lilac:#c9b6f0; --lilac-soft:#f2ecfd;
+    --mint:#a4dcc4;  --mint-soft:#e9f9f2;
+    --peach:#f4b892; --peach-soft:#fdf1e8;
+    --butter:#f3d489; --butter-soft:#fdf7e6;
+    --sky:#a9c9ec;   --sky-soft:#eef5fd;
+  }
+
+  /* ---- header ---- */
+  header{border-bottom:2px dashed var(--line);}
+  /* The header is a <button>, so iOS paints its text in system blue unless every
+     part states its own colour. Same trap as the setup tiles. */
+  .brand{background:none; border:none; padding:0; margin:0; font:inherit; text-align:left;
+    cursor:pointer; transition:transform .12s; color:var(--ink); -webkit-text-fill-color:var(--ink);}
+  .brand .word{color:var(--ink); -webkit-text-fill-color:var(--ink);}
+  .brand .word .t{color:var(--twist); -webkit-text-fill-color:var(--twist);}
+  .brand .sub{color:var(--muted); -webkit-text-fill-color:var(--muted);}
+  /* Set by applyUi from the interface language. */
+  html[data-cjk="1"] .sub{font-family:system-ui,sans-serif; font-style:normal;
+    font-weight:600; font-size:clamp(12px, 3vw, 14px);}
+  .brand:hover{transform:translateY(-1px);}
+  .brand:active{transform:translateY(1px);}
+  .word{font-size:clamp(18px, 4.8vw, 22px);}
+  .sub{font-size:clamp(15px, 3.8vw, 20px);}
+  .code-badge{border:2px solid var(--outline); box-shadow:var(--pop-sm); padding:5px 12px; font-weight:800;}
+  .iconbtn{border:2px solid var(--outline); color:var(--outline); box-shadow:var(--pop-sm);
+    transition:transform .1s, box-shadow .1s;}
+  .iconbtn:hover{color:var(--teal); border-color:var(--outline);}
+  .iconbtn:active,.leavebtn:active{transform:translateY(4px); box-shadow:none;}
+  .leavebtn{border:2px solid var(--outline); color:var(--outline); box-shadow:var(--pop-sm);
+    font-weight:700; transition:transform .1s, box-shadow .1s;}
+  .leavebtn:hover{background:var(--twist-soft); border-color:var(--outline); color:var(--twist);}
+
+  /* ---- buttons ---- */
+  /* Single-line headline: scales down with the viewport so it holds one line as
+     far as possible, and breaks evenly rather than orphaning a word if it can't. */
+  h1.hero.oneline{font-size:clamp(21px, 5vw, 34px); text-wrap:balance;}
+
+  /* more air under the name field, and between the two choices */
+  .stack{gap:16px; margin-top:34px;}
+
+  .btn, button.begin{border:2.5px solid var(--outline) !important; box-shadow:var(--pop);
+    border-radius:16px; transition:transform .1s, box-shadow .1s;}
+  .btn:active, button.begin:active{transform:translateY(7px); box-shadow:none;}
+  .btn-outline{background:#fff;}
+  /* Softer amber on the big CTAs — the saturated one was heavy next to the pastels. */
+  .btn-primary, button.begin{background:#f2c56b; color:#3a2a06;}
+  .btn-primary:hover, button.begin:hover{background:#f6d488;}
+
+  /* iOS Safari paints <button> text in its own system blue when no colour is
+     declared, so every button states its colour explicitly. Never inherit here. */
+  button{-webkit-text-fill-color:currentColor;}
+
+  /* ---- setup tiles ---- */
+  /* extra row gap so the downward shadow doesn't crowd the row beneath */
+  .tiles{column-gap:10px; row-gap:18px;}
+  .tile{border:2px solid var(--outline); border-radius:15px; box-shadow:var(--pop-sm);
+    color:var(--ink); transition:transform .1s, box-shadow .1s;}
+  .tile-l{color:var(--ink);}
+  .tile.on .tile-l{color:#3a2a06;}
+  .tile:hover{transform:translateY(-1px); box-shadow:0 5px 0 var(--shade);}
+  .tile:active{transform:translateY(4px); box-shadow:none;}
+  /* Selected state needs to be unmistakable at a glance — the soft tint read as
+     "hovered" rather than "chosen". */
+  .tile.on{background:var(--butter); border-color:var(--outline); box-shadow:var(--pop);}
+  .tile.on .tile-h{color:#6b5423;}
+  .field{border:2px solid var(--outline); border-radius:14px;}
+  .field:focus{box-shadow:var(--pop-sm);}
+  .teachrow{border:2px solid var(--outline); border-radius:14px; box-shadow:var(--pop-sm);}
+  .teachpanel{border-left:3px dashed var(--teal);}
+  .objchip{border:2px solid var(--outline); box-shadow:var(--pop-sm); transition:transform .1s, box-shadow .1s;}
+  .objchip:active{transform:translateY(4px); box-shadow:none;}
+  .objchip.on{background:var(--mint); color:var(--outline); border-color:var(--outline);}
+  .objchip.off{box-shadow:none; border-color:var(--line);}
+
+  /* ---- setup stepper ---- */
+  .trail{display:flex; align-items:center; gap:14px; margin:6px 0 20px;}
+  /* keyed to the selected-tile yellow, so "chosen" reads the same everywhere */
+  .trailline{flex:1; height:6px;
+    background-image:radial-gradient(circle, var(--butter) 2.1px, transparent 2.3px);
+    background-size:11px 6px; background-repeat:repeat-x; background-position:left center;}
+  .pips{display:flex; gap:9px; flex:0 0 auto;}
+  .pip{width:17px; height:17px; border-radius:50%; background:#fff;
+    border:2.5px solid var(--outline); transition:background .15s, transform .15s;}
+  .pip.done{background:var(--butter);}
+  .pip.now{background:var(--butter); transform:scale(1.18); box-shadow:0 4px 0 var(--shade);}
+
+  .steptitle{font-family:system-ui,sans-serif; font-size:12.5px; font-weight:800; letter-spacing:.16em;
+    text-transform:uppercase; color:var(--muted); margin:0 0 14px;}
+  .step{animation:rise .3s ease both;}
+  /* breathing room under the Create button for the status / follow-up card */
+  /* Was #setupStatus and #askBox, both removed with the setup wizard. The join
+     status is the only one left, and it needs the same room: .loading has just
+     4px of top padding, so "Finding the story…" sat against the button that
+     produced it. Collapses to nothing when empty so the gap is not permanent. */
+  #joinStatus{margin-top:18px;}
+  #joinStatus:empty{margin-top:0;}
+
+  .navrow{display:flex; align-items:center; gap:12px; margin-top:26px;}
+  .navmid{flex:1; text-align:center; font-family:system-ui,sans-serif; font-size:12px;
+    font-weight:700; letter-spacing:.1em; text-transform:uppercase; color:var(--muted);}
+  .navbtn{display:grid; place-items:center; width:52px; height:52px; flex:0 0 52px; border-radius:50%;
+    background:#fff; border:2.5px solid var(--outline); color:var(--outline); cursor:pointer;
+    box-shadow:var(--pop); transition:transform .1s, box-shadow .1s, background .12s;}
+  .navbtn:hover{background:var(--butter-soft);}
+  .navbtn:active{transform:translateY(7px); box-shadow:none;}
+  .navbtn:disabled{opacity:.35; box-shadow:none; cursor:default; transform:none;}
+  .navbtn.go{width:auto; flex:0 0 auto; border-radius:16px; padding:0 22px; height:52px;
+    background:#f2c56b; color:#3a2a06; font-family:system-ui,sans-serif; font-weight:800; font-size:15px;}
+
+  /* ---- lobby code ---- */
+  .codebox{border:3px dashed var(--outline); border-radius:24px; background:var(--butter-soft); box-shadow:var(--pop);}
+  .codebox .num{color:var(--outline);}
+  .gate{border:2px solid var(--outline); border-radius:16px; box-shadow:var(--pop-sm);}
+  .gaterow input{border:2px solid var(--outline); border-radius:12px;}
+  .gaterow button{border:2px solid var(--outline); box-shadow:var(--pop-sm);
+    background:var(--ink); color:#fff; border-radius:12px; padding:11px 16px; cursor:pointer;
+    font-family:system-ui,sans-serif; font-weight:700; font-size:13px;}
+
+  /* ---- player chips, with a colour dot each ---- */
+  .players{gap:8px;}
+  .chip{display:inline-flex; align-items:center; gap:7px; background:#fff; color:var(--outline);
+    border:2px solid var(--outline); border-radius:999px; padding:6px 13px; box-shadow:var(--pop-sm);
+    font-weight:700;}
+  .chip .dot{width:13px; height:13px; border-radius:50%; border:2px solid var(--outline); flex:0 0 13px;}
+  .chip.turn{background:var(--mint); color:var(--outline); border-color:var(--outline);}
+  .chip.host::after{content:"★"; color:var(--amber); font-size:12px;}
+  .chip.pick{background:#fff; color:var(--outline); border-color:var(--outline); cursor:pointer;}
+  .chip.pick:active{transform:translateY(4px); box-shadow:none;}
+
+  /* ---- passage cards ---- */
+  /* Each card casts a shadow in its OWN colour family — a deeper tone of its
+     fill — as in the mockups. A single neutral shadow flattened them together. */
+  /* the 10px drop shadows need clearance, or each card sits on the next one */
+  .pcard{border-width:2.5px !important; border-color:var(--outline) !important; border-radius:24px;
+    padding:18px 20px 16px; position:relative; margin-bottom:28px;}
+  .knot, .hostbar, .teachcard, .askcard{margin-bottom:22px;}
+  #hostBar:not(:empty){margin-top:22px;}
+  #knotBox:not(:empty){margin-top:4px;}
+  .pcard.s0{background:var(--lilac-soft);  box-shadow:0 10px 0 #b9a3e6;}
+  .pcard.s1{background:var(--mint-soft);   box-shadow:0 10px 0 #86cfb2;}
+  .pcard.s2{background:var(--peach-soft);  box-shadow:0 10px 0 #eda67c;}
+  .pcard.s3{background:var(--butter-soft); box-shadow:0 10px 0 #e9c667;}
+  .pcard.s4{background:var(--sky-soft);    box-shadow:0 10px 0 #93bde8;}
+  .pcard.rev{background:var(--twist-soft); box-shadow:0 10px 0 #e78fb4;}
+  /* a dotted trim along the top of every other card */
+  .pcard.s1::before, .pcard.s3::before{content:""; position:absolute; left:18px; right:18px; top:8px; height:5px;
+    background-image:radial-gradient(circle, var(--outline) 1.6px, transparent 1.7px);
+    background-size:11px 5px; opacity:.35;}
+  .pcard.s1, .pcard.s3{padding-top:24px;}
+  .revtag{background:var(--twist); color:#fff; border:2px solid var(--outline); border-radius:999px;
+    padding:3px 11px; box-shadow:var(--pop-sm); font-size:10.5px;}
+  .gradepill{border:2px solid var(--outline); color:var(--outline); font-weight:700; padding:2px 9px;}
+  .readbtn{display:inline-flex; align-items:center; gap:5px; margin-left:8px; padding:3px 10px;
+    border:2px solid var(--outline); border-radius:999px; background:#fff; color:var(--outline);
+    font-family:system-ui,sans-serif; font-size:10.5px; font-weight:700; cursor:pointer;
+    vertical-align:middle; box-shadow:0 2px 0 var(--shade); transition:transform .1s, box-shadow .1s;}
+  .readbtn:active{transform:translateY(2px); box-shadow:none;}
+  .readbtn.playing{background:var(--mint);}
+  .readbtn.loading-audio{opacity:.55;}
+  .craft{border:2px solid var(--outline); border-left-width:5px; border-radius:12px; background:#fff;
+    box-shadow:var(--pop-sm); color:var(--outline);}
+  .chapter{color:var(--outline); font-weight:800;}
+  .chapter::before,.chapter::after{border-top:2px dashed var(--line); background:none; height:0;}
+
+  /* ---- knot ---- */
+  .knot{border:2.5px solid var(--outline); border-radius:24px; background:#fff;
+    box-shadow:0 10px 0 #93bde8;}
+  .ktype{display:inline-block; background:var(--sky); color:var(--outline); border:2px solid var(--outline);
+    border-radius:999px; padding:3px 11px; box-shadow:var(--pop-sm); margin-bottom:12px;}
+  .opt{border:2px solid var(--outline) !important; border-radius:14px; background:#fff;
+    box-shadow:var(--pop-sm); transition:transform .1s, box-shadow .1s;}
+  .opt:hover{transform:translateY(-1px); box-shadow:0 5px 0 var(--shade); background:var(--butter-soft);}
+  .opt:active{transform:translateY(4px); box-shadow:none;}
+  .wild input{border:2px solid var(--outline); border-radius:14px;}
+  .wild button{border:2px solid var(--outline); border-radius:14px; box-shadow:var(--pop-sm);}
+  .wild button:active{transform:translateY(4px); box-shadow:none;}
+
+  /* the surrounding cards echo the same idea: shadow tinted to the fill */
+  .waiting{border:2.5px dashed var(--outline); border-radius:20px; background:var(--mint-soft);
+    color:var(--outline); font-weight:600; box-shadow:0 8px 0 #a8dbc6;}
+  .hostbar{border:2.5px solid var(--outline); border-radius:20px; background:var(--butter-soft);
+    box-shadow:0 8px 0 #e9c667;}
+  .teachcard{border:2.5px solid var(--outline); border-radius:20px; box-shadow:0 8px 0 #a8dbc6;}
+  .askcard{border:2.5px solid var(--outline); border-radius:20px; box-shadow:0 8px 0 #a8dbc6;}
+  .askrow button{border:2px solid var(--outline); box-shadow:var(--pop-sm);}
+  .askrow button:active{transform:translateY(4px); box-shadow:none;}
+  .qa{border:2px solid var(--outline); border-radius:12px;}
+
+  /* ---- overlays ---- */
+  #lookBtn{border:2px solid var(--outline); box-shadow:var(--pop); border-radius:14px;}
+  #lookBtn:active{transform:translate(-50%,-100%) translateY(7px); box-shadow:none;}
+  #lookCard{border:2.5px solid var(--outline); border-radius:22px; box-shadow:0 8px 0 var(--shade);}
+  #infoModal .card, #keyPanel .card{border:2.5px solid var(--outline); border-radius:24px; box-shadow:0 10px 0 var(--shade);}
+  .lx{position:absolute; top:12px; right:12px; z-index:2;
+    border:2px solid var(--outline); border-radius:50%; width:28px; height:28px;
+    display:grid; place-items:center; background:#fff; color:var(--outline);
+    font-size:16px; line-height:1; padding:0; cursor:pointer;
+    box-shadow:0 2px 0 var(--shade); transition:transform .1s, box-shadow .1s;}
+  .lx:active{transform:translateY(2px); box-shadow:none;}
+  .lx:hover{background:var(--twist-soft); color:var(--twist);}
+  /* keep the heading clear of the button */
+  #infoModal h3, #keyPanel h3, #sheet h3{padding-right:38px;}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <header>
+    <button class="brand" id="homeBtn">
+      <div class="brandtext"><div class="word">Capy&rsquo;s <span class="t">Plotopia</span></div><div class="sub" id="brandSub"></div></div>
+    </button>
+    <div class="meta hidden" id="meta">
+      <span class="code-badge" id="codeBadge"></span>
+      <button class="iconbtn" id="infoBtn">
+        <svg viewBox="0 0 24 24" width="17" height="17" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
+          <circle cx="12" cy="12" r="9"/><path d="M12 11v5"/><path d="M12 7.6v.3"/>
+        </svg>
+      </button>
+      <button class="leavebtn" id="leaveBtn" title="">
+        <svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M15 4h3a1 1 0 0 1 1 1v14a1 1 0 0 1-1 1h-3"/><path d="M10 16l-4-4 4-4"/><path d="M6 12h9"/>
+        </svg>
+        <span class="lbl">Leave</span>
+      </button>
+    </div>
+  </header>
+
+  <!-- HOME -->
+  <section id="home">
+    <h1 class="hero oneline" id="homeHead">Every choice is a plot <span class="t">twist</span>.</h1>
+    <p class="hero-sub" id="homeTag">One story, everyone on their own phone. The narrator hands you the wheel in turn.</p>
+    <div class="flabel" id="lblYourLang">Your language <span class="hint" id="hintYourLang">what the buttons say</span></div>
+    <select class="field sel" id="uiSelect"></select>
+
+    <div class="flabel" id="lblName">What should we call you?</div>
+    <input class="field" id="nameIn" data-ph="home.namePh" autocomplete="nickname">
+    <div class="flabel" id="lblKey">Your library key <span class="hint" id="hintKey"></span></div>
+    <input class="field" id="keyIn" autocomplete="off" autocapitalize="characters"
+           spellcheck="false" maxlength="19" placeholder="XXXX-XXXX-XXXX-XXXX">
+    <p class="note" id="keyWhy" style="text-align:left;margin-top:6px"></p>
+
+    <div class="stack">
+      <button class="btn btn-outline" id="goJoin"></button>
+    </div>
+    <p class="note" id="homeNote"></p>
+    <p class="note" id="webOnly" style="margin-top:14px"></p>
+
+  </section>
+
+  <section id="join" class="hidden">
+    <h1 class="hero" id="joinTitle"></h1>
+    <p class="hero-sub" id="joinSub"></p>
+    <input class="field" id="joinCode" inputmode="text" autocapitalize="characters"
+           autocomplete="off" spellcheck="false" maxlength="4" placeholder="B C D 2"
+           style="font-family:system-ui,sans-serif;font-size:34px;text-align:center;letter-spacing:.28em;font-weight:800;">
+    <div class="stack">
+      <button class="btn btn-primary" id="joinGo"></button>
+      <button class="btn btn-outline" id="joinBack"></button>
+    </div>
+    <div id="joinStatus"></div>
+  </section>
+
+  <!-- PLAY -->
+  <button id="lookBtn" class="hidden"></button>
+  <div id="lookCard" class="hidden"></div>
+
+  <div id="infoModal" class="hidden">
+    <div class="back"></div>
+    <div class="card">
+      <button class="lx">&times;</button>
+      <h3 id="infoTitle"></h3>
+      <div id="infoBody"></div>
+    </div>
+  </div>
+
+  <div id="sheet" class="hidden">
+    <div class="back"></div>
+    <div class="card">
+      <button class="lx" aria-label="close">&times;</button>
+      <h3 id="sheetTitle"></h3>
+      <div id="sheetBody"></div>
+    </div>
+  </div>
+
+  <section id="play" class="hidden">
+    <div id="endBanner" class="hidden"></div>
+    <div id="story"></div>
+    <div id="status"></div>
+  </section>
+
+  <!-- The turn controls live in a dock at the bottom of the screen: they are
+       what you act on, and hunting for them under a long passage was the main
+       friction on a phone. -->
+  <div id="dock" class="hidden">
+    <div class="dockinner">
+      <div class="dockmain">
+        <div id="hostBar"></div>
+        <div id="knotBox"></div>
+      </div>
+      <button id="fab">
+        <svg viewBox="0 0 24 24" width="22" height="22" fill="currentColor" aria-hidden="true">
+          <circle cx="12" cy="5" r="2"/><circle cx="12" cy="12" r="2"/><circle cx="12" cy="19" r="2"/>
+        </svg>
+      </button>
+    </div>
+  </div>
+
+</div>
+
+  <footer id="siteFoot">
+    <nav>
+      <a href="https://www.apple.com/legal/internet-services/itunes/dev/stdeula/" target="_blank" rel="noopener" id="footTerms"></a>
+      <span class="sep">·</span>
+      <a href="https://capybaraaroundtheworld.com/plotopia/privacy-policy.html" target="_blank" rel="noopener" id="footPrivacy"></a>
+      <span class="sep">·</span>
+      <a href="mailto:support@capybaraaroundtheworld.com" id="footSupport"></a>
+    </nav>
+    <p class="cprt">© <span id="footYear"></span>
+      <a href="https://pxttechstudio.com" target="_blank" rel="noopener">PXT Tech Studio, LLC</a>
+    </p>
+  </footer>
+
+<script src="/i18n.js"></script>
+<script>
+(function(){
+  "use strict";
+
+  var PACING=[
+    {id:"slow",label:"Slow Burn",hint:"long, rich scenes"},
+    {id:"balanced",label:"Steady",hint:"an even rhythm"},
+    {id:"fast",label:"Rapid Fire",hint:"short, decide often"}
+  ];
+
+  var me = { name:"", code:"" };
+
+  /* Always ask the current state, never a cached flag: hosting moves. */
+  function amHost(){ return !!(S && S.host === me.name); }
+
+  /* The dock is fixed, so the page has to reserve exactly its height or the last
+     passage hides behind it. It grows and shrinks as the knot comes and goes,
+     so measure rather than guess. */
+  function measureDock(){
+    var d = $("dock");
+    var px = d.classList.contains("hidden") ? 0 : d.offsetHeight;
+    document.documentElement.style.setProperty("--dock-h", (px + 14) + "px");
+  }
+  // Whether read-aloud is configured server-side — the ONE thing the browser
+  // still needs from /api/options. Everything else that call returned fed the
+  // setup wizard, which is app-only now; the call itself was removed with it,
+  // which silently took the read-aloud buttons with it.
+  var OPTS = { tts:false };
+
+  async function loadOptions(){
+    try{
+      var o = await api("/api/options", {});
+      OPTS.tts = !!(o && o.tts);
+      // A story may already be on screen when this lands.
+      if(S) renderPlay();
+    }catch(e){
+      // Leave read-aloud off rather than showing buttons that would fail.
+    }
+  }
+  var S = null;          // server view of the story
+  var poll = null, busy = false;
+
+  var $=function(i){return document.getElementById(i);};
+  var DOTS = ["#c9b6f0","#a4dcc4","#f4b892","#f3d489","#a9c9ec","#f0a8c4","#b8e0a0","#e0b8f0"];
+  function dotColour(i){ return DOTS[i % DOTS.length]; }
+  function esc(s){return String(s==null?"":s).replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;");}
+
+  /* ---------- interface language (independent of the story language) ---------- */
+  var UI_LANGS = ["en","es","fr","de","it","pt","ja","ko","zh-CN","zh-TW"];
+  var ui = "en";
+  function pickDefaultUi(){
+    try{
+      var saved = localStorage.getItem("pt.ui");
+      if(saved && UI_LANGS.indexOf(saved) !== -1) return saved;
+    }catch(e){}
+    var nav = (navigator.language||"en").toLowerCase();
+    if(nav.indexOf("zh")===0){
+      return /(hant|tw|hk|mo)/.test(nav) ? "zh-TW" : "zh-CN";
+    }
+    var two = nav.slice(0,2);
+    return UI_LANGS.indexOf(two) !== -1 ? two : "en";
+  }
+  function setUi(l){
+    ui = (UI_LANGS.indexOf(l)!==-1) ? l : "en";
+    try{ localStorage.setItem("pt.ui", ui); }catch(e){}
+    document.documentElement.lang = ui;
+  }
+  // t() falls back to English for any key a translation hasn't covered.
+  function t(key, vars){
+    var d = (window.I18N && window.I18N[ui]) || {};
+    var en = (window.I18N && window.I18N.en) || {};
+    var s = (key in d) ? d[key] : (en[key] !== undefined ? en[key] : key);
+    if(vars) Object.keys(vars).forEach(function(k){ s = s.split("{"+k+"}").join(vars[k]); });
+    return s;
+  }
+  // Labels for server-supplied options: translated if we have it, else the
+  // server's English label, so a new option never renders blank.
+  function tl(prefix, id, fallback){
+    var d = (window.I18N && window.I18N[ui]) || {};
+    var en = (window.I18N && window.I18N.en) || {};
+    var k = prefix + "." + id;
+    return (k in d) ? d[k] : (k in en ? en[k] : (fallback || id));
+  }
+
+  /* Scripts get parsed line-by-line so the speaker is unmistakable: slug lines,
+     character cues, dialogue, stage directions and action each get their own
+     treatment, the way a real script uses indentation to do the work. */
+  function scriptHtml(text){
+    var out = [], inSpeech = false;
+    String(text||"").split(/\r?\n/).forEach(function(raw){
+      var line = raw.trim();
+      if(!line){ out.push('<div class="sp"></div>'); inSpeech = false; return; }
+
+      if(/^(INT\.|EXT\.|SCENE\b|FADE|CUT TO|DISSOLVE)/i.test(line)){
+        out.push('<div class="sl">'+esc(line)+'</div>'); inSpeech = false; return;
+      }
+      if(/^[\[(].*[\])]$/.test(line)){
+        out.push('<div class="dir">'+esc(line)+'</div>'); return;
+      }
+      // A cue: short, all-caps, no sentence-ending punctuation.
+      var letters = line.replace(/[^A-Za-z]/g,"");
+      if(letters && line.length <= 42 && letters === letters.toUpperCase() && !/[.!?]$/.test(line)){
+        out.push('<div class="cue">'+esc(line)+'</div>'); inSpeech = true; return;
+      }
+      out.push('<div class="'+(inSpeech ? "dlg" : "act")+'">'+esc(line)+'</div>');
+    });
+    return out.join("");
+  }
+  function aria(id, label){ var el=$(id); if(el) el.setAttribute("aria-label", label); }
+
+  function show(id){
+    ["home","join","play"].forEach(function(s){
+      $(s).classList.toggle("hidden", s!==id);
+    });
+    $("meta").classList.toggle("hidden", id!=="play" && id!=="lobby");
+    $("siteFoot").classList.toggle("hidden", id!=="home");
+    if(id!=="play") $("dock").classList.add("hidden");
+  }
+
+  try{ me.name = localStorage.getItem("pt.name")||""; }catch(e){}
+  var keyPrefillDone = false;
+
+  /* THE KEY IS SESSION-ONLY. It is somebody's wallet, typed on a machine that
+     may be shared or borrowed — a laptop in a kitchen, a school computer. It
+     survives a refresh (sessionStorage does) and dies with the window, which is
+     the behaviour a parent would assume without being told. It is never put in
+     a URL: links get pasted into group chats. */
+  function libraryKey(){
+    try{ return sessionStorage.getItem("pt.libkey") || ""; }catch(e){ return ""; }
+  }
+  function setLibraryKey(k){
+    try{
+      if(k) sessionStorage.setItem("pt.libkey", k);
+      else sessionStorage.removeItem("pt.libkey");
+    }catch(e){}
+  }
+  function validKey(k){
+    return typeof k === "string" && /^[2-9BCDFGHJKMNPQRSTVWXYZ]{16}$/.test(k);
+  }
+  $("nameIn").value = me.name;
+
+  /* Optional server-side ACCESS_CODE. Nothing to configure unless the Worker sets
+     one; if it does, ask once and remember it. */
+
+  /* ------------------------------------------------------------------
+     The browser now talks to the SAME backend as the iOS/Android app:
+     the Supabase Edge Function, not the Cloudflare Worker. That is what
+     lets someone on a laptop join a story their family started in the app —
+     two clients, one set of stories.
+
+     Kept as a shim over the old path-based calls rather than rewriting
+     twenty call sites: the Edge Function takes {op, ...args} on a single
+     endpoint, so the path is simply mapped to an op here.
+     ------------------------------------------------------------------ */
+
+  var SUPABASE_URL = "https://nvbnuctjdorsjojefctg.supabase.co";
+  // Safe in a public page: it identifies the project, not a person. RLS denies
+  // it every table and the plot_twist schema is not exposed to it — the only
+  // thing it can reach is the Edge Function, which enforces its own rules.
+  var SUPABASE_ANON = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Im52Ym51Y3RqZG9yc2pvamVmY3RnIiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODE0NjQzMzYsImV4cCI6MjA5NzA0MDMzNn0.UrDrXptb9vZQ63t4SKzz8tkrvBx-JGTSefIPkJaKaCo";
+  var FUNCTION_URL = SUPABASE_URL + "/functions/v1/story";
+
+  async function api(path, payload, method){
+    // "/api/lib/keep" -> "lib.keep";  "/api/state?code=X&v=2" -> "state" (+args)
+    var q = path.indexOf("?");
+    var query = q === -1 ? "" : path.slice(q + 1);
+    var clean = q === -1 ? path : path.slice(0, q);
+    var op = clean.replace(/^\/api\//, "").replace(/\//g, ".");
+
+    var args = Object.assign({}, payload || {});
+    if(query){
+      query.split("&").forEach(function(pair){
+        var kv = pair.split("=");
+        var k = decodeURIComponent(kv[0]);
+        var v = decodeURIComponent(kv[1] || "");
+        // v is the polling version and must stay a number, or the server
+        // cannot compare it and every poll returns the whole story.
+        args[k] = (k === "v") ? parseInt(v, 10) : v;
+      });
+    }
+
+    var res = await fetch(FUNCTION_URL, {
+      method: "POST",
+      headers: {
+        "content-type": "application/json",
+        "authorization": "Bearer " + SUPABASE_ANON,
+      },
+      body: JSON.stringify(Object.assign({ op: op }, args)),
+    });
+
+    var data = null;
+    try{ data = await res.json(); }catch(e){}
+    if(!res.ok || (data && data.error)) {
+      throw new Error((data && data.error) || ("Error " + res.status));
+    }
+    return data;
+  }
+
+  /* ---------- apply the interface language ---------- */
+
+  function applyUi(){
+    var set = function(id, s){ var e=$(id); if(e) e.textContent = s; };
+
+    $("homeHead").innerHTML = esc(t("home.head1")) + '<span class="t">' + esc(t("home.head2")) + '</span>.';
+    set("homeTag", t("home.tag"));
+    set("lblYourLang", ""); // rebuilt below with its hint
+    $("lblYourLang").innerHTML = esc(t("home.yourLang")) + ' <span class="hint">' + esc(t("home.yourLangHint")) + '</span>';
+    $("lblName").textContent = t("home.name");
+    set("goJoin", t("home.join"));
+    $("lblKey").innerHTML = esc(t("web.keyLbl")) +
+      ' <span class="hint">' + esc(t("web.keyOpt")) + '</span>';
+    set("keyWhy", t("web.keyWhy"));
+    set("webOnly", t("web.joinOnly"));
+
+    set("joinTitle", t("join.title")); set("joinSub", t("join.sub"));
+    set("joinGo", t("join.go"));       set("joinBack", t("c.back"));
+    aria("fab", t("menu.title"));
+    document.querySelectorAll(".lx").forEach(function(b){ b.setAttribute("aria-label", t("c.close")); });
+
+    set("brandSub", t("brand.tagline"));
+    // Script faces have no CJK glyphs, so those languages opt out by attribute
+    // rather than falling back silently with the wrong metrics.
+    document.documentElement.setAttribute(
+      "data-cjk", /^(ja|ko|zh)/.test(ui) ? "1" : "0");
+    set("infoTitle", t("info.title"));
+    set("footTerms", t("foot.terms"));
+    set("footPrivacy", t("foot.privacy"));
+    set("footSupport", t("foot.support"));
+    var lv = $("leaveBtn"); if(lv){ var ll = lv.querySelector(".lbl"); if(ll) ll.textContent = t("c.leave"); lv.title = t("c.leave"); }
+    var ib = $("infoBtn"); if(ib){ ib.title = t("info.details"); ib.setAttribute("aria-label", t("info.details")); }
+
+    document.querySelectorAll("[data-k1]").forEach(function(el){
+      el.textContent = t(el.getAttribute("data-k1"));
+    });
+    document.querySelectorAll("[data-k]").forEach(function(el){
+      var k = el.getAttribute("data-k"), kh = el.getAttribute("data-kh");
+      el.innerHTML = esc(t(k)) + (kh ? ' <span class="hint">'+esc(t(kh))+'</span>' : "");
+    });
+    document.querySelectorAll("[data-ph]").forEach(function(el){
+      el.setAttribute("placeholder", t(el.getAttribute("data-ph")));
+    });
+
+    renderUiTiles();
+    if(S) renderPlay();
+  }
+
+  function renderUiTiles(){
+    var dict = window.I18N || {};
+    $("uiSelect").innerHTML = UI_LANGS.map(function(l){
+      var name = (dict[l] && dict[l]["lang.name"]) || l;
+      var flag = (window.LANG_FLAGS||{})[l] || "";
+      return '<option value="'+l+'"'+(ui===l?" selected":"")+'>'+esc((flag?flag+"  ":"")+name)+'</option>';
+    }).join("");
+  }
+  $("uiSelect").addEventListener("change", function(){
+    setUi(this.value);
+    applyUi();
+  });
+
+  /* ---------- home ---------- */
+
+  function grabName(){
+    me.name = ($("nameIn").value||"").trim().slice(0,20);
+    if(!me.name){ $("homeNote").textContent = t("home.needName"); return false; }
+    try{ localStorage.setItem("pt.name", me.name); }catch(e){}
+    return true;
+  }
+  $("goJoin").addEventListener("click", function(){
+    if(!grabName()) return;
+    resetUi(); show("join");
+  });
+  $("joinBack").addEventListener("click", function(){ show("home"); });
+
+  /* ---------- join ---------- */
+
+  $("joinGo").addEventListener("click", async function(){
+    var code = ($("joinCode").value||"").toUpperCase().replace(/[^A-Z0-9]/g,"").slice(0,4);
+    if(code.length!==4){ $("joinStatus").innerHTML='<div class="err"><span>'+esc(t("join.bad"))+'</span></div>'; return; }
+    $("joinStatus").innerHTML='<div class="loading"><span class="orb"></span>'+esc(t("join.finding"))+'</div>';
+    try{
+      // Blank is allowed and means read-only: you can follow the story, but
+      // taking a turn spends a twist and there is no wallet to spend from.
+      var typed = ($("keyIn").value||"").toUpperCase().replace(/[^A-Z0-9]/g,"");
+      if(typed && !validKey(typed)){
+        $("joinStatus").innerHTML='<div class="err"><span>'+esc(t("lib.keyBad"))+'</span></div>';
+        return;
+      }
+      setLibraryKey(typed);
+      var v = await api("/api/join", typed
+        ? {code:code, name:me.name, libKey:typed}
+        : {code:code, name:me.name});
+      me.code = code;
+      S = v; $("joinStatus").innerHTML="";
+      show("play"); startPolling(); renderPlay();
+    }catch(e){
+      $("joinStatus").innerHTML='<div class="err"><span>'+esc(e.message)+'</span></div>';
+    }
+  });
+
+  /* ---------- polling ---------- */
+
+  function startPolling(){
+    if(poll) clearInterval(poll);
+    poll = setInterval(tick, 2000);
+  }
+  async function tick(){
+    if(!me.code || busy) return;
+    try{
+      var v = await api("/api/state?code="+me.code+"&v="+(S?S.v:-1), null, "GET");
+      if(v.unchanged) return;
+      S = v;
+      if(S.started && $("play").classList.contains("hidden")){ show("play"); }
+      renderPlay();
+    }catch(e){ /* transient — next tick will retry */ }
+  }
+
+  // Leaving must clear every bit of transient UI state, not just the story —
+  // anything left disabled or half-rendered resurfaces on the next story.
+  function resetUi(){
+    if(poll) clearInterval(poll);
+    poll = null; busy = false;
+    me.code = ""; S = null;
+    $("joinStatus").innerHTML = "";
+    $("story").innerHTML = ""; $("status").innerHTML = "";
+    $("knotBox").innerHTML = ""; $("hostBar").innerHTML = "";
+    closeInfo(); hideLookup(); closeSheet();
+    $("dock").classList.add("hidden");
+    stopAudio();
+    Object.keys(audioCache).forEach(function(k){ try{ URL.revokeObjectURL(audioCache[k]); }catch(e){} });
+    audioCache = {};
+    castT = {};
+  }
+
+  /* Tell the story first: leaving used to be a screen change only, so everyone
+     else kept seeing you in the player list and the owner could still hand you
+     the pen. Best-effort — if the call fails we still let them out. */
+  async function leaveStory(){
+    var code = me.code, name = me.name;
+    resetUi();
+    show("home");
+    if(code && name){
+      try{ await api("/api/leave", {code:code, name:name}); }catch(e){}
+    }
+  }
+
+  $("leaveBtn").addEventListener("click", leaveStory);
+
+  // The logo goes home — but mid-story that's destructive, so confirm and show
+  // the code so they can get back in.
+  $("homeBtn").addEventListener("click", function(){
+    if(me.code){
+      var ok = window.confirm(t("c.confirmLeave",{code:me.code}));
+      if(!ok) return;
+      leaveStory();
+      return;
+    }
+    resetUi();
+    show("home");
+  });
+
+  /* ---------- play ---------- */
+
+  async function sendMove(text){
+    if(busy) return;
+    busy = true;
+    S.busy = true; renderPlay();
+    try{ S = await api("/api/move",{code:me.code, name:me.name, move:text}); }
+    catch(e){ if(S) S.error = e.message; }
+    busy = false; renderPlay();
+  }
+
+  async function setTurn(player){
+    try{
+      var payload = {code:me.code, name:me.name};
+      if(player!==undefined) payload.player = player;
+      S = await api("/api/turn", payload);
+    }catch(e){}
+    renderPlay();
+  }
+
+  /* ---------- read aloud ---------- */
+
+  var audio = null, audioIdx = -1, audioCache = {};
+
+  function stopAudio(){
+    if(audio){ audio.pause(); audio = null; }
+    audioIdx = -1;
+    document.querySelectorAll("[data-read]").forEach(function(b){ b.classList.remove("playing"); });
+  }
+
+  async function speak(i, btn){
+    // tapping the same passage again stops it
+    if(audioIdx === i){ stopAudio(); return; }
+    stopAudio();
+
+    var seg = (S && S.segments || [])[i];
+    if(!seg) return;
+
+    btn.classList.add("loading-audio");
+    try{
+      if(!audioCache[i]){
+        var res = await fetch(FUNCTION_URL, {
+          method: "POST",
+          headers: {
+            "content-type": "application/json",
+            "authorization": "Bearer " + SUPABASE_ANON,
+          },
+          body: JSON.stringify({
+            op: "speak",
+            code: me.code,
+            text: seg.text,
+          })
+        });
+        if(!res.ok){
+          var msg = "Couldn't read that aloud.";
+          try{ var j = await res.json(); if(j && j.error) msg = j.error; }catch(e){}
+          btn.classList.remove("loading-audio");
+          cardShell('<div class="err" style="padding:0"><span>'+esc(msg)+'</span></div>');
+          return;
+        }
+        audioCache[i] = URL.createObjectURL(await res.blob());
+      }
+      btn.classList.remove("loading-audio");
+      audio = new Audio(audioCache[i]);
+      audioIdx = i;
+      btn.classList.add("playing");
+      audio.onended = stopAudio;
+      audio.onerror = stopAudio;
+      await audio.play();
+    }catch(e){
+      btn.classList.remove("loading-audio");
+      stopAudio();
+    }
+  }
+
+  /* ---------- floating story menu ---------- */
+
+  var sheetView = "menu";   // "menu" | "who" — which layer the sheet is showing
+
+  function openSheet(){
+    if(!S) return;
+    sheetView = "menu";
+    $("sheetTitle").textContent = t("menu.title");
+    var host = amHost(), body = "";
+
+    // First item: the roster. Once the header chips came out, participants had
+    // no way at all to see who else was in the story.
+    body += '<button class="mitem" data-m="who"><b>'+esc(t("menu.who"))+'</b><span>'+esc(t("menu.whoHint"))+'</span></button>';
+    // Keeping, the library key and giving a story away are all app-only: they
+    // all need a library, and the browser deliberately has none. The host
+    // controls below DO stay, because hosting can be handed to a browser player
+    // mid-story — they run the turns, the owner still pays for them.
+
+    if(host && !S.ended){
+      // Reassigning mid-turn matters more than it sounds: the dock's picker
+      // only appears when nobody holds the pen, so a child who wanders off
+      // used to stall the story with no way back.
+      var all = S.players || [];
+      if(all.length){
+        body += '<div class="mitem" style="cursor:default"><b>'+esc(t("menu.turn"))+'</b><span>'+esc(t("menu.turnHint"))+'</span>'+
+          '<div class="mrow" style="margin-top:10px">'+
+            all.map(function(p,i){
+              return '<button data-turn="'+esc(p)+'"'+(S.currentPlayer===p?' class="on"':'')+'>'+
+                '<span class="dot" style="display:inline-block;width:10px;height:10px;border-radius:50%;border:2px solid var(--outline);background:'+dotColour(i)+';margin-right:6px"></span>'+esc(p)+'</button>';
+            }).join("")+
+          '</div></div>';
+      }
+
+      // wind-down: 1-3 more turns, or off
+      body += '<div class="mitem" style="cursor:default"><b>'+esc(t("menu.wrap"))+'</b><span>'+esc(t("menu.wrapHint"))+'</span>'+
+        '<div class="mrow" style="margin-top:10px">'+
+          [1,2,3].map(function(k){
+            return '<button data-wrap="'+k+'"'+(S.endIn===k?' class="on"':'')+'>'+esc(t("menu.wrapIn",{n:k}))+'</button>';
+          }).join("")+
+          '<button data-wrap="0"'+(!S.endIn?' class="on"':'')+'>'+esc(t("menu.wrapOff"))+'</button>'+
+        '</div></div>';
+
+      var others = (S.players||[]).filter(function(p){ return p !== me.name; });
+      if(others.length){
+        body += '<div class="mitem" style="cursor:default"><b>'+esc(t("menu.transfer"))+'</b><span>'+esc(t("menu.transferHint"))+'</span>'+
+          '<div class="mrow" style="margin-top:10px">'+
+            others.map(function(p,i){
+              return '<button data-host="'+esc(p)+'"><span class="dot" style="display:inline-block;width:10px;height:10px;border-radius:50%;border:2px solid var(--outline);background:'+dotColour((S.players||[]).indexOf(p))+';margin-right:6px"></span>'+esc(p)+'</button>';
+            }).join("")+
+          '</div></div>';
+      }
+    }
+
+    $("sheetBody").innerHTML = body;
+    $("sheet").classList.remove("hidden");
+
+    $("sheetBody").querySelectorAll("[data-m=who]").forEach(function(b){
+      b.addEventListener("click", openWho);
+    });
+    $("sheetBody").querySelectorAll("[data-turn]").forEach(function(b){
+      b.addEventListener("click", async function(){
+        try{
+          S = await api("/api/turn", {code:me.code, name:me.name, player:b.getAttribute("data-turn")});
+        }catch(e){}
+        closeSheet(); renderPlay();
+      });
+    });
+    $("sheetBody").querySelectorAll("[data-wrap]").forEach(function(b){
+      b.addEventListener("click", async function(){
+        var n = parseInt(b.getAttribute("data-wrap"),10);
+        try{ S = await api("/api/wrap", {code:me.code, name:me.name, turns:n||null}); }catch(e){}
+        renderPlay(); openSheet();
+      });
+    });
+    $("sheetBody").querySelectorAll("[data-host]").forEach(function(b){
+      b.addEventListener("click", async function(){
+        try{
+          S = await api("/api/host", {code:me.code, name:me.name, to:b.getAttribute("data-host")});
+        }catch(e){}
+        closeSheet(); renderPlay();
+      });
+    });
+  }
+  /* Second layer of the same sheet, not a second sheet: two stacked overlays on
+     a phone leave you unsure which × you are about to press. */
+  function openWho(){
+    if(!S) return;
+    sheetView = "who";
+    $("sheetTitle").textContent = t("menu.who");
+    var players = S.players || [];
+    var body = '<div class="mrow" style="margin-bottom:14px">';
+    body += players.map(function(p,i){
+      var tags = [];
+      if(p === S.host) tags.push(t("info.host"));
+      if(p === me.name) tags.push(t("info.you"));
+      return '<span class="whochip">'+
+        '<span class="dot" style="background:'+dotColour(i)+'"></span>'+esc(p)+
+        (tags.length ? '<i>'+esc(tags.join(" · "))+'</i>' : '')+'</span>';
+    }).join("");
+    body += '</div>';
+    body += '<button class="mitem" data-m="back"><b>‹ '+esc(t("menu.back"))+'</b></button>';
+    $("sheetBody").innerHTML = body;
+    $("sheetBody").querySelectorAll("[data-m=back]").forEach(function(b){
+      b.addEventListener("click", openSheet);
+    });
+  }
+
+  function closeSheet(){ $("sheet").classList.add("hidden"); }
+
+  /* Read-only until a key is entered: a browser player has no library of their
+     own, so without one there is no wallet for their turn to come out of. The
+     server enforces this; the panel exists so the refusal has an answer. */
+  function openKeyPrompt(){
+    if(!S) return;
+    sheetView = "key";
+    $("sheetTitle").textContent = t("tw.needKey");
+    $("sheetBody").innerHTML =
+      '<p class="note" style="text-align:left;margin:0 0 12px">'+esc(t("lib.keyHint"))+'</p>'+
+      '<input class="field" id="twKeyIn" autocomplete="off" autocapitalize="characters" '+
+        'spellcheck="false" maxlength="19" placeholder="XXXX-XXXX-XXXX-XXXX">'+
+      '<p class="note" id="twKeyMsg" style="text-align:left;color:var(--twist)"></p>'+
+      '<button class="btn btn-primary" id="twKeyGo">'+esc(t("lib.use"))+'</button>';
+    $("sheet").classList.remove("hidden");
+
+    $("twKeyGo").addEventListener("click", async function(){
+      var raw = ($("twKeyIn").value||"").toUpperCase().replace(/[^A-Z0-9]/g,"");
+      if(!validKey(raw)){ $("twKeyMsg").textContent = t("lib.keyBad"); return; }
+      try{
+        var out = await api("/api/key", {code:me.code, name:me.name, key:raw});
+        setLibraryKey(raw);
+        myTwists = (out && typeof out.twists === "number") ? out.twists : null;
+        closeSheet();
+        renderPlay();
+      }catch(e){
+        $("twKeyMsg").textContent = e.message || t("lib.keyBad");
+      }
+    });
+  }
+
+  /* Null means "not known yet", which is different from zero. */
+  var myTwists = null;
+
+  /* ---------- story details modal ---------- */
+
+  /* Cast blurbs are written by the narrator in the STORY language. Each reader may
+     have a different interface language, so there's no single translation to store —
+     fetch it per reader, cache it, and fall back to the original on any failure. */
+  var castT = {};
+  function castKey(){ return (S ? S.code : "") + "|" + ui; }
+
+  function castHtml(cast, translated){
+    return cast.map(function(c, i){
+      var who = (translated && translated[i]) || c.who;
+      return "<b>"+esc(c.name)+"</b>"+(who?' <span style="color:var(--muted)">— '+esc(who)+'</span>':"");
+    }).join("<br>");
+  }
+
+  async function ensureCastTranslated(){
+    if(!S || !(S.cast||[]).length) return;
+    var storyLang = (S.brief && S.brief.language) || "en";
+    if(storyLang === ui) return;                 // same language, nothing to do
+    var key = castKey();
+    if(castT[key]) return;                       // already have it
+
+    var whos = S.cast.map(function(c){ return c.who || ""; });
+    if(!whos.some(Boolean)) return;
+    try{
+      // items/items, not texts/from/to: the Worker's shape, kept here by
+      // accident after the move. The server derives the source language from
+      // the story, which is also why it needs the code.
+      var out = await api("/api/translate", { code: me.code, items: whos, ui: ui });
+      if(out && Array.isArray(out.items) && out.items.length === whos.length){
+        castT[key] = out.items;
+        var el = $("castRows");
+        if(el) el.innerHTML = castHtml(S.cast, castT[key]);
+      }
+    }catch(e){ /* leave the original text in place */ }
+  }
+
+  function openInfo(){
+    if(!S) return;
+    var p = PACING.filter(function(x){return x.id===(S.brief&&S.brief.pacing);})[0];
+    var rows = [];
+
+    rows.push([t("info.code"), '<b style="letter-spacing:.14em">'+esc(S.code)+'</b>']);
+    var gs = (S.brief && S.brief.genres) || (S.brief && S.brief.genre ? [S.brief.genre] : []);
+    if(gs.length) rows.push([t("info.genre"), gs.map(function(id){ return esc(tl("g",id,id)); }).join(" · ")]);
+    if(S.brief&&S.brief.format) rows.push([t("info.written"), esc(tl("fmt",S.brief.format,S.formatLabel))]);
+    if(S.languageLabel) rows.push([t("info.language"), esc(S.languageLabel)]);
+    if(p) rows.push([t("info.pace"), esc(tl("p",p.id,p.label))+' <span style="color:var(--muted)">— '+esc(tl("ph",p.id,p.hint))+'</span>']);
+    if(S.brief && S.brief.reading && S.brief.reading !== "any") rows.push([t("info.reading"), esc(tl("r",S.brief.reading,S.readingLabel))]);
+    if((S.brief&&S.brief.objectives||[]).length) rows.push([t("info.learning"), S.brief.objectives.map(function(id,ix){ return esc(tl("o",id,(S.objectiveLabels||[])[ix]||id)); }).join("<br>")]);
+    if((S.cast||[]).length){
+      rows.push([t("info.cast"), '<span id="castRows">'+castHtml(S.cast, castT[castKey()])+'</span>']);
+    }
+    rows.push([t("info.players"), (S.players||[]).map(function(n){
+      return esc(n) + (n===S.host?' <span style="color:var(--muted)">('+esc(t("info.host"))+')</span>':"");
+    }).join("<br>")]);
+    rows.push([t("info.lines"), String(S.lines||0)]);
+
+    $("infoBody").innerHTML = rows.map(function(r){
+      return '<div class="row"><div class="k">'+esc(r[0])+'</div><div class="v">'+r[1]+'</div></div>';
+    }).join("");
+    $("infoModal").classList.remove("hidden");
+    ensureCastTranslated();
+  }
+  function closeInfo(){ $("infoModal").classList.add("hidden"); }
+
+  $("infoBtn").addEventListener("click", openInfo);
+  $("infoModal").querySelector(".back").addEventListener("click", closeInfo);
+  $("infoModal").querySelector(".lx").addEventListener("click", closeInfo);
+
+  /* The story menu's three bindings. They lived among the library code and were
+     removed with it in the join-only surgery, which left the ⋮ circle drawn,
+     styled, and completely inert — nothing errored, it just did nothing. */
+  $("fab").addEventListener("click", openSheet);
+  $("sheet").querySelector(".back").addEventListener("click", closeSheet);
+  $("sheet").querySelector(".lx").addEventListener("click", closeSheet);
+
+  function renderPlay(){
+    if(!S) return;
+    // The roster is the one panel that must track the story while it is open —
+    // someone leaving is exactly what you opened it to find out.
+    if(sheetView === "who" && !$("sheet").classList.contains("hidden")) openWho();
+    $("codeBadge").textContent = S.code;
+    $("dock").classList.toggle("hidden", !S.started);
+    document.body.classList.toggle("playing", !!S.started);
+    measureDock();
+
+    var eb = $("endBanner");
+    if(S.ended){ eb.textContent = "✦ " + t("end.done"); eb.classList.remove("hidden"); }
+    else if(S.endIn){ eb.textContent = "⏳ " + t("end.in",{n:S.endIn}); eb.classList.remove("hidden"); }
+    else eb.classList.add("hidden");
+
+
+    // The cast lives in the ⓘ dialog — it updates as new characters appear.
+
+    // Only surface the readability number when a level was actually targeted —
+    // otherwise it's noise, and it invites reading meaning into a figure nobody asked for.
+    var showGrade = !!(S.brief && S.brief.reading && S.brief.reading !== "any");
+
+    var isScript = S.brief && (S.brief.format==="play" || S.brief.format==="screenplay");
+    // non-Latin scripts need a different font stack and looser leading
+    var latin = (S.languageLatin !== false);
+    document.body.classList.toggle("cjk", !latin);
+
+    $("story").innerHTML = (S.segments||[]).map(function(s,i){
+      // Stable skin per passage — index-based, not random at render time, or the
+      // colours would reshuffle every two seconds when polling repaints.
+      var skin = s.isReversal ? "rev" : ("s" + (i % 5));
+      var h='<div class="pcard '+skin+'">';
+      if(s.isReversal) h+='<span class="revtag">&#9889; '+esc(t("play.reversal"))+'</span>';
+      h+= (isScript && latin)
+        ? '<div class="seg script">'+scriptHtml(s.text)+'</div>'
+        : '<p class="seg'+(isScript?" script":"")+'">'+esc(s.text)+'</p>';
+      var pill = (showGrade && s.grade!=null)
+        ? '<span class="gradepill" title="Flesch–Kincaid">'+esc(t("play.grade",{n:s.grade}))+'</span>' : '';
+      var read = OPTS.tts ? '<button class="readbtn" data-read="'+i+'" aria-label="'+esc(t("play.read"))+'">'+
+        '<svg viewBox="0 0 24 24" width="13" height="13" fill="currentColor" aria-hidden="true">'+
+        '<path d="M4 9v6h4l5 4V5L8 9H4z"/><path d="M16.5 8.5a5 5 0 0 1 0 7" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>'+
+        '</svg>'+esc(t("play.read"))+'</button>' : '';
+      if(s.by || pill || read){
+        h+='<div class="byline">'+(s.by?esc(t("play.twistOf",{name:s.by})):"")+pill+read+'</div>';
+      }
+      if((s.craftNotes||[]).length){
+        h+='<div class="craftbox">'+s.craftNotes.map(function(n){
+          return '<div class="craft"><b>'+esc(n.objective)+'</b>'+esc(n.note)+'</div>';
+        }).join("")+'</div>';
+      }
+      h+='</div>';   // close .pcard — the chapter break sits outside the card
+      if(s.isChapterBreak && !s.isEnding) h+='<div class="chapter">'+esc(t("play.chapter"))+'</div>';
+      if(s.isEnding) h+='<div class="theend">'+esc(t("end.done"))+'</div>';
+      if(s.teaching && ((s.teaching.evidence||[]).length || (s.teaching.questions||[]).length)){
+        h+='<div class="teachcard"><h4>'+esc((S.objectiveLabels||[]).join(" · ")||"Teaching notes")+'</h4>'+
+          ((s.teaching.evidence||[]).length ? '<ul>'+s.teaching.evidence.map(function(e){return '<li>'+esc(e)+'</li>';}).join("")+'</ul>' : '')+
+          ((s.teaching.questions||[]).length ? '<h4>'+esc(t("play.talk"))+'</h4><ul class="qs">'+s.teaching.questions.map(function(q){return '<li>'+esc(q)+'</li>';}).join("")+'</ul>' : '')+
+          '</div>';
+      }
+      return h;
+    }).join("");
+
+    $("story").querySelectorAll("[data-read]").forEach(function(b){
+      b.addEventListener("click", function(){ speak(parseInt(b.getAttribute("data-read"),10), b); });
+    });
+
+    var st="";
+    if(S.busy) st='<div class="loading"><span class="orb"></span>'+esc(t("play.next"))+'</div>';
+    else if(S.error) st='<div class="err"><span>'+esc(S.error)+'</span>'+(amHost()?'<button id="retryBtn">'+esc(t("c.retry"))+'</button>':'')+'</div>';
+    $("status").innerHTML=st;
+    var rb=$("retryBtn"); if(rb) rb.addEventListener("click", function(){ sendMove(""); });
+
+    // host: whose turn next?
+    var hb="", picking=false;
+    if(amHost() && !S.busy && S.knot && !S.currentPlayer){
+      picking=true;
+      hb='<div class="hostbar"><div class="t">'+esc(t("play.waitPen",{name:S.host}))+'</div><div class="players">'+
+        S.players.map(function(p,i){
+          return '<span class="chip pick" data-p="'+esc(p)+'"><span class="dot" style="background:'+dotColour(i)+'"></span>'+esc(p)+' ▸</span>';
+        }).join("")+
+        '</div></div>';
+    }
+    $("hostBar").innerHTML=hb;
+    $("hostBar").querySelectorAll("[data-p]").forEach(function(c){
+      c.addEventListener("click", function(){ setTurn(c.getAttribute("data-p")); });
+    });
+
+    // the knot
+    var myTurn = S.currentPlayer===me.name;
+    if(S.knot && !S.busy && myTurn){
+      var last=(S.segments||[])[S.segments.length-1];
+      var kt={fork:"Fork",inject:"Inject",curveball:"Curveball"}[S.knotType]||"Fork";
+      $("knotBox").innerHTML='<div class="knot"><div class="ktype">'+kt+'</div>'+
+        '<p class="kq'+(last&&last.isReversal?" rev":"")+'">'+esc(S.knot.question)+'</p><div class="opts">'+
+        (S.knot.options||[]).map(function(o,i){
+          return '<button class="opt" data-o="'+i+'"><span class="d">&#9670;</span><span>'+esc(o)+'</span></button>';
+        }).join("")+
+        '</div><div class="wild"><input id="wildIn" placeholder="'+esc(t("play.wildPh"))+'"><button id="wildGo">'+esc(t("play.go"))+'</button></div></div>';
+      $("knotBox").querySelectorAll("[data-o]").forEach(function(b){
+        b.addEventListener("click",function(){ sendMove(S.knot.options[parseInt(b.getAttribute("data-o"),10)]); });
+      });
+      var wi=$("wildIn"),wg=$("wildGo");
+      wg.addEventListener("click",function(){ var v=(wi.value||"").trim(); if(v) sendMove(v); });
+      wi.addEventListener("keydown",function(e){ if(e.key==="Enter"){ var v=(wi.value||"").trim(); if(v) sendMove(v); }});
+    } else if(S.knot && !S.busy && !picking && !libraryKey() && S.currentPlayer === me.name){
+      // It IS your turn, and you have nothing to spend. Say so where the options
+      // would have been, with the way out attached.
+      $("knotBox").innerHTML =
+        '<div class="waiting" style="text-align:left">'+
+          '<b style="color:var(--twist)">'+esc(t("tw.readOnly"))+'</b><br>'+
+          '<span style="font-size:13px">'+esc(t("tw.needKey"))+'</span>'+
+        '</div>'+
+        '<div class="mrow" style="margin-top:10px"><button id="twKeyOpen">'+
+          esc(t("lib.manage"))+'</button></div>';
+      $("twKeyOpen").addEventListener("click", openKeyPrompt);
+    } else if(S.knot && !S.busy && !picking){
+      $("knotBox").innerHTML='<div class="waiting">'+
+        (S.currentPlayer ? "✏️ "+esc(t("play.hasPen",{name:S.currentPlayer})) : "🫖 "+esc(t("play.waitPen",{name:S.host})))+
+        '</div>';
+    } else $("knotBox").innerHTML="";
+  }
+
+  /* ---------- word / phrase lookup ---------- */
+
+  var lastSel = null;
+
+  function sentenceAround(node, term){
+    // Give the model the sentence the word sits in — "bank" means something
+    // different on a river than in a town.
+    var full = (node && node.textContent) || "";
+    var i = full.indexOf(term);
+    if (i === -1) return full.slice(0, 400);
+    var start = Math.max(0, full.lastIndexOf(".", i - 1) + 1);
+    var endDot = full.indexOf(".", i + term.length);
+    var end = endDot === -1 ? full.length : endDot + 1;
+    return full.slice(start, end).trim().slice(0, 400);
+  }
+
+  function hideLookup(){
+    $("lookBtn").classList.add("hidden");
+    $("lookCard").classList.add("hidden");
+  }
+
+  function captureSelection(){
+    var sel = window.getSelection();
+    if(!sel || sel.isCollapsed || sel.rangeCount === 0){ $("lookBtn").classList.add("hidden"); return false; }
+    var text = String(sel.toString()||"").trim().replace(/\s+/g," ");
+    var anchor = sel.anchorNode;
+    var host = anchor && (anchor.nodeType===1 ? anchor : anchor.parentNode);
+    if(!host || !$("story").contains(host)){ $("lookBtn").classList.add("hidden"); return false; }
+
+    // Trim punctuation with a UNICODE-aware class. \w is [A-Za-z0-9_] only, so it
+    // strips Japanese, Korean and Chinese away to nothing.
+    var term = text.replace(/^[^\p{L}\p{N}]+|[^\p{L}\p{N}]+$/gu, "");
+    if(!term){ $("lookBtn").classList.add("hidden"); return false; }
+
+    // Decide by SCRIPT, not by spaces: an English word has no spaces either, so
+    // a space test would call "beneath" a phrase.
+    var cjk = /[\u3040-\u30ff\u3400-\u4dbf\u4e00-\u9fff\uf900-\ufaff\uac00-\ud7af]/.test(term);
+    // The ceiling is meant to exclude "explain this whole paragraph", not to
+    // stop someone asking about a sentence — at 8 words it caught ordinary
+    // clauses and the button just vanished, with nothing said. A sentence is
+    // the unit people actually select, so the limit is set above one.
+    var tooBig, isPhrase;
+    if(cjk){
+      tooBig   = term.length > 160;  // no word boundaries — measure characters
+      isPhrase = term.length > 4;
+    } else {
+      var words = term.split(/\s+/).length;
+      tooBig    = words > 30 || term.length > 400;
+      isPhrase  = words > 1;
+    }
+    if(tooBig){ $("lookBtn").classList.add("hidden"); return false; }
+
+    lastSel = { term: term, phrase: isPhrase, sentence: sentenceAround(host.closest(".seg")||host, text) };
+
+    var r = sel.getRangeAt(0).getBoundingClientRect();
+    if(!r || (!r.width && !r.height)){ $("lookBtn").classList.add("hidden"); return false; }
+    var b = $("lookBtn");
+    b.textContent = isPhrase ? t("look.many") : t("look.one",{w:term});
+    b.style.left = Math.max(70, Math.min(window.innerWidth-70, r.left + r.width/2)) + window.scrollX + "px";
+    b.style.top  = (r.top - 12 + window.scrollY) + "px";   // clear of the text it points at
+    b.classList.remove("hidden");
+    return true;
+  }
+
+  // Several triggers, because text selection is fiddly — especially on touch.
+  document.addEventListener("selectionchange", captureSelection);
+  document.addEventListener("mouseup", function(){ setTimeout(captureSelection, 0); });
+  document.addEventListener("touchend", function(){ setTimeout(captureSelection, 60); }, {passive:true});
+
+  // Double-click a word: skip the button entirely and look it up straight away.
+  $("story").addEventListener("dblclick", function(){
+    setTimeout(function(){ if(captureSelection()) doLookup(); }, 0);
+  });
+
+  function cardShell(inner){
+    var card = $("lookCard");
+    card.innerHTML = '<button class="lx">&times;</button>'+inner;
+    card.classList.remove("hidden");
+    card.querySelector(".lx").addEventListener("click", hideLookup);
+    return card;
+  }
+
+  async function doLookup(){
+    if(!lastSel || !lastSel.term) return;
+    var term = lastSel.term, sentence = lastSel.sentence;
+    $("lookBtn").classList.add("hidden");
+    // Drop the selection so the trailing mouseup/selectionchange doesn't
+    // immediately pop the button back up over the result card.
+    try{ var s0 = window.getSelection(); if(s0) s0.removeAllRanges(); }catch(e){}
+    cardShell('<div class="loading" style="padding:0"><span class="orb"></span>'+esc(t("look.looking",{w:term}))+'</div>');
+
+    var out;
+    try{
+      out = await api("/api/define", {
+        // The server reads the story to pitch the explanation at its reading
+        // band, so the code is required. The Worker took it from the URL; the
+        // Edge Function takes it from the body, and this call was missed.
+        code: me.code,
+        term: term, sentence: sentence, phrase: !!lastSel.phrase,
+        reading: (S && S.brief && S.brief.reading) || "any",
+        language: (S && S.brief && S.brief.language) || "en",
+        ui: ui
+      });
+    }catch(e){
+      console.error("[lookup]", e);
+      cardShell('<div class="err" style="padding:0"><span>'+esc(e.message||"Lookup failed.")+'</span></div>');
+      return;
+    }
+
+    if(!out || !out.meaning){
+      cardShell('<div class="err" style="padding:0"><span>'+esc(t("look.none"))+'</span></div>');
+      return;
+    }
+
+    cardShell(
+      '<div class="lt">'+esc(out.term||term)+(out.pos?'<span class="pos">'+esc(out.pos)+'</span>':'')+'</div>'+
+      '<p class="lm">'+esc(out.meaning)+'</p>'+
+      (out.simpler?'<div class="ls">'+esc(t("look.simpler"))+' <b>'+esc(out.simpler)+'</b></div>':'')
+    );
+  }
+
+  // Fire on POINTERDOWN, not click. A click needs a clean down→up pair on the same
+  // spot; because the button sits flush against the selected text, the browser was
+  // eating that pair near the top edge. Pressing is enough.
+  var lookBusy = false;
+  function triggerLookup(e){
+    if(e){ e.preventDefault(); e.stopPropagation(); }
+    if(lookBusy) return;
+    lookBusy = true;
+    doLookup().finally(function(){ setTimeout(function(){ lookBusy = false; }, 400); });
+  }
+  $("lookBtn").addEventListener("pointerdown", triggerLookup);
+  $("lookBtn").addEventListener("mousedown", function(e){ e.preventDefault(); });
+  // Fallback for anything without pointer events.
+  $("lookBtn").addEventListener("click", function(e){
+    if(!window.PointerEvent) triggerLookup(e);
+  });
+
+  document.addEventListener("keydown", function(e){ if(e.key==="Escape"){ hideLookup(); closeInfo(); closeSheet(); } });
+  window.addEventListener("scroll", function(){ $("lookBtn").classList.add("hidden"); }, {passive:true});
+  window.addEventListener("resize", measureDock);
+  if(window.ResizeObserver) new ResizeObserver(measureDock).observe($("dock"));
+
+  /* A shared link carries the code, so a browser player has one thing to get
+     right (their name) instead of two. The code is still shown and can still be
+     typed — this only saves the typing. */
+  (function prefillFromLink(){
+    var m = /[?&]c=([A-Za-z0-9]{4})\b/.exec(window.location.search);
+    if(!m) return;
+    var code = m[1].toUpperCase();
+    if(!/^[2-9BCDFGHJKMNPQRSTVWXYZ]{4}$/.test(code)) return;
+    $("joinCode").value = code;
+    // Straight to the join screen if we already know who they are; otherwise
+    // home first, because a nickname is required before joining.
+    if(($("nameIn").value||"").trim()) { me.name = $("nameIn").value.trim(); show("join"); }
+  })();
+
+  // A refresh should not ask again: sessionStorage outlives the reload.
+  if(!keyPrefillDone){
+    keyPrefillDone = true;
+    var k0 = libraryKey();
+    if(k0) $("keyIn").value = k0.replace(/(.{4})(?=.)/g, "$1-");
+  }
+
+  loadOptions();        // read-aloud availability; failure just leaves it off
+  $("footYear").textContent = new Date().getFullYear();
+  setUi(pickDefaultUi());
+  applyUi();
+})();
+</script>
+</body>
+</html>
