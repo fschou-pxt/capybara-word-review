@@ -37,11 +37,15 @@
      mark entirely. `cursive` at the end is the generic that lets each platform
      pick something — and CJK is handled below, because no system cursive face
      carries those glyphs. */
-  .sub{font-family:"Snell Roundhand","Segoe Script","Bradley Hand",cursive;
-    /* Script faces have thin strokes by design, and at tagline size they
-       disappear against the paper. Bolder, darker and a little larger — Snell
-       Roundhand in particular only reads properly with weight on it. */
-    font-weight:700; font-style:italic; letter-spacing:0; text-transform:none;
+  /* Bradley Hand first: an upright handwriting face, closer to the lettering on
+     the app icon and far easier to read at this size than a copperplate script.
+     Snell Roundhand stays as a fallback but is DELIBERATELY last — it is heavily
+     slanted by design, and asking for italic on top of it (which this rule used
+     to do) tilted the tagline twice over. */
+  .sub{font-family:"Bradley Hand","Segoe Script","Snell Roundhand",cursive;
+    /* Script faces have thin strokes by design and disappear against the paper
+       at tagline size, so they need the weight. */
+    font-weight:700; font-style:normal; letter-spacing:0; text-transform:none;
     color:var(--ink2);
     margin-top:1px; line-height:1.25; font-size:clamp(15px, 3.6vw, 19px);
     /* one line, always — German runs 31 characters against English's 24, and a
@@ -1019,6 +1023,7 @@
       me.code = code;
       S = v; $("joinStatus").innerHTML="";
       show("play"); startPolling(); renderPlay();
+      idleReset();
     }catch(e){
       $("joinStatus").innerHTML='<div class="err"><span>'+esc(e.message)+'</span></div>';
     }
@@ -1047,6 +1052,22 @@
     if(poll) clearInterval(poll);
     poll = null; busy = false;
     me.code = ""; S = null;
+
+    /* Leaving means leaving. This is very often a shared laptop in a kitchen —
+       one child finishes, the next sits down — so the previous player's WALLET
+       must not still be loaded, and their story code must not be sitting in the
+       box waiting to be rejoined by someone else.
+
+       The nickname and the interface language do stay: they are preferences,
+       not credentials, and retyping them every time is just friction. */
+    if(idleTimer){ clearTimeout(idleTimer); idleTimer = null; }
+    if(graceTimer){ clearInterval(graceTimer); graceTimer = null; }
+
+    setLibraryKey("");
+    $("keyIn").value = "";
+    $("joinCode").value = "";
+    myTwists = null;
+
     $("joinStatus").innerHTML = "";
     $("story").innerHTML = ""; $("status").innerHTML = "";
     $("knotBox").innerHTML = ""; $("hostBar").innerHTML = "";
@@ -1061,6 +1082,73 @@
   /* Tell the story first: leaving used to be a screen change only, so everyone
      else kept seeing you in the player list and the owner could still hand you
      the pen. Best-effort — if the call fails we still let them out. */
+  /* ---------- idle timeout ----------
+
+     A shared laptop in a kitchen: someone wanders off mid-story and their
+     library key — their wallet — is left loaded for whoever sits down next.
+
+     But "idle" has to mean THE PERSON is away, not that the player hasn't
+     moved: waiting for your turn is idle by definition, and a long passage
+     takes minutes to read. So the clock watches for any sign of a human —
+     pointer, key, scroll, or the tab coming back to the front — and a warning
+     with a countdown comes first, because being thrown out of a story you were
+     reading is worse than the risk it guards against. */
+
+  var IDLE_MS = 10 * 60 * 1000;      // ten minutes of no human at all
+  var IDLE_GRACE = 45;               // seconds of "still there?" before leaving
+  var idleTimer = null, graceTimer = null, graceLeft = 0;
+
+  function idleReset(){
+    if(graceTimer) return;           // mid-warning: only the button clears it
+    if(idleTimer) clearTimeout(idleTimer);
+    idleTimer = null;
+    // Only run the clock inside a story. Nothing on the home screen is worth
+    // protecting, and a timer there would fire while someone reads the page.
+    if(!me.code) return;
+    idleTimer = setTimeout(idleWarn, IDLE_MS);
+  }
+
+  function idleWarn(){
+    if(!me.code) return;
+    graceLeft = IDLE_GRACE;
+    sheetView = "idle";
+    $("sheetTitle").textContent = t("idle.title");
+    var paint = function(){
+      $("sheetBody").innerHTML =
+        '<p class="note" style="text-align:left;margin:0 0 14px">'+
+          esc(t("idle.body",{n:graceLeft}))+'</p>'+
+        '<button class="btn btn-primary" id="idleStay">'+esc(t("idle.stay"))+'</button>';
+      $("idleStay").addEventListener("click", idleCancel);
+    };
+    paint();
+    $("sheet").classList.remove("hidden");
+
+    graceTimer = setInterval(function(){
+      graceLeft -= 1;
+      if(graceLeft <= 0){
+        idleCancel(true);
+        leaveStory();
+        return;
+      }
+      paint();
+    }, 1000);
+  }
+
+  function idleCancel(silent){
+    if(graceTimer){ clearInterval(graceTimer); graceTimer = null; }
+    if(!silent) closeSheet();
+    idleReset();
+  }
+
+  ["pointerdown","keydown","wheel","touchstart","scroll"].forEach(function(ev){
+    window.addEventListener(ev, function(){ idleReset(); }, {passive:true});
+  });
+  // Coming back to the tab counts as being here; leaving it does not restart
+  // the clock, which is the point.
+  document.addEventListener("visibilitychange", function(){
+    if(!document.hidden) idleReset();
+  });
+
   async function leaveStory(){
     var code = me.code, name = me.name;
     resetUi();
