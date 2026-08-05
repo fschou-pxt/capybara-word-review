@@ -868,6 +868,19 @@
   function validKey(k){
     return typeof k === "string" && /^[2-9BCDFGHJKMNPQRSTVWXYZ]{16}$/.test(k);
   }
+
+  /* Says something under the key field and leaves it there.
+     Written under `keyWhy` rather than `homeNote` because the language pass
+     rewrites `homeNote` on load, which is how the first attempt at this
+     managed to report an error nobody ever saw. */
+  function keyTrouble(msg, good){
+    var el = $("keyWhy");
+    if(!el) return;
+    el.textContent = msg;
+    el.style.color = good ? "" : "#a4243b";
+    el.style.fontWeight = "700";
+  }
+
   $("nameIn").value = me.name;
 
   /* Optional server-side ACCESS_CODE. Nothing to configure unless the Worker sets
@@ -1761,18 +1774,28 @@
       history.replaceState(null, "", window.location.pathname + window.location.search);
     }catch(e){ window.location.hash = ""; }
 
+    // Logged at every branch. This ran silently the first time it was tried,
+    // and silence is the one outcome that cannot be debugged: "nothing
+    // happened" looks identical whether the request failed, the answer was
+    // rejected, or this file was never deployed at all.
+    console.log("[claim] redeeming ticket", token);
     api("/api/key/claim", { token: token }).then(function(r){
       var k = String(r.key || "").toUpperCase();
-      if(!validKey(k)) return;
+      console.log("[claim] server answered, key length", k.length);
+      if(!validKey(k)){
+        keyTrouble("That key did not look right.");
+        return;
+      }
       setLibraryKey(k);
       $("keyIn").value = k.replace(/(.{4})(?=.)/g, "$1-");
       keyPrefillDone = true;
-      $("homeNote").textContent = t("web.keyGot");
+      keyTrouble(t("web.keyGot"), true);
     }).catch(function(e){
       // Expired or already used. Said out loud rather than swallowed: the
       // person is now sitting in front of a read-only page and the only clue
       // would otherwise be that turns quietly do not work.
-      $("homeNote").textContent = e.message || t("web.keyGone");
+      console.error("[claim] failed", e);
+      keyTrouble(e.message || t("web.keyGone"));
     });
 
     /* Deliberately NOT jumping to the join screen, even when the name is
