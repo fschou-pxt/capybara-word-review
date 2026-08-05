@@ -1732,18 +1732,37 @@
   window.addEventListener("resize", measureDock);
   if(window.ResizeObserver) new ResizeObserver(measureDock).observe($("dock"));
 
-  /* A shared link carries the code, so a browser player has one thing to get
-     right (their name) instead of two. The code is still shown and can still be
-     typed — this only saves the typing. */
+  /* A shared link carries the code — and, when the sharer chose to, their
+     library key, so the person at the laptop can take a turn rather than only
+     read along.
+
+     The key arrives in the FRAGMENT (#k=), which browsers never send to the
+     server. We read it, put it in session storage, and immediately rewrite the
+     address bar without it: otherwise it sits in history, in bookmarks, and in
+     any screenshot of the browser. */
   (function prefillFromLink(){
+    var key = /[#&]k=([A-Z0-9]{16})\b/i.exec(window.location.hash);
+    if(key){
+      var k = key[1].toUpperCase();
+      if(validKey(k)){
+        setLibraryKey(k);
+        $("keyIn").value = k.replace(/(.{4})(?=.)/g, "$1-");
+      }
+      // Scrub it from the URL whether or not it was valid.
+      try{
+        history.replaceState(null, "", window.location.pathname + window.location.search);
+      }catch(e){ window.location.hash = ""; }
+    }
+
     var m = /[?&]c=([A-Za-z0-9]{4})\b/.exec(window.location.search);
     if(!m) return;
     var code = m[1].toUpperCase();
     if(!/^[2-9BCDFGHJKMNPQRSTVWXYZ]{4}$/.test(code)) return;
     $("joinCode").value = code;
-    // Straight to the join screen if we already know who they are; otherwise
-    // home first, because a nickname is required before joining.
-    if(($("nameIn").value||"").trim()) { me.name = $("nameIn").value.trim(); show("join"); }
+
+    /* Deliberately NOT jumping to the join screen any more, even when the name
+       is remembered. Home is where the key field lives, and skipping past it
+       was how someone arrived read-only with no idea why. */
   })();
 
   // A refresh should not ask again: sessionStorage outlives the reload.
