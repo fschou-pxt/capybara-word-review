@@ -1011,7 +1011,8 @@
   }
   $("goJoin").addEventListener("click", function(){
     if(!grabName()) return;
-    resetUi(); show("join");
+    // Soft: keep whatever the invitation brought with it.
+    resetUi(false); show("join");
   });
   $("joinBack").addEventListener("click", function(){ show("home"); });
 
@@ -1061,7 +1062,18 @@
 
   // Leaving must clear every bit of transient UI state, not just the story —
   // anything left disabled or half-rendered resurfaces on the next story.
-  function resetUi(){
+  /* Two different jobs used to share this function, which is how a shared link
+     lost both the things it carried.
+     
+     LEAVING a story must forget the key and the code — a kitchen laptop passes
+     between children. But merely walking from home to the join screen is not
+     leaving anything, and it was calling this too: so the key that had just
+     been claimed from the invitation, and the code that had just been filled
+     in from it, were both wiped on the way to the screen that needed them.
+     
+     `hard` tells the two apart. Story state is cleared either way. */
+  function resetUi(hard){
+    if(hard === undefined) hard = true;
     if(poll) clearInterval(poll);
     poll = null; busy = false;
     me.code = ""; S = null;
@@ -1076,10 +1088,12 @@
     if(idleTimer){ clearTimeout(idleTimer); idleTimer = null; }
     if(graceTimer){ clearInterval(graceTimer); graceTimer = null; }
 
-    setLibraryKey("");
-    $("keyIn").value = "";
-    $("joinCode").value = "";
-    myTwists = null;
+    if(hard){
+      setLibraryKey("");
+      $("keyIn").value = "";
+      $("joinCode").value = "";
+      myTwists = null;
+    }
 
     $("joinStatus").innerHTML = "";
     $("story").innerHTML = ""; $("status").innerHTML = "";
@@ -1182,7 +1196,9 @@
       leaveStory();
       return;
     }
-    resetUi();
+    // Not in a story, so nothing to leave: keep the key and code. Tapping the
+    // logo to look at something is not a way of saying "forget me".
+    resetUi(false);
     show("home");
   });
 
