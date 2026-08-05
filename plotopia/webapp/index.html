@@ -1732,37 +1732,52 @@
   window.addEventListener("resize", measureDock);
   if(window.ResizeObserver) new ResizeObserver(measureDock).observe($("dock"));
 
-  /* A shared link carries the code — and, when the sharer chose to, their
-     library key, so the person at the laptop can take a turn rather than only
-     read along.
+  /* A shared link carries the story code — and, when the sharer chose to, a
+     TICKET that can be exchanged for their library key, so the person at the
+     laptop can take a turn rather than only read along.
 
-     The key arrives in the FRAGMENT (#k=), which browsers never send to the
-     server. We read it, put it in session storage, and immediately rewrite the
-     address bar without it: otherwise it sits in history, in bookmarks, and in
-     any screenshot of the browser. */
+     A ticket, not the key itself. The key must never appear in a URL: a browser
+     writes the address into local history the moment the page opens, before any
+     script can run, and that history may sync to their other devices. Anything
+     in a URL should be assumed permanent.
+
+     A ticket is not permanent. It works once, it dies after ten minutes, and
+     what stays in the history afterwards is a dead string. */
   (function prefillFromLink(){
-    var key = /[#&]k=([A-Z0-9]{16})\b/i.exec(window.location.hash);
-    if(key){
-      var k = key[1].toUpperCase();
-      if(validKey(k)){
-        setLibraryKey(k);
-        $("keyIn").value = k.replace(/(.{4})(?=.)/g, "$1-");
-      }
-      // Scrub it from the URL whether or not it was valid.
-      try{
-        history.replaceState(null, "", window.location.pathname + window.location.search);
-      }catch(e){ window.location.hash = ""; }
+    var m = /[?&]c=([A-Za-z0-9]{4})\b/.exec(window.location.search);
+    if(m){
+      var code = m[1].toUpperCase();
+      if(/^[2-9BCDFGHJKMNPQRSTVWXYZ]{4}$/.test(code)) $("joinCode").value = code;
     }
 
-    var m = /[?&]c=([A-Za-z0-9]{4})\b/.exec(window.location.search);
-    if(!m) return;
-    var code = m[1].toUpperCase();
-    if(!/^[2-9BCDFGHJKMNPQRSTVWXYZ]{4}$/.test(code)) return;
-    $("joinCode").value = code;
+    var tk = /[#&]t=([A-Za-z0-9]{6,32})\b/.exec(window.location.hash);
+    if(!tk) return;
+    var token = tk[1];
 
-    /* Deliberately NOT jumping to the join screen any more, even when the name
-       is remembered. Home is where the key field lives, and skipping past it
-       was how someone arrived read-only with no idea why. */
+    // Scrubbed immediately, and before the claim rather than after: a reload
+    // mid-request would otherwise spend the ticket twice and land on the
+    // "already used" error for no reason.
+    try{
+      history.replaceState(null, "", window.location.pathname + window.location.search);
+    }catch(e){ window.location.hash = ""; }
+
+    api("/api/key/claim", { token: token }).then(function(r){
+      var k = String(r.key || "").toUpperCase();
+      if(!validKey(k)) return;
+      setLibraryKey(k);
+      $("keyIn").value = k.replace(/(.{4})(?=.)/g, "$1-");
+      keyPrefillDone = true;
+      $("homeNote").textContent = t("web.keyGot");
+    }).catch(function(e){
+      // Expired or already used. Said out loud rather than swallowed: the
+      // person is now sitting in front of a read-only page and the only clue
+      // would otherwise be that turns quietly do not work.
+      $("homeNote").textContent = e.message || t("web.keyGone");
+    });
+
+    /* Deliberately NOT jumping to the join screen, even when the name is
+       remembered. Home is where the key field lives, and skipping past it was
+       how someone arrived read-only with no idea why. */
   })();
 
   // A refresh should not ask again: sessionStorage outlives the reload.
