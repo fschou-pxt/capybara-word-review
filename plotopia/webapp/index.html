@@ -1543,7 +1543,7 @@
     var hb="", picking=false;
     if(amHost() && !S.busy && S.knot && !S.currentPlayer){
       picking=true;
-      hb='<div class="hostbar"><div class="t">'+esc(t("play.waitPen",{name:S.host}))+'</div><div class="players">'+
+      hb='<div class="hostbar"><div class="t">'+esc(t("play.waitPen",{name:S.host||"…"}))+'</div><div class="players">'+
         S.players.map(function(p,i){
           return '<span class="chip pick" data-p="'+esc(p)+'"><span class="dot" style="background:'+dotColour(i)+'"></span>'+esc(p)+' ▸</span>';
         }).join("")+
@@ -1584,7 +1584,7 @@
       $("twKeyOpen").addEventListener("click", openKeyPrompt);
     } else if(S.knot && !S.busy && !picking){
       $("knotBox").innerHTML='<div class="waiting">'+
-        (S.currentPlayer ? "✏️ "+esc(t("play.hasPen",{name:S.currentPlayer})) : "🫖 "+esc(t("play.waitPen",{name:S.host})))+
+        (S.currentPlayer ? "✏️ "+esc(t("play.hasPen",{name:S.currentPlayer})) : "🫖 "+esc(t("play.waitPen",{name:S.host||"…"})))+
         '</div>';
     } else $("knotBox").innerHTML="";
   }
