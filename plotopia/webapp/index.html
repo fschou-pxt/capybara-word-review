@@ -1154,7 +1154,9 @@
       graceLeft -= 1;
       if(graceLeft <= 0){
         idleCancel(true);
-        leaveStory();
+        // Nobody is there to answer a question, which is the entire premise of
+        // an idle timeout.
+        leaveStory(true);
         return;
       }
       paint();
@@ -1176,7 +1178,32 @@
     if(!document.hidden) idleReset();
   });
 
-  async function leaveStory(){
+  /* What leaving costs the others, or "" if it costs them nothing.
+     Mirrors the app, and the server's own tidy-up: the pen is dropped rather
+     than stranded, and hosting passes to the first name still in the room. But
+     only a host can hand the pen on, so a host walking off mid-turn stops the
+     story for everyone still watching it. */
+  function handoverWarning(){
+    if(!S) return "";
+    var others = (S.players || []).filter(function(p){ return p !== me.name; });
+    var mine = S.currentPlayer === me.name;
+    var host = S.host === me.name;
+    if(!others.length) return (S.segments && S.segments.length) ? t("leave.penLast") : "";
+    var heir = others[0];
+    if(mine && host) return t("leave.penBoth", {who: heir});
+    if(mine)         return t("leave.penMine", {who: S.host || heir});
+    if(host)         return t("leave.penHost", {who: heir});
+    return "";
+  }
+
+  async function leaveStory(confirmed){
+    // Asked here rather than at the button, so every route out of a story goes
+    // through the same question — the logo, the Leave button, and anything
+    // added later.
+    if(!confirmed){
+      var warn = handoverWarning();
+      if(warn && !window.confirm(warn + "\n\n" + t("c.confirmLeave", {code: me.code}))) return;
+    }
     var code = me.code, name = me.name;
     resetUi();
     show("home");
@@ -1185,15 +1212,19 @@
     }
   }
 
-  $("leaveBtn").addEventListener("click", leaveStory);
+  // Wrapped, not passed directly: addEventListener hands the handler a click
+  // Event, which as an argument is truthy — so passing leaveStory itself would
+  // have meant "already confirmed" and skipped the warning entirely.
+  $("leaveBtn").addEventListener("click", function(){ leaveStory(false); });
 
   // The logo goes home — but mid-story that's destructive, so confirm and show
   // the code so they can get back in.
   $("homeBtn").addEventListener("click", function(){
     if(me.code){
-      var ok = window.confirm(t("c.confirmLeave",{code:me.code}));
+      var warn = handoverWarning();
+      var ok = window.confirm((warn ? warn + "\n\n" : "") + t("c.confirmLeave",{code:me.code}));
       if(!ok) return;
-      leaveStory();
+      leaveStory(true);
       return;
     }
     // Not in a story, so nothing to leave: keep the key and code. Tapping the
