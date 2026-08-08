@@ -13,6 +13,13 @@
 <meta property="og:image" content="../assets/capy-plotopia-logo.jpg" />
 <meta property="og:type" content="website" />
 <link rel="stylesheet" href="../assets/style.css?v=17" />
+<style>
+  /* The logo artwork has its own rounded corners, measured at 17.4% of its
+     width. The shared 32px cut a second, tighter curve across them, which read
+     as a mistake rather than a frame. A PERCENTAGE keeps the two in step at
+     any display size — 32px is only right at one width. */
+  .hero-art img{border-radius:17.4%;}
+</style>
 </head>
 <body>
 
@@ -20,10 +27,10 @@
   <a class="brand" href="../" style="color:var(--brown)"><img src="../assets/app-logo.jpg" alt="Capy" /> Capybara Around The World</a>
   <div class="nav-right">
     <div class="nav-links">
-      <a href="#how">How it works</a>
-      <a href="#features">Features</a>
-      <a href="webapp/">Join a story</a>
-      <a href="../">All apps</a>
+      <a href="#how" data-i18n="p_nav_how">How it works</a>
+      <a href="#features" data-i18n="p_nav_feat">Features</a>
+      <a href="webapp/" data-i18n="p_nav_join">Join a story</a>
+      <a href="../" data-i18n="p_nav_all">All apps</a>
     </div>
     <div id="langpick" class="langpick"></div>
     <div class="themes" title="Pick a theme">
@@ -37,14 +44,14 @@
 <header class="wrap">
   <div class="hero">
     <div>
-      <span class="ribbon">✨ Coming to the App Store</span>
-      <h1>Let’s create<br>stories together</h1>
-      <p class="lead">One story, everyone on their own phone. <b>Capy</b> narrates and asks what happens next — and whoever holds the pen decides. Nobody reads ahead, nobody waits alone.</p>
+      <span class="ribbon" data-i18n="p_ribbon">✨ Coming to the App Store</span>
+      <h1 data-i18n="p_h1">Let’s create<br>stories together</h1>
+      <p class="lead" data-i18n="p_lead">One story, everyone on their own phone. <b>Capy</b> narrates and asks what happens next — and whoever holds the pen decides. Nobody reads ahead, nobody waits alone.</p>
       <div class="cta">
-        <a class="btn orange" href="webapp/">Join a story →</a>
-        <a class="btn ghost" href="#how">How it works</a>
+        <a class="btn orange" href="webapp/" data-i18n="p_cta_join">Join a story →</a>
+        <a class="btn ghost" href="#how" data-i18n="p_cta_how">How it works</a>
       </div>
-      <p class="small" style="margin-top:14px">Already playing? Someone will read you a four-character code.</p>
+      <p class="small" style="margin-top:14px" data-i18n="p_hero_small">Already playing? Someone will read you a four-character code.</p>
     </div>
     <div class="hero-art">
       <span class="spark s1">✨</span><span class="spark s2">⭐</span><span class="spark s3">🌟</span>
@@ -54,27 +61,27 @@
 </header>
 
 <section id="how" class="wrap">
-  <h2 class="section-title">How a story happens 📖</h2>
-  <p class="section-sub cute">Four minutes to start. As long as you like to finish. 🌿</p>
+  <h2 class="section-title" data-i18n="p_how_title">How a story happens 📖</h2>
+  <p class="section-sub cute" data-i18n="p_how_sub">Four minutes to start. As long as you like to finish. 🌿</p>
   <div class="feat">
-    <div class="f"><span class="emoji">🌱</span><h4>1. Set the scene</h4><p>Pick a genre or three, a language, and how grown-up the writing should be. Add characters if you have them — or leave it all blank and see what Capy invents.</p></div>
-    <div class="f"><span class="emoji">🔢</span><h4>2. Share the code</h4><p>Everyone joins with four characters, on a phone or in a browser. No accounts, no sign-ups, no email.</p></div>
-    <div class="f"><span class="emoji">✏️</span><h4>3. Take turns</h4><p>Capy writes a passage and asks a question. The host hands the pen to whoever answers it — and the story turns on what they choose.</p></div>
+    <div class="f"><span class="emoji">🌱</span><h4 data-i18n="p_s1t">1. Set the scene</h4><p data-i18n="p_s1p">Pick a genre or three, a language, and how grown-up the writing should be. Add characters if you have them — or leave it all blank and see what Capy invents.</p></div>
+    <div class="f"><span class="emoji">🔢</span><h4 data-i18n="p_s2t">2. Share the code</h4><p data-i18n="p_s2p">Everyone joins with four characters, on a phone or in a browser. No accounts, no sign-ups, no email.</p></div>
+    <div class="f"><span class="emoji">✏️</span><h4 data-i18n="p_s3t">3. Take turns</h4><p data-i18n="p_s3p">Capy writes a passage and asks a question. The host hands the pen to whoever answers it — and the story turns on what they choose.</p></div>
   </div>
 </section>
 
 <div class="divider"><span>👀</span></div>
 
 <section id="features" class="wrap">
-  <h2 class="section-title">Made for reading together ✨</h2>
-  <p class="section-sub cute">Built for families, classrooms, and long car journeys. 🚗</p>
+  <h2 class="section-title" data-i18n="p_feat_title">Made for reading together ✨</h2>
+  <p class="section-sub cute" data-i18n="p_feat_sub">Built for families, classrooms, and long car journeys. 🚗</p>
   <div class="feat">
-    <div class="f"><span class="emoji">🌏</span><h4>Ten languages</h4><p>The story and the buttons are separate: read a Japanese story with English menus, or the other way round.</p></div>
-    <div class="f"><span class="emoji">🔊</span><h4>Read aloud</h4><p>Any passage, in a natural voice — for a child who can follow along but not yet read alone.</p></div>
-    <div class="f"><span class="emoji">🔎</span><h4>What does this mean?</h4><p>Tap any word for an explanation in <i>your</i> language, written for the sense the story is using — not a dictionary’s first guess.</p></div>
-    <div class="f"><span class="emoji">🎚️</span><h4>Pitched to the reader</h4><p>From “new to the language” up to college level. The narrator writes to that band and checks itself.</p></div>
-    <div class="f"><span class="emoji">🌿</span><h4>Branch the story</h4><p>Can’t agree what happens next? Split it in two. Both halves keep going, from the same passages.</p></div>
-    <div class="f"><span class="emoji">📚</span><h4>Keep what you make</h4><p>Save a story to your library and it follows you to every device — to re-read, read aloud, or carry on later.</p></div>
+    <div class="f"><span class="emoji">🌏</span><h4 data-i18n="p_f1t">Ten languages</h4><p data-i18n="p_f1p">The story and the buttons are separate: read a Japanese story with English menus, or the other way round.</p></div>
+    <div class="f"><span class="emoji">🔊</span><h4 data-i18n="p_f2t">Read aloud</h4><p data-i18n="p_f2p">Any passage, in a natural voice — for a child who can follow along but not yet read alone.</p></div>
+    <div class="f"><span class="emoji">🔎</span><h4 data-i18n="p_f3t">What does this mean?</h4><p data-i18n="p_f3p">Tap any word for an explanation in <i>your</i> language, written for the sense the story is using — not a dictionary’s first guess.</p></div>
+    <div class="f"><span class="emoji">🎚️</span><h4 data-i18n="p_f4t">Pitched to the reader</h4><p data-i18n="p_f4p">From “new to the language” up to college level. The narrator writes to that band and checks itself.</p></div>
+    <div class="f"><span class="emoji">🌿</span><h4 data-i18n="p_f5t">Branch the story</h4><p data-i18n="p_f5p">Can’t agree what happens next? Split it in two. Both halves keep going, from the same passages.</p></div>
+    <div class="f"><span class="emoji">📚</span><h4 data-i18n="p_f6t">Keep what you make</h4><p data-i18n="p_f6p">Save a story to your library and it follows you to every device — to re-read, read aloud, or carry on later.</p></div>
   </div>
 </section>
 
@@ -82,11 +89,11 @@
 
 <section class="wrap" style="text-align:center">
   <img class="capy-frame" src="../assets/mascot.png" alt="Capy" />
-  <h2 class="section-title">Someone sent you a code?</h2>
-  <p class="section-sub">You can join from this browser — no app, no account. The person who started the story does need the app.</p>
+  <h2 class="section-title" data-i18n="p_end_title">Someone sent you a code?</h2>
+  <p class="section-sub" data-i18n="p_end_sub">You can join from this browser — no app, no account. The person who started the story does need the app.</p>
   <div class="cta" style="justify-content:center; display:flex; gap:14px; flex-wrap:wrap; margin-top:14px;">
-    <a class="btn orange" href="webapp/">Join a story →</a>
-    <a class="btn ghost" href="../">More from Capy</a>
+    <a class="btn orange" href="webapp/" data-i18n="p_cta_join">Join a story →</a>
+    <a class="btn ghost" href="../" data-i18n="p_end_more">More from Capy</a>
   </div>
 </section>
 
@@ -94,14 +101,15 @@
   <div class="wrap">
     <div>
       <a href="../">Capybara Around The World</a>
-      <a href="privacy-policy.html">Privacy</a>
-      <a href="terms.html">Terms</a>
-      <a href="/support.html">Support</a>
+      <a href="privacy-policy.html" data-i18n="p_ft_privacy">Privacy</a>
+      <a href="terms.html" data-i18n="p_ft_terms">Terms</a>
+      <a href="/support.html" data-i18n="p_ft_support">Support</a>
     </div>
-    <div class="small">© 2026 PXT Tech Studio, LLC · Made with 🍊 and naps</div>
+    <div class="small" data-i18n="p_ft_made">© 2026 PXT Tech Studio, LLC · Made with 🍊 and naps</div>
   </div>
 </footer>
 
 <script src="../assets/theme.js"></script>
+<script src="i18n-plotopia.js?v=1"></script>
 </body>
 </html>

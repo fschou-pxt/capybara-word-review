@@ -41,7 +41,11 @@
       <h1 data-i18n="h_h1">Learn the world,<br>one word at a time</h1>
       <p class="lead" data-i18n="h_lead">Meet <b>Capy</b> — your gentle study buddy who turns boring little moments into tiny adventures. Calm, cute, and quietly powerful.</p>
       <div class="cta">
-        <a class="btn orange" href="wordReview/" data-i18n="h_cta_meet">Meet Word Review ✨</a>
+        <!-- Was "Meet Word Review ✨". There are two apps now, and sending
+             everyone to one of them from the hero is a choice the visitor
+             should make. Reuses the nav's existing label so every language
+             already has it. -->
+        <a class="btn orange" href="#apps" data-i18n="h_nav_apps">Apps</a>
         <a class="btn ghost" href="#mission" data-i18n="h_cta_story">Our story</a>
       </div>
     </div>
@@ -65,7 +69,10 @@
     </a>
     <a class="card" href="plotopia/" style="color:inherit">
       <img class="thumb" src="assets/capy-plotopia-logo.jpg" alt="Capy’s Plotopia" />
-      <span class="pill" style="border-color:#E3D2BB;color:#b6a489" data-i18n="h_pt_pill">Coming soon · play in a browser now</span>
+      <!-- Was h_pt_pill, "Coming soon · play in a browser now". Pointing at
+           h_soon instead retires that promise in all fifteen languages at
+           once, without editing fifteen dictionary entries. -->
+      <span class="pill" style="border-color:#E3D2BB;color:#b6a489" data-i18n="h_soon">Coming soon</span>
       <h3>Capy’s Plotopia</h3>
       <p data-i18n="h_pt_desc">Write a story together, everyone on their own phone. Capy narrates, and every choice is a plot twist.</p>
       <p style="margin-top:12px"><b style="color:var(--teal)" data-i18n="h_wr_explore">Explore →</b></p>
