@@ -19,7 +19,7 @@
     "zh-Hans": {
       g_tr_badge: "新功能", g_tr_h: "翻译以理解 🌏",
       g_tr_p: "遇到看不懂的整句话？先翻译理解，再点选值得学的词语，一键变成单词卡。打字、语音、拍照都能用，连中文、日文这类没有空格的语言也能正确切分成词。",
-      nav_features: "功能", nav_tutorials: "教程", nav_pricing: "价格", nav_allapps: "全部应用",
+      nav_features: "功能", nav_tutorials: "教程", nav_pricing: "价格", nav_allapps: "应用",
       hero_ribbon: "📱 App Store 与 Google Play 上架",
       hero_h1: "记录单词。<br>玩乐。记住。",
       hero_lead: "在生活中遇到一个词？拍下来、说出来或打出来——卡比会补上释义、例句和发音，再帮你复习，让它真正记牢。",
@@ -63,7 +63,7 @@
     "zh-Hant": {
       g_tr_badge: "新功能", g_tr_h: "翻譯以理解 🌏",
       g_tr_p: "遇到看不懂的整句話？先翻譯理解，再點選值得學的詞語，一鍵變成單字卡。打字、語音、拍照都能用，連中文、日文這類沒有空格的語言也能正確斷詞。",
-      nav_features: "功能", nav_tutorials: "教學", nav_pricing: "價格", nav_allapps: "全部應用程式",
+      nav_features: "功能", nav_tutorials: "教學", nav_pricing: "價格", nav_allapps: "應用程式",
       hero_ribbon: "📱 App Store 與 Google Play 上架",
       hero_h1: "記錄單字。<br>玩樂。記住。",
       hero_lead: "在生活中遇到一個字？拍下來、說出來或打出來——卡比會補上釋義、例句和發音，再幫你複習，讓它真正記牢。",
@@ -107,7 +107,7 @@
     "ja": {
       g_tr_badge: "新機能", g_tr_h: "翻訳して理解する 🌏",
       g_tr_p: "意味の分からない文に出会ったら、まず翻訳して理解。そのあと学びたい言葉をタップするだけで単語カードになります。入力・音声・写真のどれからでも使え、日本語や中国語のようにスペースのない言語もきちんと単語に分けます。",
-      nav_features: "機能", nav_tutorials: "チュートリアル", nav_pricing: "料金", nav_allapps: "すべてのアプリ",
+      nav_features: "機能", nav_tutorials: "チュートリアル", nav_pricing: "料金", nav_allapps: "アプリ",
       hero_ribbon: "📱 App Store と Google Play で配信中",
       hero_h1: "言葉を記録。<br>遊ぶ。覚える。",
       hero_lead: "気になる言葉に出会ったら、撮る・話す・打つだけ。カピちゃんが意味・例文・発音を補い、しっかり定着するまで復習を手伝います。",
@@ -151,7 +151,7 @@
     "ko": {
       g_tr_badge: "새 기능", g_tr_h: "번역해서 이해하기 🌏",
       g_tr_p: "이해되지 않는 문장을 만났나요? 먼저 번역해서 이해한 다음, 배우고 싶은 단어를 눌러 플래시카드로 만드세요. 입력·음성·사진 모두 지원하며, 중국어나 일본어처럼 띄어쓰기가 없는 언어도 단어 단위로 정확히 나눕니다.",
-      nav_features: "기능", nav_tutorials: "튜토리얼", nav_pricing: "요금", nav_allapps: "모든 앱",
+      nav_features: "기능", nav_tutorials: "튜토리얼", nav_pricing: "요금", nav_allapps: "앱",
       hero_ribbon: "📱 App Store와 Google Play 출시",
       hero_h1: "단어를 기록하고<br>놀고 기억하세요.",
       hero_lead: "일상에서 만난 단어를 찍거나 말하거나 입력하세요.카피가 뜻·예문·발음을 채워 주고, 제대로 외워질 때까지 복습을 도와줍니다.",
@@ -195,7 +195,7 @@
     "es": {
       g_tr_badge: "NUEVO", g_tr_h: "Traducir para entender 🌏",
       g_tr_p: "¿Te encuentras con una frase entera que no entiendes? Tradúcela primero y luego toca las palabras que merece la pena aprender para convertirlas en tarjetas. Funciona escribiendo, hablando o con una foto.",
-      nav_features: "Funciones", nav_tutorials: "Tutoriales", nav_pricing: "Precios", nav_allapps: "Todas las apps",
+      nav_features: "Funciones", nav_tutorials: "Tutoriales", nav_pricing: "Precios", nav_allapps: "Apps",
       hero_ribbon: "📱 En la App Store y Google Play",
       hero_h1: "Captura palabras.<br>Juega. Recuerda.",
       hero_lead: "¿Ves una palabra por ahí? Foto, voz o teclado: Capy añade el significado, ejemplos y pronunciación, y luego te ayuda a repasarla para que se quede.",
@@ -239,7 +239,7 @@
     "fr": {
       g_tr_badge: "NOUVEAU", g_tr_h: "Traduire pour comprendre 🌏",
       g_tr_p: "Une phrase entière que vous ne comprenez pas ? Traduisez-la d\'abord, puis touchez les mots à retenir pour en faire des cartes. Cela fonctionne depuis la saisie, la voix ou une photo, et découpe même en vrais mots les langues sans espaces comme le chinois ou le japonais.",
-      nav_features: "Fonctions", nav_tutorials: "Tutoriels", nav_pricing: "Tarifs", nav_allapps: "Toutes les apps",
+      nav_features: "Fonctions", nav_tutorials: "Tutoriels", nav_pricing: "Tarifs", nav_allapps: "Apps",
       hero_ribbon: "📱 Sur l'App Store et Google Play",
       hero_h1: "Capture des mots.<br>Joue. Mémorise.",
       hero_lead: "Un mot croisé dans la vraie vie ? Photographie-le, dis-le ou tape-le — Capy ajoute le sens, des exemples et la prononciation, puis t'aide à le réviser pour qu'il reste.",
@@ -283,7 +283,7 @@
     "de": {
       g_tr_badge: "NEU", g_tr_h: "Zum Verstehen übersetzen 🌏",
       g_tr_p: "Ein ganzer Satz, den du nicht verstehst? Übersetze ihn zuerst und tippe dann die Wörter an, die sich zu lernen lohnen, um Karten daraus zu machen. Das klappt über Tippen, Sprechen oder ein Foto.",
-      nav_features: "Funktionen", nav_tutorials: "Tutorials", nav_pricing: "Preise", nav_allapps: "Alle Apps",
+      nav_features: "Funktionen", nav_tutorials: "Tutorials", nav_pricing: "Preise", nav_allapps: "Apps",
       hero_ribbon: "📱 Im App Store & bei Google Play",
       hero_h1: "Wörter festhalten.<br>Spielen. Merken.",
       hero_lead: "Ein Wort im Alltag entdeckt? Foto, Stimme oder tippen — Capy ergänzt Bedeutung, Beispiele und Aussprache und hilft dir, es so zu wiederholen, dass es hängen bleibt.",
@@ -327,7 +327,7 @@
     "it": {
       g_tr_badge: "NUOVO", g_tr_h: "Traduci per capire 🌏",
       g_tr_p: "Ti imbatti in una frase intera che non capisci? Prima traducila, poi tocca le parole che vale la pena imparare per trasformarle in schede. Funziona scrivendo, parlando o da una foto.",
-      nav_features: "Funzioni", nav_tutorials: "Tutorial", nav_pricing: "Prezzi", nav_allapps: "Tutte le app",
+      nav_features: "Funzioni", nav_tutorials: "Tutorial", nav_pricing: "Prezzi", nav_allapps: "App",
       hero_ribbon: "📱 Su App Store e Google Play",
       hero_h1: "Cattura le parole.<br>Gioca. Ricorda.",
       hero_lead: "Incontri una parola nella vita reale? Fotografala, dilla o scrivila — Capy aggiunge significato, esempi e pronuncia, poi ti aiuta a ripassarla così resta davvero.",
@@ -371,7 +371,7 @@
     "pt-BR": {
       g_tr_badge: "NOVO", g_tr_h: "Traduzir para entender 🌏",
       g_tr_p: "Encontrou uma frase inteira que não entende? Traduza primeiro e depois toque nas palavras que valem a pena aprender para transformá-las em flashcards. Funciona digitando, falando ou por foto.",
-      nav_features: "Recursos", nav_tutorials: "Tutoriais", nav_pricing: "Preços", nav_allapps: "Todos os apps",
+      nav_features: "Recursos", nav_tutorials: "Tutoriais", nav_pricing: "Preços", nav_allapps: "Apps",
       hero_ribbon: "📱 Na App Store e Google Play",
       hero_h1: "Capture palavras.<br>Jogue. Lembre.",
       hero_lead: "Viu uma palavra por aí? Fotografe, fale ou digite — a Capy adiciona o significado, exemplos e pronúncia, e depois ajuda você a revisar para fixar de verdade.",
@@ -415,7 +415,7 @@
     "ru": {
       g_tr_badge: "НОВОЕ", g_tr_h: "Перевести для понимания 🌏",
       g_tr_p: "Встретилось непонятное предложение? Сначала переведите его, а затем коснитесь слов, которые стоит выучить, чтобы превратить их в карточки. Работает с текстом, голосом и фото.",
-      nav_features: "Возможности", nav_tutorials: "Уроки", nav_pricing: "Цены", nav_allapps: "Все приложения",
+      nav_features: "Возможности", nav_tutorials: "Уроки", nav_pricing: "Цены", nav_allapps: "Приложения",
       hero_ribbon: "📱 В App Store и Google Play",
       hero_h1: "Сохраняй слова.<br>Играй. Запоминай.",
       hero_lead: "Встретил слово в жизни? Сфотографируй, произнеси или набери — Capy добавит значение, примеры и произношение, а потом поможет повторить, чтобы оно осталось в памяти.",
@@ -459,7 +459,7 @@
     "nl": {
       g_tr_badge: "NIEUW", g_tr_h: "Vertalen om te begrijpen 🌏",
       g_tr_p: "Een hele zin die je niet begrijpt? Vertaal hem eerst en tik daarna op de woorden die het leren waard zijn om er kaarten van te maken. Het werkt via typen, spreken of een foto.",
-      nav_features: "Functies", nav_tutorials: "Tutorials", nav_pricing: "Prijzen", nav_allapps: "Alle apps",
+      nav_features: "Functies", nav_tutorials: "Tutorials", nav_pricing: "Prijzen", nav_allapps: "Apps",
       hero_ribbon: "📱 In de App Store en Google Play",
       hero_h1: "Leg woorden vast.<br>Speel. Onthoud.",
       hero_lead: "Een woord tegengekomen? Maak een foto, spreek het in of typ het — Capy voegt de betekenis, voorbeelden en uitspraak toe en helpt je het te herhalen zodat het echt blijft hangen.",
@@ -503,7 +503,7 @@
     "pl": {
       g_tr_badge: "NOWOŚĆ", g_tr_h: "Przetłumacz, aby zrozumieć 🌏",
       g_tr_p: "Trafiłeś na całe zdanie, którego nie rozumiesz? Najpierw je przetłumacz, a potem dotknij słów wartych nauki, by zamienić je w fiszki. Działa z pisania, mowy i zdjęcia.",
-      nav_features: "Funkcje", nav_tutorials: "Poradniki", nav_pricing: "Cennik", nav_allapps: "Wszystkie aplikacje",
+      nav_features: "Funkcje", nav_tutorials: "Poradniki", nav_pricing: "Cennik", nav_allapps: "Aplikacje",
       hero_ribbon: "📱 W App Store i Google Play",
       hero_h1: "Zapisuj słowa.<br>Graj. Zapamiętuj.",
       hero_lead: "Napotkałeś słowo na co dzień? Zrób zdjęcie, powiedz je lub wpisz — Capy doda znaczenie, przykłady i wymowę, a potem pomoże ci je powtórzyć, by naprawdę zostało.",
@@ -547,7 +547,7 @@
     "tr": {
       g_tr_badge: "YENİ", g_tr_h: "Anlamak için çevir 🌏",
       g_tr_p: "Anlamadığın koca bir cümleyle mi karşılaştın? Önce çevir, sonra öğrenmeye değer kelimelere dokunup onları karta dönüştür. Yazarak, konuşarak ya da fotoğraftan çalışır.",
-      nav_features: "Özellikler", nav_tutorials: "Eğitimler", nav_pricing: "Fiyatlar", nav_allapps: "Tüm uygulamalar",
+      nav_features: "Özellikler", nav_tutorials: "Eğitimler", nav_pricing: "Fiyatlar", nav_allapps: "Uygulamalar",
       hero_ribbon: "📱 App Store ve Google Play'de",
       hero_h1: "Kelimeleri yakala.<br>Oyna. Hatırla.",
       hero_lead: "Günlük hayatta bir kelimeyle mi karşılaştın? Fotoğrafla, söyle ya da yaz — Capy anlamı, örnekleri ve telaffuzu ekler, sonra gerçekten aklında kalsın diye tekrar etmene yardım eder.",
@@ -591,7 +591,7 @@
     "ar": {
       g_tr_badge: "جديد", g_tr_h: "ترجم لتفهم 🌏",
       g_tr_p: "صادفت جملة كاملة لا تفهمها؟ ترجمها أولاً، ثم اضغط على الكلمات التي تستحق التعلم لتحويلها إلى بطاقات. يعمل من الكتابة أو الصوت أو الصورة.",
-      nav_features: "المزايا", nav_tutorials: "الدروس", nav_pricing: "الأسعار", nav_allapps: "كل التطبيقات",
+      nav_features: "المزايا", nav_tutorials: "الدروس", nav_pricing: "الأسعار", nav_allapps: "التطبيقات",
       hero_ribbon: "📱 على App Store و Google Play",
       hero_h1: "التقط الكلمات.<br>العب. تذكّر.",
       hero_lead: "صادفت كلمة في حياتك اليومية؟ صوّرها أو انطقها أو اكتبها — يضيف Capy المعنى والأمثلة والنطق، ثم يساعدك على مراجعتها لتثبت فعلاً.",
@@ -645,6 +645,8 @@
       h_wr_pill: "iPhone · 免费开始", h_wr_desc: "记录你在生活中遇到的单词和短语，再用例句、发音和间隔重复来复习。32 种语言！", h_wr_explore: "探索 →",
       h_soon: "即将推出", h_pt_pill: "即将上线 · 现在可在浏览器中玩", h_pt_desc: "一起写一个故事——每人一支手机。Capy 负责讲述，而每个选择都是一次转折。", h_play_desc: "一系列可爱的小游戏，由 Capy 主演——纯粹为了好玩。",
       h_more_title: "更多冒险", h_more_desc: "Capy 正在收拾行囊，准备下一段旅程。敬请期待！🧳",
+      h_secret_title: "一个秘密项目 🤫", h_secret_desc: "Capy 正在做点什么，但死活不肯说。不过他看起来相当得意。",
+      h_idea_pill: "轮到你了", h_idea_title: "有点子吗？💌", h_idea_desc: "告诉我们 Capy 接下来该做什么。我们只有两个人和一只水豚，每一封信都会读。", h_idea_cta: "写信给我们 →",
       h_why_title: "为什么是 Capy？💚",
       h_story: "水豚是最平静、最友善的生物——学习也该是这种感觉。没有压力，没有连胜焦虑。只有一个个好奇的小瞬间，被温柔地变成你记得住的东西。我们的使命：<b>把无聊的时刻变成学习，把每次相遇变成发现。</b>"
     },
@@ -657,6 +659,8 @@
       h_wr_pill: "iPhone · 免費開始", h_wr_desc: "記錄你在生活中遇到的單字和片語，再用例句、發音和間隔重複來複習。32 種語言！", h_wr_explore: "探索 →",
       h_soon: "即將推出", h_pt_pill: "即將上線 · 現在可在瀏覽器中玩", h_pt_desc: "一起寫一個故事——每人一支手機。Capy 負責敘述，而每個選擇都是一場轉折。", h_play_desc: "一系列可愛的小遊戲，由 Capy 主演——純粹為了好玩。",
       h_more_title: "更多冒險", h_more_desc: "Capy 正在收拾行囊，準備下一段旅程。敬請期待！🧳",
+      h_secret_title: "一個秘密專案 🤫", h_secret_desc: "Capy 正在做點什麼，但死活不肯說。不過他看起來相當得意。",
+      h_idea_pill: "輪到你了", h_idea_title: "有點子嗎？💌", h_idea_desc: "告訴我們 Capy 接下來該做什麼。我們只有兩個人和一隻水豚，每一封信都會讀。", h_idea_cta: "寫信給我們 →",
       h_why_title: "為什麼是 Capy？💚",
       h_story: "水豚是最平靜、最友善的生物——學習也該是這種感覺。沒有壓力，沒有連勝焦慮。只有一個個好奇的小瞬間，被溫柔地變成你記得住的東西。我們的使命：<b>把無聊的時刻變成學習，把每次相遇變成發現。</b>"
     },
@@ -669,6 +673,8 @@
       h_wr_pill: "iPhone · 無料で開始", h_wr_desc: "日常で出会った言葉やフレーズを記録して、例文・発音・間隔反復で復習。32言語対応！", h_wr_explore: "見てみる →",
       h_soon: "近日公開", h_pt_pill: "近日公開 · 今すぐブラウザで遊べる", h_pt_desc: "みんなでひとつの物語を——端末はそれぞれ。語り手は Capy、そしてすべての選択がどんでん返しに。", h_play_desc: "Capy が主役の、かわいくて手軽なゲームの詰め合わせ——ただ楽しいだけ。",
       h_more_title: "もっと冒険", h_more_desc: "Capy は次の旅の支度中。お楽しみに！🧳",
+      h_secret_title: "ないしょの計画 🤫", h_secret_desc: "Capy は何かを作っていますが、何かは教えてくれません。ただ、とても得意げな顔をしています。",
+      h_idea_pill: "あなたの番", h_idea_title: "アイデアがありますか？💌", h_idea_desc: "Capy が次に作るべきものを教えてください。私たちは2人とカピバラ1匹。いただいたお便りは全部読みます。", h_idea_cta: "メールを送る →",
       h_why_title: "なぜ Capy？💚",
       h_story: "カピバラはいちばん穏やかでフレンドリーな生き物——学びもそうあるべきです。プレッシャーも連続記録の不安もなし。好奇心の小さな瞬間を、そっと記憶に残るものに変えるだけ。私たちの使命：<b>退屈な瞬間を学びに、出会いのすべてを発見に。</b>"
     },
@@ -681,6 +687,8 @@
       h_wr_pill: "iPhone · 무료로 시작", h_wr_desc: "일상에서 만난 단어와 표현을 기록하고 예문·발음·간격 반복으로 복습하세요. 32개 언어!", h_wr_explore: "둘러보기 →",
       h_soon: "곧 출시", h_pt_pill: "곧 출시 · 지금 브라우저에서 플레이", h_pt_desc: "함께 하나의 이야기를 — 화면은 각자. 이야기꾼은 Capy, 모든 선택이 반전이 됩니다.", h_play_desc: "Capy가 주연인 아늑하고 가벼운 게임 모음 — 그저 즐거움을 위해.",
       h_more_title: "더 많은 모험", h_more_desc: "Capy가 다음 여행을 위해 짐을 싸고 있어요. 기대해 주세요! 🧳",
+      h_secret_title: "비밀 프로젝트 🤫", h_secret_desc: "Capy가 무언가를 만들고 있는데 무엇인지는 말해 주지 않아요. 다만 아주 뿌듯한 표정입니다.",
+      h_idea_pill: "당신 차례", h_idea_title: "아이디어가 있나요? 💌", h_idea_desc: "Capy가 다음에 무엇을 만들면 좋을지 알려 주세요. 저희는 두 사람과 카피바라 한 마리, 모든 메시지를 읽습니다.", h_idea_cta: "메일 보내기 →",
       h_why_title: "왜 Capy일까요? 💚",
       h_story: "카피바라는 가장 차분하고 다정한 동물이에요 — 배움도 그래야 하죠. 스트레스도, 연속 기록에 대한 불안도 없이. 호기심의 작은 순간들을 부드럽게 기억에 남는 것으로 바꿀 뿐. 우리의 사명: <b>지루한 순간을 배움으로, 모든 만남을 발견으로.</b>"
     },
@@ -693,6 +701,8 @@
       h_wr_pill: "iPhone · Gratis para empezar", h_wr_desc: "Captura palabras y frases que encuentras en la vida real y repásalas con ejemplos, pronunciación y repetición espaciada. ¡32 idiomas!", h_wr_explore: "Explorar →",
       h_soon: "Próximamente", h_pt_pill: "Próximamente · juega ya en el navegador", h_pt_desc: "Escribid una historia juntos, cada uno en su móvil. Capy narra, y cada decisión es un giro inesperado.", h_play_desc: "Una acogedora colección de juegos cortos y adorables con Capy: pura diversión, solo por gusto.",
       h_more_title: "Más aventuras", h_more_desc: "Capy está haciendo las maletas para el próximo viaje. ¡Atento! 🧳",
+      h_secret_title: "Un proyecto secreto 🤫", h_secret_desc: "Capy está construyendo algo y no quiere decir qué. Eso sí, se le ve muy satisfecho consigo mismo.",
+      h_idea_pill: "Te toca", h_idea_title: "¿Tienes una idea? 💌", h_idea_desc: "Cuéntanos qué debería hacer Capy a continuación. Somos dos personas y un capibara, y leemos todos los mensajes.", h_idea_cta: "Escríbenos →",
       h_why_title: "¿Por qué Capy? 💚",
       h_story: "Los capibaras son las criaturas más tranquilas y amables que hay, y así debería sentirse aprender. Sin estrés, sin ansiedad por las rachas. Solo pequeños momentos de curiosidad, convertidos con cariño en cosas que recuerdas. Nuestra misión: <b>convertir los momentos aburridos en aprendizaje, cada encuentro en descubrimiento.</b>"
     },
@@ -705,6 +715,8 @@
       h_wr_pill: "iPhone · Gratuit pour commencer", h_wr_desc: "Capture les mots et expressions croisés dans la vraie vie, puis révise-les avec des exemples, la prononciation et la répétition espacée. 32 langues !", h_wr_explore: "Explorer →",
       h_soon: "Bientôt disponible", h_pt_pill: "Bientôt · joue déjà dans le navigateur", h_pt_desc: "Écrivez une histoire ensemble, chacun sur son téléphone. Capy raconte, et chaque choix est un coup de théâtre.", h_play_desc: "Une collection douillette de petits jeux mignons avec Capy — juste pour le plaisir.",
       h_more_title: "D'autres aventures", h_more_desc: "Capy fait ses valises pour le prochain voyage. Reste à l'écoute ! 🧳",
+      h_secret_title: "Un projet secret 🤫", h_secret_desc: "Capy fabrique quelque chose et refuse de dire quoi. Il a l'air très content de lui, cela dit.",
+      h_idea_pill: "À vous", h_idea_title: "Une idée ? 💌", h_idea_desc: "Dites-nous ce que Capy devrait créer ensuite. Nous sommes deux personnes et un capybara, et nous lisons chaque message.", h_idea_cta: "Écrivez-nous →",
       h_why_title: "Pourquoi Capy ? 💚",
       h_story: "Les capybaras sont les créatures les plus calmes et amicales qui soient — et c'est exactement ce que devrait être l'apprentissage. Pas de stress, pas d'angoisse des séries. Juste de petits moments de curiosité, doucement transformés en choses que tu retiens. Notre mission : <b>transformer les moments ennuyeux en apprentissage, chaque rencontre en découverte.</b>"
     },
@@ -717,6 +729,8 @@
       h_wr_pill: "iPhone · Kostenlos starten", h_wr_desc: "Halte Wörter und Sätze aus dem echten Leben fest und wiederhole sie mit Beispielen, Aussprache und verteiltem Wiederholen. 32 Sprachen!", h_wr_explore: "Entdecken →",
       h_soon: "Demnächst", h_pt_pill: "Bald verfügbar · jetzt schon im Browser spielen", h_pt_desc: "Schreibt gemeinsam eine Geschichte — jeder auf dem eigenen Handy. Capy erzählt, und jede Entscheidung ist eine Wendung.", h_play_desc: "Eine gemütliche Sammlung niedlicher, kleiner Spiele mit Capy — einfach zum Spaß.",
       h_more_title: "Mehr Abenteuer", h_more_desc: "Capy packt schon für die nächste Reise. Bleib dran! 🧳",
+      h_secret_title: "Ein geheimes Projekt 🤫", h_secret_desc: "Capy baut an etwas und sagt nicht, woran. Sehr zufrieden mit sich sieht er dabei aus.",
+      h_idea_pill: "Du bist dran", h_idea_title: "Eine Idee? 💌", h_idea_desc: "Sag uns, was Capy als Nächstes machen soll. Wir sind zwei Menschen und ein Wasserschwein — und wir lesen jede Nachricht.", h_idea_cta: "Schreib uns →",
       h_why_title: "Warum Capy? 💚",
       h_story: "Capybaras sind die ruhigsten, freundlichsten Wesen überhaupt — und genau so sollte sich Lernen anfühlen. Kein Stress, keine Serien-Angst. Nur kleine Momente der Neugier, sanft in Dinge verwandelt, die du behältst. Unsere Mission: <b>langweilige Momente in Lernen verwandeln, jede Begegnung in Entdeckung.</b>"
     },
@@ -729,6 +743,8 @@
       h_wr_pill: "iPhone · Gratis per iniziare", h_wr_desc: "Cattura parole ed espressioni che incontri nella vita reale e ripassale con esempi, pronuncia e ripetizione dilazionata. 32 lingue!", h_wr_explore: "Esplora →",
       h_soon: "Prossimamente", h_pt_pill: "Presto · gioca già nel browser", h_pt_desc: "Scrivete una storia insieme, ognuno sul proprio telefono. Capy racconta, e ogni scelta è un colpo di scena.", h_play_desc: "Una raccolta accogliente di giochi piccoli e carini con Capy — puro divertimento, solo per il piacere di farlo.",
       h_more_title: "Altre avventure", h_more_desc: "Capy sta preparando le valigie per il prossimo viaggio. Resta sintonizzato! 🧳",
+      h_secret_title: "Un progetto segreto 🤫", h_secret_desc: "Capy sta costruendo qualcosa e non vuole dire cosa. Però ha l'aria molto soddisfatta di sé.",
+      h_idea_pill: "Tocca a te", h_idea_title: "Hai un'idea? 💌", h_idea_desc: "Dicci cosa dovrebbe fare Capy adesso. Siamo due persone e un capibara, e leggiamo ogni messaggio.", h_idea_cta: "Scrivici →",
       h_why_title: "Perché Capy? 💚",
       h_story: "I capibara sono le creature più calme e amichevoli che ci siano — ed è esattamente così che dovrebbe sentirsi l'apprendimento. Niente stress, niente ansia da serie. Solo piccoli momenti di curiosità, trasformati con dolcezza in cose che ricordi. La nostra missione: <b>trasformare i momenti noiosi in apprendimento, ogni incontro in scoperta.</b>"
     },
@@ -741,6 +757,8 @@
       h_wr_pill: "iPhone · Grátis para começar", h_wr_desc: "Capture palavras e frases que encontra na vida real e revise com exemplos, pronúncia e repetição espaçada. 32 idiomas!", h_wr_explore: "Explorar →",
       h_soon: "Em breve", h_pt_pill: "Em breve · jogue já no navegador", h_pt_desc: "Escrevam uma história juntos, cada um no seu celular. Capy narra, e cada escolha é uma reviravolta.", h_play_desc: "Uma coleção aconchegante de joguinhos fofos com a Capy — pura diversão, só pelo prazer.",
       h_more_title: "Mais aventuras", h_more_desc: "A Capy está fazendo as malas para a próxima jornada. Fique de olho! 🧳",
+      h_secret_title: "Um projeto secreto 🤫", h_secret_desc: "Capy está construindo alguma coisa e não quer dizer o quê. Mas parece bem satisfeito consigo mesmo.",
+      h_idea_pill: "Sua vez", h_idea_title: "Tem uma ideia? 💌", h_idea_desc: "Conte o que Capy deveria fazer em seguida. Somos duas pessoas e uma capivara, e lemos todas as mensagens.", h_idea_cta: "Escreva para nós →",
       h_why_title: "Por que a Capy? 💚",
       h_story: "As capivaras são as criaturas mais calmas e amigáveis que existem — e é exatamente assim que aprender deveria ser. Sem estresse, sem ansiedade de sequência. Só pequenos momentos de curiosidade, gentilmente transformados em coisas que você lembra. Nossa missão: <b>transformar momentos chatinhos em aprendizado, cada encontro em descoberta.</b>"
     },
@@ -753,6 +771,8 @@
       h_wr_pill: "iPhone · Бесплатный старт", h_wr_desc: "Сохраняй слова и фразы из реальной жизни и повторяй их с примерами, произношением и интервальными повторениями. 32 языков!", h_wr_explore: "Узнать больше →",
       h_soon: "Скоро", h_pt_pill: "Скоро · играйте уже в браузере", h_pt_desc: "Пишите историю вместе — каждый на своём телефоне. Capy рассказывает, и каждый выбор — это поворот сюжета.", h_play_desc: "Уютная коллекция милых небольших игр с Capy — чистое удовольствие, просто для радости.",
       h_more_title: "Больше приключений", h_more_desc: "Capy уже собирает чемоданы в следующее путешествие. Следи за новостями! 🧳",
+      h_secret_title: "Секретный проект 🤫", h_secret_desc: "Capy что-то мастерит и не признаётся, что именно. Вид у него при этом крайне довольный.",
+      h_idea_pill: "Ваш ход", h_idea_title: "Есть идея? 💌", h_idea_desc: "Расскажите, что Capy стоит сделать дальше. Нас двое и одна капибара, и мы читаем каждое письмо.", h_idea_cta: "Написать нам →",
       h_why_title: "Почему Capy? 💚",
       h_story: "Капибары — самые спокойные и дружелюбные существа, и именно такой должна быть учёба. Без стресса и тревоги из-за серий. Только маленькие моменты любопытства, бережно превращённые в то, что запоминается. Наша миссия: <b>превращать скучные моменты в учёбу, а каждую встречу — в открытие.</b>"
     },
@@ -765,6 +785,8 @@
       h_wr_pill: "iPhone · Gratis te starten", h_wr_desc: "Leg woorden en zinnen vast die je in het echt tegenkomt en herhaal ze met voorbeelden, uitspraak en gespreide herhaling. 32 talen!", h_wr_explore: "Ontdekken →",
       h_soon: "Binnenkort", h_pt_pill: "Binnenkort · speel nu al in de browser", h_pt_desc: "Schrijf samen een verhaal — ieder op zijn eigen telefoon. Capy vertelt, en elke keuze is een plotwending.", h_play_desc: "Een gezellige verzameling schattige, hapklare spelletjes met Capy — puur plezier, gewoon voor de lol.",
       h_more_title: "Meer avonturen", h_more_desc: "Capy pakt zijn koffers voor de volgende reis. Blijf kijken! 🧳",
+      h_secret_title: "Een geheim project 🤫", h_secret_desc: "Capy bouwt aan iets en wil niet zeggen wat. Hij kijkt er wel erg tevreden bij.",
+      h_idea_pill: "Jouw beurt", h_idea_title: "Heb je een idee? 💌", h_idea_desc: "Vertel ons wat Capy hierna moet maken. Wij zijn twee mensen en een capibara, en we lezen elk bericht.", h_idea_cta: "Schrijf ons →",
       h_why_title: "Waarom Capy? 💚",
       h_story: "Capibara's zijn de rustigste, vriendelijkste dieren die er zijn — en zo zou leren moeten voelen. Geen stress, geen reeks-angst. Gewoon kleine momentjes van nieuwsgierigheid, zachtjes veranderd in dingen die je onthoudt. Onze missie: <b>saaie momenten veranderen in leren, elke ontmoeting in ontdekking.</b>"
     },
@@ -777,6 +799,8 @@
       h_wr_pill: "iPhone · Start za darmo", h_wr_desc: "Zapisuj słowa i zwroty napotkane w prawdziwym życiu, a potem powtarzaj je z przykładami, wymową i powtórkami rozłożonymi w czasie. 32 języków!", h_wr_explore: "Odkrywaj →",
       h_soon: "Wkrótce", h_pt_pill: "Wkrótce · zagraj już w przeglądarce", h_pt_desc: "Piszcie historię razem — każdy na własnym telefonie. Capy opowiada, a każdy wybór to zwrot akcji.", h_play_desc: "Przytulna kolekcja uroczych, krótkich gier z Capy — czysta zabawa, dla samej radości.",
       h_more_title: "Więcej przygód", h_more_desc: "Capy pakuje walizki na kolejną podróż. Bądź czujny! 🧳",
+      h_secret_title: "Sekretny projekt 🤫", h_secret_desc: "Capy coś buduje i nie chce zdradzić co. Wygląda przy tym na bardzo z siebie zadowolonego.",
+      h_idea_pill: "Twoja kolej", h_idea_title: "Masz pomysł? 💌", h_idea_desc: "Napisz, co Capy powinien zrobić dalej. Jesteśmy dwie osoby i kapibara — czytamy każdą wiadomość.", h_idea_cta: "Napisz do nas →",
       h_why_title: "Dlaczego Capy? 💚",
       h_story: "Kapibary to najspokojniejsze i najbardziej przyjazne stworzenia — i dokładnie tak powinna wyglądać nauka. Bez stresu, bez lęku o passę. Tylko małe chwile ciekawości, delikatnie zamieniane w rzeczy, które zapamiętasz. Nasza misja: <b>zamieniać nudne chwile w naukę, a każde spotkanie w odkrycie.</b>"
     },
@@ -789,6 +813,8 @@
       h_wr_pill: "iPhone · Ücretsiz başla", h_wr_desc: "Gerçek hayatta karşılaştığın kelime ve ifadeleri yakala, sonra örnekler, telaffuz ve aralıklı tekrarla gözden geçir. 32 dil!", h_wr_explore: "Keşfet →",
       h_soon: "Yakında", h_pt_pill: "Çok yakında · şimdi tarayıcıda oyna", h_pt_desc: "Birlikte bir hikâye yazın — herkes kendi telefonunda. Capy anlatır ve her seçim bir olay örgüsü dönüşü.", h_play_desc: "Capy'nin başrolde olduğu sevimli, kısa oyunlardan oluşan sıcacık bir koleksiyon — sadece keyif için.",
       h_more_title: "Daha fazla macera", h_more_desc: "Capy bir sonraki yolculuk için çantasını topluyor. Takipte kal! 🧳",
+      h_secret_title: "Gizli bir proje 🤫", h_secret_desc: "Capy bir şey yapıyor ama ne olduğunu söylemiyor. Kendinden de epey memnun görünüyor.",
+      h_idea_pill: "Sıra sizde", h_idea_title: "Bir fikriniz mi var? 💌", h_idea_desc: "Capy'nin sırada ne yapması gerektiğini bize anlatın. İki kişi ve bir kapibarayız; her mesajı okuyoruz.", h_idea_cta: "Bize yazın →",
       h_why_title: "Neden Capy? 💚",
       h_story: "Kapibaralar var olan en sakin, en arkadaş canlısı yaratıklardır — ve öğrenmek de tam olarak böyle hissettirmeli. Stres yok, seri kaygısı yok. Sadece küçük merak anları, nazikçe hatırlayacağın şeylere dönüşüyor. Misyonumuz: <b>sıkıcı anları öğrenmeye, her karşılaşmayı keşfe dönüştürmek.</b>"
     },
@@ -801,6 +827,8 @@
       h_wr_pill: "iPhone · مجاني للبدء", h_wr_desc: "التقط الكلمات والعبارات التي تصادفها في الحياة الواقعية، ثم راجعها بالأمثلة والنطق والتكرار المتباعد. 32 لغة!", h_wr_explore: "استكشف →",
       h_soon: "قريباً", h_pt_pill: "قريبًا · العب الآن في المتصفح", h_pt_desc: "اكتبوا قصة معًا — كلٌّ على هاتفه. Capy يروي، وكل اختيار هو منعطف في الحكاية.", h_play_desc: "مجموعة دافئة من الألعاب اللطيفة القصيرة من بطولة Capy — متعة خالصة، لمجرد المرح.",
       h_more_title: "مغامرات أكثر", h_more_desc: "Capy يحزم حقائبه للرحلة القادمة. ترقّب! 🧳",
+      h_secret_title: "مشروع سرّي 🤫", h_secret_desc: "يصنع Capy شيئًا ما ويرفض أن يبوح به. لكنه يبدو راضيًا عن نفسه تمامًا.",
+      h_idea_pill: "دورك أنت", h_idea_title: "لديك فكرة؟ 💌", h_idea_desc: "أخبرنا بما ينبغي أن يصنعه Capy بعد ذلك. نحن شخصان وكابيبارا، ونقرأ كل رسالة.", h_idea_cta: "راسلنا →",
       h_why_title: "لماذا Capy؟ 💚",
       h_story: "الكابيبارا من أهدأ المخلوقات وأكثرها ودّاً — وهكذا يجب أن يكون التعلّم. لا توتر ولا قلق بشأن السلاسل. مجرد لحظات صغيرة من الفضول، تتحوّل بلطف إلى أشياء تتذكّرها. مهمتنا: <b>تحويل اللحظات المملة إلى تعلّم، وكل لقاء إلى اكتشاف.</b>"
     }

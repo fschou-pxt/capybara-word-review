@@ -111,11 +111,30 @@ section{padding:46px 0;}
 
 /* ---- app cards grid ---- */
 .cards{display:grid; grid-template-columns:repeat(auto-fit,minmax(260px,1fr)); gap:22px;}
+/* Six cards, so pin the desktop grid to three columns: auto-fit would fit four
+   on a wide screen and leave a lonely pair on the second row. Below 900px it
+   falls back to auto-fit and reflows to 2, then 1. */
+@media (min-width:900px){ .cards{grid-template-columns:repeat(3,1fr);} }
 .card{background:#fff; border-radius:26px; padding:22px; box-shadow:var(--shadow); border:3px solid #fff;
   transition:transform .15s ease, border-color .15s ease;}
+/* Hover only — no card is border-highlighted at rest. A permanent green ring
+   on Word Review read as "already selected" now that there are two real apps.
+   color-mix keeps it a LIGHTER version of whatever the active theme's accent
+   is (green / pink / blue), so it never clashes; --ring is the fallback for
+   browsers without color-mix. */
 .card:hover{transform:translateY(-6px) rotate(-.5deg); border-color:var(--ring);}
-.card.featured{border-color:var(--teal);}
-.card .thumb{width:64px; height:64px; border-radius:18px; box-shadow:var(--shadow); margin-bottom:12px;}
+@supports (border-color: color-mix(in srgb, red 50%, white)){
+  .card:hover{border-color:color-mix(in srgb, var(--teal) 40%, #fff);}
+}
+/* Logo and chip share one row, bottom-aligned. Before this they were loose
+   siblings: <img> is inline so the chip flowed beside it, but the placeholder
+   thumbs are <div> (block), so on those cards the chip dropped to its own
+   line. Same markup, two different layouts. A flex row with align-items:flex-end
+   makes every card identical and sits the chip on the logo's baseline. */
+.card-head{display:flex; align-items:flex-end; gap:16px; margin-bottom:12px;}
+.card .thumb{width:84px; height:84px; border-radius:22px; box-shadow:var(--shadow);
+  flex:0 0 auto; margin:0;}
+.card-head .pill{margin-bottom:4px;}
 .card h3{font-size:26px; margin:.1em 0;}
 .card p{color:var(--mid); font-size:15px;}
 .card.soon{background:#FBF4EA; border-style:dashed; border-color:#E3D2BB; color:#b6a489;}

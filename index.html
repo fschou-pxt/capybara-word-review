@@ -13,7 +13,7 @@
 <meta property="og:description" content="Learn the world, one word at a time — with Capy." />
 <meta property="og:image" content="assets/app-logo.jpg" />
 <meta property="og:type" content="website" />
-<link rel="stylesheet" href="assets/style.css?v=19" />
+<link rel="stylesheet" href="assets/style.css?v=20" />
 </head>
 <body>
 
@@ -41,11 +41,10 @@
       <h1 data-i18n="h_h1">Learn the world,<br>one word at a time</h1>
       <p class="lead" data-i18n="h_lead">Meet <b>Capy</b> — your gentle study buddy who turns boring little moments into tiny adventures. Calm, cute, and quietly powerful.</p>
       <div class="cta">
-        <!-- Was "Meet Word Review ✨". There are two apps now, and sending
-             everyone to one of them from the hero is a choice the visitor
-             should make. Reuses the nav's existing label so every language
-             already has it. -->
-        <a class="btn orange" href="#apps" data-i18n="h_nav_apps">Apps</a>
+        <!-- Was "Meet Word Review ✨", then a generic "Apps" button. Both are
+             gone: with two real apps, pushing the visitor at one of them from
+             the hero is a choice that belongs to them, and the nav already has
+             an Apps link two inches above this. Only "Our story" remains. -->
         <a class="btn ghost" href="#mission" data-i18n="h_cta_story">Our story</a>
       </div>
     </div>
@@ -60,35 +59,60 @@
   <h2 class="section-title" data-i18n="h_apps_title">Capy's little app world 🗺️</h2>
   <p class="section-sub" data-i18n="h_apps_sub">One friendly capybara, many ways to learn. More adventures are on the way!</p>
   <div class="cards">
-    <a class="card featured" href="wordReview/" style="color:inherit">
-      <img class="thumb" src="assets/app-logo.jpg" alt="Word Review" />
-      <span class="pill" data-i18n="h_wr_pill">iPhone · Free to start</span>
+    <a class="card" href="wordReview/" style="color:inherit">
+      <div class="card-head">
+        <img class="thumb" src="assets/app-logo.jpg" alt="Word Review" />
+        <span class="pill" data-i18n="h_wr_pill">iPhone · Free to start</span>
+      </div>
       <h3>Word Review</h3>
       <p data-i18n="h_wr_desc">Capture words &amp; phrases you meet in real life, then review them with examples, pronunciation, and spaced repetition. 32 languages!</p>
       <p style="margin-top:12px"><b style="color:var(--teal)" data-i18n="h_wr_explore">Explore →</b></p>
     </a>
     <a class="card" href="plotopia/" style="color:inherit">
-      <img class="thumb" src="assets/capy-plotopia-logo.jpg" alt="Capy’s Plotopia" />
       <!-- Was h_pt_pill, "Coming soon · play in a browser now". Pointing at
            h_soon instead retires that promise in all fifteen languages at
            once, without editing fifteen dictionary entries. -->
-      <span class="pill" style="border-color:#E3D2BB;color:#b6a489" data-i18n="h_soon">Coming soon</span>
+      <div class="card-head">
+        <img class="thumb" src="assets/capy-plotopia-logo.jpg" alt="Capy’s Plotopia" />
+        <span class="pill" style="border-color:#E3D2BB;color:#b6a489" data-i18n="h_soon">Coming soon</span>
+      </div>
       <h3>Capy’s Plotopia</h3>
       <p data-i18n="h_pt_desc">Write a story together, everyone on their own phone. Capy narrates, and every choice is a plot twist.</p>
       <p style="margin-top:12px"><b style="color:var(--teal)" data-i18n="h_wr_explore">Explore →</b></p>
     </a>
     <div class="card soon">
-      <div class="thumb" style="background:#EFE2CE"></div>
-      <span class="pill" style="border-color:#E3D2BB;color:#b6a489" data-i18n="h_soon">Coming soon</span>
+      <div class="card-head">
+        <div class="thumb" style="background:#EFE2CE"></div>
+        <span class="pill" style="border-color:#E3D2BB;color:#b6a489" data-i18n="h_soon">Coming soon</span>
+      </div>
       <h3 data-i18n="f6t">Play with Capy</h3>
       <p data-i18n="h_play_desc">A cozy collection of cute, bite-sized games starring Capy — pure playful fun, just for the joy of it.</p>
     </div>
     <div class="card soon">
-      <div class="thumb" style="background:#EFE2CE"></div>
-      <span class="pill" style="border-color:#E3D2BB;color:#b6a489" data-i18n="h_soon">Coming soon</span>
+      <div class="card-head">
+        <div class="thumb" style="background:#EFE2CE"></div>
+        <span class="pill" style="border-color:#E3D2BB;color:#b6a489" data-i18n="h_soon">Coming soon</span>
+      </div>
       <h3 data-i18n="h_more_title">More adventures</h3>
       <p data-i18n="h_more_desc">Capy is packing his bags for the next journey. Stay tuned! 🧳</p>
     </div>
+    <div class="card soon">
+      <div class="card-head">
+        <div class="thumb" style="background:#EFE2CE"></div>
+        <span class="pill" style="border-color:#E3D2BB;color:#b6a489" data-i18n="h_soon">Coming soon</span>
+      </div>
+      <h3 data-i18n="h_secret_title">A secret project 🤫</h3>
+      <p data-i18n="h_secret_desc">Capy is building something and will not say what. He does look very pleased with himself about it.</p>
+    </div>
+    <a class="card soon" href="mailto:support@capybaraaroundtheworld.com?subject=An%20idea%20for%20Capy" style="color:#b6a489">
+      <div class="card-head">
+        <div class="thumb" style="background:#EFE2CE"></div>
+        <span class="pill" style="border-color:#E3D2BB;color:#b6a489" data-i18n="h_idea_pill">Your turn</span>
+      </div>
+      <h3 data-i18n="h_idea_title">Got an idea? 💌</h3>
+      <p data-i18n="h_idea_desc">Tell us what Capy should make next. We are two people and a capybara, and we read every message.</p>
+      <p style="margin-top:12px"><b style="color:var(--teal)" data-i18n="h_idea_cta">Write to us →</b></p>
+    </a>
   </div>
 </section>
 

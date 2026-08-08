@@ -24,7 +24,7 @@
 
   var I18N = {
     "zh-Hans": {
-      p_nav_how: "玩法", p_nav_feat: "功能", p_nav_join: "加入故事", p_nav_all: "全部应用",
+      p_nav_how: "玩法", p_nav_feat: "功能", p_nav_join: "加入故事", p_nav_all: "应用",
       p_ribbon: "✨ 即将登陆 App Store",
       p_h1: "一起<br>创作故事",
       p_lead: "一个故事，每人一支手机。<b>Capy</b> 负责讲述，并问你接下来会发生什么——握笔的人来决定。没有人偷看后面，也没有人独自等待。",
@@ -53,7 +53,7 @@
       p_ft_made: "© 2026 PXT Tech Studio, LLC · 用 🍊 和午睡做成"
     },
     "zh-Hant": {
-      p_nav_how: "玩法", p_nav_feat: "功能", p_nav_join: "加入故事", p_nav_all: "全部應用程式",
+      p_nav_how: "玩法", p_nav_feat: "功能", p_nav_join: "加入故事", p_nav_all: "應用程式",
       p_ribbon: "✨ 即將登陸 App Store",
       p_h1: "一起<br>創作故事",
       p_lead: "一個故事，每人一支手機。<b>Capy</b> 負責敘述，並問你接下來會發生什麼——握筆的人來決定。沒有人偷看後面，也沒有人獨自等待。",
@@ -82,7 +82,7 @@
       p_ft_made: "© 2026 PXT Tech Studio, LLC · 用 🍊 和午睡做成"
     },
     "ja": {
-      p_nav_how: "遊び方", p_nav_feat: "機能", p_nav_join: "物語に参加", p_nav_all: "すべてのアプリ",
+      p_nav_how: "遊び方", p_nav_feat: "機能", p_nav_join: "物語に参加", p_nav_all: "アプリ",
       p_ribbon: "✨ App Store にまもなく登場",
       p_h1: "いっしょに<br>物語をつくろう",
       p_lead: "ひとつの物語を、それぞれの端末で。<b>Capy</b> が語り、次に何が起こるかを尋ねます——決めるのはペンを持つ人。先を読まれることも、ひとりで待つこともありません。",
@@ -111,7 +111,7 @@
       p_ft_made: "© 2026 PXT Tech Studio, LLC · 🍊 とお昼寝でつくりました"
     },
     "ko": {
-      p_nav_how: "이렇게 해요", p_nav_feat: "기능", p_nav_join: "이야기 참여", p_nav_all: "모든 앱",
+      p_nav_how: "이렇게 해요", p_nav_feat: "기능", p_nav_join: "이야기 참여", p_nav_all: "앱",
       p_ribbon: "✨ App Store에 곧 출시",
       p_h1: "함께<br>이야기를 만들어요",
       p_lead: "하나의 이야기, 각자의 화면에서. <b>Capy</b>가 들려주고 다음에 무슨 일이 일어날지 묻습니다 — 정하는 사람은 펜을 쥔 사람. 아무도 먼저 읽지 않고, 아무도 혼자 기다리지 않아요.",
@@ -140,7 +140,7 @@
       p_ft_made: "© 2026 PXT Tech Studio, LLC · 🍊와 낮잠으로 만들었어요"
     },
     "es": {
-      p_nav_how: "Cómo funciona", p_nav_feat: "Funciones", p_nav_join: "Únete a una historia", p_nav_all: "Todas las apps",
+      p_nav_how: "Cómo funciona", p_nav_feat: "Funciones", p_nav_join: "Únete a una historia", p_nav_all: "Apps",
       p_ribbon: "✨ Muy pronto en la App Store",
       p_h1: "Creemos historias<br>juntos",
       p_lead: "Una historia, cada uno en su móvil. <b>Capy</b> narra y pregunta qué pasa ahora, y quien tiene la pluma decide. Nadie se adelanta leyendo, nadie espera solo.",
@@ -169,7 +169,7 @@
       p_ft_made: "© 2026 PXT Tech Studio, LLC · Hecho con 🍊 y siestas"
     },
     "fr": {
-      p_nav_how: "Comment ça marche", p_nav_feat: "Fonctions", p_nav_join: "Rejoindre une histoire", p_nav_all: "Toutes les apps",
+      p_nav_how: "Comment ça marche", p_nav_feat: "Fonctions", p_nav_join: "Rejoindre une histoire", p_nav_all: "Apps",
       p_ribbon: "✨ Bientôt sur l'App Store",
       p_h1: "Créons des histoires<br>ensemble",
       p_lead: "Une histoire, chacun sur son téléphone. <b>Capy</b> raconte et demande ce qui arrive ensuite — et celui qui tient la plume décide. Personne ne lit en avance, personne n'attend seul.",
@@ -198,7 +198,7 @@
       p_ft_made: "© 2026 PXT Tech Studio, LLC · Fait avec 🍊 et des siestes"
     },
     "de": {
-      p_nav_how: "So geht's", p_nav_feat: "Funktionen", p_nav_join: "Geschichte beitreten", p_nav_all: "Alle Apps",
+      p_nav_how: "So geht's", p_nav_feat: "Funktionen", p_nav_join: "Geschichte beitreten", p_nav_all: "Apps",
       p_ribbon: "✨ Bald im App Store",
       p_h1: "Lasst uns gemeinsam<br>Geschichten schreiben",
       p_lead: "Eine Geschichte, jeder auf seinem eigenen Gerät. <b>Capy</b> erzählt und fragt, was als Nächstes passiert — und wer die Feder hält, entscheidet. Niemand liest vor, niemand wartet allein.",
@@ -227,7 +227,7 @@
       p_ft_made: "© 2026 PXT Tech Studio, LLC · Mit 🍊 und Nickerchen gemacht"
     },
     "it": {
-      p_nav_how: "Come funziona", p_nav_feat: "Funzioni", p_nav_join: "Entra in una storia", p_nav_all: "Tutte le app",
+      p_nav_how: "Come funziona", p_nav_feat: "Funzioni", p_nav_join: "Entra in una storia", p_nav_all: "App",
       p_ribbon: "✨ Presto su App Store",
       p_h1: "Creiamo storie<br>insieme",
       p_lead: "Una storia, ognuno sul proprio telefono. <b>Capy</b> narra e chiede cosa succede dopo — e chi tiene la penna decide. Nessuno legge avanti, nessuno aspetta da solo.",
@@ -256,7 +256,7 @@
       p_ft_made: "© 2026 PXT Tech Studio, LLC · Fatto con 🍊 e pisolini"
     },
     "pt-BR": {
-      p_nav_how: "Como funciona", p_nav_feat: "Recursos", p_nav_join: "Entrar numa história", p_nav_all: "Todos os apps",
+      p_nav_how: "Como funciona", p_nav_feat: "Recursos", p_nav_join: "Entrar numa história", p_nav_all: "Apps",
       p_ribbon: "✨ Em breve na App Store",
       p_h1: "Vamos criar histórias<br>juntos",
       p_lead: "Uma história, cada um no seu celular. <b>Capy</b> narra e pergunta o que acontece agora — e quem está com a caneta decide. Ninguém lê na frente, ninguém espera sozinho.",
@@ -285,7 +285,7 @@
       p_ft_made: "© 2026 PXT Tech Studio, LLC · Feito com 🍊 e sonecas"
     },
     "ru": {
-      p_nav_how: "Как это работает", p_nav_feat: "Возможности", p_nav_join: "Присоединиться", p_nav_all: "Все приложения",
+      p_nav_how: "Как это работает", p_nav_feat: "Возможности", p_nav_join: "Присоединиться", p_nav_all: "Приложения",
       p_ribbon: "✨ Скоро в App Store",
       p_h1: "Давайте сочинять<br>истории вместе",
       p_lead: "Одна история, у каждого свой телефон. <b>Capy</b> рассказывает и спрашивает, что будет дальше, — решает тот, у кого перо. Никто не заглядывает вперёд и никто не ждёт в одиночку.",
@@ -314,7 +314,7 @@
       p_ft_made: "© 2026 PXT Tech Studio, LLC · Сделано с 🍊 и дневным сном"
     },
     "nl": {
-      p_nav_how: "Hoe het werkt", p_nav_feat: "Functies", p_nav_join: "Doe mee aan een verhaal", p_nav_all: "Alle apps",
+      p_nav_how: "Hoe het werkt", p_nav_feat: "Functies", p_nav_join: "Doe mee aan een verhaal", p_nav_all: "Apps",
       p_ribbon: "✨ Binnenkort in de App Store",
       p_h1: "Laten we samen<br>verhalen maken",
       p_lead: "Eén verhaal, iedereen op zijn eigen telefoon. <b>Capy</b> vertelt en vraagt wat er nu gebeurt — en wie de pen heeft, beslist. Niemand leest vooruit, niemand wacht alleen.",
@@ -343,7 +343,7 @@
       p_ft_made: "© 2026 PXT Tech Studio, LLC · Gemaakt met 🍊 en dutjes"
     },
     "pl": {
-      p_nav_how: "Jak to działa", p_nav_feat: "Funkcje", p_nav_join: "Dołącz do opowieści", p_nav_all: "Wszystkie aplikacje",
+      p_nav_how: "Jak to działa", p_nav_feat: "Funkcje", p_nav_join: "Dołącz do opowieści", p_nav_all: "Aplikacje",
       p_ribbon: "✨ Wkrótce w App Store",
       p_h1: "Twórzmy opowieści<br>razem",
       p_lead: "Jedna opowieść, każdy na swoim telefonie. <b>Capy</b> opowiada i pyta, co dalej — a decyduje ten, kto trzyma pióro. Nikt nie zagląda naprzód, nikt nie czeka sam.",
@@ -372,7 +372,7 @@
       p_ft_made: "© 2026 PXT Tech Studio, LLC · Zrobione z 🍊 i drzemek"
     },
     "tr": {
-      p_nav_how: "Nasıl çalışır", p_nav_feat: "Özellikler", p_nav_join: "Bir hikâyeye katıl", p_nav_all: "Tüm uygulamalar",
+      p_nav_how: "Nasıl çalışır", p_nav_feat: "Özellikler", p_nav_join: "Bir hikâyeye katıl", p_nav_all: "Uygulamalar",
       p_ribbon: "✨ Yakında App Store'da",
       p_h1: "Birlikte hikâyeler<br>yazalım",
       p_lead: "Tek bir hikâye, herkes kendi telefonunda. <b>Capy</b> anlatır ve sırada ne olacağını sorar — kalemi tutan karar verir. Kimse ileriyi okumaz, kimse yalnız beklemez.",
@@ -401,7 +401,7 @@
       p_ft_made: "© 2026 PXT Tech Studio, LLC · 🍊 ve şekerlemelerle yapıldı"
     },
     "ar": {
-      p_nav_how: "كيف تعمل", p_nav_feat: "المزايا", p_nav_join: "انضم إلى قصة", p_nav_all: "كل التطبيقات",
+      p_nav_how: "كيف تعمل", p_nav_feat: "المزايا", p_nav_join: "انضم إلى قصة", p_nav_all: "التطبيقات",
       p_ribbon: "✨ قريبًا على App Store",
       p_h1: "لنؤلّف القصص<br>معًا",
       p_lead: "قصة واحدة، وكل شخص على هاتفه. يروي <b>Capy</b> ويسأل: ماذا يحدث بعد ذلك؟ — ومن يمسك القلم هو من يقرّر. لا أحد يقرأ ما هو آتٍ، ولا أحد ينتظر وحده.",
