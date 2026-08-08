@@ -15,6 +15,7 @@
   .policy p, .policy li{line-height:1.65;}
   .policy ul{margin:8px 0 8px 20px;}
   .policy .note{background:var(--card,#fff);border:1px solid #E3D2BB;border-radius:14px;padding:14px 16px;margin:16px 0;}
+  body[dir="rtl"] .policy{text-align:right;}
 </style>
 </head>
 <body>
@@ -26,111 +27,12 @@
       <a href="./">Capy’s Plotopia</a>
       <a href="../#apps">Apps</a>
     </div>
+    <div id="langbar" class="langpick"></div>
   </div>
 </nav>
 
 <header class="wrap">
-  <div class="policy">
-    <h1>Privacy Policy</h1>
-    <p class="lead">Capy’s Plotopia · last updated 4 August 2026</p>
-
-    <div class="note">
-      <p><b>The short version.</b> There are no accounts. We never ask for your name,
-      your email, or your child’s age. We do not show ads, we do not use analytics or
-      tracking, and we do not sell or share anything with anyone for advertising.</p>
-    </div>
-
-    <h2>Who we are</h2>
-    <p>Capy’s Plotopia is made by PXT Tech Studio, LLC. If anything here is unclear,
-    write to <a href="mailto:support@capybaraaroundtheworld.com">support@capybaraaroundtheworld.com</a>.</p>
-
-    <h2>What the app stores</h2>
-
-    <h3>On your device</h3>
-    <ul>
-      <li><b>A library key</b> — sixteen random characters generated on your device
-      the first time you open the app. It is kept in the system keychain (iOS) or
-      keystore (Android). It is not linked to you, your phone, or any account: it
-      simply says “this library is mine”.</li>
-      <li><b>The nickname you type</b> and your chosen interface language.</li>
-    </ul>
-
-    <h3>On our servers</h3>
-    <ul>
-      <li><b>The stories themselves</b> — the text, the choices made, and the setup
-      you gave (genre, language, reading level, any characters or scene you typed).</li>
-      <li><b>The nickname each player chose</b>, so everyone can see whose turn it
-      is. You can type anything here; it does not have to be a real name, and we
-      would rather it wasn’t a child’s full one.</li>
-      <li><b>A one-way hash of your library key</b> — never the key itself. A copy of
-      our database could not be used to open anyone’s library.</li>
-      <li><b>How many twists you have left</b>, and any purchases, against that hash.</li>
-    </ul>
-
-    <h3>What we do not store</h3>
-    <p>No email addresses, no passwords, no phone numbers, no contacts, no location,
-    no advertising identifiers, no device fingerprints. The app contains no analytics
-    or tracking SDK of any kind.</p>
-
-    <h2>How long things last</h2>
-    <ul>
-      <li>A story nobody has touched for <b>30 days</b> is deleted automatically.</li>
-      <li>A story you <b>keep</b> stays in your library until you delete it. Deleting
-      it removes it from our servers.</li>
-      <li>Losing your library key means losing access to that library. We cannot
-      recover it — we do not know who it belonged to. That is the cost of having no
-      accounts, and it is deliberate.</li>
-    </ul>
-
-    <h2>Who else sees this</h2>
-    <p>Writing a story means sending it to a language model. We use these providers,
-    and only for the feature named:</p>
-    <ul>
-      <li><b>Google</b> — text-to-speech, for the “read aloud” button. The passage
-      being read is sent; the audio comes back. It is not used to train anything.</li>
-      <li><b>Google (Gemini)</b> — writing the story, explaining a word, and
-      translating character descriptions. It receives the story so far and the setup
-      you gave. Your stories are not used to train it.</li>
-      <li><b>Supabase</b> — our database and server hosting.</li>
-    </ul>
-    <p>These providers process data on our behalf under their own terms. We do not
-    send them your library key, your balance, or anything identifying you.</p>
-    <p>If we ever change which model writes the stories, we will update this page and
-    say so in the app. We will not quietly add a provider that receives your stories.</p>
-
-    <h2>Children</h2>
-    <p>Capy’s Plotopia is made for families to use together, and an adult sets up the
-    story. Because we collect no personal information from anyone, we collect none
-    from children either. There is no chat, no messaging between strangers, and no
-    way to find or contact another player: a story is joined only by a code that
-    someone reads out to you.</p>
-    <p>Stories are written by a language model. We instruct it to write for the
-    audience and reading level chosen, but as with any such system, we cannot promise
-    every sentence will suit every family. We suggest an adult stays nearby,
-    particularly with younger children.</p>
-
-    <h2>Playing in a browser</h2>
-    <p>The web version stores your nickname and interface language in your browser.
-    If you type a library key there, it is held only until you close the window — it
-    is never saved to the browser and never put in a link.</p>
-
-    <h2>Payments</h2>
-    <p>Twists are bought through Apple or Google. We never see your card details.
-    We record only that a purchase happened and how many twists to add.</p>
-
-    <h2>Your choices</h2>
-    <ul>
-      <li>Delete any kept story from <i>My library</i> at any time.</li>
-      <li>Leave a story and your nickname is removed from it.</li>
-      <li>Delete the app to remove the library key from your device. Tell us if you
-      would like the matching server data removed too — send the library key from
-      the app’s key panel and we will delete everything held against it.</li>
-    </ul>
-
-    <h2>Changes</h2>
-    <p>If this policy changes in a way that matters, we will say so in the app rather
-    than quietly editing this page.</p>
-  </div>
+  <div class="policy" id="content"></div>
 </header>
 
 <footer>
@@ -144,6 +46,1052 @@
     <div class="small">© 2026 PXT Tech Studio, LLC · Made with 🍊 and naps</div>
   </div>
 </footer>
+
+<script>
+// The ten languages Capy's Plotopia ships with (see kUiLanguages in the app).
+// Each entry is the whole policy: prose this shape does not split cleanly into
+// per-phrase keys, and one block per language keeps a translation from being
+// half-applied.
+var L = { email: 'support@capybaraaroundtheworld.com', terms: 'terms.html' };
+
+var POLICIES = {
+"en": { label: "English", html: `
+<h1>Privacy Policy</h1>
+<p class="lead">Capy’s Plotopia · last updated 4 August 2026</p>
+
+<div class="note">
+  <p><b>The short version.</b> There are no accounts. We never ask for your name,
+  your email, or your child’s age. We do not show ads, we do not use analytics or
+  tracking, and we do not sell or share anything with anyone for advertising.</p>
+</div>
+
+<h2>Who we are</h2>
+<p>Capy’s Plotopia is made by PXT Tech Studio, LLC. If anything here is unclear,
+write to <a href="mailto:${L.email}">${L.email}</a>.</p>
+
+<h2>What the app stores</h2>
+
+<h3>On your device</h3>
+<ul>
+  <li><b>A library key</b> — sixteen random characters generated on your device
+  the first time you open the app. It is kept in the system keychain (iOS) or
+  keystore (Android). It is not linked to you, your phone, or any account: it
+  simply says “this library is mine”.</li>
+  <li><b>The nickname you type</b> and your chosen interface language.</li>
+</ul>
+
+<h3>On our servers</h3>
+<ul>
+  <li><b>The stories themselves</b> — the text, the choices made, and the setup
+  you gave (genre, language, reading level, any characters or scene you typed).</li>
+  <li><b>The nickname each player chose</b>, so everyone can see whose turn it
+  is. You can type anything here; it does not have to be a real name, and we
+  would rather it wasn’t a child’s full one.</li>
+  <li><b>A one-way hash of your library key</b> — never the key itself. A copy of
+  our database could not be used to open anyone’s library.</li>
+  <li><b>How many twists you have left</b>, and any purchases, against that hash.</li>
+</ul>
+
+<h3>What we do not store</h3>
+<p>No email addresses, no passwords, no phone numbers, no contacts, no location,
+no advertising identifiers, no device fingerprints. The app contains no analytics
+or tracking SDK of any kind.</p>
+
+<h2>How long things last</h2>
+<ul>
+  <li>A story nobody has touched for <b>30 days</b> is deleted automatically.</li>
+  <li>A story you <b>keep</b> stays in your library until you delete it. Deleting
+  it removes it from our servers.</li>
+  <li>Losing your library key means losing access to that library. We cannot
+  recover it — we do not know who it belonged to. That is the cost of having no
+  accounts, and it is deliberate.</li>
+</ul>
+
+<h2>Who else sees this</h2>
+<p>Writing a story means sending it to a language model. We use these providers,
+and only for the feature named:</p>
+<ul>
+  <li><b>Google</b> — text-to-speech, for the “read aloud” button. The passage
+  being read is sent; the audio comes back. It is not used to train anything.</li>
+  <li><b>Google (Gemini)</b> — writing the story, explaining a word, and
+  translating character descriptions. It receives the story so far and the setup
+  you gave. Your stories are not used to train it.</li>
+  <li><b>Supabase</b> — our database and server hosting.</li>
+</ul>
+<p>These providers process data on our behalf under their own terms. We do not
+send them your library key, your balance, or anything identifying you.</p>
+<p>If we ever change which model writes the stories, we will update this page and
+say so in the app. We will not quietly add a provider that receives your stories.</p>
+
+<h2>Children</h2>
+<p>Capy’s Plotopia is made for families to use together, and an adult sets up the
+story. Because we collect no personal information from anyone, we collect none
+from children either. There is no chat, no messaging between strangers, and no
+way to find or contact another player: a story is joined only by a code that
+someone reads out to you.</p>
+<p>Stories are written by a language model. We instruct it to write for the
+audience and reading level chosen, but as with any such system, we cannot promise
+every sentence will suit every family. We suggest an adult stays nearby,
+particularly with younger children.</p>
+
+<h2>Playing in a browser</h2>
+<p>The web version stores your nickname and interface language in your browser.
+If you type a library key there, it is held only until you close the window — it
+is never saved to the browser and never put in a link.</p>
+
+<h2>Payments</h2>
+<p>Twists are bought through Apple or Google. We never see your card details.
+We record only that a purchase happened and how many twists to add.</p>
+
+<h2>Your choices</h2>
+<ul>
+  <li>Delete any kept story from <i>My library</i> at any time.</li>
+  <li>Leave a story and your nickname is removed from it.</li>
+  <li>Delete the app to remove the library key from your device. Tell us if you
+  would like the matching server data removed too — send the library key from
+  the app’s key panel and we will delete everything held against it.</li>
+</ul>
+
+<h2>Changes</h2>
+<p>If this policy changes in a way that matters, we will say so in the app rather
+than quietly editing this page.</p>
+`},
+"es": { label: "Español", html: `
+<h1>Política de privacidad</h1>
+<p class="lead">Capy’s Plotopia · última actualización: 4 de agosto de 2026</p>
+
+<div class="note">
+  <p><b>La versión corta.</b> No hay cuentas. Nunca te pedimos tu nombre, tu correo
+  ni la edad de tu hijo. No mostramos anuncios, no usamos analíticas ni rastreo, y
+  no vendemos ni compartimos nada con nadie con fines publicitarios.</p>
+</div>
+
+<h2>Quiénes somos</h2>
+<p>Capy’s Plotopia está hecha por PXT Tech Studio, LLC. Si algo aquí no queda claro,
+escribe a <a href="mailto:${L.email}">${L.email}</a>.</p>
+
+<h2>Qué guarda la app</h2>
+
+<h3>En tu dispositivo</h3>
+<ul>
+  <li><b>Una clave de biblioteca</b>: dieciséis caracteres aleatorios generados en tu
+  dispositivo la primera vez que abres la app. Se guarda en el llavero del sistema
+  (iOS) o en el almacén de claves (Android). No está vinculada a ti, a tu teléfono
+  ni a ninguna cuenta: solo dice «esta biblioteca es mía».</li>
+  <li><b>El apodo que escribes</b> y el idioma de la interfaz que elijas.</li>
+</ul>
+
+<h3>En nuestros servidores</h3>
+<ul>
+  <li><b>Las historias en sí</b>: el texto, las decisiones tomadas y la configuración
+  que diste (género, idioma, nivel de lectura, personajes o escena que escribieras).</li>
+  <li><b>El apodo que eligió cada jugador</b>, para que todos vean de quién es el turno.
+  Puedes escribir lo que quieras; no tiene que ser un nombre real, y preferimos que no
+  sea el nombre completo de un niño.</li>
+  <li><b>Un hash unidireccional de tu clave de biblioteca</b>, nunca la clave misma. Una
+  copia de nuestra base de datos no serviría para abrir la biblioteca de nadie.</li>
+  <li><b>Cuántos giros te quedan</b>, y las compras, asociados a ese hash.</li>
+</ul>
+
+<h3>Qué no guardamos</h3>
+<p>Ni correos, ni contraseñas, ni números de teléfono, ni contactos, ni ubicación, ni
+identificadores publicitarios, ni huellas del dispositivo. La app no contiene ningún
+SDK de analítica o rastreo.</p>
+
+<h2>Cuánto duran las cosas</h2>
+<ul>
+  <li>Una historia que nadie toca durante <b>30 días</b> se elimina automáticamente.</li>
+  <li>Una historia que <b>guardas</b> permanece en tu biblioteca hasta que la borres.
+  Borrarla la elimina de nuestros servidores.</li>
+  <li>Perder tu clave de biblioteca significa perder el acceso a esa biblioteca. No
+  podemos recuperarla: no sabemos de quién era. Ese es el precio de no tener cuentas,
+  y es deliberado.</li>
+</ul>
+
+<h2>Quién más ve esto</h2>
+<p>Escribir una historia implica enviarla a un modelo de lenguaje. Usamos estos
+proveedores, y solo para la función indicada:</p>
+<ul>
+  <li><b>Google</b>: texto a voz, para el botón «leer en voz alta». Se envía el pasaje
+  que se lee y vuelve el audio. No se usa para entrenar nada.</li>
+  <li><b>Google (Gemini)</b>: escribir la historia, explicar una palabra y traducir
+  descripciones de personajes. Recibe la historia hasta ese punto y la configuración
+  que diste. Tus historias no se usan para entrenarlo.</li>
+  <li><b>Supabase</b>: nuestra base de datos y el alojamiento del servidor.</li>
+</ul>
+<p>Estos proveedores procesan datos en nuestro nombre según sus propios términos. No
+les enviamos tu clave de biblioteca, tu saldo ni nada que te identifique.</p>
+<p>Si alguna vez cambiamos qué modelo escribe las historias, actualizaremos esta página
+y lo diremos en la app. No añadiremos en silencio un proveedor que reciba tus historias.</p>
+
+<h2>Niños</h2>
+<p>Capy’s Plotopia está pensada para que las familias la usen juntas, y es un adulto
+quien prepara la historia. Como no recopilamos información personal de nadie, tampoco
+la recopilamos de los niños. No hay chat, ni mensajes entre desconocidos, ni forma de
+encontrar o contactar a otro jugador: a una historia solo se entra con un código que
+alguien te lee.</p>
+<p>Las historias las escribe un modelo de lenguaje. Le indicamos que escriba para el
+público y el nivel de lectura elegidos, pero como con cualquier sistema así, no podemos
+prometer que cada frase encaje en cada familia. Sugerimos que un adulto esté cerca,
+sobre todo con los más pequeños.</p>
+
+<h2>Jugar en el navegador</h2>
+<p>La versión web guarda tu apodo y el idioma de la interfaz en tu navegador. Si escribes
+ahí una clave de biblioteca, se conserva solo hasta que cierras la ventana: nunca se
+guarda en el navegador ni se pone en un enlace.</p>
+
+<h2>Pagos</h2>
+<p>Los giros se compran a través de Apple o Google. Nunca vemos los datos de tu tarjeta.
+Solo registramos que hubo una compra y cuántos giros hay que añadir.</p>
+
+<h2>Tus opciones</h2>
+<ul>
+  <li>Borra cualquier historia guardada desde <i>Mi biblioteca</i> cuando quieras.</li>
+  <li>Sal de una historia y tu apodo se elimina de ella.</li>
+  <li>Borra la app para quitar la clave de biblioteca de tu dispositivo. Dinos si quieres
+  que también eliminemos los datos correspondientes del servidor: envíanos la clave desde
+  el panel de claves de la app y borraremos todo lo asociado a ella.</li>
+</ul>
+
+<h2>Cambios</h2>
+<p>Si esta política cambia de forma relevante, lo diremos en la app en lugar de editar
+esta página en silencio.</p>
+`},
+
+"fr": { label: "Français", html: `
+<h1>Politique de confidentialité</h1>
+<p class="lead">Capy’s Plotopia · dernière mise à jour : 4 août 2026</p>
+
+<div class="note">
+  <p><b>La version courte.</b> Il n’y a pas de comptes. Nous ne demandons jamais votre
+  nom, votre e-mail ni l’âge de votre enfant. Nous n’affichons pas de publicité, nous
+  n’utilisons ni analytics ni traçage, et nous ne vendons ni ne partageons quoi que ce
+  soit à des fins publicitaires.</p>
+</div>
+
+<h2>Qui nous sommes</h2>
+<p>Capy’s Plotopia est développée par PXT Tech Studio, LLC. Si quelque chose n’est pas
+clair ici, écrivez à <a href="mailto:${L.email}">${L.email}</a>.</p>
+
+<h2>Ce que l’application enregistre</h2>
+
+<h3>Sur votre appareil</h3>
+<ul>
+  <li><b>Une clé de bibliothèque</b> — seize caractères aléatoires générés sur votre
+  appareil au premier lancement. Elle est conservée dans le trousseau du système (iOS)
+  ou le keystore (Android). Elle n’est liée ni à vous, ni à votre téléphone, ni à un
+  compte : elle dit simplement « cette bibliothèque est la mienne ».</li>
+  <li><b>Le pseudo que vous saisissez</b> et la langue d’interface choisie.</li>
+</ul>
+
+<h3>Sur nos serveurs</h3>
+<ul>
+  <li><b>Les histoires elles-mêmes</b> — le texte, les choix faits et la configuration
+  donnée (genre, langue, niveau de lecture, personnages ou décor saisis).</li>
+  <li><b>Le pseudo choisi par chaque joueur</b>, pour que chacun voie à qui est le tour.
+  Vous pouvez écrire ce que vous voulez ; ce n’est pas forcément un vrai nom, et nous
+  préférerions que ce ne soit pas le nom complet d’un enfant.</li>
+  <li><b>Une empreinte à sens unique de votre clé</b> — jamais la clé elle-même. Une
+  copie de notre base ne permettrait d’ouvrir la bibliothèque de personne.</li>
+  <li><b>Le nombre de rebondissements restants</b>, et les achats, rattachés à cette
+  empreinte.</li>
+</ul>
+
+<h3>Ce que nous n’enregistrons pas</h3>
+<p>Aucune adresse e-mail, aucun mot de passe, aucun numéro de téléphone, aucun contact,
+aucune position, aucun identifiant publicitaire, aucune empreinte d’appareil.
+L’application ne contient aucun SDK d’analytics ou de traçage.</p>
+
+<h2>Combien de temps les choses durent</h2>
+<ul>
+  <li>Une histoire à laquelle personne n’a touché pendant <b>30 jours</b> est supprimée
+  automatiquement.</li>
+  <li>Une histoire que vous <b>conservez</b> reste dans votre bibliothèque jusqu’à ce que
+  vous la supprimiez. La supprimer l’efface de nos serveurs.</li>
+  <li>Perdre votre clé de bibliothèque, c’est perdre l’accès à cette bibliothèque. Nous
+  ne pouvons pas la récupérer — nous ne savons pas à qui elle appartenait. C’est le prix
+  de l’absence de comptes, et c’est délibéré.</li>
+</ul>
+
+<h2>Qui d’autre voit tout cela</h2>
+<p>Écrire une histoire suppose de l’envoyer à un modèle de langage. Nous utilisons ces
+prestataires, et uniquement pour la fonction indiquée :</p>
+<ul>
+  <li><b>Google</b> — synthèse vocale, pour le bouton « lecture à voix haute ». Le passage
+  lu est envoyé ; l’audio revient. Il ne sert à entraîner quoi que ce soit.</li>
+  <li><b>Google (Gemini)</b> — écrire l’histoire, expliquer un mot et traduire les
+  descriptions de personnages. Il reçoit l’histoire jusque-là et la configuration donnée.
+  Vos histoires ne servent pas à l’entraîner.</li>
+  <li><b>Supabase</b> — notre base de données et l’hébergement du serveur.</li>
+</ul>
+<p>Ces prestataires traitent les données pour notre compte selon leurs propres conditions.
+Nous ne leur envoyons ni votre clé de bibliothèque, ni votre solde, ni rien qui vous
+identifie.</p>
+<p>Si nous changeons un jour de modèle pour écrire les histoires, nous mettrons cette page
+à jour et le dirons dans l’application. Nous n’ajouterons pas discrètement un prestataire
+qui recevrait vos histoires.</p>
+
+<h2>Les enfants</h2>
+<p>Capy’s Plotopia est faite pour être utilisée en famille, et c’est un adulte qui prépare
+l’histoire. Comme nous ne collectons aucune information personnelle de personne, nous n’en
+collectons pas non plus auprès des enfants. Il n’y a pas de chat, pas de messagerie entre
+inconnus, et aucun moyen de trouver ou de contacter un autre joueur : on rejoint une
+histoire uniquement avec un code que quelqu’un vous lit.</p>
+<p>Les histoires sont écrites par un modèle de langage. Nous lui demandons d’écrire pour le
+public et le niveau de lecture choisis mais, comme pour tout système de ce type, nous ne
+pouvons pas promettre que chaque phrase conviendra à chaque famille. Nous conseillons qu’un
+adulte reste à proximité, surtout avec les plus jeunes.</p>
+
+<h2>Jouer dans un navigateur</h2>
+<p>La version web enregistre votre pseudo et votre langue d’interface dans votre navigateur.
+Si vous y saisissez une clé de bibliothèque, elle n’est conservée que jusqu’à la fermeture
+de la fenêtre — elle n’est jamais enregistrée dans le navigateur ni placée dans un lien.</p>
+
+<h2>Paiements</h2>
+<p>Les rebondissements s’achètent via Apple ou Google. Nous ne voyons jamais vos informations
+bancaires. Nous enregistrons seulement qu’un achat a eu lieu et combien en ajouter.</p>
+
+<h2>Vos choix</h2>
+<ul>
+  <li>Supprimez à tout moment une histoire conservée depuis <i>Ma bibliothèque</i>.</li>
+  <li>Quittez une histoire et votre pseudo en est retiré.</li>
+  <li>Supprimez l’application pour retirer la clé de votre appareil. Dites-nous si vous
+  souhaitez que les données serveur correspondantes soient également supprimées — envoyez
+  la clé depuis le panneau prévu dans l’application et nous effacerons tout ce qui y est
+  rattaché.</li>
+</ul>
+
+<h2>Modifications</h2>
+<p>Si cette politique change de manière significative, nous le dirons dans l’application
+plutôt que de modifier cette page en silence.</p>
+`},
+"de": { label: "Deutsch", html: `
+<h1>Datenschutzrichtlinie</h1>
+<p class="lead">Capy’s Plotopia · zuletzt aktualisiert am 4. August 2026</p>
+
+<div class="note">
+  <p><b>Die Kurzfassung.</b> Es gibt keine Konten. Wir fragen nie nach deinem Namen,
+  deiner E-Mail-Adresse oder dem Alter deines Kindes. Wir zeigen keine Werbung, wir
+  verwenden weder Analyse noch Tracking, und wir verkaufen oder teilen nichts zu
+  Werbezwecken.</p>
+</div>
+
+<h2>Wer wir sind</h2>
+<p>Capy’s Plotopia wird von PXT Tech Studio, LLC gemacht. Wenn hier etwas unklar ist,
+schreib an <a href="mailto:${L.email}">${L.email}</a>.</p>
+
+<h2>Was die App speichert</h2>
+
+<h3>Auf deinem Gerät</h3>
+<ul>
+  <li><b>Ein Bibliotheksschlüssel</b> — sechzehn zufällige Zeichen, die beim ersten
+  Öffnen der App auf deinem Gerät erzeugt werden. Er liegt im Schlüsselbund (iOS) bzw.
+  Keystore (Android). Er ist weder mit dir noch mit deinem Telefon noch mit einem Konto
+  verknüpft: Er sagt nur „diese Bibliothek gehört mir“.</li>
+  <li><b>Der Spitzname, den du eingibst</b>, und deine gewählte Oberflächensprache.</li>
+</ul>
+
+<h3>Auf unseren Servern</h3>
+<ul>
+  <li><b>Die Geschichten selbst</b> — der Text, die getroffenen Entscheidungen und die
+  Vorgaben (Genre, Sprache, Leseniveau, eingegebene Figuren oder Szene).</li>
+  <li><b>Der Spitzname jedes Mitspielenden</b>, damit alle sehen, wer an der Reihe ist.
+  Du kannst hier alles eintragen; es muss kein echter Name sein, und uns wäre lieber, es
+  wäre nicht der vollständige Name eines Kindes.</li>
+  <li><b>Ein Einweg-Hash deines Bibliotheksschlüssels</b> — nie der Schlüssel selbst. Mit
+  einer Kopie unserer Datenbank ließe sich niemandes Bibliothek öffnen.</li>
+  <li><b>Wie viele Wendungen dir bleiben</b>, und Käufe, jeweils zu diesem Hash.</li>
+</ul>
+
+<h3>Was wir nicht speichern</h3>
+<p>Keine E-Mail-Adressen, keine Passwörter, keine Telefonnummern, keine Kontakte, keinen
+Standort, keine Werbe-IDs, keine Geräte-Fingerabdrücke. Die App enthält keinerlei
+Analyse- oder Tracking-SDK.</p>
+
+<h2>Wie lange Dinge bleiben</h2>
+<ul>
+  <li>Eine Geschichte, die <b>30 Tage</b> lang niemand angefasst hat, wird automatisch
+  gelöscht.</li>
+  <li>Eine Geschichte, die du <b>behältst</b>, bleibt in deiner Bibliothek, bis du sie
+  löschst. Beim Löschen verschwindet sie von unseren Servern.</li>
+  <li>Den Bibliotheksschlüssel zu verlieren bedeutet, den Zugang zu dieser Bibliothek zu
+  verlieren. Wir können ihn nicht wiederherstellen — wir wissen nicht, wem er gehörte.
+  Das ist der Preis dafür, keine Konten zu haben, und er ist gewollt.</li>
+</ul>
+
+<h2>Wer das sonst noch sieht</h2>
+<p>Eine Geschichte zu schreiben heißt, sie an ein Sprachmodell zu schicken. Wir nutzen
+diese Anbieter, und nur für die genannte Funktion:</p>
+<ul>
+  <li><b>Google</b> — Sprachausgabe für die Schaltfläche „vorlesen“. Der vorgelesene
+  Abschnitt wird gesendet, das Audio kommt zurück. Es wird nicht zum Training verwendet.</li>
+  <li><b>Google (Gemini)</b> — Schreiben der Geschichte, Erklären eines Wortes und
+  Übersetzen von Figurenbeschreibungen. Es erhält die bisherige Geschichte und deine
+  Vorgaben. Deine Geschichten werden nicht zu seinem Training verwendet.</li>
+  <li><b>Supabase</b> — unsere Datenbank und das Server-Hosting.</li>
+</ul>
+<p>Diese Anbieter verarbeiten Daten in unserem Auftrag nach ihren eigenen Bedingungen. Wir
+senden ihnen weder deinen Bibliotheksschlüssel noch dein Guthaben noch irgendetwas, das
+dich identifiziert.</p>
+<p>Sollten wir je wechseln, welches Modell die Geschichten schreibt, aktualisieren wir diese
+Seite und sagen es in der App. Wir fügen nicht stillschweigend einen Anbieter hinzu, der
+deine Geschichten erhält.</p>
+
+<h2>Kinder</h2>
+<p>Capy’s Plotopia ist dafür gemacht, dass Familien sie gemeinsam nutzen, und ein
+Erwachsener richtet die Geschichte ein. Da wir von niemandem personenbezogene Daten
+erheben, erheben wir auch von Kindern keine. Es gibt keinen Chat, keine Nachrichten
+zwischen Fremden und keine Möglichkeit, andere Mitspielende zu finden oder zu
+kontaktieren: Einer Geschichte tritt man nur mit einem Code bei, den jemand vorliest.</p>
+<p>Die Geschichten schreibt ein Sprachmodell. Wir weisen es an, für das gewählte Publikum
+und Leseniveau zu schreiben, aber wie bei jedem solchen System können wir nicht versprechen,
+dass jeder Satz zu jeder Familie passt. Wir empfehlen, dass ein Erwachsener in der Nähe
+bleibt, besonders bei jüngeren Kindern.</p>
+
+<h2>Im Browser spielen</h2>
+<p>Die Web-Version speichert deinen Spitznamen und deine Oberflächensprache in deinem
+Browser. Wenn du dort einen Bibliotheksschlüssel eingibst, bleibt er nur, bis du das
+Fenster schließt — er wird nie im Browser gespeichert und nie in einen Link gesetzt.</p>
+
+<h2>Zahlungen</h2>
+<p>Wendungen werden über Apple oder Google gekauft. Deine Kartendaten sehen wir nie. Wir
+halten nur fest, dass ein Kauf stattfand und wie viele Wendungen hinzukommen.</p>
+
+<h2>Deine Möglichkeiten</h2>
+<ul>
+  <li>Lösche jederzeit eine behaltene Geschichte in <i>Meine Bibliothek</i>.</li>
+  <li>Verlass eine Geschichte, und dein Spitzname wird daraus entfernt.</li>
+  <li>Lösche die App, um den Bibliotheksschlüssel vom Gerät zu entfernen. Sag uns Bescheid,
+  wenn auch die zugehörigen Serverdaten weg sollen — schick den Schlüssel aus dem
+  Schlüssel-Bereich der App, und wir löschen alles, was daran hängt.</li>
+</ul>
+
+<h2>Änderungen</h2>
+<p>Wenn sich diese Richtlinie in wesentlicher Weise ändert, sagen wir es in der App, statt
+diese Seite still zu bearbeiten.</p>
+`},
+
+"it": { label: "Italiano", html: `
+<h1>Informativa sulla privacy</h1>
+<p class="lead">Capy’s Plotopia · ultimo aggiornamento: 4 agosto 2026</p>
+
+<div class="note">
+  <p><b>La versione breve.</b> Non ci sono account. Non ti chiediamo mai il nome,
+  l’e-mail o l’età di tuo figlio. Non mostriamo pubblicità, non usiamo analytics né
+  tracciamento, e non vendiamo né condividiamo nulla con nessuno a scopo pubblicitario.</p>
+</div>
+
+<h2>Chi siamo</h2>
+<p>Capy’s Plotopia è realizzata da PXT Tech Studio, LLC. Se qualcosa qui non è chiaro,
+scrivi a <a href="mailto:${L.email}">${L.email}</a>.</p>
+
+<h2>Che cosa salva l’app</h2>
+
+<h3>Sul tuo dispositivo</h3>
+<ul>
+  <li><b>Una chiave della libreria</b>: sedici caratteri casuali generati sul tuo
+  dispositivo la prima volta che apri l’app. È conservata nel portachiavi di sistema
+  (iOS) o nel keystore (Android). Non è collegata a te, al tuo telefono o a un account:
+  dice soltanto «questa libreria è mia».</li>
+  <li><b>Il soprannome che scrivi</b> e la lingua dell’interfaccia scelta.</li>
+</ul>
+
+<h3>Sui nostri server</h3>
+<ul>
+  <li><b>Le storie stesse</b>: il testo, le scelte fatte e l’impostazione che hai dato
+  (genere, lingua, livello di lettura, eventuali personaggi o ambientazione scritti).</li>
+  <li><b>Il soprannome scelto da ciascun giocatore</b>, così tutti vedono di chi è il
+  turno. Puoi scrivere quello che vuoi; non deve essere un nome vero, e preferiremmo non
+  fosse il nome completo di un bambino.</li>
+  <li><b>Un hash unidirezionale della tua chiave</b>, mai la chiave stessa. Una copia del
+  nostro database non permetterebbe di aprire la libreria di nessuno.</li>
+  <li><b>Quanti colpi di scena ti restano</b>, e gli acquisti, associati a quell’hash.</li>
+</ul>
+
+<h3>Che cosa non salviamo</h3>
+<p>Nessun indirizzo e-mail, nessuna password, nessun numero di telefono, nessun contatto,
+nessuna posizione, nessun identificatore pubblicitario, nessuna impronta del dispositivo.
+L’app non contiene alcun SDK di analytics o tracciamento.</p>
+
+<h2>Quanto durano le cose</h2>
+<ul>
+  <li>Una storia che nessuno tocca per <b>30 giorni</b> viene eliminata automaticamente.</li>
+  <li>Una storia che <b>conservi</b> resta nella tua libreria finché non la elimini.
+  Eliminarla la rimuove dai nostri server.</li>
+  <li>Perdere la chiave della libreria significa perdere l’accesso a quella libreria. Non
+  possiamo recuperarla: non sappiamo di chi fosse. È il prezzo di non avere account, ed è
+  una scelta voluta.</li>
+</ul>
+
+<h2>Chi altro lo vede</h2>
+<p>Scrivere una storia significa inviarla a un modello linguistico. Usiamo questi
+fornitori, e solo per la funzione indicata:</p>
+<ul>
+  <li><b>Google</b>: sintesi vocale, per il pulsante «leggi ad alta voce». Viene inviato il
+  brano da leggere e torna l’audio. Non è usato per addestrare nulla.</li>
+  <li><b>Google (Gemini)</b>: scrivere la storia, spiegare una parola e tradurre le
+  descrizioni dei personaggi. Riceve la storia fin lì e l’impostazione che hai dato. Le tue
+  storie non sono usate per addestrarlo.</li>
+  <li><b>Supabase</b>: il nostro database e l’hosting del server.</li>
+</ul>
+<p>Questi fornitori trattano i dati per nostro conto secondo i propri termini. Non inviamo
+loro la chiave della tua libreria, il tuo saldo o qualsiasi cosa che ti identifichi.</p>
+<p>Se un giorno cambiassimo il modello che scrive le storie, aggiorneremmo questa pagina e
+lo diremmo nell’app. Non aggiungeremo in silenzio un fornitore che riceva le tue storie.</p>
+
+<h2>Bambini</h2>
+<p>Capy’s Plotopia è pensata perché le famiglie la usino insieme, ed è un adulto a preparare
+la storia. Poiché non raccogliamo informazioni personali da nessuno, non ne raccogliamo
+neppure dai bambini. Non c’è chat, non ci sono messaggi tra sconosciuti e non c’è modo di
+trovare o contattare un altro giocatore: a una storia ci si unisce solo con un codice che
+qualcuno ti legge.</p>
+<p>Le storie sono scritte da un modello linguistico. Gli chiediamo di scrivere per il
+pubblico e il livello di lettura scelti ma, come per qualsiasi sistema simile, non possiamo
+promettere che ogni frase vada bene per ogni famiglia. Consigliamo che un adulto resti
+vicino, soprattutto con i più piccoli.</p>
+
+<h2>Giocare nel browser</h2>
+<p>La versione web salva il tuo soprannome e la lingua dell’interfaccia nel tuo browser. Se
+vi scrivi una chiave della libreria, resta solo finché non chiudi la finestra: non viene mai
+salvata nel browser né inserita in un link.</p>
+
+<h2>Pagamenti</h2>
+<p>I colpi di scena si acquistano tramite Apple o Google. Non vediamo mai i dati della tua
+carta. Registriamo solo che c’è stato un acquisto e quanti aggiungerne.</p>
+
+<h2>Le tue scelte</h2>
+<ul>
+  <li>Elimina quando vuoi una storia conservata da <i>La mia libreria</i>.</li>
+  <li>Esci da una storia e il tuo soprannome ne viene rimosso.</li>
+  <li>Elimina l’app per togliere la chiave dal dispositivo. Dicci se vuoi che siano rimossi
+  anche i dati corrispondenti sul server: inviaci la chiave dal pannello dedicato nell’app
+  ed elimineremo tutto ciò che vi è associato.</li>
+</ul>
+
+<h2>Modifiche</h2>
+<p>Se questa informativa cambia in modo rilevante, lo diremo nell’app invece di modificare
+questa pagina in silenzio.</p>
+`},
+"pt-BR": { label: "Português", html: `
+<h1>Política de Privacidade</h1>
+<p class="lead">Capy’s Plotopia · última atualização: 4 de agosto de 2026</p>
+
+<div class="note">
+  <p><b>A versão curta.</b> Não existem contas. Nunca pedimos seu nome, seu e-mail ou a
+  idade do seu filho. Não exibimos anúncios, não usamos analytics nem rastreamento, e não
+  vendemos nem compartilhamos nada com ninguém para publicidade.</p>
+</div>
+
+<h2>Quem somos</h2>
+<p>Capy’s Plotopia é feita pela PXT Tech Studio, LLC. Se algo aqui não estiver claro,
+escreva para <a href="mailto:${L.email}">${L.email}</a>.</p>
+
+<h2>O que o app guarda</h2>
+
+<h3>No seu aparelho</h3>
+<ul>
+  <li><b>Uma chave de biblioteca</b> — dezesseis caracteres aleatórios gerados no seu
+  aparelho na primeira vez que você abre o app. Fica no chaveiro do sistema (iOS) ou no
+  keystore (Android). Não está ligada a você, ao seu telefone nem a nenhuma conta: ela
+  apenas diz “esta biblioteca é minha”.</li>
+  <li><b>O apelido que você digita</b> e o idioma de interface escolhido.</li>
+</ul>
+
+<h3>Nos nossos servidores</h3>
+<ul>
+  <li><b>As próprias histórias</b> — o texto, as escolhas feitas e a configuração que você
+  deu (gênero, idioma, nível de leitura, personagens ou cenário digitados).</li>
+  <li><b>O apelido que cada jogador escolheu</b>, para que todos vejam de quem é a vez.
+  Você pode digitar o que quiser; não precisa ser um nome real, e preferimos que não seja
+  o nome completo de uma criança.</li>
+  <li><b>Um hash de mão única da sua chave</b> — nunca a chave em si. Uma cópia do nosso
+  banco de dados não abriria a biblioteca de ninguém.</li>
+  <li><b>Quantas reviravoltas restam</b>, e as compras, vinculadas a esse hash.</li>
+</ul>
+
+<h3>O que não guardamos</h3>
+<p>Nenhum e-mail, nenhuma senha, nenhum telefone, nenhum contato, nenhuma localização,
+nenhum identificador de publicidade, nenhuma impressão digital do aparelho. O app não
+contém nenhum SDK de analytics ou rastreamento.</p>
+
+<h2>Quanto tempo as coisas duram</h2>
+<ul>
+  <li>Uma história em que ninguém mexe por <b>30 dias</b> é apagada automaticamente.</li>
+  <li>Uma história que você <b>guarda</b> fica na sua biblioteca até você apagá-la. Apagar
+  remove a história dos nossos servidores.</li>
+  <li>Perder a chave de biblioteca significa perder o acesso àquela biblioteca. Não podemos
+  recuperá-la — não sabemos de quem era. É o custo de não ter contas, e é proposital.</li>
+</ul>
+
+<h2>Quem mais vê isso</h2>
+<p>Escrever uma história significa enviá-la a um modelo de linguagem. Usamos estes
+fornecedores, e apenas para a função indicada:</p>
+<ul>
+  <li><b>Google</b> — conversão de texto em fala, para o botão “ler em voz alta”. O trecho
+  lido é enviado e o áudio volta. Não é usado para treinar nada.</li>
+  <li><b>Google (Gemini)</b> — escrever a história, explicar uma palavra e traduzir
+  descrições de personagens. Recebe a história até ali e a configuração que você deu. Suas
+  histórias não são usadas para treiná-lo.</li>
+  <li><b>Supabase</b> — nosso banco de dados e a hospedagem do servidor.</li>
+</ul>
+<p>Esses fornecedores tratam dados em nosso nome sob os próprios termos deles. Não enviamos
+a eles sua chave de biblioteca, seu saldo nem nada que identifique você.</p>
+<p>Se um dia mudarmos qual modelo escreve as histórias, atualizaremos esta página e diremos
+isso no app. Não vamos acrescentar em silêncio um fornecedor que receba suas histórias.</p>
+
+<h2>Crianças</h2>
+<p>Capy’s Plotopia foi feita para as famílias usarem juntas, e é um adulto que prepara a
+história. Como não coletamos informações pessoais de ninguém, também não coletamos de
+crianças. Não há bate-papo, não há mensagens entre estranhos e não há como encontrar ou
+contatar outro jogador: entra-se numa história apenas com um código que alguém lê para
+você.</p>
+<p>As histórias são escritas por um modelo de linguagem. Pedimos que ele escreva para o
+público e o nível de leitura escolhidos, mas, como em qualquer sistema assim, não podemos
+prometer que cada frase sirva para cada família. Sugerimos que um adulto fique por perto,
+principalmente com crianças menores.</p>
+
+<h2>Jogar no navegador</h2>
+<p>A versão web guarda seu apelido e o idioma de interface no seu navegador. Se você digitar
+ali uma chave de biblioteca, ela fica só até você fechar a janela — nunca é salva no
+navegador nem colocada num link.</p>
+
+<h2>Pagamentos</h2>
+<p>As reviravoltas são compradas pela Apple ou pelo Google. Nunca vemos os dados do seu
+cartão. Registramos apenas que houve uma compra e quantas reviravoltas adicionar.</p>
+
+<h2>Suas escolhas</h2>
+<ul>
+  <li>Apague qualquer história guardada em <i>Minha biblioteca</i> quando quiser.</li>
+  <li>Saia de uma história e seu apelido é removido dela.</li>
+  <li>Apague o app para remover a chave de biblioteca do aparelho. Avise se quiser que os
+  dados correspondentes no servidor também sejam removidos — envie a chave pelo painel de
+  chave do app e apagaremos tudo o que estiver vinculado a ela.</li>
+</ul>
+
+<h2>Mudanças</h2>
+<p>Se esta política mudar de um jeito que importe, diremos isso no app em vez de editar esta
+página em silêncio.</p>
+`},
+
+"ja": { label: "日本語", html: `
+<h1>プライバシーポリシー</h1>
+<p class="lead">Capy’s Plotopia · 最終更新日：2026年8月4日</p>
+
+<div class="note">
+  <p><b>短いまとめ。</b>アカウントはありません。お名前も、メールアドレスも、お子さまの
+  年齢もお聞きしません。広告は表示せず、解析や追跡も使わず、広告目的で誰かに何かを販売
+  したり共有したりすることもありません。</p>
+</div>
+
+<h2>私たちについて</h2>
+<p>Capy’s Plotopia は PXT Tech Studio, LLC が制作しています。ここで分かりにくい点が
+あれば <a href="mailto:${L.email}">${L.email}</a> までご連絡ください。</p>
+
+<h2>アプリが保存するもの</h2>
+
+<h3>あなたの端末に</h3>
+<ul>
+  <li><b>ライブラリキー</b> — アプリを初めて開いたときに端末上で生成される16文字の
+  ランダムな文字列です。システムのキーチェーン（iOS）またはキーストア（Android）に
+  保管されます。あなたや端末、アカウントとは結び付いておらず、「このライブラリは自分の
+  ものだ」と示すだけのものです。</li>
+  <li><b>入力したニックネーム</b>と、選んだ表示言語。</li>
+</ul>
+
+<h3>私たちのサーバーに</h3>
+<ul>
+  <li><b>物語そのもの</b> — 本文、選ばれた選択、そして設定した内容（ジャンル、言語、
+  読解レベル、入力した登場人物や場面）。</li>
+  <li><b>各プレイヤーが選んだニックネーム</b>。誰の番かが分かるようにするためです。
+  何を入れても構いません。本名である必要はなく、お子さまのフルネームは避けていただく
+  ほうが望ましいです。</li>
+  <li><b>ライブラリキーの一方向ハッシュ</b> — キー自体は保存しません。データベースの
+  コピーがあっても、誰かのライブラリを開くことはできません。</li>
+  <li><b>残りのツイスト数</b>と購入履歴。いずれもそのハッシュに紐づきます。</li>
+</ul>
+
+<h3>保存しないもの</h3>
+<p>メールアドレス、パスワード、電話番号、連絡先、位置情報、広告識別子、端末フィンガー
+プリント — いずれも保存しません。アプリには解析・追跡の SDK が一切入っていません。</p>
+
+<h2>データが残る期間</h2>
+<ul>
+  <li>誰も <b>30日間</b> 触れていない物語は自動的に削除されます。</li>
+  <li><b>保存した</b>物語は、あなたが削除するまでライブラリに残ります。削除すると、
+  私たちのサーバーからも消えます。</li>
+  <li>ライブラリキーを失うと、そのライブラリにアクセスできなくなります。私たちには
+  復元できません — 誰のものだったか分からないからです。これはアカウントを持たない
+  ことの代償であり、意図的なものです。</li>
+</ul>
+
+<h2>ほかに誰が見るのか</h2>
+<p>物語を書くとは、言語モデルに送るということです。次の提供事業者を、記載した機能の
+ためだけに利用しています。</p>
+<ul>
+  <li><b>Google</b> — 「読み上げ」ボタンのための音声合成。読み上げる一節を送り、音声が
+  返ってきます。学習には使われません。</li>
+  <li><b>Google（Gemini）</b> — 物語の執筆、語の説明、登場人物の説明の翻訳。そこまでの
+  物語と、あなたの設定を受け取ります。あなたの物語が学習に使われることはありません。</li>
+  <li><b>Supabase</b> — データベースとサーバーのホスティング。</li>
+</ul>
+<p>これらの事業者は、各社の規約のもとで私たちに代わってデータを処理します。ライブラリ
+キー、残高、あなたを特定できる情報を送ることはありません。</p>
+<p>物語を書くモデルを変更する場合は、このページを更新し、アプリ内でもお知らせします。
+あなたの物語を受け取る事業者を黙って追加することはありません。</p>
+
+<h2>お子さまについて</h2>
+<p>Capy’s Plotopia は家族でいっしょに使うためのもので、物語の設定は大人が行います。
+私たちは誰からも個人情報を集めないため、お子さまからも集めません。チャットも、
+見知らぬ人とのメッセージもなく、ほかのプレイヤーを探したり連絡したりする方法も
+ありません。物語には、誰かが読み上げてくれるコードでのみ参加できます。</p>
+<p>物語は言語モデルが書きます。選ばれた読者層と読解レベルに合わせて書くよう指示して
+いますが、この種のシステムである以上、すべての文がどの家庭にも合うとはお約束できません。
+特に小さなお子さまの場合は、大人がそばにいることをおすすめします。</p>
+
+<h2>ブラウザで遊ぶとき</h2>
+<p>ウェブ版は、ニックネームと表示言語をブラウザに保存します。そこにライブラリキーを
+入力した場合、ウィンドウを閉じるまでしか保持されません — ブラウザに保存されることも、
+リンクに含まれることもありません。</p>
+
+<h2>お支払い</h2>
+<p>ツイストは Apple または Google を通じて購入します。カード情報を私たちが見ることは
+ありません。購入があったことと、追加するツイスト数だけを記録します。</p>
+
+<h2>あなたの選択</h2>
+<ul>
+  <li>保存した物語は、<i>マイライブラリ</i>からいつでも削除できます。</li>
+  <li>物語から退出すると、その物語からニックネームが削除されます。</li>
+  <li>アプリを削除すると、端末からライブラリキーが消えます。対応するサーバー上のデータも
+  削除をご希望の場合はお知らせください — アプリのキー画面からライブラリキーをお送り
+  いただければ、それに紐づくすべてを削除します。</li>
+</ul>
+
+<h2>変更について</h2>
+<p>このポリシーに重要な変更がある場合は、このページを黙って書き換えるのではなく、
+アプリ内でお知らせします。</p>
+`},
+"ko": { label: "한국어", html: `
+<h1>개인정보 처리방침</h1>
+<p class="lead">Capy’s Plotopia · 최종 업데이트: 2026년 8월 4일</p>
+
+<div class="note">
+  <p><b>짧은 요약.</b> 계정이 없습니다. 이름도, 이메일도, 아이의 나이도 묻지 않습니다.
+  광고를 보여주지 않고, 분석이나 추적을 사용하지 않으며, 광고 목적으로 무엇이든 누구에게도
+  판매하거나 공유하지 않습니다.</p>
+</div>
+
+<h2>우리는 누구인가</h2>
+<p>Capy’s Plotopia는 PXT Tech Studio, LLC가 만듭니다. 여기에서 명확하지 않은 점이 있으면
+<a href="mailto:${L.email}">${L.email}</a> 로 알려 주세요.</p>
+
+<h2>앱이 저장하는 것</h2>
+
+<h3>기기에</h3>
+<ul>
+  <li><b>서재 키</b> — 앱을 처음 열 때 기기에서 생성되는 무작위 16자입니다. 시스템
+  키체인(iOS) 또는 키스토어(Android)에 보관됩니다. 당신이나 전화기, 어떤 계정과도
+  연결되지 않으며, 그저 “이 서재는 내 것”이라고 말할 뿐입니다.</li>
+  <li><b>입력한 별명</b>과 선택한 인터페이스 언어.</li>
+</ul>
+
+<h3>우리 서버에</h3>
+<ul>
+  <li><b>이야기 자체</b> — 본문, 선택한 내용, 그리고 당신이 준 설정(장르, 언어, 읽기 수준,
+  입력한 등장인물이나 배경).</li>
+  <li><b>각 참여자가 고른 별명</b>. 누구 차례인지 모두가 볼 수 있게 하기 위함입니다. 무엇을
+  적어도 됩니다. 실명일 필요가 없으며, 아이의 full name은 피해 주시는 편이 좋습니다.</li>
+  <li><b>서재 키의 단방향 해시</b> — 키 자체는 절대 저장하지 않습니다. 우리 데이터베이스의
+  사본이 있어도 누구의 서재도 열 수 없습니다.</li>
+  <li><b>남은 반전 수</b>와 구매 내역. 모두 그 해시에 연결됩니다.</li>
+</ul>
+
+<h3>저장하지 않는 것</h3>
+<p>이메일 주소, 비밀번호, 전화번호, 연락처, 위치, 광고 식별자, 기기 지문 — 어느 것도
+저장하지 않습니다. 앱에는 어떤 종류의 분석·추적 SDK도 들어 있지 않습니다.</p>
+
+<h2>얼마나 오래 남는가</h2>
+<ul>
+  <li><b>30일</b> 동안 아무도 건드리지 않은 이야기는 자동으로 삭제됩니다.</li>
+  <li><b>보관한</b> 이야기는 당신이 지울 때까지 서재에 남습니다. 지우면 우리 서버에서도
+  사라집니다.</li>
+  <li>서재 키를 잃으면 그 서재에 접근할 수 없습니다. 우리는 복구할 수 없습니다 — 그것이
+  누구의 것이었는지 모르기 때문입니다. 계정을 두지 않은 대가이며, 의도한 것입니다.</li>
+</ul>
+
+<h2>또 누가 보는가</h2>
+<p>이야기를 쓴다는 것은 언어 모델에 보낸다는 뜻입니다. 아래 제공업체를, 명시된 기능에만
+사용합니다.</p>
+<ul>
+  <li><b>Google</b> — “소리 내어 읽기” 버튼을 위한 음성 합성. 읽을 대목을 보내고 음성이
+  돌아옵니다. 무엇을 학습시키는 데도 쓰이지 않습니다.</li>
+  <li><b>Google(Gemini)</b> — 이야기 쓰기, 단어 설명, 등장인물 설명 번역. 지금까지의
+  이야기와 당신이 준 설정을 받습니다. 당신의 이야기는 학습에 쓰이지 않습니다.</li>
+  <li><b>Supabase</b> — 데이터베이스와 서버 호스팅.</li>
+</ul>
+<p>이 제공업체들은 각자의 약관에 따라 우리를 대신해 데이터를 처리합니다. 우리는 서재 키,
+잔액, 당신을 식별할 수 있는 어떤 것도 보내지 않습니다.</p>
+<p>이야기를 쓰는 모델을 언젠가 바꾸게 되면 이 페이지를 갱신하고 앱에서도 알리겠습니다.
+당신의 이야기를 받는 제공업체를 조용히 추가하지 않습니다.</p>
+
+<h2>어린이</h2>
+<p>Capy’s Plotopia는 가족이 함께 쓰도록 만들었고, 이야기 설정은 어른이 합니다. 누구에게서도
+개인정보를 수집하지 않으므로 어린이에게서도 수집하지 않습니다. 채팅도, 낯선 사람과의
+메시지도 없고, 다른 참여자를 찾거나 연락할 방법도 없습니다. 이야기에는 누군가 읽어 주는
+코드로만 참여할 수 있습니다.</p>
+<p>이야기는 언어 모델이 씁니다. 선택한 독자와 읽기 수준에 맞춰 쓰도록 지시하지만, 이런
+종류의 시스템이 늘 그렇듯 모든 문장이 모든 가정에 맞으리라고 약속할 수는 없습니다. 특히
+어린 아이와 함께라면 어른이 곁에 있기를 권합니다.</p>
+
+<h2>브라우저에서 놀기</h2>
+<p>웹 버전은 별명과 인터페이스 언어를 브라우저에 저장합니다. 거기에 서재 키를 입력하면
+창을 닫을 때까지만 유지됩니다 — 브라우저에 저장되지도, 링크에 담기지도 않습니다.</p>
+
+<h2>결제</h2>
+<p>반전은 Apple 또는 Google을 통해 구매합니다. 우리는 카드 정보를 결코 보지 않습니다.
+구매가 있었다는 사실과 몇 개를 더할지만 기록합니다.</p>
+
+<h2>당신의 선택</h2>
+<ul>
+  <li>보관한 이야기는 <i>내 서재</i>에서 언제든 삭제할 수 있습니다.</li>
+  <li>이야기에서 나가면 그 이야기에서 별명이 제거됩니다.</li>
+  <li>앱을 삭제하면 기기에서 서재 키가 사라집니다. 서버에 있는 해당 데이터도 지우기를
+  원하면 알려 주세요 — 앱의 키 화면에서 서재 키를 보내 주시면 그에 연결된 모든 것을
+  삭제하겠습니다.</li>
+</ul>
+
+<h2>변경</h2>
+<p>이 방침이 의미 있게 바뀌면 이 페이지를 조용히 고치는 대신 앱에서 알리겠습니다.</p>
+`},
+
+"zh-CN": { label: "简体中文", html: `
+<h1>隐私政策</h1>
+<p class="lead">Capy’s Plotopia · 最后更新：2026 年 8 月 4 日</p>
+
+<div class="note">
+  <p><b>简短版。</b>没有账号。我们从不索取你的姓名、邮箱，或孩子的年龄。我们不展示广告，
+  不使用分析或追踪，也不会为了广告向任何人出售或分享任何东西。</p>
+</div>
+
+<h2>我们是谁</h2>
+<p>Capy’s Plotopia 由 PXT Tech Studio, LLC 制作。若本页有任何不清楚之处，请写信到
+<a href="mailto:${L.email}">${L.email}</a>。</p>
+
+<h2>应用保存什么</h2>
+
+<h3>在你的设备上</h3>
+<ul>
+  <li><b>一把书库钥匙</b>——首次打开应用时在你的设备上生成的十六位随机字符。它保存在
+  系统钥匙串（iOS）或密钥库（Android）中，不与你、你的手机或任何账号关联：它只是表示
+  “这个书库是我的”。</li>
+  <li><b>你输入的昵称</b>，以及你选择的界面语言。</li>
+</ul>
+
+<h3>在我们的服务器上</h3>
+<ul>
+  <li><b>故事本身</b>——正文、做出的选择，以及你给出的设置（类型、语言、阅读程度，
+  以及你输入的角色或场景）。</li>
+  <li><b>每位玩家选择的昵称</b>，好让大家看到轮到谁了。这里可以随便写；不必是真名，
+  我们也更希望它不是孩子的全名。</li>
+  <li><b>书库钥匙的单向哈希</b>——绝不保存钥匙本身。即使有人拿到我们数据库的副本，
+  也无法打开任何人的书库。</li>
+  <li><b>你还剩多少转折</b>，以及购买记录，都挂在该哈希下。</li>
+</ul>
+
+<h3>我们不保存什么</h3>
+<p>没有邮箱地址，没有密码，没有电话号码，没有通讯录，没有位置，没有广告标识符，
+没有设备指纹。应用中不含任何分析或追踪 SDK。</p>
+
+<h2>各项内容保留多久</h2>
+<ul>
+  <li><b>30 天</b>无人打开的故事会被自动删除。</li>
+  <li>你<b>保存</b>的故事会一直留在书库，直到你删除它。删除后也会从我们的服务器移除。</li>
+  <li>丢失书库钥匙就意味着失去该书库的访问权。我们无法找回——我们并不知道它属于谁。
+  这是没有账号的代价，也是我们有意的选择。</li>
+</ul>
+
+<h2>还有谁会看到</h2>
+<p>写故事意味着把内容发送给语言模型。我们只为下列功能使用这些服务商：</p>
+<ul>
+  <li><b>Google</b>——文字转语音，用于“朗读”按钮。发送要朗读的段落，返回音频。
+  不会用于训练任何东西。</li>
+  <li><b>Google（Gemini）</b>——撰写故事、解释词语、翻译角色描述。它会收到目前为止的
+  故事和你给出的设置。你的故事不会被用于训练它。</li>
+  <li><b>Supabase</b>——我们的数据库与服务器托管。</li>
+</ul>
+<p>这些服务商依据各自的条款代表我们处理数据。我们不会把你的书库钥匙、余额，或任何
+可识别你身份的信息发送给他们。</p>
+<p>如果我们更换撰写故事的模型，会更新本页并在应用内说明。我们不会悄悄增加一个能收到
+你故事的服务商。</p>
+
+<h2>儿童</h2>
+<p>Capy’s Plotopia 是为家庭共同使用而做的，由成年人来设置故事。因为我们不从任何人
+收集个人信息，所以也不会从儿童处收集。应用内没有聊天，没有陌生人之间的消息，也没有
+办法查找或联系其他玩家：只能凭别人念给你的代码加入故事。</p>
+<p>故事由语言模型撰写。我们会指示它按所选的读者与阅读程度来写，但和任何此类系统一样，
+我们无法保证每一句都适合每个家庭。我们建议由成年人在旁陪伴，年幼的孩子尤其如此。</p>
+
+<h2>在浏览器里玩</h2>
+<p>网页版会把你的昵称和界面语言保存在浏览器中。如果你在那里输入书库钥匙，它只保留到
+你关闭窗口为止——绝不会存进浏览器，也绝不会放进链接。</p>
+
+<h2>付款</h2>
+<p>转折通过 Apple 或 Google 购买。我们绝不会看到你的银行卡信息。我们只记录发生了一次
+购买，以及要增加多少转折。</p>
+
+<h2>你的选择</h2>
+<ul>
+  <li>随时在<i>我的书库</i>中删除任何已保存的故事。</li>
+  <li>离开某个故事，你的昵称就会从中移除。</li>
+  <li>删除应用即可从设备上移除书库钥匙。若你也希望删除服务器上对应的数据，请告诉我们
+  ——从应用的钥匙面板把书库钥匙发给我们，我们会删除挂在它下面的一切。</li>
+</ul>
+
+<h2>变更</h2>
+<p>如果本政策发生了重要变更，我们会在应用内说明，而不是悄悄修改本页。</p>
+`},
+
+"zh-TW": { label: "繁體中文", html: `
+<h1>隱私政策</h1>
+<p class="lead">Capy’s Plotopia · 最後更新：2026 年 8 月 4 日</p>
+
+<div class="note">
+  <p><b>簡短版。</b>沒有帳號。我們從不索取你的姓名、電子郵件，或孩子的年齡。我們不顯示
+  廣告，不使用分析或追蹤，也不會為了廣告向任何人出售或分享任何東西。</p>
+</div>
+
+<h2>我們是誰</h2>
+<p>Capy’s Plotopia 由 PXT Tech Studio, LLC 製作。若本頁有任何不清楚之處，請寫信到
+<a href="mailto:${L.email}">${L.email}</a>。</p>
+
+<h2>應用程式儲存什麼</h2>
+
+<h3>在你的裝置上</h3>
+<ul>
+  <li><b>一把書庫鑰匙</b>——首次開啟應用程式時在你的裝置上產生的十六位隨機字元。它儲存在
+  系統鑰匙圈（iOS）或金鑰庫（Android）中，不與你、你的手機或任何帳號關聯：它只是表示
+  「這個書庫是我的」。</li>
+  <li><b>你輸入的暱稱</b>，以及你選擇的介面語言。</li>
+</ul>
+
+<h3>在我們的伺服器上</h3>
+<ul>
+  <li><b>故事本身</b>——內文、做出的選擇，以及你給出的設定（類型、語言、閱讀程度，
+  以及你輸入的角色或場景）。</li>
+  <li><b>每位玩家選擇的暱稱</b>，好讓大家看到輪到誰了。這裡可以隨意填寫；不必是真名，
+  我們也更希望它不是孩子的全名。</li>
+  <li><b>書庫鑰匙的單向雜湊</b>——絕不儲存鑰匙本身。即使有人取得我們資料庫的副本，
+  也無法開啟任何人的書庫。</li>
+  <li><b>你還剩多少轉折</b>，以及購買紀錄，都掛在該雜湊之下。</li>
+</ul>
+
+<h3>我們不儲存什麼</h3>
+<p>沒有電子郵件地址，沒有密碼，沒有電話號碼，沒有通訊錄，沒有位置，沒有廣告識別碼，
+沒有裝置指紋。應用程式中不含任何分析或追蹤 SDK。</p>
+
+<h2>各項內容保留多久</h2>
+<ul>
+  <li><b>30 天</b>無人開啟的故事會被自動刪除。</li>
+  <li>你<b>保存</b>的故事會一直留在書庫，直到你刪除它。刪除後也會從我們的伺服器移除。</li>
+  <li>遺失書庫鑰匙就代表失去該書庫的存取權。我們無法找回——我們並不知道它屬於誰。
+  這是沒有帳號的代價，也是我們刻意的選擇。</li>
+</ul>
+
+<h2>還有誰會看到</h2>
+<p>寫故事意味著把內容傳送給語言模型。我們只為下列功能使用這些服務商：</p>
+<ul>
+  <li><b>Google</b>——文字轉語音，用於「朗讀」按鈕。傳送要朗讀的段落，回傳音訊。
+  不會用於訓練任何東西。</li>
+  <li><b>Google（Gemini）</b>——撰寫故事、解釋字詞、翻譯角色描述。它會收到目前為止的
+  故事和你給出的設定。你的故事不會被用於訓練它。</li>
+  <li><b>Supabase</b>——我們的資料庫與伺服器託管。</li>
+</ul>
+<p>這些服務商依各自的條款代表我們處理資料。我們不會把你的書庫鑰匙、餘額，或任何
+可識別你身分的資訊傳送給他們。</p>
+<p>如果我們更換撰寫故事的模型，會更新本頁並在應用程式內說明。我們不會悄悄增加一個
+能收到你故事的服務商。</p>
+
+<h2>兒童</h2>
+<p>Capy’s Plotopia 是為家庭共同使用而做的，由成年人來設定故事。因為我們不從任何人
+收集個人資訊，所以也不會從兒童處收集。應用程式內沒有聊天，沒有陌生人之間的訊息，
+也沒有辦法尋找或聯絡其他玩家：只能憑別人唸給你的代碼加入故事。</p>
+<p>故事由語言模型撰寫。我們會指示它按所選的讀者與閱讀程度來寫，但和任何此類系統一樣，
+我們無法保證每一句都適合每個家庭。我們建議由成年人在旁陪伴，年幼的孩子尤其如此。</p>
+
+<h2>在瀏覽器裡玩</h2>
+<p>網頁版會把你的暱稱和介面語言儲存在瀏覽器中。如果你在那裡輸入書庫鑰匙，它只保留到
+你關閉視窗為止——絕不會存進瀏覽器，也絕不會放進連結。</p>
+
+<h2>付款</h2>
+<p>轉折透過 Apple 或 Google 購買。我們絕不會看到你的信用卡資訊。我們只記錄發生了一次
+購買，以及要增加多少轉折。</p>
+
+<h2>你的選擇</h2>
+<ul>
+  <li>隨時在<i>我的書庫</i>中刪除任何已保存的故事。</li>
+  <li>離開某個故事，你的暱稱就會從中移除。</li>
+  <li>刪除應用程式即可從裝置上移除書庫鑰匙。若你也希望刪除伺服器上對應的資料，請告訴
+  我們——從應用程式的鑰匙面板把書庫鑰匙傳給我們，我們會刪除掛在它底下的一切。</li>
+</ul>
+
+<h2>變更</h2>
+<p>如果本政策發生了重要變更，我們會在應用程式內說明，而不是悄悄修改本頁。</p>
+`}
+};
+
+// The app's own codes are zh-CN / zh-TW / pt; the rest of this website uses
+// zh-Hans / zh-Hant / pt-BR. Accept both, so a ?lang= link from either side
+// lands on the right policy instead of silently falling back to English.
+var ALIAS = { 'zh-Hans':'zh-CN', 'zh-Hant':'zh-TW', 'pt-BR':'pt-BR', 'pt-PT':'pt-BR' };
+
+function resolveLang(code) {
+  if (!code) return 'en';
+  if (POLICIES[code]) return code;
+  if (ALIAS[code] && POLICIES[ALIAS[code]]) return ALIAS[code];
+  var base = code.split('-')[0].toLowerCase();
+  if (base === 'zh') return /hant|tw|hk|mo/i.test(code) ? 'zh-TW' : 'zh-CN';
+  if (base === 'pt') return 'pt-BR';
+  if (POLICIES[base]) return base;
+  return 'en';
+}
+
+function render(lang) {
+  var p = POLICIES[lang] || POLICIES['en'];
+  document.getElementById('content').innerHTML = p.html;
+  document.documentElement.lang = lang;
+  document.body.setAttribute('dir', p.dir === 'rtl' ? 'rtl' : 'ltr');
+  var sel = document.getElementById('langsel');
+  if (sel) sel.value = lang;
+  // Carry the choice to the Terms page and back to the Plotopia page.
+  document.querySelectorAll('a[href^="terms.html"]').forEach(function (a) {
+    a.href = 'terms.html?lang=' + encodeURIComponent(lang);
+  });
+  try { localStorage.setItem('wr_lang', lang); } catch (e) {}
+}
+
+(function () {
+  var bar = document.getElementById('langbar');
+  var sel = document.createElement('select');
+  sel.id = 'langsel';
+  sel.setAttribute('aria-label', 'Choose language');
+  Object.keys(POLICIES).forEach(function (code) {
+    var o = document.createElement('option');
+    o.value = code;
+    o.textContent = POLICIES[code].label;
+    sel.appendChild(o);
+  });
+  sel.addEventListener('change', function () { render(sel.value); });
+  bar.appendChild(sel);
+  var params = new URLSearchParams(window.location.search);
+  var initial = resolveLang(params.get('lang'));
+  if (!params.get('lang')) {
+    try {
+      var saved = localStorage.getItem('wr_lang');
+      initial = (saved && resolveLang(saved)) || resolveLang(navigator.language || 'en');
+    } catch (e) { initial = 'en'; }
+  }
+  render(initial);
+})();
+</script>
 
 <script src="../assets/theme.js"></script>
 </body>

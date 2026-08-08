@@ -7,37 +7,40 @@
   <link rel="icon" href="/favicon.ico" sizes="any" />
   <link rel="icon" type="image/png" sizes="32x32" href="/assets/favicon-32.png" />
   <link rel="apple-touch-icon" href="/assets/apple-touch-icon.png" />
+  <meta name="description" content="What Word Review stores, what it does not, and who else sees it." />
+  <link rel="stylesheet" href="../assets/style.css?v=20" />
   <style>
-    body {
-      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
-      max-width: 720px;
-      margin: 0 auto;
-      padding: 24px 24px 80px;
-      color: #2d2d2d;
-      line-height: 1.7;
-      background: #fffdf9;
-    }
-    h1 { font-size: 2rem; color: #3b2010; margin-bottom: 4px; }
-    h2 { font-size: 1.15rem; color: #5a3820; margin-top: 2rem; }
-    .meta { color: #888; font-size: 0.9rem; margin-bottom: 2rem; }
-    a { color: #c07030; }
-    hr { border: none; border-top: 1px solid #e8ddd0; margin: 2rem 0; }
-    #langbar {
-      padding: 12px 0 16px; border-bottom: 1px solid #e8ddd0; margin-bottom: 8px;
-      text-align: right;
-    }
-    #langbar select {
-      font: inherit; font-size: 0.9rem; cursor: pointer; color: #5a3820;
-      background: #fff; border: 1px solid #e0d3c2; border-radius: 8px; padding: 6px 30px 6px 12px;
-    }
-    body[dir="rtl"] { text-align: right; }
-    body[dir="rtl"] #langbar { text-align: left; }
+    /* Matches plotopia/privacy-policy.html so both policies read as one family.
+       The page used to carry its own standalone styling — system font, plain
+       white — which is why it looked like a different site. */
+    .policy{max-width:760px;margin:0 auto;}
+    .policy h1{margin-bottom:4px;}
+    .policy h2{margin:34px 0 10px; font-size:1.4rem;}
+    .policy p, .policy li{line-height:1.65;}
+    .policy .meta{color:var(--mid); font-size:.95rem; margin-bottom:1.5rem;}
+    .policy hr{border:none; border-top:1px solid #E3D2BB; margin:26px 0;}
+    body[dir="rtl"] .policy{text-align:right;}
   </style>
 </head>
 <body>
 
-<nav id="langbar"></nav>
-<main id="content"></main>
+<nav class="nav">
+  <a class="brand" href="../" style="color:var(--brown)"><img src="../assets/app-logo.jpg" alt="Capy" /> Capybara Around The World</a>
+  <div class="nav-right">
+    <div class="nav-links">
+      <a href="./">Word Review</a>
+      <a href="../#apps">Apps</a>
+    </div>
+    <!-- The script below appends the <select> to #langbar; keeping that id
+         means the fifteen-language switcher keeps working untouched, while
+         .langpick gives it the same look as every other page. -->
+    <div id="langbar" class="langpick"></div>
+  </div>
+</nav>
+
+<header class="wrap">
+  <div class="policy" id="content"></div>
+</header>
 
 <script>
 // ── Link constants (shared across languages) ───────────────────────────────
@@ -716,5 +719,17 @@ function render(lang) {
 })();
 </script>
 
+<footer>
+  <div class="wrap">
+    <div>
+      <a href="../">Capybara Around The World</a>
+      <a href="./">Word Review</a>
+      <a href="/support.html">Support</a>
+    </div>
+    <div class="small">© 2026 PXT Tech Studio, LLC · Made with 🍊 and naps</div>
+  </div>
+</footer>
+
+<script src="../assets/theme.js"></script>
 </body>
 </html>
