@@ -13,7 +13,7 @@
 <meta property="og:description" content="Learn the world, one word at a time — with Capy." />
 <meta property="og:image" content="assets/app-logo.jpg" />
 <meta property="og:type" content="website" />
-<link rel="stylesheet" href="assets/style.css?v=20" />
+<link rel="stylesheet" href="assets/style.css?v=21" />
 </head>
 <body>
 
@@ -58,16 +58,20 @@
   <h2 class="section-title" data-i18n="h_apps_title">Capy's little app world 🗺️</h2>
   <p class="section-sub" data-i18n="h_apps_sub">One friendly capybara, many ways to learn. More adventures are on the way!</p>
   <div class="cards">
-    <a class="card" href="wordReview/" style="color:inherit">
+    <div class="card">
       <div class="card-head">
         <img class="thumb" src="assets/app-logo.jpg" alt="Word Review" />
-        <span class="pill" data-i18n="h_wr_pill">iPhone · Free to start</span>
+        <span class="pill" style="border-color:#2E8B7A;color:#2E8B7A" data-i18n="h_pt_live">Now available</span>
       </div>
       <h3>Word Review</h3>
       <p data-i18n="h_wr_desc">Capture words &amp; phrases you meet in real life, then review them with examples, pronunciation, and spaced repetition. 32 languages!</p>
-      <p style="margin-top:12px"><b style="color:var(--teal)" data-i18n="h_wr_explore">Explore →</b></p>
-    </a>
-    <a class="card" href="plotopia/" style="color:inherit">
+      <div class="card-stores">
+        <a href="https://apps.apple.com/app/id6780248529" aria-label="Word Review on the App Store"><img src="assets/badge-app-store.svg" alt="Download on the App Store" /></a>
+        <a href="https://play.google.com/store/apps/details?id=com.capybaraaroundtheworld.wordreview" aria-label="Word Review on Google Play"><img src="assets/badge-google-play.svg" alt="Get it on Google Play" /></a>
+      </div>
+      <p style="margin-top:12px"><a href="wordReview/" style="color:var(--teal);font-weight:800;text-decoration:none" data-i18n="h_wr_explore">Explore →</a></p>
+    </div>
+    <div class="card">
       <!-- Plotopia is live on the App Store & Google Play. -->
       <div class="card-head">
         <img class="thumb" src="assets/capy-plotopia-logo.jpg" alt="Capy’s Plotopia" />
@@ -75,8 +79,12 @@
       </div>
       <h3>Capy’s Plotopia</h3>
       <p data-i18n="h_pt_desc">Write a story together, everyone on their own phone. Capy narrates, and every choice is a plot twist.</p>
-      <p style="margin-top:12px"><b style="color:var(--teal)" data-i18n="h_wr_explore">Explore →</b></p>
-    </a>
+      <div class="card-stores">
+        <a href="https://apps.apple.com/us/app/capys-plotopia/id6797763048" aria-label="Capy’s Plotopia on the App Store"><img src="assets/badge-app-store.svg" alt="Download on the App Store" /></a>
+        <a href="https://play.google.com/store/apps/details?id=com.pxttechstudio.plotopia" aria-label="Capy’s Plotopia on Google Play"><img src="assets/badge-google-play.svg" alt="Get it on Google Play" /></a>
+      </div>
+      <p style="margin-top:12px"><a href="plotopia/" style="color:var(--teal);font-weight:800;text-decoration:none" data-i18n="h_wr_explore">Explore →</a></p>
+    </div>
     <div class="card soon">
       <div class="card-head">
         <div class="thumb" style="background:#EFE2CE"></div>

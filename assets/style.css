@@ -253,6 +253,12 @@ footer .small{opacity:.85; font-size:13px;}
 @media(max-width:760px){ .cta-trial{font-size:18px; transform:rotate(-1deg);} }
 @media(prefers-reduced-motion:reduce){ .cta-trial{animation:none;} }
 
+/* ---- Small App Store / Google Play badges inside landing-page app cards ---- */
+.card-stores{display:flex; gap:10px; align-items:center; margin-top:14px; flex-wrap:wrap;}
+.card-stores a{line-height:0; display:inline-flex;}
+.card-stores a:hover{transform:translateY(-1px);}
+.card-stores img{height:34px; width:auto; display:block;}
+
 /* Games layout fix: guarantee portraits + landscapes on one row (desktop) */
 .games-shots{flex-wrap:wrap; gap:28px; align-items:center;}
 @media(min-width:920px){ .games-shots{flex-wrap:nowrap;} }
